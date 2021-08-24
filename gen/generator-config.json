@@ -1,0 +1,22 @@
+{
+  "!!source": "https://github.com/OpenAPITools/openapi-generator/blob/master/docs/generators/java.md",
+  "artifactVersion": "0.1.0",
+  "apiPackage": "com.mux.sdk",
+  "artifactDescription": "Mux SDK for Java",
+  "artifactId": "mux-sdk-java",
+  "artifactUrl": "https://github.com/muxinc/mux-java",
+  "dateLibrary": "java8",
+  "developerEmail": "devex@mux.com",
+  "developerName": "Mux DevEx Team",
+  "developerOrganization": "Mux",
+  "developerOrganizationUrl": "https://mux.com",
+  "fullJavaUtil": true,
+  "groupId": "com.mux.sdk",
+  "java8": true,
+  "library": "okhttp-gson",
+  "modelPackage": "com.mux.sdk.models",
+  "scmUrl": "https://github.com/muxinc/mux-java",
+  "serializationLibrary": "gson",
+  "sourceFolder": "src/main/java",
+  "useGzipFeature": false
+}
