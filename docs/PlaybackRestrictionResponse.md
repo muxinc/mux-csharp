@@ -1,0 +1,10 @@
+# Mux.Csharp.Sdk.Model.PlaybackRestrictionResponse
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**Data** | [**PlaybackRestriction**](PlaybackRestriction.md) |  | [optional] 
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
