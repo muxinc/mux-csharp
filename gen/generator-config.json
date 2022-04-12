@@ -5,7 +5,9 @@
   "licenseID": "MIT",
   "nullableReferenceTypes": false,
   "packageName": "Mux.Csharp.Sdk",
-  "packageVersion": "0.1.0",
+  "packageVersion": "0.1.0-alpha.1",
+  "packageAuthors": "Mux DevEx Team",
+  "packageCompany": "Mux",
   "releaseNote": "Check https://github.com/muxinc/mux-csharp for release notes.",
   "returnICollection": true
 }
