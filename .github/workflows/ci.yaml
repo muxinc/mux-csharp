@@ -1,0 +1,26 @@
+name: CI
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        dotnet-configuration: [Debug, Release]
+
+    steps:
+    - name: Install Java
+      uses: actions/setup-dotnet@v2
+    - name: Check out code
+      uses: actions/checkout@v3
+    - name: Build and run tests for ${{ matrix.dotnet-configuration }}
+      env:
+        MUX_TOKEN_ID: "${{ secrets.MUX_TOKEN_ID }}"
+        MUX_TOKEN_SECRET: "${{ secrets.MUX_TOKEN_SECRET }}"
+      run: "dotnet build -c ${{ matrix.dotnet-configuration }}"
+    - name: Uploading artifact for ${{ matrix.dotnet-configuration }}
+      uses: actions/upload-artifact@v2
+      with:
+        name: Mux.Csharp.Sdk-${{ matrix.dotnet-configuration }}
+        path: src/Mux.Csharp.Sdk/bin/${{ matrix.dotnet-configuration }}/*
