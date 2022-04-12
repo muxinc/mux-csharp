@@ -25,5 +25,5 @@
 git_push.sh
 appveyor.yml
 
-src/Mux.Csharp.Sdk.Test/Api
-src/Mux.Csharp.Sdk.Test/Model
+src/Mux.Csharp.Sdk.Test/Api/*.cs
+src/Mux.Csharp.Sdk.Test/Model/*.cs

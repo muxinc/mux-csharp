@@ -6,11 +6,11 @@
     <AssemblyName>Mux.Csharp.Sdk</AssemblyName>
     <PackageId>Mux.Csharp.Sdk</PackageId>
     <OutputType>Library</OutputType>
-    <Authors>OpenAPI</Authors>
-    <Company>OpenAPI</Company>
-    <AssemblyTitle>OpenAPI Library</AssemblyTitle>
-    <Description>A library generated from a OpenAPI doc</Description>
-    <Copyright>No Copyright</Copyright>
+    <Authors>Mux DevEx Team</Authors>
+    <Company>Mux</Company>
+    <AssemblyTitle>Mux SDK for .NET Core</AssemblyTitle>
+    <Description>The Mux API SDK for .NET Framework and .NET Core.</Description>
+    <Copyright>(C) 2022 Mux, Inc.</Copyright>
     <RootNamespace>Mux.Csharp.Sdk</RootNamespace>
     <Version>0.1.0-alpha.1</Version>
     <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\Mux.Csharp.Sdk.xml</DocumentationFile>

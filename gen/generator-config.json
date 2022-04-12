@@ -1,13 +1,17 @@
 {
   "!!source": "https://github.com/OpenAPITools/openapi-generator/blob/master/docs/generators/csharp-netcore.md",
+  "packageVersion": "0.1.0-alpha.1",
+  
   "caseInsensitiveResponseHeaders": true,
   "disallowAdditionalPropertiesIfNotPresent": false,
   "licenseID": "MIT",
   "nullableReferenceTypes": false,
   "packageName": "Mux.Csharp.Sdk",
-  "packageVersion": "0.1.0-alpha.1",
   "packageAuthors": "Mux DevEx Team",
   "packageCompany": "Mux",
+  "packageTitle": "Mux SDK for .NET Core",
+  "packageDescription": "The Mux API SDK for .NET Framework and .NET Core.",
+  "packageCopyright": "(C) 2022 Mux, Inc.",
   "releaseNote": "Check https://github.com/muxinc/mux-csharp for release notes.",
   "returnICollection": true
 }
