@@ -328,7 +328,7 @@ void (empty response body)
 
 Delete a playback ID
 
-Deletes a playback ID, rendering it nonfunctional for viewing an asset's video content.
+Deletes a playback ID, rendering it nonfunctional for viewing an asset's video content. Please note that deleting the playback ID removes access to the underlying asset; a viewer who started playback before the playback ID was deleted may be able to watch the entire video for a limited duration.
 
 ### Example
 ```csharp

@@ -119,7 +119,7 @@ namespace Mux.Csharp.Sdk.Api
         /// Delete a playback ID
         /// </summary>
         /// <remarks>
-        /// Deletes a playback ID, rendering it nonfunctional for viewing an asset&#39;s video content.
+        /// Deletes a playback ID, rendering it nonfunctional for viewing an asset&#39;s video content. Please note that deleting the playback ID removes access to the underlying asset; a viewer who started playback before the playback ID was deleted may be able to watch the entire video for a limited duration.
         /// </remarks>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ASSET_ID">The asset ID.</param>
@@ -131,7 +131,7 @@ namespace Mux.Csharp.Sdk.Api
         /// Delete a playback ID
         /// </summary>
         /// <remarks>
-        /// Deletes a playback ID, rendering it nonfunctional for viewing an asset&#39;s video content.
+        /// Deletes a playback ID, rendering it nonfunctional for viewing an asset&#39;s video content. Please note that deleting the playback ID removes access to the underlying asset; a viewer who started playback before the playback ID was deleted may be able to watch the entire video for a limited duration.
         /// </remarks>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ASSET_ID">The asset ID.</param>
@@ -431,7 +431,7 @@ namespace Mux.Csharp.Sdk.Api
         /// Delete a playback ID
         /// </summary>
         /// <remarks>
-        /// Deletes a playback ID, rendering it nonfunctional for viewing an asset&#39;s video content.
+        /// Deletes a playback ID, rendering it nonfunctional for viewing an asset&#39;s video content. Please note that deleting the playback ID removes access to the underlying asset; a viewer who started playback before the playback ID was deleted may be able to watch the entire video for a limited duration.
         /// </remarks>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ASSET_ID">The asset ID.</param>
@@ -444,7 +444,7 @@ namespace Mux.Csharp.Sdk.Api
         /// Delete a playback ID
         /// </summary>
         /// <remarks>
-        /// Deletes a playback ID, rendering it nonfunctional for viewing an asset&#39;s video content.
+        /// Deletes a playback ID, rendering it nonfunctional for viewing an asset&#39;s video content. Please note that deleting the playback ID removes access to the underlying asset; a viewer who started playback before the playback ID was deleted may be able to watch the entire video for a limited duration.
         /// </remarks>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ASSET_ID">The asset ID.</param>
@@ -1395,7 +1395,7 @@ namespace Mux.Csharp.Sdk.Api
         }
 
         /// <summary>
-        /// Delete a playback ID Deletes a playback ID, rendering it nonfunctional for viewing an asset&#39;s video content.
+        /// Delete a playback ID Deletes a playback ID, rendering it nonfunctional for viewing an asset&#39;s video content. Please note that deleting the playback ID removes access to the underlying asset; a viewer who started playback before the playback ID was deleted may be able to watch the entire video for a limited duration.
         /// </summary>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ASSET_ID">The asset ID.</param>
@@ -1407,7 +1407,7 @@ namespace Mux.Csharp.Sdk.Api
         }
 
         /// <summary>
-        /// Delete a playback ID Deletes a playback ID, rendering it nonfunctional for viewing an asset&#39;s video content.
+        /// Delete a playback ID Deletes a playback ID, rendering it nonfunctional for viewing an asset&#39;s video content. Please note that deleting the playback ID removes access to the underlying asset; a viewer who started playback before the playback ID was deleted may be able to watch the entire video for a limited duration.
         /// </summary>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ASSET_ID">The asset ID.</param>
@@ -1473,7 +1473,7 @@ namespace Mux.Csharp.Sdk.Api
         }
 
         /// <summary>
-        /// Delete a playback ID Deletes a playback ID, rendering it nonfunctional for viewing an asset&#39;s video content.
+        /// Delete a playback ID Deletes a playback ID, rendering it nonfunctional for viewing an asset&#39;s video content. Please note that deleting the playback ID removes access to the underlying asset; a viewer who started playback before the playback ID was deleted may be able to watch the entire video for a limited duration.
         /// </summary>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ASSET_ID">The asset ID.</param>
@@ -1486,7 +1486,7 @@ namespace Mux.Csharp.Sdk.Api
         }
 
         /// <summary>
-        /// Delete a playback ID Deletes a playback ID, rendering it nonfunctional for viewing an asset&#39;s video content.
+        /// Delete a playback ID Deletes a playback ID, rendering it nonfunctional for viewing an asset&#39;s video content. Please note that deleting the playback ID removes access to the underlying asset; a viewer who started playback before the playback ID was deleted may be able to watch the entire video for a limited duration.
         /// </summary>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ASSET_ID">The asset ID.</param>
