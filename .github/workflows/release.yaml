@@ -1,0 +1,58 @@
+name: Release to NuGet
+on:
+  push:
+    tags:
+    - "v[0-9]+.[0-9]+.[0-9]+(-.*)?"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        dotnet-configuration: [Release]
+
+    steps:
+    - name: Install jq
+      run: 
+    - name: Install .NET
+      uses: actions/setup-dotnet@v2
+    - name: Check out code
+      uses: actions/checkout@v3
+    - name: Adding /tmp/output
+      run: mkdir -p /tmp/output
+
+    - name: Set VERSION variable from tag
+      run: echo "VERSION=${GITHUB_REF/refs\/tags\/v/}" >> $GITHUB_ENV
+    - name: Verify commit exists in origin/main
+      run: |
+        git fetch --no-tags --prune --depth=1 origin +refs/heads/*:refs/remotes/origin/*
+        git branch --remote --contains | grep origin/main
+    # have we configured the generator?
+    - name: Verify that the version exists in generator-config (have we updated versions?)
+      run: 'apt-get install -y jq && [[ "$(jq -r ".packageVersion" gen/generator-config.json)" == "$VERSION" ]]'
+    # have we run the generator?
+    # TODO: once the OAS document is more readily available publicly, we can pull it here.
+    - name: Verify that the version exists in the built artifact
+      run: 'apt-get install -y xmlstarlet && [[ $(cat ./src/Mux.Csharp.Sdk/Mux.Csharp.Sdk.csproj |  xmlstarlet sel -t -v "/Project/PropertyGroup/Version/text()") == "$VERSION" ]]'
+      
+    - name: Build for ${{ matrix.dotnet-configuration }}
+      run: dotnet build --configuration ${{ matrix.dotnet-configuration }} /p:Version=${VERSION}
+    - name: Test for ${{ matrix.dotnet-configuration }}
+      env:
+          MUX_TOKEN_ID: "${{ secrets.MUX_TOKEN_ID }}"
+          MUX_TOKEN_SECRET: "${{ secrets.MUX_TOKEN_SECRET }}"
+      run: dotnet test --configuration ${{ matrix.dotnet-configuration }} /p:Version=${VERSION} --no-build
+    - name: Pack for ${{ matrix.dotnet-configuration }}
+      run: dotnet pack --configuration ${{ matrix.dotnet-configuration }} /p:Version=${VERSION} --no-build --include-source --include-symbols --output /tmp/output
+
+    - name: Uploading artifact for ${{ matrix.dotnet-configuration }}
+      uses: actions/upload-artifact@v2
+      with:
+        name: Mux.Csharp.Sdk-${{ matrix.dotnet-configuration }}
+        path: /tmp/output/*
+    
+    - name: Push
+      env:
+        NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}
+      run: dotnet nuget push /tmp/output/*.nupkg --source https://api.nuget.org/v3/index.json --api-key ${NUGET_API_KEY}
