@@ -32,7 +32,7 @@ namespace Mux.Csharp.Sdk.Client
         /// Version of the package.
         /// </summary>
         /// <value>Version of the package.</value>
-        public const string Version = "0.1.0-alpha.3";
+        public const string Version = "0.1.0-alpha.4";
 
         /// <summary>
         /// Identifier for ISO 8601 DateTime Format
@@ -102,7 +102,7 @@ namespace Mux.Csharp.Sdk.Client
         public Configuration()
         {
             Proxy = null;
-            UserAgent = "OpenAPI-Generator/0.1.0-alpha.3/csharp";
+            UserAgent = "OpenAPI-Generator/0.1.0-alpha.4/csharp";
             BasePath = "https://api.mux.com";
             DefaultHeaders = new ConcurrentDictionary<string, string>();
             ApiKey = new ConcurrentDictionary<string, string>();
@@ -447,7 +447,7 @@ namespace Mux.Csharp.Sdk.Client
             report += "    OS: " + System.Environment.OSVersion + "\n";
             report += "    .NET Framework Version: " + System.Environment.Version  + "\n";
             report += "    Version of the API: v1\n";
-            report += "    SDK Package Version: 0.1.0-alpha.3\n";
+            report += "    SDK Package Version: 0.1.0-alpha.4\n";
 
             return report;
         }
