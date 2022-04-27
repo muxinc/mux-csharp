@@ -12,7 +12,7 @@
     <Description>The Mux API SDK for .NET Framework and .NET Core.</Description>
     <Copyright>(C) 2022 Mux, Inc.</Copyright>
     <RootNamespace>Mux.Csharp.Sdk</RootNamespace>
-    <Version>0.1.0-alpha.2</Version>
+    <Version>0.1.0-alpha.3</Version>
     <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\Mux.Csharp.Sdk.xml</DocumentationFile>
     <RepositoryUrl>https://github.com/GIT_USER_ID/GIT_REPO_ID.git</RepositoryUrl>
     <RepositoryType>git</RepositoryType>

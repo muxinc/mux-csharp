@@ -179,7 +179,7 @@ namespace Mux.Csharp.Sdk.Model
         /// <param name="errors">errors.</param>
         /// <param name="perTitleEncode">perTitleEncode.</param>
         /// <param name="uploadId">Unique identifier for the Direct Upload. This is an optional parameter added when the asset is created from a direct upload..</param>
-        /// <param name="isLive">Whether the asset is created from a live stream and the live stream is currently &#x60;active&#x60; and not in &#x60;idle&#x60; state..</param>
+        /// <param name="isLive">Indicates whether the live stream that created this asset is currently &#x60;active&#x60; and not in &#x60;idle&#x60; state. This is an optional parameter added when the asset is created from a live stream..</param>
         /// <param name="passthrough">Arbitrary user-supplied metadata set for the asset. Max 255 characters..</param>
         /// <param name="liveStreamId">Unique identifier for the live stream. This is an optional parameter added when the asset is created from a live stream..</param>
         /// <param name="master">master.</param>
@@ -290,9 +290,9 @@ namespace Mux.Csharp.Sdk.Model
         public string UploadId { get; set; }
 
         /// <summary>
-        /// Whether the asset is created from a live stream and the live stream is currently &#x60;active&#x60; and not in &#x60;idle&#x60; state.
+        /// Indicates whether the live stream that created this asset is currently &#x60;active&#x60; and not in &#x60;idle&#x60; state. This is an optional parameter added when the asset is created from a live stream.
         /// </summary>
-        /// <value>Whether the asset is created from a live stream and the live stream is currently &#x60;active&#x60; and not in &#x60;idle&#x60; state.</value>
+        /// <value>Indicates whether the live stream that created this asset is currently &#x60;active&#x60; and not in &#x60;idle&#x60; state. This is an optional parameter added when the asset is created from a live stream.</value>
         [DataMember(Name = "is_live", EmitDefaultValue = true)]
         public bool IsLive { get; set; }
 
