@@ -13,8 +13,6 @@ jobs:
         dotnet-configuration: [Release]
 
     steps:
-    - name: Install jq
-      run: 
     - name: Install .NET
       uses: actions/setup-dotnet@v2
     - name: Check out code
@@ -35,7 +33,7 @@ jobs:
     # TODO: once the OAS document is more readily available publicly, we can pull it here.
     - name: Verify that the version exists in the built artifact
       run: 'apt-get install -y xmlstarlet && [[ $(cat ./src/Mux.Csharp.Sdk/Mux.Csharp.Sdk.csproj |  xmlstarlet sel -t -v "/Project/PropertyGroup/Version/text()") == "$VERSION" ]]'
-      
+
     - name: Build for ${{ matrix.dotnet-configuration }}
       run: dotnet build --configuration ${{ matrix.dotnet-configuration }} /p:Version=${VERSION}
     - name: Test for ${{ matrix.dotnet-configuration }}
