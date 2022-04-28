@@ -12,11 +12,13 @@
     <Description>The Mux API SDK for .NET Framework and .NET Core. Check https://github.com/muxinc/mux-csharp for release notes and visit https://docs.mux.com for details on using Mux.</Description>
     <Copyright>(C) 2022 Mux, Inc.</Copyright>
     <RootNamespace>Mux.Csharp.Sdk</RootNamespace>
-    <Version>0.1.0-alpha.5</Version>
+    <Version>0.1.0-alpha.6</Version>
     <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\Mux.Csharp.Sdk.xml</DocumentationFile>
     <RepositoryUrl>https://github.com/GIT_USER_ID/GIT_REPO_ID.git</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageReleaseNotes>Check https://github.com/muxinc/mux-csharp for release notes.</PackageReleaseNotes>
+    <PackageIcon>icon.png</PackageIcon>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
 
   <ItemGroup>
@@ -25,6 +27,8 @@
     <PackageReference Include="RestSharp" Version="106.13.0" />
     <PackageReference Include="Polly" Version="7.2.2" />
     <PackageReference Include="System.ComponentModel.Annotations" Version="5.0.0" />
+    <None Include="README.md" Pack="true" PackagePath="\"/>
+    <None Include="icon.png" Pack="true" PackagePath="\"/>
   </ItemGroup>
 
 </Project>
