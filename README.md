@@ -16,7 +16,7 @@ Mux is how developers build online video. This API encompasses both Mux Video an
 **PLEASE NOTE:** This is an early build of the Mux C# SDK, as evidenced by its pre-1.0 status, but we're reasonably certain of its stability and usability against the Mux API.. Documentation is currently best-effort, but it'll improve over time! Instead of contacting Mux Support, please file an issue on this repository or email [Mux DevEx](devex@mux.com) for assistance.
 
 - API version: v1
-- SDK version: 0.1.0
+- SDK version: 0.2.0
     [https://docs.mux.com](https://docs.mux.com)
 
 <a name="frameworks-supported"></a>
@@ -175,6 +175,15 @@ Class | Method | HTTP request | Description
 *RealTimeApi* | [**GetRealtimeTimeseries**](docs/RealTimeApi.md#getrealtimetimeseries) | **GET** /data/v1/realtime/metrics/{REALTIME_METRIC_ID}/timeseries | Get Real-Time Timeseries
 *RealTimeApi* | [**ListRealtimeDimensions**](docs/RealTimeApi.md#listrealtimedimensions) | **GET** /data/v1/realtime/dimensions | List Real-Time Dimensions
 *RealTimeApi* | [**ListRealtimeMetrics**](docs/RealTimeApi.md#listrealtimemetrics) | **GET** /data/v1/realtime/metrics | List Real-Time Metrics
+*SpacesApi* | [**CreateSpace**](docs/SpacesApi.md#createspace) | **POST** /video/v1/spaces | Create a space
+*SpacesApi* | [**CreateSpaceBroadcast**](docs/SpacesApi.md#createspacebroadcast) | **POST** /video/v1/spaces/${SPACE_ID}/broadcasts | Create a space broadcast
+*SpacesApi* | [**DeleteSpace**](docs/SpacesApi.md#deletespace) | **DELETE** /video/v1/spaces/${SPACE_ID} | Delete a space
+*SpacesApi* | [**DeleteSpaceBroadcast**](docs/SpacesApi.md#deletespacebroadcast) | **DELETE** /video/v1/spaces/${SPACE_ID}/broadcasts/${BROADCAST_ID} | Delete a space broadcast
+*SpacesApi* | [**GetSpace**](docs/SpacesApi.md#getspace) | **GET** /video/v1/spaces/${SPACE_ID} | Retrieve a space
+*SpacesApi* | [**GetSpaceBroadcast**](docs/SpacesApi.md#getspacebroadcast) | **GET** /video/v1/spaces/${SPACE_ID}/broadcasts/${BROADCAST_ID} | Retrieve space broadcast
+*SpacesApi* | [**ListSpaces**](docs/SpacesApi.md#listspaces) | **GET** /video/v1/spaces | List spaces
+*SpacesApi* | [**StartSpaceBroadcast**](docs/SpacesApi.md#startspacebroadcast) | **POST** /video/v1/spaces/${SPACE_ID}/broadcasts/${BROADCAST_ID}/start | Start a space broadcast
+*SpacesApi* | [**StopSpaceBroadcast**](docs/SpacesApi.md#stopspacebroadcast) | **POST** /video/v1/spaces/${SPACE_ID}/broadcasts/${BROADCAST_ID}/stop | Stop a space broadcast
 *URLSigningKeysApi* | [**CreateUrlSigningKey**](docs/URLSigningKeysApi.md#createurlsigningkey) | **POST** /video/v1/signing-keys | Create a URL signing key
 *URLSigningKeysApi* | [**DeleteUrlSigningKey**](docs/URLSigningKeysApi.md#deleteurlsigningkey) | **DELETE** /video/v1/signing-keys/{SIGNING_KEY_ID} | Delete a URL signing key
 *URLSigningKeysApi* | [**GetUrlSigningKey**](docs/URLSigningKeysApi.md#geturlsigningkey) | **GET** /video/v1/signing-keys/{SIGNING_KEY_ID} | Retrieve a URL signing key
@@ -196,12 +205,19 @@ Class | Method | HTTP request | Description
  - [Model.AssetStaticRenditions](docs/AssetStaticRenditions.md)
  - [Model.AssetStaticRenditionsFiles](docs/AssetStaticRenditionsFiles.md)
  - [Model.BreakdownValue](docs/BreakdownValue.md)
+ - [Model.Broadcast](docs/Broadcast.md)
+ - [Model.BroadcastLayout](docs/BroadcastLayout.md)
+ - [Model.BroadcastResolution](docs/BroadcastResolution.md)
+ - [Model.BroadcastResponse](docs/BroadcastResponse.md)
+ - [Model.BroadcastStatus](docs/BroadcastStatus.md)
  - [Model.CreateAssetRequest](docs/CreateAssetRequest.md)
+ - [Model.CreateBroadcastRequest](docs/CreateBroadcastRequest.md)
  - [Model.CreateLiveStreamRequest](docs/CreateLiveStreamRequest.md)
  - [Model.CreatePlaybackIDRequest](docs/CreatePlaybackIDRequest.md)
  - [Model.CreatePlaybackIDResponse](docs/CreatePlaybackIDResponse.md)
  - [Model.CreatePlaybackRestrictionRequest](docs/CreatePlaybackRestrictionRequest.md)
  - [Model.CreateSimulcastTargetRequest](docs/CreateSimulcastTargetRequest.md)
+ - [Model.CreateSpaceRequest](docs/CreateSpaceRequest.md)
  - [Model.CreateTrackRequest](docs/CreateTrackRequest.md)
  - [Model.CreateTrackResponse](docs/CreateTrackResponse.md)
  - [Model.CreateUploadRequest](docs/CreateUploadRequest.md)
@@ -256,6 +272,7 @@ Class | Method | HTTP request | Description
  - [Model.ListRealTimeMetricsResponse](docs/ListRealTimeMetricsResponse.md)
  - [Model.ListRelatedIncidentsResponse](docs/ListRelatedIncidentsResponse.md)
  - [Model.ListSigningKeysResponse](docs/ListSigningKeysResponse.md)
+ - [Model.ListSpacesResponse](docs/ListSpacesResponse.md)
  - [Model.ListUploadsResponse](docs/ListUploadsResponse.md)
  - [Model.ListVideoViewExportsResponse](docs/ListVideoViewExportsResponse.md)
  - [Model.ListVideoViewsResponse](docs/ListVideoViewsResponse.md)
@@ -282,6 +299,12 @@ Class | Method | HTTP request | Description
  - [Model.SigningKeyResponse](docs/SigningKeyResponse.md)
  - [Model.SimulcastTarget](docs/SimulcastTarget.md)
  - [Model.SimulcastTargetResponse](docs/SimulcastTargetResponse.md)
+ - [Model.Space](docs/Space.md)
+ - [Model.SpaceResponse](docs/SpaceResponse.md)
+ - [Model.SpaceStatus](docs/SpaceStatus.md)
+ - [Model.SpaceType](docs/SpaceType.md)
+ - [Model.StartSpaceBroadcastResponse](docs/StartSpaceBroadcastResponse.md)
+ - [Model.StopSpaceBroadcastResponse](docs/StopSpaceBroadcastResponse.md)
  - [Model.Track](docs/Track.md)
  - [Model.UpdateAssetMP4SupportRequest](docs/UpdateAssetMP4SupportRequest.md)
  - [Model.UpdateAssetMasterAccessRequest](docs/UpdateAssetMasterAccessRequest.md)

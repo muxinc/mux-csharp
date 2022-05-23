@@ -27,57 +27,44 @@ using OpenAPIDateConverter = Mux.Csharp.Sdk.Client.OpenAPIDateConverter;
 namespace Mux.Csharp.Sdk.Model
 {
     /// <summary>
-    /// CreateSimulcastTargetRequest
+    /// CreateSpaceRequest
     /// </summary>
-    [DataContract(Name = "CreateSimulcastTargetRequest")]
-    public partial class CreateSimulcastTargetRequest : IEquatable<CreateSimulcastTargetRequest>, IValidatableObject
+    [DataContract(Name = "CreateSpaceRequest")]
+    public partial class CreateSpaceRequest : IEquatable<CreateSpaceRequest>, IValidatableObject
     {
+
         /// <summary>
-        /// Initializes a new instance of the <see cref="CreateSimulcastTargetRequest" /> class.
+        /// Gets or Sets Type
         /// </summary>
-        [JsonConstructorAttribute]
-        protected CreateSimulcastTargetRequest()
-        {
-            this.AdditionalProperties = new Dictionary<string, object>();
-        }
+        [DataMember(Name = "type", EmitDefaultValue = false)]
+        public SpaceType? Type { get; set; }
         /// <summary>
-        /// Initializes a new instance of the <see cref="CreateSimulcastTargetRequest" /> class.
+        /// Initializes a new instance of the <see cref="CreateSpaceRequest" /> class.
         /// </summary>
-        /// <param name="passthrough">Arbitrary user-supplied metadata set by you when creating a simulcast target..</param>
-        /// <param name="streamKey">Stream Key represents a stream identifier on the third party live streaming service to send the parent live stream to..</param>
-        /// <param name="url">RTMP hostname including application name for the third party live streaming service. Example: &#x60;rtmp://live.example.com/app&#x60;. (required).</param>
-        public CreateSimulcastTargetRequest(string passthrough = default(string), string streamKey = default(string), string url = default(string))
+        /// <param name="type">type.</param>
+        /// <param name="passthrough">Arbitrary user-supplied metadata that will be included in the space details and related webhooks. Max: 255 characters..</param>
+        /// <param name="broadcasts">An array of broadcast destinations you want to stream the space to. **Note:** By default only a single broadcast destination can be specified. Contact Mux support if you need more..</param>
+        public CreateSpaceRequest(SpaceType? type = default(SpaceType?), string passthrough = default(string), List<CreateBroadcastRequest> broadcasts = default(List<CreateBroadcastRequest>))
         {
-            // to ensure "url" is required (not null)
-            if (url == null) {
-                throw new ArgumentNullException("url is a required property for CreateSimulcastTargetRequest and cannot be null");
-            }
-            this.Url = url;
+            this.Type = type;
             this.Passthrough = passthrough;
-            this.StreamKey = streamKey;
+            this.Broadcasts = broadcasts;
             this.AdditionalProperties = new Dictionary<string, object>();
         }
 
         /// <summary>
-        /// Arbitrary user-supplied metadata set by you when creating a simulcast target.
+        /// Arbitrary user-supplied metadata that will be included in the space details and related webhooks. Max: 255 characters.
         /// </summary>
-        /// <value>Arbitrary user-supplied metadata set by you when creating a simulcast target.</value>
+        /// <value>Arbitrary user-supplied metadata that will be included in the space details and related webhooks. Max: 255 characters.</value>
         [DataMember(Name = "passthrough", EmitDefaultValue = false)]
         public string Passthrough { get; set; }
 
         /// <summary>
-        /// Stream Key represents a stream identifier on the third party live streaming service to send the parent live stream to.
+        /// An array of broadcast destinations you want to stream the space to. **Note:** By default only a single broadcast destination can be specified. Contact Mux support if you need more.
         /// </summary>
-        /// <value>Stream Key represents a stream identifier on the third party live streaming service to send the parent live stream to.</value>
-        [DataMember(Name = "stream_key", EmitDefaultValue = false)]
-        public string StreamKey { get; set; }
-
-        /// <summary>
-        /// RTMP hostname including application name for the third party live streaming service. Example: &#x60;rtmp://live.example.com/app&#x60;.
-        /// </summary>
-        /// <value>RTMP hostname including application name for the third party live streaming service. Example: &#x60;rtmp://live.example.com/app&#x60;.</value>
-        [DataMember(Name = "url", IsRequired = true, EmitDefaultValue = false)]
-        public string Url { get; set; }
+        /// <value>An array of broadcast destinations you want to stream the space to. **Note:** By default only a single broadcast destination can be specified. Contact Mux support if you need more.</value>
+        [DataMember(Name = "broadcasts", EmitDefaultValue = false)]
+        public List<CreateBroadcastRequest> Broadcasts { get; set; }
 
         /// <summary>
         /// Gets or Sets additional properties
@@ -92,10 +79,10 @@ namespace Mux.Csharp.Sdk.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class CreateSimulcastTargetRequest {\n");
+            sb.Append("class CreateSpaceRequest {\n");
+            sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  Passthrough: ").Append(Passthrough).Append("\n");
-            sb.Append("  StreamKey: ").Append(StreamKey).Append("\n");
-            sb.Append("  Url: ").Append(Url).Append("\n");
+            sb.Append("  Broadcasts: ").Append(Broadcasts).Append("\n");
             sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -117,15 +104,15 @@ namespace Mux.Csharp.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as CreateSimulcastTargetRequest);
+            return this.Equals(input as CreateSpaceRequest);
         }
 
         /// <summary>
-        /// Returns true if CreateSimulcastTargetRequest instances are equal
+        /// Returns true if CreateSpaceRequest instances are equal
         /// </summary>
-        /// <param name="input">Instance of CreateSimulcastTargetRequest to be compared</param>
+        /// <param name="input">Instance of CreateSpaceRequest to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(CreateSimulcastTargetRequest input)
+        public bool Equals(CreateSpaceRequest input)
         {
             if (input == null)
             {
@@ -133,19 +120,19 @@ namespace Mux.Csharp.Sdk.Model
             }
             return 
                 (
+                    this.Type == input.Type ||
+                    this.Type.Equals(input.Type)
+                ) && 
+                (
                     this.Passthrough == input.Passthrough ||
                     (this.Passthrough != null &&
                     this.Passthrough.Equals(input.Passthrough))
                 ) && 
                 (
-                    this.StreamKey == input.StreamKey ||
-                    (this.StreamKey != null &&
-                    this.StreamKey.Equals(input.StreamKey))
-                ) && 
-                (
-                    this.Url == input.Url ||
-                    (this.Url != null &&
-                    this.Url.Equals(input.Url))
+                    this.Broadcasts == input.Broadcasts ||
+                    this.Broadcasts != null &&
+                    input.Broadcasts != null &&
+                    this.Broadcasts.SequenceEqual(input.Broadcasts)
                 )
                 && (this.AdditionalProperties.Count == input.AdditionalProperties.Count && !this.AdditionalProperties.Except(input.AdditionalProperties).Any());
         }
@@ -159,17 +146,14 @@ namespace Mux.Csharp.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                hashCode = (hashCode * 59) + this.Type.GetHashCode();
                 if (this.Passthrough != null)
                 {
                     hashCode = (hashCode * 59) + this.Passthrough.GetHashCode();
                 }
-                if (this.StreamKey != null)
+                if (this.Broadcasts != null)
                 {
-                    hashCode = (hashCode * 59) + this.StreamKey.GetHashCode();
-                }
-                if (this.Url != null)
-                {
-                    hashCode = (hashCode * 59) + this.Url.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Broadcasts.GetHashCode();
                 }
                 if (this.AdditionalProperties != null)
                 {
