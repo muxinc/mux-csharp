@@ -41,7 +41,7 @@ namespace Mux.Csharp.Sdk.Api
         /// <param name="orderBy">Value to order the results by (optional)</param>
         /// <param name="orderDirection">Sort order. (optional)</param>
         /// <returns>GetRealTimeBreakdownResponse</returns>
-        GetRealTimeBreakdownResponse GetRealtimeBreakdown(string REALTIME_METRIC_ID, string dimension = default(string), decimal? timestamp = default(decimal?), List<string> filters = default(List<string>), string orderBy = default(string), string orderDirection = default(string));
+        GetRealTimeBreakdownResponse GetRealtimeBreakdown(string REALTIME_METRIC_ID, string dimension = default(string), int? timestamp = default(int?), List<string> filters = default(List<string>), string orderBy = default(string), string orderDirection = default(string));
 
         /// <summary>
         /// Get Real-Time Breakdown
@@ -57,7 +57,7 @@ namespace Mux.Csharp.Sdk.Api
         /// <param name="orderBy">Value to order the results by (optional)</param>
         /// <param name="orderDirection">Sort order. (optional)</param>
         /// <returns>ApiResponse of GetRealTimeBreakdownResponse</returns>
-        ApiResponse<GetRealTimeBreakdownResponse> GetRealtimeBreakdownWithHttpInfo(string REALTIME_METRIC_ID, string dimension = default(string), decimal? timestamp = default(decimal?), List<string> filters = default(List<string>), string orderBy = default(string), string orderDirection = default(string));
+        ApiResponse<GetRealTimeBreakdownResponse> GetRealtimeBreakdownWithHttpInfo(string REALTIME_METRIC_ID, string dimension = default(string), int? timestamp = default(int?), List<string> filters = default(List<string>), string orderBy = default(string), string orderDirection = default(string));
         /// <summary>
         /// Get Real-Time Histogram Timeseries
         /// </summary>
@@ -166,7 +166,7 @@ namespace Mux.Csharp.Sdk.Api
         /// <param name="orderDirection">Sort order. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of GetRealTimeBreakdownResponse</returns>
-        System.Threading.Tasks.Task<GetRealTimeBreakdownResponse> GetRealtimeBreakdownAsync(string REALTIME_METRIC_ID, string dimension = default(string), decimal? timestamp = default(decimal?), List<string> filters = default(List<string>), string orderBy = default(string), string orderDirection = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<GetRealTimeBreakdownResponse> GetRealtimeBreakdownAsync(string REALTIME_METRIC_ID, string dimension = default(string), int? timestamp = default(int?), List<string> filters = default(List<string>), string orderBy = default(string), string orderDirection = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Get Real-Time Breakdown
@@ -183,7 +183,7 @@ namespace Mux.Csharp.Sdk.Api
         /// <param name="orderDirection">Sort order. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (GetRealTimeBreakdownResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GetRealTimeBreakdownResponse>> GetRealtimeBreakdownWithHttpInfoAsync(string REALTIME_METRIC_ID, string dimension = default(string), decimal? timestamp = default(decimal?), List<string> filters = default(List<string>), string orderBy = default(string), string orderDirection = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<GetRealTimeBreakdownResponse>> GetRealtimeBreakdownWithHttpInfoAsync(string REALTIME_METRIC_ID, string dimension = default(string), int? timestamp = default(int?), List<string> filters = default(List<string>), string orderBy = default(string), string orderDirection = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Get Real-Time Histogram Timeseries
         /// </summary>
@@ -407,7 +407,7 @@ namespace Mux.Csharp.Sdk.Api
         /// <param name="orderBy">Value to order the results by (optional)</param>
         /// <param name="orderDirection">Sort order. (optional)</param>
         /// <returns>GetRealTimeBreakdownResponse</returns>
-        public GetRealTimeBreakdownResponse GetRealtimeBreakdown(string REALTIME_METRIC_ID, string dimension = default(string), decimal? timestamp = default(decimal?), List<string> filters = default(List<string>), string orderBy = default(string), string orderDirection = default(string))
+        public GetRealTimeBreakdownResponse GetRealtimeBreakdown(string REALTIME_METRIC_ID, string dimension = default(string), int? timestamp = default(int?), List<string> filters = default(List<string>), string orderBy = default(string), string orderDirection = default(string))
         {
             Mux.Csharp.Sdk.Client.ApiResponse<GetRealTimeBreakdownResponse> localVarResponse = GetRealtimeBreakdownWithHttpInfo(REALTIME_METRIC_ID, dimension, timestamp, filters, orderBy, orderDirection);
             return localVarResponse.Data;
@@ -424,7 +424,7 @@ namespace Mux.Csharp.Sdk.Api
         /// <param name="orderBy">Value to order the results by (optional)</param>
         /// <param name="orderDirection">Sort order. (optional)</param>
         /// <returns>ApiResponse of GetRealTimeBreakdownResponse</returns>
-        public Mux.Csharp.Sdk.Client.ApiResponse<GetRealTimeBreakdownResponse> GetRealtimeBreakdownWithHttpInfo(string REALTIME_METRIC_ID, string dimension = default(string), decimal? timestamp = default(decimal?), List<string> filters = default(List<string>), string orderBy = default(string), string orderDirection = default(string))
+        public Mux.Csharp.Sdk.Client.ApiResponse<GetRealTimeBreakdownResponse> GetRealtimeBreakdownWithHttpInfo(string REALTIME_METRIC_ID, string dimension = default(string), int? timestamp = default(int?), List<string> filters = default(List<string>), string orderBy = default(string), string orderDirection = default(string))
         {
             // verify the required parameter 'REALTIME_METRIC_ID' is set
             if (REALTIME_METRIC_ID == null)
@@ -509,7 +509,7 @@ namespace Mux.Csharp.Sdk.Api
         /// <param name="orderDirection">Sort order. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of GetRealTimeBreakdownResponse</returns>
-        public async System.Threading.Tasks.Task<GetRealTimeBreakdownResponse> GetRealtimeBreakdownAsync(string REALTIME_METRIC_ID, string dimension = default(string), decimal? timestamp = default(decimal?), List<string> filters = default(List<string>), string orderBy = default(string), string orderDirection = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<GetRealTimeBreakdownResponse> GetRealtimeBreakdownAsync(string REALTIME_METRIC_ID, string dimension = default(string), int? timestamp = default(int?), List<string> filters = default(List<string>), string orderBy = default(string), string orderDirection = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             Mux.Csharp.Sdk.Client.ApiResponse<GetRealTimeBreakdownResponse> localVarResponse = await GetRealtimeBreakdownWithHttpInfoAsync(REALTIME_METRIC_ID, dimension, timestamp, filters, orderBy, orderDirection, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -527,7 +527,7 @@ namespace Mux.Csharp.Sdk.Api
         /// <param name="orderDirection">Sort order. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (GetRealTimeBreakdownResponse)</returns>
-        public async System.Threading.Tasks.Task<Mux.Csharp.Sdk.Client.ApiResponse<GetRealTimeBreakdownResponse>> GetRealtimeBreakdownWithHttpInfoAsync(string REALTIME_METRIC_ID, string dimension = default(string), decimal? timestamp = default(decimal?), List<string> filters = default(List<string>), string orderBy = default(string), string orderDirection = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Mux.Csharp.Sdk.Client.ApiResponse<GetRealTimeBreakdownResponse>> GetRealtimeBreakdownWithHttpInfoAsync(string REALTIME_METRIC_ID, string dimension = default(string), int? timestamp = default(int?), List<string> filters = default(List<string>), string orderBy = default(string), string orderDirection = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'REALTIME_METRIC_ID' is set
             if (REALTIME_METRIC_ID == null)

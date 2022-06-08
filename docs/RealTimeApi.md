@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 <a name="getrealtimebreakdown"></a>
 # **GetRealtimeBreakdown**
-> GetRealTimeBreakdownResponse GetRealtimeBreakdown (string REALTIME_METRIC_ID, string dimension = null, decimal? timestamp = null, List<string> filters = null, string orderBy = null, string orderDirection = null)
+> GetRealTimeBreakdownResponse GetRealtimeBreakdown (string REALTIME_METRIC_ID, string dimension = null, int? timestamp = null, List<string> filters = null, string orderBy = null, string orderDirection = null)
 
 Get Real-Time Breakdown
 
@@ -42,7 +42,7 @@ namespace Example
             var apiInstance = new RealTimeApi(config);
             var REALTIME_METRIC_ID = current-concurrent-viewers;  // string | ID of the Realtime Metric
             var dimension = "asn";  // string | Dimension the specified value belongs to (optional) 
-            var timestamp = 8.14D;  // decimal? | Timestamp to limit results by. This value must be provided as a unix timestamp. Defaults to the current unix timestamp. (optional) 
+            var timestamp = 56;  // int? | Timestamp to limit results by. This value must be provided as a unix timestamp. Defaults to the current unix timestamp. (optional) 
             var filters = new List<string>(); // List<string> | Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a `!` character to the dimension.  Possible filter names are the same as returned by the List Filters endpoint.  Example:    * `filters[]=operating_system:windows&filters[]=!country:US`  (optional) 
             var orderBy = "negative_impact";  // string | Value to order the results by (optional) 
             var orderDirection = "asc";  // string | Sort order. (optional) 
@@ -70,7 +70,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **REALTIME_METRIC_ID** | **string**| ID of the Realtime Metric | 
  **dimension** | **string**| Dimension the specified value belongs to | [optional] 
- **timestamp** | **decimal?**| Timestamp to limit results by. This value must be provided as a unix timestamp. Defaults to the current unix timestamp. | [optional] 
+ **timestamp** | **int?**| Timestamp to limit results by. This value must be provided as a unix timestamp. Defaults to the current unix timestamp. | [optional] 
  **filters** | [**List&lt;string&gt;**](string.md)| Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Filters endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  | [optional] 
  **orderBy** | **string**| Value to order the results by | [optional] 
  **orderDirection** | **string**| Sort order. | [optional] 

@@ -31,7 +31,7 @@ namespace Mux.Csharp.Sdk.Api
         /// Get metric timeseries data
         /// </summary>
         /// <remarks>
-        /// Returns timeseries data for a specific metric.  Each interval represented in the data array contains an array with the following values:   * the first element is the interval time   * the second element is the calculated metric value    * the third element is the number of views in the interval that have a valid metric value 
+        /// Returns timeseries data for a specific metric.  Each interval represented in the data array contains an array with the following values:   * the first element is the interval time   * the second element is the calculated metric value   * the third element is the number of views in the interval that have a valid metric value 
         /// </remarks>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="METRIC_ID">ID of the Metric</param>
@@ -39,7 +39,7 @@ namespace Mux.Csharp.Sdk.Api
         /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Filters endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
         /// <param name="measurement">Measurement for the provided metric. If omitted, the default for the metric will be used. (optional)</param>
         /// <param name="orderDirection">Sort order. (optional)</param>
-        /// <param name="groupBy">Time granularity to group results by. If this value is omitted, a default granularity is chosen based on the timeframe.  For timeframes of 6 hours or less, the default granularity is &#x60;ten_minutes&#x60;. Between 6 hours and 15 days inclusive, the default granularity is &#x60;hour&#x60;. The granularity of timeframes that exceed 15 days is &#x60;day&#x60;. This default behavior is subject to change; it is strongly suggested that you explicitly specify the granularity.  (optional)</param>
+        /// <param name="groupBy">Time granularity to group results by. If this value is omitted, a default granularity is chosen based on the timeframe.  For timeframes of 6 hours or less, the default granularity is &#x60;ten_minutes&#x60;. Between 6 hours and 15 hours inclusive, the default granularity is &#x60;hour&#x60;. The granularity of timeframes that exceed 15 hours is &#x60;day&#x60;. This default behavior is subject to change; it is strongly suggested that you explicitly specify the granularity.  (optional)</param>
         /// <returns>GetMetricTimeseriesDataResponse</returns>
         GetMetricTimeseriesDataResponse GetMetricTimeseriesData(string METRIC_ID, List<string> timeframe = default(List<string>), List<string> filters = default(List<string>), string measurement = default(string), string orderDirection = default(string), string groupBy = default(string));
 
@@ -47,7 +47,7 @@ namespace Mux.Csharp.Sdk.Api
         /// Get metric timeseries data
         /// </summary>
         /// <remarks>
-        /// Returns timeseries data for a specific metric.  Each interval represented in the data array contains an array with the following values:   * the first element is the interval time   * the second element is the calculated metric value    * the third element is the number of views in the interval that have a valid metric value 
+        /// Returns timeseries data for a specific metric.  Each interval represented in the data array contains an array with the following values:   * the first element is the interval time   * the second element is the calculated metric value   * the third element is the number of views in the interval that have a valid metric value 
         /// </remarks>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="METRIC_ID">ID of the Metric</param>
@@ -55,7 +55,7 @@ namespace Mux.Csharp.Sdk.Api
         /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Filters endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
         /// <param name="measurement">Measurement for the provided metric. If omitted, the default for the metric will be used. (optional)</param>
         /// <param name="orderDirection">Sort order. (optional)</param>
-        /// <param name="groupBy">Time granularity to group results by. If this value is omitted, a default granularity is chosen based on the timeframe.  For timeframes of 6 hours or less, the default granularity is &#x60;ten_minutes&#x60;. Between 6 hours and 15 days inclusive, the default granularity is &#x60;hour&#x60;. The granularity of timeframes that exceed 15 days is &#x60;day&#x60;. This default behavior is subject to change; it is strongly suggested that you explicitly specify the granularity.  (optional)</param>
+        /// <param name="groupBy">Time granularity to group results by. If this value is omitted, a default granularity is chosen based on the timeframe.  For timeframes of 6 hours or less, the default granularity is &#x60;ten_minutes&#x60;. Between 6 hours and 15 hours inclusive, the default granularity is &#x60;hour&#x60;. The granularity of timeframes that exceed 15 hours is &#x60;day&#x60;. This default behavior is subject to change; it is strongly suggested that you explicitly specify the granularity.  (optional)</param>
         /// <returns>ApiResponse of GetMetricTimeseriesDataResponse</returns>
         ApiResponse<GetMetricTimeseriesDataResponse> GetMetricTimeseriesDataWithHttpInfo(string METRIC_ID, List<string> timeframe = default(List<string>), List<string> filters = default(List<string>), string measurement = default(string), string orderDirection = default(string), string groupBy = default(string));
         /// <summary>
@@ -189,7 +189,7 @@ namespace Mux.Csharp.Sdk.Api
         /// Get metric timeseries data
         /// </summary>
         /// <remarks>
-        /// Returns timeseries data for a specific metric.  Each interval represented in the data array contains an array with the following values:   * the first element is the interval time   * the second element is the calculated metric value    * the third element is the number of views in the interval that have a valid metric value 
+        /// Returns timeseries data for a specific metric.  Each interval represented in the data array contains an array with the following values:   * the first element is the interval time   * the second element is the calculated metric value   * the third element is the number of views in the interval that have a valid metric value 
         /// </remarks>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="METRIC_ID">ID of the Metric</param>
@@ -197,7 +197,7 @@ namespace Mux.Csharp.Sdk.Api
         /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Filters endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
         /// <param name="measurement">Measurement for the provided metric. If omitted, the default for the metric will be used. (optional)</param>
         /// <param name="orderDirection">Sort order. (optional)</param>
-        /// <param name="groupBy">Time granularity to group results by. If this value is omitted, a default granularity is chosen based on the timeframe.  For timeframes of 6 hours or less, the default granularity is &#x60;ten_minutes&#x60;. Between 6 hours and 15 days inclusive, the default granularity is &#x60;hour&#x60;. The granularity of timeframes that exceed 15 days is &#x60;day&#x60;. This default behavior is subject to change; it is strongly suggested that you explicitly specify the granularity.  (optional)</param>
+        /// <param name="groupBy">Time granularity to group results by. If this value is omitted, a default granularity is chosen based on the timeframe.  For timeframes of 6 hours or less, the default granularity is &#x60;ten_minutes&#x60;. Between 6 hours and 15 hours inclusive, the default granularity is &#x60;hour&#x60;. The granularity of timeframes that exceed 15 hours is &#x60;day&#x60;. This default behavior is subject to change; it is strongly suggested that you explicitly specify the granularity.  (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of GetMetricTimeseriesDataResponse</returns>
         System.Threading.Tasks.Task<GetMetricTimeseriesDataResponse> GetMetricTimeseriesDataAsync(string METRIC_ID, List<string> timeframe = default(List<string>), List<string> filters = default(List<string>), string measurement = default(string), string orderDirection = default(string), string groupBy = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
@@ -206,7 +206,7 @@ namespace Mux.Csharp.Sdk.Api
         /// Get metric timeseries data
         /// </summary>
         /// <remarks>
-        /// Returns timeseries data for a specific metric.  Each interval represented in the data array contains an array with the following values:   * the first element is the interval time   * the second element is the calculated metric value    * the third element is the number of views in the interval that have a valid metric value 
+        /// Returns timeseries data for a specific metric.  Each interval represented in the data array contains an array with the following values:   * the first element is the interval time   * the second element is the calculated metric value   * the third element is the number of views in the interval that have a valid metric value 
         /// </remarks>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="METRIC_ID">ID of the Metric</param>
@@ -214,7 +214,7 @@ namespace Mux.Csharp.Sdk.Api
         /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Filters endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
         /// <param name="measurement">Measurement for the provided metric. If omitted, the default for the metric will be used. (optional)</param>
         /// <param name="orderDirection">Sort order. (optional)</param>
-        /// <param name="groupBy">Time granularity to group results by. If this value is omitted, a default granularity is chosen based on the timeframe.  For timeframes of 6 hours or less, the default granularity is &#x60;ten_minutes&#x60;. Between 6 hours and 15 days inclusive, the default granularity is &#x60;hour&#x60;. The granularity of timeframes that exceed 15 days is &#x60;day&#x60;. This default behavior is subject to change; it is strongly suggested that you explicitly specify the granularity.  (optional)</param>
+        /// <param name="groupBy">Time granularity to group results by. If this value is omitted, a default granularity is chosen based on the timeframe.  For timeframes of 6 hours or less, the default granularity is &#x60;ten_minutes&#x60;. Between 6 hours and 15 hours inclusive, the default granularity is &#x60;hour&#x60;. The granularity of timeframes that exceed 15 hours is &#x60;day&#x60;. This default behavior is subject to change; it is strongly suggested that you explicitly specify the granularity.  (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (GetMetricTimeseriesDataResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<GetMetricTimeseriesDataResponse>> GetMetricTimeseriesDataWithHttpInfoAsync(string METRIC_ID, List<string> timeframe = default(List<string>), List<string> filters = default(List<string>), string measurement = default(string), string orderDirection = default(string), string groupBy = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
@@ -465,7 +465,7 @@ namespace Mux.Csharp.Sdk.Api
         }
 
         /// <summary>
-        /// Get metric timeseries data Returns timeseries data for a specific metric.  Each interval represented in the data array contains an array with the following values:   * the first element is the interval time   * the second element is the calculated metric value    * the third element is the number of views in the interval that have a valid metric value 
+        /// Get metric timeseries data Returns timeseries data for a specific metric.  Each interval represented in the data array contains an array with the following values:   * the first element is the interval time   * the second element is the calculated metric value   * the third element is the number of views in the interval that have a valid metric value 
         /// </summary>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="METRIC_ID">ID of the Metric</param>
@@ -473,7 +473,7 @@ namespace Mux.Csharp.Sdk.Api
         /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Filters endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
         /// <param name="measurement">Measurement for the provided metric. If omitted, the default for the metric will be used. (optional)</param>
         /// <param name="orderDirection">Sort order. (optional)</param>
-        /// <param name="groupBy">Time granularity to group results by. If this value is omitted, a default granularity is chosen based on the timeframe.  For timeframes of 6 hours or less, the default granularity is &#x60;ten_minutes&#x60;. Between 6 hours and 15 days inclusive, the default granularity is &#x60;hour&#x60;. The granularity of timeframes that exceed 15 days is &#x60;day&#x60;. This default behavior is subject to change; it is strongly suggested that you explicitly specify the granularity.  (optional)</param>
+        /// <param name="groupBy">Time granularity to group results by. If this value is omitted, a default granularity is chosen based on the timeframe.  For timeframes of 6 hours or less, the default granularity is &#x60;ten_minutes&#x60;. Between 6 hours and 15 hours inclusive, the default granularity is &#x60;hour&#x60;. The granularity of timeframes that exceed 15 hours is &#x60;day&#x60;. This default behavior is subject to change; it is strongly suggested that you explicitly specify the granularity.  (optional)</param>
         /// <returns>GetMetricTimeseriesDataResponse</returns>
         public GetMetricTimeseriesDataResponse GetMetricTimeseriesData(string METRIC_ID, List<string> timeframe = default(List<string>), List<string> filters = default(List<string>), string measurement = default(string), string orderDirection = default(string), string groupBy = default(string))
         {
@@ -482,7 +482,7 @@ namespace Mux.Csharp.Sdk.Api
         }
 
         /// <summary>
-        /// Get metric timeseries data Returns timeseries data for a specific metric.  Each interval represented in the data array contains an array with the following values:   * the first element is the interval time   * the second element is the calculated metric value    * the third element is the number of views in the interval that have a valid metric value 
+        /// Get metric timeseries data Returns timeseries data for a specific metric.  Each interval represented in the data array contains an array with the following values:   * the first element is the interval time   * the second element is the calculated metric value   * the third element is the number of views in the interval that have a valid metric value 
         /// </summary>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="METRIC_ID">ID of the Metric</param>
@@ -490,7 +490,7 @@ namespace Mux.Csharp.Sdk.Api
         /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Filters endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
         /// <param name="measurement">Measurement for the provided metric. If omitted, the default for the metric will be used. (optional)</param>
         /// <param name="orderDirection">Sort order. (optional)</param>
-        /// <param name="groupBy">Time granularity to group results by. If this value is omitted, a default granularity is chosen based on the timeframe.  For timeframes of 6 hours or less, the default granularity is &#x60;ten_minutes&#x60;. Between 6 hours and 15 days inclusive, the default granularity is &#x60;hour&#x60;. The granularity of timeframes that exceed 15 days is &#x60;day&#x60;. This default behavior is subject to change; it is strongly suggested that you explicitly specify the granularity.  (optional)</param>
+        /// <param name="groupBy">Time granularity to group results by. If this value is omitted, a default granularity is chosen based on the timeframe.  For timeframes of 6 hours or less, the default granularity is &#x60;ten_minutes&#x60;. Between 6 hours and 15 hours inclusive, the default granularity is &#x60;hour&#x60;. The granularity of timeframes that exceed 15 hours is &#x60;day&#x60;. This default behavior is subject to change; it is strongly suggested that you explicitly specify the granularity.  (optional)</param>
         /// <returns>ApiResponse of GetMetricTimeseriesDataResponse</returns>
         public Mux.Csharp.Sdk.Client.ApiResponse<GetMetricTimeseriesDataResponse> GetMetricTimeseriesDataWithHttpInfo(string METRIC_ID, List<string> timeframe = default(List<string>), List<string> filters = default(List<string>), string measurement = default(string), string orderDirection = default(string), string groupBy = default(string))
         {
@@ -566,7 +566,7 @@ namespace Mux.Csharp.Sdk.Api
         }
 
         /// <summary>
-        /// Get metric timeseries data Returns timeseries data for a specific metric.  Each interval represented in the data array contains an array with the following values:   * the first element is the interval time   * the second element is the calculated metric value    * the third element is the number of views in the interval that have a valid metric value 
+        /// Get metric timeseries data Returns timeseries data for a specific metric.  Each interval represented in the data array contains an array with the following values:   * the first element is the interval time   * the second element is the calculated metric value   * the third element is the number of views in the interval that have a valid metric value 
         /// </summary>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="METRIC_ID">ID of the Metric</param>
@@ -574,7 +574,7 @@ namespace Mux.Csharp.Sdk.Api
         /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Filters endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
         /// <param name="measurement">Measurement for the provided metric. If omitted, the default for the metric will be used. (optional)</param>
         /// <param name="orderDirection">Sort order. (optional)</param>
-        /// <param name="groupBy">Time granularity to group results by. If this value is omitted, a default granularity is chosen based on the timeframe.  For timeframes of 6 hours or less, the default granularity is &#x60;ten_minutes&#x60;. Between 6 hours and 15 days inclusive, the default granularity is &#x60;hour&#x60;. The granularity of timeframes that exceed 15 days is &#x60;day&#x60;. This default behavior is subject to change; it is strongly suggested that you explicitly specify the granularity.  (optional)</param>
+        /// <param name="groupBy">Time granularity to group results by. If this value is omitted, a default granularity is chosen based on the timeframe.  For timeframes of 6 hours or less, the default granularity is &#x60;ten_minutes&#x60;. Between 6 hours and 15 hours inclusive, the default granularity is &#x60;hour&#x60;. The granularity of timeframes that exceed 15 hours is &#x60;day&#x60;. This default behavior is subject to change; it is strongly suggested that you explicitly specify the granularity.  (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of GetMetricTimeseriesDataResponse</returns>
         public async System.Threading.Tasks.Task<GetMetricTimeseriesDataResponse> GetMetricTimeseriesDataAsync(string METRIC_ID, List<string> timeframe = default(List<string>), List<string> filters = default(List<string>), string measurement = default(string), string orderDirection = default(string), string groupBy = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
@@ -584,7 +584,7 @@ namespace Mux.Csharp.Sdk.Api
         }
 
         /// <summary>
-        /// Get metric timeseries data Returns timeseries data for a specific metric.  Each interval represented in the data array contains an array with the following values:   * the first element is the interval time   * the second element is the calculated metric value    * the third element is the number of views in the interval that have a valid metric value 
+        /// Get metric timeseries data Returns timeseries data for a specific metric.  Each interval represented in the data array contains an array with the following values:   * the first element is the interval time   * the second element is the calculated metric value   * the third element is the number of views in the interval that have a valid metric value 
         /// </summary>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="METRIC_ID">ID of the Metric</param>
@@ -592,7 +592,7 @@ namespace Mux.Csharp.Sdk.Api
         /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Filters endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
         /// <param name="measurement">Measurement for the provided metric. If omitted, the default for the metric will be used. (optional)</param>
         /// <param name="orderDirection">Sort order. (optional)</param>
-        /// <param name="groupBy">Time granularity to group results by. If this value is omitted, a default granularity is chosen based on the timeframe.  For timeframes of 6 hours or less, the default granularity is &#x60;ten_minutes&#x60;. Between 6 hours and 15 days inclusive, the default granularity is &#x60;hour&#x60;. The granularity of timeframes that exceed 15 days is &#x60;day&#x60;. This default behavior is subject to change; it is strongly suggested that you explicitly specify the granularity.  (optional)</param>
+        /// <param name="groupBy">Time granularity to group results by. If this value is omitted, a default granularity is chosen based on the timeframe.  For timeframes of 6 hours or less, the default granularity is &#x60;ten_minutes&#x60;. Between 6 hours and 15 hours inclusive, the default granularity is &#x60;hour&#x60;. The granularity of timeframes that exceed 15 hours is &#x60;day&#x60;. This default behavior is subject to change; it is strongly suggested that you explicitly specify the granularity.  (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (GetMetricTimeseriesDataResponse)</returns>
         public async System.Threading.Tasks.Task<Mux.Csharp.Sdk.Client.ApiResponse<GetMetricTimeseriesDataResponse>> GetMetricTimeseriesDataWithHttpInfoAsync(string METRIC_ID, List<string> timeframe = default(List<string>), List<string> filters = default(List<string>), string measurement = default(string), string orderDirection = default(string), string groupBy = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))

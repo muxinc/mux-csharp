@@ -186,7 +186,7 @@ namespace Mux.Csharp.Sdk.Api
         /// Start a space broadcast
         /// </summary>
         /// <remarks>
-        /// Starts broadcasting a space to the associated destination.
+        /// Starts broadcasting a space to the associated destination. Broadcasts can only be started when the space is &#x60;active&#x60; (when there are participants connected).
         /// </remarks>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="SPACE_ID">The space ID.</param>
@@ -198,7 +198,7 @@ namespace Mux.Csharp.Sdk.Api
         /// Start a space broadcast
         /// </summary>
         /// <remarks>
-        /// Starts broadcasting a space to the associated destination.
+        /// Starts broadcasting a space to the associated destination. Broadcasts can only be started when the space is &#x60;active&#x60; (when there are participants connected).
         /// </remarks>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="SPACE_ID">The space ID.</param>
@@ -410,7 +410,7 @@ namespace Mux.Csharp.Sdk.Api
         /// Start a space broadcast
         /// </summary>
         /// <remarks>
-        /// Starts broadcasting a space to the associated destination.
+        /// Starts broadcasting a space to the associated destination. Broadcasts can only be started when the space is &#x60;active&#x60; (when there are participants connected).
         /// </remarks>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="SPACE_ID">The space ID.</param>
@@ -423,7 +423,7 @@ namespace Mux.Csharp.Sdk.Api
         /// Start a space broadcast
         /// </summary>
         /// <remarks>
-        /// Starts broadcasting a space to the associated destination.
+        /// Starts broadcasting a space to the associated destination. Broadcasts can only be started when the space is &#x60;active&#x60; (when there are participants connected).
         /// </remarks>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="SPACE_ID">The space ID.</param>
@@ -1655,7 +1655,7 @@ namespace Mux.Csharp.Sdk.Api
         }
 
         /// <summary>
-        /// Start a space broadcast Starts broadcasting a space to the associated destination.
+        /// Start a space broadcast Starts broadcasting a space to the associated destination. Broadcasts can only be started when the space is &#x60;active&#x60; (when there are participants connected).
         /// </summary>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="SPACE_ID">The space ID.</param>
@@ -1668,7 +1668,7 @@ namespace Mux.Csharp.Sdk.Api
         }
 
         /// <summary>
-        /// Start a space broadcast Starts broadcasting a space to the associated destination.
+        /// Start a space broadcast Starts broadcasting a space to the associated destination. Broadcasts can only be started when the space is &#x60;active&#x60; (when there are participants connected).
         /// </summary>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="SPACE_ID">The space ID.</param>
@@ -1735,7 +1735,7 @@ namespace Mux.Csharp.Sdk.Api
         }
 
         /// <summary>
-        /// Start a space broadcast Starts broadcasting a space to the associated destination.
+        /// Start a space broadcast Starts broadcasting a space to the associated destination. Broadcasts can only be started when the space is &#x60;active&#x60; (when there are participants connected).
         /// </summary>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="SPACE_ID">The space ID.</param>
@@ -1749,7 +1749,7 @@ namespace Mux.Csharp.Sdk.Api
         }
 
         /// <summary>
-        /// Start a space broadcast Starts broadcasting a space to the associated destination.
+        /// Start a space broadcast Starts broadcasting a space to the associated destination. Broadcasts can only be started when the space is &#x60;active&#x60; (when there are participants connected).
         /// </summary>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="SPACE_ID">The space ID.</param>
