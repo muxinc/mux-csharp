@@ -792,7 +792,7 @@ namespace Mux.Csharp.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Post<BroadcastResponse>("/video/v1/spaces/${SPACE_ID}/broadcasts", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Post<BroadcastResponse>("/video/v1/spaces/{SPACE_ID}/broadcasts", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("CreateSpaceBroadcast", localVarResponse);
@@ -876,7 +876,7 @@ namespace Mux.Csharp.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.PostAsync<BroadcastResponse>("/video/v1/spaces/${SPACE_ID}/broadcasts", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.PostAsync<BroadcastResponse>("/video/v1/spaces/{SPACE_ID}/broadcasts", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -946,7 +946,7 @@ namespace Mux.Csharp.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Delete<Object>("/video/v1/spaces/${SPACE_ID}", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Delete<Object>("/video/v1/spaces/{SPACE_ID}", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("DeleteSpace", localVarResponse);
@@ -1018,7 +1018,7 @@ namespace Mux.Csharp.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.DeleteAsync<Object>("/video/v1/spaces/${SPACE_ID}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.DeleteAsync<Object>("/video/v1/spaces/{SPACE_ID}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -1097,7 +1097,7 @@ namespace Mux.Csharp.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Delete<Object>("/video/v1/spaces/${SPACE_ID}/broadcasts/${BROADCAST_ID}", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Delete<Object>("/video/v1/spaces/{SPACE_ID}/broadcasts/{BROADCAST_ID}", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("DeleteSpaceBroadcast", localVarResponse);
@@ -1178,7 +1178,7 @@ namespace Mux.Csharp.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.DeleteAsync<Object>("/video/v1/spaces/${SPACE_ID}/broadcasts/${BROADCAST_ID}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.DeleteAsync<Object>("/video/v1/spaces/{SPACE_ID}/broadcasts/{BROADCAST_ID}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -1250,7 +1250,7 @@ namespace Mux.Csharp.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<SpaceResponse>("/video/v1/spaces/${SPACE_ID}", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<SpaceResponse>("/video/v1/spaces/{SPACE_ID}", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetSpace", localVarResponse);
@@ -1324,7 +1324,7 @@ namespace Mux.Csharp.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<SpaceResponse>("/video/v1/spaces/${SPACE_ID}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<SpaceResponse>("/video/v1/spaces/{SPACE_ID}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -1405,7 +1405,7 @@ namespace Mux.Csharp.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<BroadcastResponse>("/video/v1/spaces/${SPACE_ID}/broadcasts/${BROADCAST_ID}", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<BroadcastResponse>("/video/v1/spaces/{SPACE_ID}/broadcasts/{BROADCAST_ID}", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetSpaceBroadcast", localVarResponse);
@@ -1488,7 +1488,7 @@ namespace Mux.Csharp.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<BroadcastResponse>("/video/v1/spaces/${SPACE_ID}/broadcasts/${BROADCAST_ID}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<BroadcastResponse>("/video/v1/spaces/{SPACE_ID}/broadcasts/{BROADCAST_ID}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -1721,7 +1721,7 @@ namespace Mux.Csharp.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Post<StartSpaceBroadcastResponse>("/video/v1/spaces/${SPACE_ID}/broadcasts/${BROADCAST_ID}/start", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Post<StartSpaceBroadcastResponse>("/video/v1/spaces/{SPACE_ID}/broadcasts/{BROADCAST_ID}/start", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("StartSpaceBroadcast", localVarResponse);
@@ -1804,7 +1804,7 @@ namespace Mux.Csharp.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.PostAsync<StartSpaceBroadcastResponse>("/video/v1/spaces/${SPACE_ID}/broadcasts/${BROADCAST_ID}/start", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.PostAsync<StartSpaceBroadcastResponse>("/video/v1/spaces/{SPACE_ID}/broadcasts/{BROADCAST_ID}/start", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -1885,7 +1885,7 @@ namespace Mux.Csharp.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Post<StopSpaceBroadcastResponse>("/video/v1/spaces/${SPACE_ID}/broadcasts/${BROADCAST_ID}/stop", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Post<StopSpaceBroadcastResponse>("/video/v1/spaces/{SPACE_ID}/broadcasts/{BROADCAST_ID}/stop", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("StopSpaceBroadcast", localVarResponse);
@@ -1968,7 +1968,7 @@ namespace Mux.Csharp.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.PostAsync<StopSpaceBroadcastResponse>("/video/v1/spaces/${SPACE_ID}/broadcasts/${BROADCAST_ID}/stop", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.PostAsync<StopSpaceBroadcastResponse>("/video/v1/spaces/{SPACE_ID}/broadcasts/{BROADCAST_ID}/stop", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
