@@ -20,6 +20,7 @@ Method | HTTP request | Description
 [**SignalLiveStreamComplete**](LiveStreamsApi.md#signallivestreamcomplete) | **PUT** /video/v1/live-streams/{LIVE_STREAM_ID}/complete | Signal a live stream is finished
 [**UpdateLiveStream**](LiveStreamsApi.md#updatelivestream) | **PATCH** /video/v1/live-streams/{LIVE_STREAM_ID} | Update a live stream
 [**UpdateLiveStreamEmbeddedSubtitles**](LiveStreamsApi.md#updatelivestreamembeddedsubtitles) | **PUT** /video/v1/live-streams/{LIVE_STREAM_ID}/embedded-subtitles | Update a live stream&#39;s embedded subtitles
+[**UpdateLiveStreamGeneratedSubtitles**](LiveStreamsApi.md#updatelivestreamgeneratedsubtitles) | **PUT** /video/v1/live-streams/{LIVE_STREAM_ID}/generated-subtitles | Update a live stream&#39;s generated subtitles
 
 
 <a name="createlivestream"></a>
@@ -1219,6 +1220,83 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **LIVE_STREAM_ID** | **string**| The live stream ID | 
  **updateLiveStreamEmbeddedSubtitlesRequest** | [**UpdateLiveStreamEmbeddedSubtitlesRequest**](UpdateLiveStreamEmbeddedSubtitlesRequest.md)|  | 
+
+### Return type
+
+[**LiveStreamResponse**](LiveStreamResponse.md)
+
+### Authorization
+
+[accessToken](../README.md#accessToken)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="updatelivestreamgeneratedsubtitles"></a>
+# **UpdateLiveStreamGeneratedSubtitles**
+> LiveStreamResponse UpdateLiveStreamGeneratedSubtitles (string LIVE_STREAM_ID, UpdateLiveStreamGeneratedSubtitlesRequest updateLiveStreamGeneratedSubtitlesRequest)
+
+Update a live stream's generated subtitles
+
+Updates a live stream's automatic-speech-recognition-generated subtitle configuration. Automatic speech recognition subtitles can be removed by sending an empty array in the request payload. 
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Mux.Csharp.Sdk.Api;
+using Mux.Csharp.Sdk.Client;
+using Mux.Csharp.Sdk.Model;
+
+namespace Example
+{
+    public class UpdateLiveStreamGeneratedSubtitlesExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.mux.com";
+            // Configure HTTP basic authorization: accessToken
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+
+            var apiInstance = new LiveStreamsApi(config);
+            var LIVE_STREAM_ID = "LIVE_STREAM_ID_example";  // string | The live stream ID
+            var updateLiveStreamGeneratedSubtitlesRequest = new UpdateLiveStreamGeneratedSubtitlesRequest(); // UpdateLiveStreamGeneratedSubtitlesRequest | 
+
+            try
+            {
+                // Update a live stream's generated subtitles
+                LiveStreamResponse result = apiInstance.UpdateLiveStreamGeneratedSubtitles(LIVE_STREAM_ID, updateLiveStreamGeneratedSubtitlesRequest);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling LiveStreamsApi.UpdateLiveStreamGeneratedSubtitles: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **LIVE_STREAM_ID** | **string**| The live stream ID | 
+ **updateLiveStreamGeneratedSubtitlesRequest** | [**UpdateLiveStreamGeneratedSubtitlesRequest**](UpdateLiveStreamGeneratedSubtitlesRequest.md)|  | 
 
 ### Return type
 

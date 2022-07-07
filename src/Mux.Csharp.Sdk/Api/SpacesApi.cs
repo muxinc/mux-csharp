@@ -52,7 +52,7 @@ namespace Mux.Csharp.Sdk.Api
         /// Create a space broadcast
         /// </summary>
         /// <remarks>
-        /// Creates a new broadcast. Broadcasts are used to create composited versions of your space, which can be broadcast to live streams.  **Note:** By default only a single broadcast destination can be specified. Contact Mux support if you need more.
+        /// Creates a new broadcast. Broadcasts are used to create composited versions of your space, which can be broadcast to live streams. **Note:** By default only a single broadcast destination can be specified. Contact Mux support if you need more.
         /// </remarks>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="SPACE_ID">The space ID.</param>
@@ -64,7 +64,7 @@ namespace Mux.Csharp.Sdk.Api
         /// Create a space broadcast
         /// </summary>
         /// <remarks>
-        /// Creates a new broadcast. Broadcasts are used to create composited versions of your space, which can be broadcast to live streams.  **Note:** By default only a single broadcast destination can be specified. Contact Mux support if you need more.
+        /// Creates a new broadcast. Broadcasts are used to create composited versions of your space, which can be broadcast to live streams. **Note:** By default only a single broadcast destination can be specified. Contact Mux support if you need more.
         /// </remarks>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="SPACE_ID">The space ID.</param>
@@ -264,7 +264,7 @@ namespace Mux.Csharp.Sdk.Api
         /// Create a space broadcast
         /// </summary>
         /// <remarks>
-        /// Creates a new broadcast. Broadcasts are used to create composited versions of your space, which can be broadcast to live streams.  **Note:** By default only a single broadcast destination can be specified. Contact Mux support if you need more.
+        /// Creates a new broadcast. Broadcasts are used to create composited versions of your space, which can be broadcast to live streams. **Note:** By default only a single broadcast destination can be specified. Contact Mux support if you need more.
         /// </remarks>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="SPACE_ID">The space ID.</param>
@@ -277,7 +277,7 @@ namespace Mux.Csharp.Sdk.Api
         /// Create a space broadcast
         /// </summary>
         /// <remarks>
-        /// Creates a new broadcast. Broadcasts are used to create composited versions of your space, which can be broadcast to live streams.  **Note:** By default only a single broadcast destination can be specified. Contact Mux support if you need more.
+        /// Creates a new broadcast. Broadcasts are used to create composited versions of your space, which can be broadcast to live streams. **Note:** By default only a single broadcast destination can be specified. Contact Mux support if you need more.
         /// </remarks>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="SPACE_ID">The space ID.</param>
@@ -725,7 +725,7 @@ namespace Mux.Csharp.Sdk.Api
         }
 
         /// <summary>
-        /// Create a space broadcast Creates a new broadcast. Broadcasts are used to create composited versions of your space, which can be broadcast to live streams.  **Note:** By default only a single broadcast destination can be specified. Contact Mux support if you need more.
+        /// Create a space broadcast Creates a new broadcast. Broadcasts are used to create composited versions of your space, which can be broadcast to live streams. **Note:** By default only a single broadcast destination can be specified. Contact Mux support if you need more.
         /// </summary>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="SPACE_ID">The space ID.</param>
@@ -738,7 +738,7 @@ namespace Mux.Csharp.Sdk.Api
         }
 
         /// <summary>
-        /// Create a space broadcast Creates a new broadcast. Broadcasts are used to create composited versions of your space, which can be broadcast to live streams.  **Note:** By default only a single broadcast destination can be specified. Contact Mux support if you need more.
+        /// Create a space broadcast Creates a new broadcast. Broadcasts are used to create composited versions of your space, which can be broadcast to live streams. **Note:** By default only a single broadcast destination can be specified. Contact Mux support if you need more.
         /// </summary>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="SPACE_ID">The space ID.</param>
@@ -806,7 +806,7 @@ namespace Mux.Csharp.Sdk.Api
         }
 
         /// <summary>
-        /// Create a space broadcast Creates a new broadcast. Broadcasts are used to create composited versions of your space, which can be broadcast to live streams.  **Note:** By default only a single broadcast destination can be specified. Contact Mux support if you need more.
+        /// Create a space broadcast Creates a new broadcast. Broadcasts are used to create composited versions of your space, which can be broadcast to live streams. **Note:** By default only a single broadcast destination can be specified. Contact Mux support if you need more.
         /// </summary>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="SPACE_ID">The space ID.</param>
@@ -820,7 +820,7 @@ namespace Mux.Csharp.Sdk.Api
         }
 
         /// <summary>
-        /// Create a space broadcast Creates a new broadcast. Broadcasts are used to create composited versions of your space, which can be broadcast to live streams.  **Note:** By default only a single broadcast destination can be specified. Contact Mux support if you need more.
+        /// Create a space broadcast Creates a new broadcast. Broadcasts are used to create composited versions of your space, which can be broadcast to live streams. **Note:** By default only a single broadcast destination can be specified. Contact Mux support if you need more.
         /// </summary>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="SPACE_ID">The space ID.</param>

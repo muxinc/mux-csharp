@@ -75,13 +75,14 @@ namespace Mux.Csharp.Sdk.Model
         /// <param name="passthrough">passthrough.</param>
         /// <param name="audioOnly">Force the live stream to only process the audio track when the value is set to true. Mux drops the video track if broadcasted..</param>
         /// <param name="embeddedSubtitles">Describe the embedded closed caption contents of the incoming live stream..</param>
+        /// <param name="generatedSubtitles">Configure the incoming live stream to include subtitles created with automatic speech recognition. Each Asset created from a live stream with &#x60;generated_subtitles&#x60; configured will automatically receive two text tracks. The first of these will have a &#x60;text_source&#x60; value of &#x60;generated_live&#x60;, and will be available with &#x60;ready&#x60; status as soon as the stream is live. The second text track will have a &#x60;text_source&#x60; value of &#x60;generated_live_final&#x60; and will contain subtitles with improved accuracy, timing, and formatting. However, &#x60;generated_live_final&#x60; tracks will not be available in &#x60;ready&#x60; status until the live stream ends. If an Asset has both &#x60;generated_live&#x60; and &#x60;generated_live_final&#x60; tracks that are &#x60;ready&#x60;, then only the &#x60;generated_live_final&#x60; track will be included during playback..</param>
         /// <param name="reducedLatency">This field is deprecated. Please use latency_mode instead. Latency is the time from when the streamer transmits a frame of video to when you see it in the player. Set this if you want lower latency for your live stream. Note: Reconnect windows are incompatible with Reduced Latency and will always be set to zero (0) seconds. Read more here: https://mux.com/blog/reduced-latency-for-mux-live-streaming-now-available/.</param>
         /// <param name="lowLatency">This field is deprecated. Please use latency_mode instead. Latency is the time from when the streamer transmits a frame of video to when you see it in the player. Setting this option will enable compatibility with the LL-HLS specification for low-latency streaming. This typically has lower latency than Reduced Latency streams, and cannot be combined with Reduced Latency. Note: Reconnect windows are incompatible with Low Latency and will always be set to zero (0) seconds..</param>
         /// <param name="latencyMode">Latency is the time from when the streamer transmits a frame of video to when you see it in the player. Set this as an alternative to setting low latency or reduced latency flags. The Low Latency value is a beta feature. Note: Reconnect windows are incompatible with Reduced Latency and Low Latency and will always be set to zero (0) seconds. Read more here: https://mux.com/blog/introducing-low-latency-live-streaming/.</param>
         /// <param name="test">Marks the live stream as a test live stream when the value is set to true. A test live stream can help evaluate the Mux Video APIs without incurring any cost. There is no limit on number of test live streams created. Test live streams are watermarked with the Mux logo and limited to 5 minutes. The test live stream is disabled after the stream is active for 5 mins and the recorded asset also deleted after 24 hours..</param>
         /// <param name="simulcastTargets">simulcastTargets.</param>
         /// <param name="maxContinuousDuration">The time in seconds a live stream may be continuously active before being disconnected. Defaults to 12 hours. (default to 43200).</param>
-        public CreateLiveStreamRequest(List<PlaybackPolicy> playbackPolicy = default(List<PlaybackPolicy>), CreateAssetRequest newAssetSettings = default(CreateAssetRequest), float reconnectWindow = default(float), string passthrough = default(string), bool audioOnly = default(bool), List<LiveStreamEmbeddedSubtitleSettings> embeddedSubtitles = default(List<LiveStreamEmbeddedSubtitleSettings>), bool reducedLatency = default(bool), bool lowLatency = default(bool), LatencyModeEnum? latencyMode = default(LatencyModeEnum?), bool test = default(bool), List<CreateSimulcastTargetRequest> simulcastTargets = default(List<CreateSimulcastTargetRequest>), int maxContinuousDuration = 43200)
+        public CreateLiveStreamRequest(List<PlaybackPolicy> playbackPolicy = default(List<PlaybackPolicy>), CreateAssetRequest newAssetSettings = default(CreateAssetRequest), float reconnectWindow = default(float), string passthrough = default(string), bool audioOnly = default(bool), List<LiveStreamEmbeddedSubtitleSettings> embeddedSubtitles = default(List<LiveStreamEmbeddedSubtitleSettings>), List<LiveStreamGeneratedSubtitleSettings> generatedSubtitles = default(List<LiveStreamGeneratedSubtitleSettings>), bool reducedLatency = default(bool), bool lowLatency = default(bool), LatencyModeEnum? latencyMode = default(LatencyModeEnum?), bool test = default(bool), List<CreateSimulcastTargetRequest> simulcastTargets = default(List<CreateSimulcastTargetRequest>), int maxContinuousDuration = 43200)
         {
             this.PlaybackPolicy = playbackPolicy;
             this.NewAssetSettings = newAssetSettings;
@@ -89,6 +90,7 @@ namespace Mux.Csharp.Sdk.Model
             this.Passthrough = passthrough;
             this.AudioOnly = audioOnly;
             this.EmbeddedSubtitles = embeddedSubtitles;
+            this.GeneratedSubtitles = generatedSubtitles;
             this.ReducedLatency = reducedLatency;
             this.LowLatency = lowLatency;
             this.LatencyMode = latencyMode;
@@ -136,6 +138,13 @@ namespace Mux.Csharp.Sdk.Model
         /// <value>Describe the embedded closed caption contents of the incoming live stream.</value>
         [DataMember(Name = "embedded_subtitles", EmitDefaultValue = false)]
         public List<LiveStreamEmbeddedSubtitleSettings> EmbeddedSubtitles { get; set; }
+
+        /// <summary>
+        /// Configure the incoming live stream to include subtitles created with automatic speech recognition. Each Asset created from a live stream with &#x60;generated_subtitles&#x60; configured will automatically receive two text tracks. The first of these will have a &#x60;text_source&#x60; value of &#x60;generated_live&#x60;, and will be available with &#x60;ready&#x60; status as soon as the stream is live. The second text track will have a &#x60;text_source&#x60; value of &#x60;generated_live_final&#x60; and will contain subtitles with improved accuracy, timing, and formatting. However, &#x60;generated_live_final&#x60; tracks will not be available in &#x60;ready&#x60; status until the live stream ends. If an Asset has both &#x60;generated_live&#x60; and &#x60;generated_live_final&#x60; tracks that are &#x60;ready&#x60;, then only the &#x60;generated_live_final&#x60; track will be included during playback.
+        /// </summary>
+        /// <value>Configure the incoming live stream to include subtitles created with automatic speech recognition. Each Asset created from a live stream with &#x60;generated_subtitles&#x60; configured will automatically receive two text tracks. The first of these will have a &#x60;text_source&#x60; value of &#x60;generated_live&#x60;, and will be available with &#x60;ready&#x60; status as soon as the stream is live. The second text track will have a &#x60;text_source&#x60; value of &#x60;generated_live_final&#x60; and will contain subtitles with improved accuracy, timing, and formatting. However, &#x60;generated_live_final&#x60; tracks will not be available in &#x60;ready&#x60; status until the live stream ends. If an Asset has both &#x60;generated_live&#x60; and &#x60;generated_live_final&#x60; tracks that are &#x60;ready&#x60;, then only the &#x60;generated_live_final&#x60; track will be included during playback.</value>
+        [DataMember(Name = "generated_subtitles", EmitDefaultValue = false)]
+        public List<LiveStreamGeneratedSubtitleSettings> GeneratedSubtitles { get; set; }
 
         /// <summary>
         /// This field is deprecated. Please use latency_mode instead. Latency is the time from when the streamer transmits a frame of video to when you see it in the player. Set this if you want lower latency for your live stream. Note: Reconnect windows are incompatible with Reduced Latency and will always be set to zero (0) seconds. Read more here: https://mux.com/blog/reduced-latency-for-mux-live-streaming-now-available/
@@ -193,6 +202,7 @@ namespace Mux.Csharp.Sdk.Model
             sb.Append("  Passthrough: ").Append(Passthrough).Append("\n");
             sb.Append("  AudioOnly: ").Append(AudioOnly).Append("\n");
             sb.Append("  EmbeddedSubtitles: ").Append(EmbeddedSubtitles).Append("\n");
+            sb.Append("  GeneratedSubtitles: ").Append(GeneratedSubtitles).Append("\n");
             sb.Append("  ReducedLatency: ").Append(ReducedLatency).Append("\n");
             sb.Append("  LowLatency: ").Append(LowLatency).Append("\n");
             sb.Append("  LatencyMode: ").Append(LatencyMode).Append("\n");
@@ -266,6 +276,12 @@ namespace Mux.Csharp.Sdk.Model
                     this.EmbeddedSubtitles.SequenceEqual(input.EmbeddedSubtitles)
                 ) && 
                 (
+                    this.GeneratedSubtitles == input.GeneratedSubtitles ||
+                    this.GeneratedSubtitles != null &&
+                    input.GeneratedSubtitles != null &&
+                    this.GeneratedSubtitles.SequenceEqual(input.GeneratedSubtitles)
+                ) && 
+                (
                     this.ReducedLatency == input.ReducedLatency ||
                     this.ReducedLatency.Equals(input.ReducedLatency)
                 ) && 
@@ -321,6 +337,10 @@ namespace Mux.Csharp.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.EmbeddedSubtitles.GetHashCode();
                 }
+                if (this.GeneratedSubtitles != null)
+                {
+                    hashCode = (hashCode * 59) + this.GeneratedSubtitles.GetHashCode();
+                }
                 hashCode = (hashCode * 59) + this.ReducedLatency.GetHashCode();
                 hashCode = (hashCode * 59) + this.LowLatency.GetHashCode();
                 hashCode = (hashCode * 59) + this.LatencyMode.GetHashCode();
@@ -346,9 +366,9 @@ namespace Mux.Csharp.Sdk.Model
         public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
             // ReconnectWindow (float) maximum
-            if (this.ReconnectWindow > (float)300)
+            if (this.ReconnectWindow > (float)1800)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ReconnectWindow, must be a value less than or equal to 300.", new [] { "ReconnectWindow" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ReconnectWindow, must be a value less than or equal to 1800.", new [] { "ReconnectWindow" });
             }
 
             // ReconnectWindow (float) minimum

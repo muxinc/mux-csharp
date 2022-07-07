@@ -385,6 +385,29 @@ namespace Mux.Csharp.Sdk.Api
         /// <param name="updateLiveStreamEmbeddedSubtitlesRequest"></param>
         /// <returns>ApiResponse of LiveStreamResponse</returns>
         ApiResponse<LiveStreamResponse> UpdateLiveStreamEmbeddedSubtitlesWithHttpInfo(string LIVE_STREAM_ID, UpdateLiveStreamEmbeddedSubtitlesRequest updateLiveStreamEmbeddedSubtitlesRequest);
+        /// <summary>
+        /// Update a live stream&#39;s generated subtitles
+        /// </summary>
+        /// <remarks>
+        /// Updates a live stream&#39;s automatic-speech-recognition-generated subtitle configuration. Automatic speech recognition subtitles can be removed by sending an empty array in the request payload. 
+        /// </remarks>
+        /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="LIVE_STREAM_ID">The live stream ID</param>
+        /// <param name="updateLiveStreamGeneratedSubtitlesRequest"></param>
+        /// <returns>LiveStreamResponse</returns>
+        LiveStreamResponse UpdateLiveStreamGeneratedSubtitles(string LIVE_STREAM_ID, UpdateLiveStreamGeneratedSubtitlesRequest updateLiveStreamGeneratedSubtitlesRequest);
+
+        /// <summary>
+        /// Update a live stream&#39;s generated subtitles
+        /// </summary>
+        /// <remarks>
+        /// Updates a live stream&#39;s automatic-speech-recognition-generated subtitle configuration. Automatic speech recognition subtitles can be removed by sending an empty array in the request payload. 
+        /// </remarks>
+        /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="LIVE_STREAM_ID">The live stream ID</param>
+        /// <param name="updateLiveStreamGeneratedSubtitlesRequest"></param>
+        /// <returns>ApiResponse of LiveStreamResponse</returns>
+        ApiResponse<LiveStreamResponse> UpdateLiveStreamGeneratedSubtitlesWithHttpInfo(string LIVE_STREAM_ID, UpdateLiveStreamGeneratedSubtitlesRequest updateLiveStreamGeneratedSubtitlesRequest);
         #endregion Synchronous Operations
     }
 
@@ -784,6 +807,31 @@ namespace Mux.Csharp.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (LiveStreamResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<LiveStreamResponse>> UpdateLiveStreamEmbeddedSubtitlesWithHttpInfoAsync(string LIVE_STREAM_ID, UpdateLiveStreamEmbeddedSubtitlesRequest updateLiveStreamEmbeddedSubtitlesRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// Update a live stream&#39;s generated subtitles
+        /// </summary>
+        /// <remarks>
+        /// Updates a live stream&#39;s automatic-speech-recognition-generated subtitle configuration. Automatic speech recognition subtitles can be removed by sending an empty array in the request payload. 
+        /// </remarks>
+        /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="LIVE_STREAM_ID">The live stream ID</param>
+        /// <param name="updateLiveStreamGeneratedSubtitlesRequest"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of LiveStreamResponse</returns>
+        System.Threading.Tasks.Task<LiveStreamResponse> UpdateLiveStreamGeneratedSubtitlesAsync(string LIVE_STREAM_ID, UpdateLiveStreamGeneratedSubtitlesRequest updateLiveStreamGeneratedSubtitlesRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Update a live stream&#39;s generated subtitles
+        /// </summary>
+        /// <remarks>
+        /// Updates a live stream&#39;s automatic-speech-recognition-generated subtitle configuration. Automatic speech recognition subtitles can be removed by sending an empty array in the request payload. 
+        /// </remarks>
+        /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="LIVE_STREAM_ID">The live stream ID</param>
+        /// <param name="updateLiveStreamGeneratedSubtitlesRequest"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (LiveStreamResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<LiveStreamResponse>> UpdateLiveStreamGeneratedSubtitlesWithHttpInfoAsync(string LIVE_STREAM_ID, UpdateLiveStreamGeneratedSubtitlesRequest updateLiveStreamGeneratedSubtitlesRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -3403,6 +3451,172 @@ namespace Mux.Csharp.Sdk.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("UpdateLiveStreamEmbeddedSubtitles", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Update a live stream&#39;s generated subtitles Updates a live stream&#39;s automatic-speech-recognition-generated subtitle configuration. Automatic speech recognition subtitles can be removed by sending an empty array in the request payload. 
+        /// </summary>
+        /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="LIVE_STREAM_ID">The live stream ID</param>
+        /// <param name="updateLiveStreamGeneratedSubtitlesRequest"></param>
+        /// <returns>LiveStreamResponse</returns>
+        public LiveStreamResponse UpdateLiveStreamGeneratedSubtitles(string LIVE_STREAM_ID, UpdateLiveStreamGeneratedSubtitlesRequest updateLiveStreamGeneratedSubtitlesRequest)
+        {
+            Mux.Csharp.Sdk.Client.ApiResponse<LiveStreamResponse> localVarResponse = UpdateLiveStreamGeneratedSubtitlesWithHttpInfo(LIVE_STREAM_ID, updateLiveStreamGeneratedSubtitlesRequest);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Update a live stream&#39;s generated subtitles Updates a live stream&#39;s automatic-speech-recognition-generated subtitle configuration. Automatic speech recognition subtitles can be removed by sending an empty array in the request payload. 
+        /// </summary>
+        /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="LIVE_STREAM_ID">The live stream ID</param>
+        /// <param name="updateLiveStreamGeneratedSubtitlesRequest"></param>
+        /// <returns>ApiResponse of LiveStreamResponse</returns>
+        public Mux.Csharp.Sdk.Client.ApiResponse<LiveStreamResponse> UpdateLiveStreamGeneratedSubtitlesWithHttpInfo(string LIVE_STREAM_ID, UpdateLiveStreamGeneratedSubtitlesRequest updateLiveStreamGeneratedSubtitlesRequest)
+        {
+            // verify the required parameter 'LIVE_STREAM_ID' is set
+            if (LIVE_STREAM_ID == null)
+            {
+                throw new Mux.Csharp.Sdk.Client.ApiException(400, "Missing required parameter 'LIVE_STREAM_ID' when calling LiveStreamsApi->UpdateLiveStreamGeneratedSubtitles");
+            }
+
+            // verify the required parameter 'updateLiveStreamGeneratedSubtitlesRequest' is set
+            if (updateLiveStreamGeneratedSubtitlesRequest == null)
+            {
+                throw new Mux.Csharp.Sdk.Client.ApiException(400, "Missing required parameter 'updateLiveStreamGeneratedSubtitlesRequest' when calling LiveStreamsApi->UpdateLiveStreamGeneratedSubtitles");
+            }
+
+            Mux.Csharp.Sdk.Client.RequestOptions localVarRequestOptions = new Mux.Csharp.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = Mux.Csharp.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Mux.Csharp.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("LIVE_STREAM_ID", Mux.Csharp.Sdk.Client.ClientUtils.ParameterToString(LIVE_STREAM_ID)); // path parameter
+            localVarRequestOptions.Data = updateLiveStreamGeneratedSubtitlesRequest;
+
+            // authentication (accessToken) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Mux.Csharp.Sdk.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Put<LiveStreamResponse>("/video/v1/live-streams/{LIVE_STREAM_ID}/generated-subtitles", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("UpdateLiveStreamGeneratedSubtitles", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Update a live stream&#39;s generated subtitles Updates a live stream&#39;s automatic-speech-recognition-generated subtitle configuration. Automatic speech recognition subtitles can be removed by sending an empty array in the request payload. 
+        /// </summary>
+        /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="LIVE_STREAM_ID">The live stream ID</param>
+        /// <param name="updateLiveStreamGeneratedSubtitlesRequest"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of LiveStreamResponse</returns>
+        public async System.Threading.Tasks.Task<LiveStreamResponse> UpdateLiveStreamGeneratedSubtitlesAsync(string LIVE_STREAM_ID, UpdateLiveStreamGeneratedSubtitlesRequest updateLiveStreamGeneratedSubtitlesRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            Mux.Csharp.Sdk.Client.ApiResponse<LiveStreamResponse> localVarResponse = await UpdateLiveStreamGeneratedSubtitlesWithHttpInfoAsync(LIVE_STREAM_ID, updateLiveStreamGeneratedSubtitlesRequest, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Update a live stream&#39;s generated subtitles Updates a live stream&#39;s automatic-speech-recognition-generated subtitle configuration. Automatic speech recognition subtitles can be removed by sending an empty array in the request payload. 
+        /// </summary>
+        /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="LIVE_STREAM_ID">The live stream ID</param>
+        /// <param name="updateLiveStreamGeneratedSubtitlesRequest"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (LiveStreamResponse)</returns>
+        public async System.Threading.Tasks.Task<Mux.Csharp.Sdk.Client.ApiResponse<LiveStreamResponse>> UpdateLiveStreamGeneratedSubtitlesWithHttpInfoAsync(string LIVE_STREAM_ID, UpdateLiveStreamGeneratedSubtitlesRequest updateLiveStreamGeneratedSubtitlesRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'LIVE_STREAM_ID' is set
+            if (LIVE_STREAM_ID == null)
+            {
+                throw new Mux.Csharp.Sdk.Client.ApiException(400, "Missing required parameter 'LIVE_STREAM_ID' when calling LiveStreamsApi->UpdateLiveStreamGeneratedSubtitles");
+            }
+
+            // verify the required parameter 'updateLiveStreamGeneratedSubtitlesRequest' is set
+            if (updateLiveStreamGeneratedSubtitlesRequest == null)
+            {
+                throw new Mux.Csharp.Sdk.Client.ApiException(400, "Missing required parameter 'updateLiveStreamGeneratedSubtitlesRequest' when calling LiveStreamsApi->UpdateLiveStreamGeneratedSubtitles");
+            }
+
+
+            Mux.Csharp.Sdk.Client.RequestOptions localVarRequestOptions = new Mux.Csharp.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = Mux.Csharp.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Mux.Csharp.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("LIVE_STREAM_ID", Mux.Csharp.Sdk.Client.ClientUtils.ParameterToString(LIVE_STREAM_ID)); // path parameter
+            localVarRequestOptions.Data = updateLiveStreamGeneratedSubtitlesRequest;
+
+            // authentication (accessToken) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Mux.Csharp.Sdk.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.PutAsync<LiveStreamResponse>("/video/v1/live-streams/{LIVE_STREAM_ID}/generated-subtitles", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("UpdateLiveStreamGeneratedSubtitles", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;

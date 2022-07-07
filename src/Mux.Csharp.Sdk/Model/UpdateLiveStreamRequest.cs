@@ -209,9 +209,9 @@ namespace Mux.Csharp.Sdk.Model
         public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
             // ReconnectWindow (float) maximum
-            if (this.ReconnectWindow > (float)300)
+            if (this.ReconnectWindow > (float)1800)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ReconnectWindow, must be a value less than or equal to 300.", new [] { "ReconnectWindow" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ReconnectWindow, must be a value less than or equal to 1800.", new [] { "ReconnectWindow" });
             }
 
             // ReconnectWindow (float) minimum

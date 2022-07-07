@@ -124,6 +124,11 @@ Name | Type | Description | Notes
 **ViewerConnectionType** | **string** |  | [optional] 
 **ViewerDeviceModel** | **string** |  | [optional] 
 **WeightedAverageBitrate** | **long?** |  | [optional] 
+**Custom1** | **string** |  | [optional] 
+**Custom2** | **string** |  | [optional] 
+**Custom3** | **string** |  | [optional] 
+**Custom4** | **string** |  | [optional] 
+**Custom5** | **string** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

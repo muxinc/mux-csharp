@@ -155,7 +155,12 @@ namespace Mux.Csharp.Sdk.Model
         /// <param name="viewerConnectionType">viewerConnectionType.</param>
         /// <param name="viewerDeviceModel">viewerDeviceModel.</param>
         /// <param name="weightedAverageBitrate">weightedAverageBitrate.</param>
-        public VideoView(string viewTotalUpscaling = default(string), string prerollAdAssetHostname = default(string), string playerSourceDomain = default(string), string region = default(string), string viewerUserAgent = default(string), bool? prerollRequested = default(bool?), string pageType = default(string), string startupScore = default(string), long? viewSeekDuration = default(long?), string countryName = default(string), int? playerSourceHeight = default(int?), string longitude = default(string), long? bufferingCount = default(long?), long? videoDuration = default(long?), string playerSourceType = default(string), string city = default(string), string viewId = default(string), string platformDescription = default(string), long? videoStartupPrerollRequestTime = default(long?), string viewerDeviceName = default(string), string videoSeries = default(string), string viewerApplicationName = default(string), string updatedAt = default(string), long? viewTotalContentPlaybackTime = default(long?), string cdn = default(string), string playerInstanceId = default(string), string videoLanguage = default(string), int? playerSourceWidth = default(int?), string playerErrorMessage = default(string), string playerMuxPluginVersion = default(string), bool watched = default(bool), string playbackScore = default(string), string pageUrl = default(string), string metro = default(string), long? viewMaxRequestLatency = default(long?), long? requestsForFirstPreroll = default(long?), string viewTotalDownscaling = default(string), string latitude = default(string), string playerSourceHostName = default(string), string insertedAt = default(string), string viewEnd = default(string), string muxEmbedVersion = default(string), string playerLanguage = default(string), long? pageLoadTime = default(long?), string viewerDeviceCategory = default(string), long? videoStartupPrerollLoadTime = default(long?), string playerVersion = default(string), long? watchTime = default(long?), string playerSourceStreamType = default(string), string prerollAdTagHostname = default(string), string viewerDeviceManufacturer = default(string), string rebufferingScore = default(string), string experimentName = default(string), string viewerOsVersion = default(string), bool playerPreload = default(bool), long? bufferingDuration = default(long?), long? playerViewCount = default(long?), string playerSoftware = default(string), long? playerLoadTime = default(long?), string platformSummary = default(string), string videoEncodingVariant = default(string), int? playerWidth = default(int?), long? viewSeekCount = default(long?), string viewerExperienceScore = default(string), int? viewErrorId = default(int?), string videoVariantName = default(string), bool? prerollPlayed = default(bool?), string viewerApplicationEngine = default(string), string viewerOsArchitecture = default(string), string playerErrorCode = default(string), string bufferingRate = default(string), List<VideoViewEvent> events = default(List<VideoViewEvent>), string playerName = default(string), string viewStart = default(string), long? viewAverageRequestThroughput = default(long?), string videoProducer = default(string), int? errorTypeId = default(int?), string muxViewerId = default(string), string videoId = default(string), string continentCode = default(string), string sessionId = default(string), bool exitBeforeVideoStart = default(bool), string videoContentType = default(string), string viewerOsFamily = default(string), string playerPoster = default(string), long? viewAverageRequestLatency = default(long?), string videoVariantId = default(string), long? playerSourceDuration = default(long?), string playerSourceUrl = default(string), string muxApiVersion = default(string), string videoTitle = default(string), string id = default(string), string shortTime = default(string), string rebufferPercentage = default(string), long? timeToFirstFrame = default(long?), string viewerUserId = default(string), string videoStreamType = default(string), long? playerStartupTime = default(long?), string viewerApplicationVersion = default(string), string viewMaxDownscalePercentage = default(string), string viewMaxUpscalePercentage = default(string), string countryCode = default(string), bool usedFullscreen = default(bool), string isp = default(string), long propertyId = default(long), bool playerAutoplay = default(bool), int? playerHeight = default(int?), long? asn = default(long?), string asnName = default(string), string qualityScore = default(string), string playerSoftwareVersion = default(string), string playerMuxPluginName = default(string), string subPropertyId = default(string), bool? playerRemotePlayed = default(bool?), string viewMaxPlayheadPosition = default(string), string viewPlayingTime = default(string), string viewSessionId = default(string), string viewerConnectionType = default(string), string viewerDeviceModel = default(string), long? weightedAverageBitrate = default(long?))
+        /// <param name="custom1">custom1.</param>
+        /// <param name="custom2">custom2.</param>
+        /// <param name="custom3">custom3.</param>
+        /// <param name="custom4">custom4.</param>
+        /// <param name="custom5">custom5.</param>
+        public VideoView(string viewTotalUpscaling = default(string), string prerollAdAssetHostname = default(string), string playerSourceDomain = default(string), string region = default(string), string viewerUserAgent = default(string), bool? prerollRequested = default(bool?), string pageType = default(string), string startupScore = default(string), long? viewSeekDuration = default(long?), string countryName = default(string), int? playerSourceHeight = default(int?), string longitude = default(string), long? bufferingCount = default(long?), long? videoDuration = default(long?), string playerSourceType = default(string), string city = default(string), string viewId = default(string), string platformDescription = default(string), long? videoStartupPrerollRequestTime = default(long?), string viewerDeviceName = default(string), string videoSeries = default(string), string viewerApplicationName = default(string), string updatedAt = default(string), long? viewTotalContentPlaybackTime = default(long?), string cdn = default(string), string playerInstanceId = default(string), string videoLanguage = default(string), int? playerSourceWidth = default(int?), string playerErrorMessage = default(string), string playerMuxPluginVersion = default(string), bool watched = default(bool), string playbackScore = default(string), string pageUrl = default(string), string metro = default(string), long? viewMaxRequestLatency = default(long?), long? requestsForFirstPreroll = default(long?), string viewTotalDownscaling = default(string), string latitude = default(string), string playerSourceHostName = default(string), string insertedAt = default(string), string viewEnd = default(string), string muxEmbedVersion = default(string), string playerLanguage = default(string), long? pageLoadTime = default(long?), string viewerDeviceCategory = default(string), long? videoStartupPrerollLoadTime = default(long?), string playerVersion = default(string), long? watchTime = default(long?), string playerSourceStreamType = default(string), string prerollAdTagHostname = default(string), string viewerDeviceManufacturer = default(string), string rebufferingScore = default(string), string experimentName = default(string), string viewerOsVersion = default(string), bool playerPreload = default(bool), long? bufferingDuration = default(long?), long? playerViewCount = default(long?), string playerSoftware = default(string), long? playerLoadTime = default(long?), string platformSummary = default(string), string videoEncodingVariant = default(string), int? playerWidth = default(int?), long? viewSeekCount = default(long?), string viewerExperienceScore = default(string), int? viewErrorId = default(int?), string videoVariantName = default(string), bool? prerollPlayed = default(bool?), string viewerApplicationEngine = default(string), string viewerOsArchitecture = default(string), string playerErrorCode = default(string), string bufferingRate = default(string), List<VideoViewEvent> events = default(List<VideoViewEvent>), string playerName = default(string), string viewStart = default(string), long? viewAverageRequestThroughput = default(long?), string videoProducer = default(string), int? errorTypeId = default(int?), string muxViewerId = default(string), string videoId = default(string), string continentCode = default(string), string sessionId = default(string), bool exitBeforeVideoStart = default(bool), string videoContentType = default(string), string viewerOsFamily = default(string), string playerPoster = default(string), long? viewAverageRequestLatency = default(long?), string videoVariantId = default(string), long? playerSourceDuration = default(long?), string playerSourceUrl = default(string), string muxApiVersion = default(string), string videoTitle = default(string), string id = default(string), string shortTime = default(string), string rebufferPercentage = default(string), long? timeToFirstFrame = default(long?), string viewerUserId = default(string), string videoStreamType = default(string), long? playerStartupTime = default(long?), string viewerApplicationVersion = default(string), string viewMaxDownscalePercentage = default(string), string viewMaxUpscalePercentage = default(string), string countryCode = default(string), bool usedFullscreen = default(bool), string isp = default(string), long propertyId = default(long), bool playerAutoplay = default(bool), int? playerHeight = default(int?), long? asn = default(long?), string asnName = default(string), string qualityScore = default(string), string playerSoftwareVersion = default(string), string playerMuxPluginName = default(string), string subPropertyId = default(string), bool? playerRemotePlayed = default(bool?), string viewMaxPlayheadPosition = default(string), string viewPlayingTime = default(string), string viewSessionId = default(string), string viewerConnectionType = default(string), string viewerDeviceModel = default(string), long? weightedAverageBitrate = default(long?), string custom1 = default(string), string custom2 = default(string), string custom3 = default(string), string custom4 = default(string), string custom5 = default(string))
         {
             this.ViewTotalUpscaling = viewTotalUpscaling;
             this.PrerollAdAssetHostname = prerollAdAssetHostname;
@@ -277,6 +282,11 @@ namespace Mux.Csharp.Sdk.Model
             this.ViewerConnectionType = viewerConnectionType;
             this.ViewerDeviceModel = viewerDeviceModel;
             this.WeightedAverageBitrate = weightedAverageBitrate;
+            this.Custom1 = custom1;
+            this.Custom2 = custom2;
+            this.Custom3 = custom3;
+            this.Custom4 = custom4;
+            this.Custom5 = custom5;
             this.AdditionalProperties = new Dictionary<string, object>();
         }
 
@@ -1001,6 +1011,36 @@ namespace Mux.Csharp.Sdk.Model
         public long? WeightedAverageBitrate { get; set; }
 
         /// <summary>
+        /// Gets or Sets Custom1
+        /// </summary>
+        [DataMember(Name = "custom_1", EmitDefaultValue = true)]
+        public string Custom1 { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Custom2
+        /// </summary>
+        [DataMember(Name = "custom_2", EmitDefaultValue = true)]
+        public string Custom2 { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Custom3
+        /// </summary>
+        [DataMember(Name = "custom_3", EmitDefaultValue = true)]
+        public string Custom3 { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Custom4
+        /// </summary>
+        [DataMember(Name = "custom_4", EmitDefaultValue = true)]
+        public string Custom4 { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Custom5
+        /// </summary>
+        [DataMember(Name = "custom_5", EmitDefaultValue = true)]
+        public string Custom5 { get; set; }
+
+        /// <summary>
         /// Gets or Sets additional properties
         /// </summary>
         [JsonExtensionData]
@@ -1134,6 +1174,11 @@ namespace Mux.Csharp.Sdk.Model
             sb.Append("  ViewerConnectionType: ").Append(ViewerConnectionType).Append("\n");
             sb.Append("  ViewerDeviceModel: ").Append(ViewerDeviceModel).Append("\n");
             sb.Append("  WeightedAverageBitrate: ").Append(WeightedAverageBitrate).Append("\n");
+            sb.Append("  Custom1: ").Append(Custom1).Append("\n");
+            sb.Append("  Custom2: ").Append(Custom2).Append("\n");
+            sb.Append("  Custom3: ").Append(Custom3).Append("\n");
+            sb.Append("  Custom4: ").Append(Custom4).Append("\n");
+            sb.Append("  Custom5: ").Append(Custom5).Append("\n");
             sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -1764,6 +1809,31 @@ namespace Mux.Csharp.Sdk.Model
                     this.WeightedAverageBitrate == input.WeightedAverageBitrate ||
                     (this.WeightedAverageBitrate != null &&
                     this.WeightedAverageBitrate.Equals(input.WeightedAverageBitrate))
+                ) && 
+                (
+                    this.Custom1 == input.Custom1 ||
+                    (this.Custom1 != null &&
+                    this.Custom1.Equals(input.Custom1))
+                ) && 
+                (
+                    this.Custom2 == input.Custom2 ||
+                    (this.Custom2 != null &&
+                    this.Custom2.Equals(input.Custom2))
+                ) && 
+                (
+                    this.Custom3 == input.Custom3 ||
+                    (this.Custom3 != null &&
+                    this.Custom3.Equals(input.Custom3))
+                ) && 
+                (
+                    this.Custom4 == input.Custom4 ||
+                    (this.Custom4 != null &&
+                    this.Custom4.Equals(input.Custom4))
+                ) && 
+                (
+                    this.Custom5 == input.Custom5 ||
+                    (this.Custom5 != null &&
+                    this.Custom5.Equals(input.Custom5))
                 )
                 && (this.AdditionalProperties.Count == input.AdditionalProperties.Count && !this.AdditionalProperties.Except(input.AdditionalProperties).Any());
         }
@@ -2238,6 +2308,26 @@ namespace Mux.Csharp.Sdk.Model
                 if (this.WeightedAverageBitrate != null)
                 {
                     hashCode = (hashCode * 59) + this.WeightedAverageBitrate.GetHashCode();
+                }
+                if (this.Custom1 != null)
+                {
+                    hashCode = (hashCode * 59) + this.Custom1.GetHashCode();
+                }
+                if (this.Custom2 != null)
+                {
+                    hashCode = (hashCode * 59) + this.Custom2.GetHashCode();
+                }
+                if (this.Custom3 != null)
+                {
+                    hashCode = (hashCode * 59) + this.Custom3.GetHashCode();
+                }
+                if (this.Custom4 != null)
+                {
+                    hashCode = (hashCode * 59) + this.Custom4.GetHashCode();
+                }
+                if (this.Custom5 != null)
+                {
+                    hashCode = (hashCode * 59) + this.Custom5.GetHashCode();
                 }
                 if (this.AdditionalProperties != null)
                 {
