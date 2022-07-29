@@ -188,7 +188,7 @@ namespace Mux.Csharp.Sdk.Model
         /// <param name="sourceAssetId">Asset Identifier of the video used as the source for creating the clip..</param>
         /// <param name="normalizeAudio">Normalize the audio track loudness level. This parameter is only applicable to on-demand (not live) assets. (default to false).</param>
         /// <param name="staticRenditions">staticRenditions.</param>
-        /// <param name="recordingTimes">An array of individual live stream recording sessions. A recording session is created on each encoder connection during the live stream.</param>
+        /// <param name="recordingTimes">An array of individual live stream recording sessions. A recording session is created on each encoder connection during the live stream.  Additionally any time slate media is inserted during brief interruptions in the live stream media or times when the live streaming software disconnects, a recording session representing the slate media will be added with a \&quot;slate\&quot; type..</param>
         /// <param name="nonStandardInputReasons">nonStandardInputReasons.</param>
         /// <param name="test">True means this live stream is a test asset. A test asset can help evaluate the Mux Video APIs without incurring any cost. There is no limit on number of test assets created. Test assets are watermarked with the Mux logo, limited to 10 seconds, and deleted after 24 hrs..</param>
         public Asset(string id = default(string), string createdAt = default(string), StatusEnum? status = default(StatusEnum?), double duration = default(double), MaxStoredResolutionEnum? maxStoredResolution = default(MaxStoredResolutionEnum?), double maxStoredFrameRate = default(double), string aspectRatio = default(string), List<PlaybackID> playbackIds = default(List<PlaybackID>), List<Track> tracks = default(List<Track>), AssetErrors errors = default(AssetErrors), bool perTitleEncode = default(bool), string uploadId = default(string), bool isLive = default(bool), string passthrough = default(string), string liveStreamId = default(string), AssetMaster master = default(AssetMaster), MasterAccessEnum? masterAccess = MasterAccessEnum.None, Mp4SupportEnum? mp4Support = Mp4SupportEnum.None, string sourceAssetId = default(string), bool normalizeAudio = false, AssetStaticRenditions staticRenditions = default(AssetStaticRenditions), List<AssetRecordingTimes> recordingTimes = default(List<AssetRecordingTimes>), AssetNonStandardInputReasons nonStandardInputReasons = default(AssetNonStandardInputReasons), bool test = default(bool))
@@ -337,9 +337,9 @@ namespace Mux.Csharp.Sdk.Model
         public AssetStaticRenditions StaticRenditions { get; set; }
 
         /// <summary>
-        /// An array of individual live stream recording sessions. A recording session is created on each encoder connection during the live stream
+        /// An array of individual live stream recording sessions. A recording session is created on each encoder connection during the live stream.  Additionally any time slate media is inserted during brief interruptions in the live stream media or times when the live streaming software disconnects, a recording session representing the slate media will be added with a \&quot;slate\&quot; type.
         /// </summary>
-        /// <value>An array of individual live stream recording sessions. A recording session is created on each encoder connection during the live stream</value>
+        /// <value>An array of individual live stream recording sessions. A recording session is created on each encoder connection during the live stream.  Additionally any time slate media is inserted during brief interruptions in the live stream media or times when the live streaming software disconnects, a recording session representing the slate media will be added with a \&quot;slate\&quot; type.</value>
         [DataMember(Name = "recording_times", EmitDefaultValue = false)]
         public List<AssetRecordingTimes> RecordingTimes { get; set; }
 

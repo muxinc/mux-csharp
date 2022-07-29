@@ -39,9 +39,9 @@ namespace Mux.Csharp.Sdk.Model
         [DataMember(Name = "status", EmitDefaultValue = false)]
         public LiveStreamStatus? Status { get; set; }
         /// <summary>
-        /// Latency is the time from when the streamer transmits a frame of video to when you see it in the player. Set this as an alternative to setting low latency or reduced latency flags. The Low Latency value is a beta feature. Note: Reconnect windows are incompatible with Reduced Latency and Low Latency and will always be set to zero (0) seconds. Read more here: https://mux.com/blog/introducing-low-latency-live-streaming/
+        /// Latency is the time from when the streamer transmits a frame of video to when you see it in the player. Set this as an alternative to setting low latency or reduced latency flags. The Low Latency value is a beta feature. Read more here: https://mux.com/blog/introducing-low-latency-live-streaming/
         /// </summary>
-        /// <value>Latency is the time from when the streamer transmits a frame of video to when you see it in the player. Set this as an alternative to setting low latency or reduced latency flags. The Low Latency value is a beta feature. Note: Reconnect windows are incompatible with Reduced Latency and Low Latency and will always be set to zero (0) seconds. Read more here: https://mux.com/blog/introducing-low-latency-live-streaming/</value>
+        /// <value>Latency is the time from when the streamer transmits a frame of video to when you see it in the player. Set this as an alternative to setting low latency or reduced latency flags. The Low Latency value is a beta feature. Read more here: https://mux.com/blog/introducing-low-latency-live-streaming/</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum LatencyModeEnum
         {
@@ -67,9 +67,9 @@ namespace Mux.Csharp.Sdk.Model
 
 
         /// <summary>
-        /// Latency is the time from when the streamer transmits a frame of video to when you see it in the player. Set this as an alternative to setting low latency or reduced latency flags. The Low Latency value is a beta feature. Note: Reconnect windows are incompatible with Reduced Latency and Low Latency and will always be set to zero (0) seconds. Read more here: https://mux.com/blog/introducing-low-latency-live-streaming/
+        /// Latency is the time from when the streamer transmits a frame of video to when you see it in the player. Set this as an alternative to setting low latency or reduced latency flags. The Low Latency value is a beta feature. Read more here: https://mux.com/blog/introducing-low-latency-live-streaming/
         /// </summary>
-        /// <value>Latency is the time from when the streamer transmits a frame of video to when you see it in the player. Set this as an alternative to setting low latency or reduced latency flags. The Low Latency value is a beta feature. Note: Reconnect windows are incompatible with Reduced Latency and Low Latency and will always be set to zero (0) seconds. Read more here: https://mux.com/blog/introducing-low-latency-live-streaming/</value>
+        /// <value>Latency is the time from when the streamer transmits a frame of video to when you see it in the player. Set this as an alternative to setting low latency or reduced latency flags. The Low Latency value is a beta feature. Read more here: https://mux.com/blog/introducing-low-latency-live-streaming/</value>
         [DataMember(Name = "latency_mode", EmitDefaultValue = false)]
         public LatencyModeEnum? LatencyMode { get; set; }
         /// <summary>
@@ -87,14 +87,16 @@ namespace Mux.Csharp.Sdk.Model
         /// <param name="audioOnly">The live stream only processes the audio track if the value is set to true. Mux drops the video track if broadcasted..</param>
         /// <param name="embeddedSubtitles">Describes the embedded closed caption configuration of the incoming live stream..</param>
         /// <param name="generatedSubtitles">Configure the incoming live stream to include subtitles created with automatic speech recognition. Each Asset created from a live stream with &#x60;generated_subtitles&#x60; configured will automatically receive two text tracks. The first of these will have a &#x60;text_source&#x60; value of &#x60;generated_live&#x60;, and will be available with &#x60;ready&#x60; status as soon as the stream is live. The second text track will have a &#x60;text_source&#x60; value of &#x60;generated_live_final&#x60; and will contain subtitles with improved accuracy, timing, and formatting. However, &#x60;generated_live_final&#x60; tracks will not be available in &#x60;ready&#x60; status until the live stream ends. If an Asset has both &#x60;generated_live&#x60; and &#x60;generated_live_final&#x60; tracks that are &#x60;ready&#x60;, then only the &#x60;generated_live_final&#x60; track will be included during playback..</param>
-        /// <param name="reconnectWindow">When live streaming software disconnects from Mux, either intentionally or due to a drop in the network, the Reconnect Window is the time in seconds that Mux should wait for the streaming software to reconnect before considering the live stream finished and completing the recorded asset. **Min**: 0.1s. **Max**: 1800s (30 minutes). (default to 60F).</param>
-        /// <param name="reducedLatency">This field is deprecated. Please use latency_mode instead. Latency is the time from when the streamer transmits a frame of video to when you see it in the player. Set this if you want lower latency for your live stream. **Note**: Reconnect windows are incompatible with Reduced Latency and will always be set to zero (0) seconds. See the [Reduce live stream latency guide](https://docs.mux.com/guides/video/reduce-live-stream-latency) to understand the tradeoffs..</param>
-        /// <param name="lowLatency">This field is deprecated. Please use latency_mode instead. Latency is the time from when the streamer transmits a frame of video to when you see it in the player. Setting this option will enable compatibility with the LL-HLS specification for low-latency streaming. This typically has lower latency than Reduced Latency streams, and cannot be combined with Reduced Latency. Note: Reconnect windows are incompatible with Low Latency and will always be set to zero (0) seconds..</param>
+        /// <param name="reconnectWindow">When live streaming software disconnects from Mux, either intentionally or due to a drop in the network, the Reconnect Window is the time in seconds that Mux should wait for the streaming software to reconnect before considering the live stream finished and completing the recorded asset. **Max**: 1800s (30 minutes).  Reduced and Low Latency streams with a Reconnect Window greater than zero will insert slate media into the recorded asset while waiting for the streaming software to reconnect or when there are brief interruptions in the live stream media. When using a Reconnect Window setting higher than 60 seconds with a Standard Latency stream, we highly recommend enabling slate with the &#x60;use_slate_for_standard_latency&#x60; option.  (default to 60F).</param>
+        /// <param name="useSlateForStandardLatency">By default, Standard Latency live streams do not have slate media inserted while waiting for live streaming software to reconnect to Mux.  Setting this to true enables slate insertion on a Standard Latency stream. (default to false).</param>
+        /// <param name="reconnectSlateUrl">The URL of the image file that Mux should download and use as slate media during interruptions of the live stream media.  This file will be downloaded each time a new recorded asset is created from the live stream.  If this is not set, the default slate media will be used..</param>
+        /// <param name="reducedLatency">This field is deprecated. Please use latency_mode instead. Latency is the time from when the streamer transmits a frame of video to when you see it in the player. Set this if you want lower latency for your live stream. See the [Reduce live stream latency guide](https://docs.mux.com/guides/video/reduce-live-stream-latency) to understand the tradeoffs..</param>
+        /// <param name="lowLatency">This field is deprecated. Please use latency_mode instead. Latency is the time from when the streamer transmits a frame of video to when you see it in the player. Setting this option will enable compatibility with the LL-HLS specification for low-latency streaming. This typically has lower latency than Reduced Latency streams, and cannot be combined with Reduced Latency..</param>
         /// <param name="simulcastTargets">Each Simulcast Target contains configuration details to broadcast (or \&quot;restream\&quot;) a live stream to a third-party streaming service. [See the Stream live to 3rd party platforms guide](https://docs.mux.com/guides/video/stream-live-to-3rd-party-platforms)..</param>
-        /// <param name="latencyMode">Latency is the time from when the streamer transmits a frame of video to when you see it in the player. Set this as an alternative to setting low latency or reduced latency flags. The Low Latency value is a beta feature. Note: Reconnect windows are incompatible with Reduced Latency and Low Latency and will always be set to zero (0) seconds. Read more here: https://mux.com/blog/introducing-low-latency-live-streaming/.</param>
+        /// <param name="latencyMode">Latency is the time from when the streamer transmits a frame of video to when you see it in the player. Set this as an alternative to setting low latency or reduced latency flags. The Low Latency value is a beta feature. Read more here: https://mux.com/blog/introducing-low-latency-live-streaming/.</param>
         /// <param name="test">True means this live stream is a test live stream. Test live streams can be used to help evaluate the Mux Video APIs for free. There is no limit on the number of test live streams, but they are watermarked with the Mux logo, and limited to 5 minutes. The test live stream is disabled after the stream is active for 5 mins and the recorded asset also deleted after 24 hours..</param>
         /// <param name="maxContinuousDuration">The time in seconds a live stream may be continuously active before being disconnected. Defaults to 12 hours. (default to 43200).</param>
-        public LiveStream(string id = default(string), string createdAt = default(string), string streamKey = default(string), string activeAssetId = default(string), List<string> recentAssetIds = default(List<string>), LiveStreamStatus? status = default(LiveStreamStatus?), List<PlaybackID> playbackIds = default(List<PlaybackID>), CreateAssetRequest newAssetSettings = default(CreateAssetRequest), string passthrough = default(string), bool audioOnly = default(bool), List<LiveStreamEmbeddedSubtitleSettings> embeddedSubtitles = default(List<LiveStreamEmbeddedSubtitleSettings>), List<LiveStreamGeneratedSubtitleSettings> generatedSubtitles = default(List<LiveStreamGeneratedSubtitleSettings>), float reconnectWindow = 60F, bool reducedLatency = default(bool), bool lowLatency = default(bool), List<SimulcastTarget> simulcastTargets = default(List<SimulcastTarget>), LatencyModeEnum? latencyMode = default(LatencyModeEnum?), bool test = default(bool), int maxContinuousDuration = 43200)
+        public LiveStream(string id = default(string), string createdAt = default(string), string streamKey = default(string), string activeAssetId = default(string), List<string> recentAssetIds = default(List<string>), LiveStreamStatus? status = default(LiveStreamStatus?), List<PlaybackID> playbackIds = default(List<PlaybackID>), CreateAssetRequest newAssetSettings = default(CreateAssetRequest), string passthrough = default(string), bool audioOnly = default(bool), List<LiveStreamEmbeddedSubtitleSettings> embeddedSubtitles = default(List<LiveStreamEmbeddedSubtitleSettings>), List<LiveStreamGeneratedSubtitleSettings> generatedSubtitles = default(List<LiveStreamGeneratedSubtitleSettings>), float reconnectWindow = 60F, bool useSlateForStandardLatency = false, string reconnectSlateUrl = default(string), bool reducedLatency = default(bool), bool lowLatency = default(bool), List<SimulcastTarget> simulcastTargets = default(List<SimulcastTarget>), LatencyModeEnum? latencyMode = default(LatencyModeEnum?), bool test = default(bool), int maxContinuousDuration = 43200)
         {
             this.Id = id;
             this.CreatedAt = createdAt;
@@ -109,6 +111,8 @@ namespace Mux.Csharp.Sdk.Model
             this.EmbeddedSubtitles = embeddedSubtitles;
             this.GeneratedSubtitles = generatedSubtitles;
             this.ReconnectWindow = reconnectWindow;
+            this.UseSlateForStandardLatency = useSlateForStandardLatency;
+            this.ReconnectSlateUrl = reconnectSlateUrl;
             this.ReducedLatency = reducedLatency;
             this.LowLatency = lowLatency;
             this.SimulcastTargets = simulcastTargets;
@@ -195,24 +199,38 @@ namespace Mux.Csharp.Sdk.Model
         public List<LiveStreamGeneratedSubtitleSettings> GeneratedSubtitles { get; set; }
 
         /// <summary>
-        /// When live streaming software disconnects from Mux, either intentionally or due to a drop in the network, the Reconnect Window is the time in seconds that Mux should wait for the streaming software to reconnect before considering the live stream finished and completing the recorded asset. **Min**: 0.1s. **Max**: 1800s (30 minutes).
+        /// When live streaming software disconnects from Mux, either intentionally or due to a drop in the network, the Reconnect Window is the time in seconds that Mux should wait for the streaming software to reconnect before considering the live stream finished and completing the recorded asset. **Max**: 1800s (30 minutes).  Reduced and Low Latency streams with a Reconnect Window greater than zero will insert slate media into the recorded asset while waiting for the streaming software to reconnect or when there are brief interruptions in the live stream media. When using a Reconnect Window setting higher than 60 seconds with a Standard Latency stream, we highly recommend enabling slate with the &#x60;use_slate_for_standard_latency&#x60; option. 
         /// </summary>
-        /// <value>When live streaming software disconnects from Mux, either intentionally or due to a drop in the network, the Reconnect Window is the time in seconds that Mux should wait for the streaming software to reconnect before considering the live stream finished and completing the recorded asset. **Min**: 0.1s. **Max**: 1800s (30 minutes).</value>
+        /// <value>When live streaming software disconnects from Mux, either intentionally or due to a drop in the network, the Reconnect Window is the time in seconds that Mux should wait for the streaming software to reconnect before considering the live stream finished and completing the recorded asset. **Max**: 1800s (30 minutes).  Reduced and Low Latency streams with a Reconnect Window greater than zero will insert slate media into the recorded asset while waiting for the streaming software to reconnect or when there are brief interruptions in the live stream media. When using a Reconnect Window setting higher than 60 seconds with a Standard Latency stream, we highly recommend enabling slate with the &#x60;use_slate_for_standard_latency&#x60; option. </value>
         [DataMember(Name = "reconnect_window", EmitDefaultValue = false)]
         public float ReconnectWindow { get; set; }
 
         /// <summary>
-        /// This field is deprecated. Please use latency_mode instead. Latency is the time from when the streamer transmits a frame of video to when you see it in the player. Set this if you want lower latency for your live stream. **Note**: Reconnect windows are incompatible with Reduced Latency and will always be set to zero (0) seconds. See the [Reduce live stream latency guide](https://docs.mux.com/guides/video/reduce-live-stream-latency) to understand the tradeoffs.
+        /// By default, Standard Latency live streams do not have slate media inserted while waiting for live streaming software to reconnect to Mux.  Setting this to true enables slate insertion on a Standard Latency stream.
         /// </summary>
-        /// <value>This field is deprecated. Please use latency_mode instead. Latency is the time from when the streamer transmits a frame of video to when you see it in the player. Set this if you want lower latency for your live stream. **Note**: Reconnect windows are incompatible with Reduced Latency and will always be set to zero (0) seconds. See the [Reduce live stream latency guide](https://docs.mux.com/guides/video/reduce-live-stream-latency) to understand the tradeoffs.</value>
+        /// <value>By default, Standard Latency live streams do not have slate media inserted while waiting for live streaming software to reconnect to Mux.  Setting this to true enables slate insertion on a Standard Latency stream.</value>
+        [DataMember(Name = "use_slate_for_standard_latency", EmitDefaultValue = true)]
+        public bool UseSlateForStandardLatency { get; set; }
+
+        /// <summary>
+        /// The URL of the image file that Mux should download and use as slate media during interruptions of the live stream media.  This file will be downloaded each time a new recorded asset is created from the live stream.  If this is not set, the default slate media will be used.
+        /// </summary>
+        /// <value>The URL of the image file that Mux should download and use as slate media during interruptions of the live stream media.  This file will be downloaded each time a new recorded asset is created from the live stream.  If this is not set, the default slate media will be used.</value>
+        [DataMember(Name = "reconnect_slate_url", EmitDefaultValue = false)]
+        public string ReconnectSlateUrl { get; set; }
+
+        /// <summary>
+        /// This field is deprecated. Please use latency_mode instead. Latency is the time from when the streamer transmits a frame of video to when you see it in the player. Set this if you want lower latency for your live stream. See the [Reduce live stream latency guide](https://docs.mux.com/guides/video/reduce-live-stream-latency) to understand the tradeoffs.
+        /// </summary>
+        /// <value>This field is deprecated. Please use latency_mode instead. Latency is the time from when the streamer transmits a frame of video to when you see it in the player. Set this if you want lower latency for your live stream. See the [Reduce live stream latency guide](https://docs.mux.com/guides/video/reduce-live-stream-latency) to understand the tradeoffs.</value>
         [DataMember(Name = "reduced_latency", EmitDefaultValue = true)]
         [Obsolete]
         public bool ReducedLatency { get; set; }
 
         /// <summary>
-        /// This field is deprecated. Please use latency_mode instead. Latency is the time from when the streamer transmits a frame of video to when you see it in the player. Setting this option will enable compatibility with the LL-HLS specification for low-latency streaming. This typically has lower latency than Reduced Latency streams, and cannot be combined with Reduced Latency. Note: Reconnect windows are incompatible with Low Latency and will always be set to zero (0) seconds.
+        /// This field is deprecated. Please use latency_mode instead. Latency is the time from when the streamer transmits a frame of video to when you see it in the player. Setting this option will enable compatibility with the LL-HLS specification for low-latency streaming. This typically has lower latency than Reduced Latency streams, and cannot be combined with Reduced Latency.
         /// </summary>
-        /// <value>This field is deprecated. Please use latency_mode instead. Latency is the time from when the streamer transmits a frame of video to when you see it in the player. Setting this option will enable compatibility with the LL-HLS specification for low-latency streaming. This typically has lower latency than Reduced Latency streams, and cannot be combined with Reduced Latency. Note: Reconnect windows are incompatible with Low Latency and will always be set to zero (0) seconds.</value>
+        /// <value>This field is deprecated. Please use latency_mode instead. Latency is the time from when the streamer transmits a frame of video to when you see it in the player. Setting this option will enable compatibility with the LL-HLS specification for low-latency streaming. This typically has lower latency than Reduced Latency streams, and cannot be combined with Reduced Latency.</value>
         [DataMember(Name = "low_latency", EmitDefaultValue = true)]
         [Obsolete]
         public bool LowLatency { get; set; }
@@ -265,6 +283,8 @@ namespace Mux.Csharp.Sdk.Model
             sb.Append("  EmbeddedSubtitles: ").Append(EmbeddedSubtitles).Append("\n");
             sb.Append("  GeneratedSubtitles: ").Append(GeneratedSubtitles).Append("\n");
             sb.Append("  ReconnectWindow: ").Append(ReconnectWindow).Append("\n");
+            sb.Append("  UseSlateForStandardLatency: ").Append(UseSlateForStandardLatency).Append("\n");
+            sb.Append("  ReconnectSlateUrl: ").Append(ReconnectSlateUrl).Append("\n");
             sb.Append("  ReducedLatency: ").Append(ReducedLatency).Append("\n");
             sb.Append("  LowLatency: ").Append(LowLatency).Append("\n");
             sb.Append("  SimulcastTargets: ").Append(SimulcastTargets).Append("\n");
@@ -374,6 +394,15 @@ namespace Mux.Csharp.Sdk.Model
                     this.ReconnectWindow.Equals(input.ReconnectWindow)
                 ) && 
                 (
+                    this.UseSlateForStandardLatency == input.UseSlateForStandardLatency ||
+                    this.UseSlateForStandardLatency.Equals(input.UseSlateForStandardLatency)
+                ) && 
+                (
+                    this.ReconnectSlateUrl == input.ReconnectSlateUrl ||
+                    (this.ReconnectSlateUrl != null &&
+                    this.ReconnectSlateUrl.Equals(input.ReconnectSlateUrl))
+                ) && 
+                (
                     this.ReducedLatency == input.ReducedLatency ||
                     this.ReducedLatency.Equals(input.ReducedLatency)
                 ) && 
@@ -454,6 +483,11 @@ namespace Mux.Csharp.Sdk.Model
                     hashCode = (hashCode * 59) + this.GeneratedSubtitles.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.ReconnectWindow.GetHashCode();
+                hashCode = (hashCode * 59) + this.UseSlateForStandardLatency.GetHashCode();
+                if (this.ReconnectSlateUrl != null)
+                {
+                    hashCode = (hashCode * 59) + this.ReconnectSlateUrl.GetHashCode();
+                }
                 hashCode = (hashCode * 59) + this.ReducedLatency.GetHashCode();
                 hashCode = (hashCode * 59) + this.LowLatency.GetHashCode();
                 if (this.SimulcastTargets != null)
@@ -478,6 +512,18 @@ namespace Mux.Csharp.Sdk.Model
         /// <returns>Validation Result</returns>
         public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
+            // ReconnectWindow (float) maximum
+            if (this.ReconnectWindow > (float)1800)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ReconnectWindow, must be a value less than or equal to 1800.", new [] { "ReconnectWindow" });
+            }
+
+            // ReconnectWindow (float) minimum
+            if (this.ReconnectWindow < (float)0)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ReconnectWindow, must be a value greater than or equal to 0.", new [] { "ReconnectWindow" });
+            }
+
             // MaxContinuousDuration (int) maximum
             if (this.MaxContinuousDuration > (int)43200)
             {
