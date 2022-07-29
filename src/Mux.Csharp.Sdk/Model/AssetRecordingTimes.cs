@@ -33,14 +33,44 @@ namespace Mux.Csharp.Sdk.Model
     public partial class AssetRecordingTimes : IEquatable<AssetRecordingTimes>, IValidatableObject
     {
         /// <summary>
+        /// The type of media represented by the recording session, either &#x60;content&#x60; for normal stream content or &#x60;slate&#x60; for slate media inserted during stream interruptions.
+        /// </summary>
+        /// <value>The type of media represented by the recording session, either &#x60;content&#x60; for normal stream content or &#x60;slate&#x60; for slate media inserted during stream interruptions.</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum TypeEnum
+        {
+            /// <summary>
+            /// Enum Content for value: content
+            /// </summary>
+            [EnumMember(Value = "content")]
+            Content = 1,
+
+            /// <summary>
+            /// Enum Slate for value: slate
+            /// </summary>
+            [EnumMember(Value = "slate")]
+            Slate = 2
+
+        }
+
+
+        /// <summary>
+        /// The type of media represented by the recording session, either &#x60;content&#x60; for normal stream content or &#x60;slate&#x60; for slate media inserted during stream interruptions.
+        /// </summary>
+        /// <value>The type of media represented by the recording session, either &#x60;content&#x60; for normal stream content or &#x60;slate&#x60; for slate media inserted during stream interruptions.</value>
+        [DataMember(Name = "type", EmitDefaultValue = false)]
+        public TypeEnum? Type { get; set; }
+        /// <summary>
         /// Initializes a new instance of the <see cref="AssetRecordingTimes" /> class.
         /// </summary>
         /// <param name="startedAt">The time at which the recording for the live stream started. The time value is Unix epoch time represented in ISO 8601 format..</param>
         /// <param name="duration">The duration of the live stream recorded. The time value is in seconds..</param>
-        public AssetRecordingTimes(DateTime startedAt = default(DateTime), double duration = default(double))
+        /// <param name="type">The type of media represented by the recording session, either &#x60;content&#x60; for normal stream content or &#x60;slate&#x60; for slate media inserted during stream interruptions..</param>
+        public AssetRecordingTimes(DateTime startedAt = default(DateTime), double duration = default(double), TypeEnum? type = default(TypeEnum?))
         {
             this.StartedAt = startedAt;
             this.Duration = duration;
+            this.Type = type;
             this.AdditionalProperties = new Dictionary<string, object>();
         }
 
@@ -74,6 +104,7 @@ namespace Mux.Csharp.Sdk.Model
             sb.Append("class AssetRecordingTimes {\n");
             sb.Append("  StartedAt: ").Append(StartedAt).Append("\n");
             sb.Append("  Duration: ").Append(Duration).Append("\n");
+            sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -118,6 +149,10 @@ namespace Mux.Csharp.Sdk.Model
                 (
                     this.Duration == input.Duration ||
                     this.Duration.Equals(input.Duration)
+                ) && 
+                (
+                    this.Type == input.Type ||
+                    this.Type.Equals(input.Type)
                 )
                 && (this.AdditionalProperties.Count == input.AdditionalProperties.Count && !this.AdditionalProperties.Except(input.AdditionalProperties).Any());
         }
@@ -136,6 +171,7 @@ namespace Mux.Csharp.Sdk.Model
                     hashCode = (hashCode * 59) + this.StartedAt.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.Duration.GetHashCode();
+                hashCode = (hashCode * 59) + this.Type.GetHashCode();
                 if (this.AdditionalProperties != null)
                 {
                     hashCode = (hashCode * 59) + this.AdditionalProperties.GetHashCode();
