@@ -27,18 +27,18 @@ using OpenAPIDateConverter = Mux.Csharp.Sdk.Client.OpenAPIDateConverter;
 namespace Mux.Csharp.Sdk.Model
 {
     /// <summary>
-    /// ListRealTimeDimensionsResponse
+    /// GetMonitoringTimeseriesResponse
     /// </summary>
-    [DataContract(Name = "ListRealTimeDimensionsResponse")]
-    public partial class ListRealTimeDimensionsResponse : IEquatable<ListRealTimeDimensionsResponse>, IValidatableObject
+    [DataContract(Name = "GetMonitoringTimeseriesResponse")]
+    public partial class GetMonitoringTimeseriesResponse : IEquatable<GetMonitoringTimeseriesResponse>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="ListRealTimeDimensionsResponse" /> class.
+        /// Initializes a new instance of the <see cref="GetMonitoringTimeseriesResponse" /> class.
         /// </summary>
         /// <param name="data">data.</param>
         /// <param name="totalRowCount">totalRowCount.</param>
         /// <param name="timeframe">timeframe.</param>
-        public ListRealTimeDimensionsResponse(List<ListMonitoringDimensionsResponseData> data = default(List<ListMonitoringDimensionsResponseData>), long totalRowCount = default(long), List<long> timeframe = default(List<long>))
+        public GetMonitoringTimeseriesResponse(List<MonitoringTimeseriesDatapoint> data = default(List<MonitoringTimeseriesDatapoint>), long totalRowCount = default(long), List<long> timeframe = default(List<long>))
         {
             this.Data = data;
             this.TotalRowCount = totalRowCount;
@@ -50,7 +50,7 @@ namespace Mux.Csharp.Sdk.Model
         /// Gets or Sets Data
         /// </summary>
         [DataMember(Name = "data", EmitDefaultValue = false)]
-        public List<ListMonitoringDimensionsResponseData> Data { get; set; }
+        public List<MonitoringTimeseriesDatapoint> Data { get; set; }
 
         /// <summary>
         /// Gets or Sets TotalRowCount
@@ -77,7 +77,7 @@ namespace Mux.Csharp.Sdk.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class ListRealTimeDimensionsResponse {\n");
+            sb.Append("class GetMonitoringTimeseriesResponse {\n");
             sb.Append("  Data: ").Append(Data).Append("\n");
             sb.Append("  TotalRowCount: ").Append(TotalRowCount).Append("\n");
             sb.Append("  Timeframe: ").Append(Timeframe).Append("\n");
@@ -102,15 +102,15 @@ namespace Mux.Csharp.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as ListRealTimeDimensionsResponse);
+            return this.Equals(input as GetMonitoringTimeseriesResponse);
         }
 
         /// <summary>
-        /// Returns true if ListRealTimeDimensionsResponse instances are equal
+        /// Returns true if GetMonitoringTimeseriesResponse instances are equal
         /// </summary>
-        /// <param name="input">Instance of ListRealTimeDimensionsResponse to be compared</param>
+        /// <param name="input">Instance of GetMonitoringTimeseriesResponse to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ListRealTimeDimensionsResponse input)
+        public bool Equals(GetMonitoringTimeseriesResponse input)
         {
             if (input == null)
             {

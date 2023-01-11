@@ -1,11 +1,11 @@
-# Mux.Csharp.Sdk.Model.ListRealTimeDimensionsResponseData
+# Mux.Csharp.Sdk.Model.MonitoringHistogramTimeseriesBucketValues
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** | **string** |  | [optional] 
-**DisplayName** | **string** |  | [optional] 
+**Percentage** | **double** |  | [optional] 
+**Count** | **long** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

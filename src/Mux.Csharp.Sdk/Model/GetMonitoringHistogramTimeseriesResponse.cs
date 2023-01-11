@@ -27,19 +27,21 @@ using OpenAPIDateConverter = Mux.Csharp.Sdk.Client.OpenAPIDateConverter;
 namespace Mux.Csharp.Sdk.Model
 {
     /// <summary>
-    /// ListRealTimeDimensionsResponse
+    /// GetMonitoringHistogramTimeseriesResponse
     /// </summary>
-    [DataContract(Name = "ListRealTimeDimensionsResponse")]
-    public partial class ListRealTimeDimensionsResponse : IEquatable<ListRealTimeDimensionsResponse>, IValidatableObject
+    [DataContract(Name = "GetMonitoringHistogramTimeseriesResponse")]
+    public partial class GetMonitoringHistogramTimeseriesResponse : IEquatable<GetMonitoringHistogramTimeseriesResponse>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="ListRealTimeDimensionsResponse" /> class.
+        /// Initializes a new instance of the <see cref="GetMonitoringHistogramTimeseriesResponse" /> class.
         /// </summary>
+        /// <param name="meta">meta.</param>
         /// <param name="data">data.</param>
         /// <param name="totalRowCount">totalRowCount.</param>
         /// <param name="timeframe">timeframe.</param>
-        public ListRealTimeDimensionsResponse(List<ListMonitoringDimensionsResponseData> data = default(List<ListMonitoringDimensionsResponseData>), long totalRowCount = default(long), List<long> timeframe = default(List<long>))
+        public GetMonitoringHistogramTimeseriesResponse(GetMonitoringHistogramTimeseriesResponseMeta meta = default(GetMonitoringHistogramTimeseriesResponseMeta), List<MonitoringHistogramTimeseriesDatapoint> data = default(List<MonitoringHistogramTimeseriesDatapoint>), long totalRowCount = default(long), List<long> timeframe = default(List<long>))
         {
+            this.Meta = meta;
             this.Data = data;
             this.TotalRowCount = totalRowCount;
             this.Timeframe = timeframe;
@@ -47,10 +49,16 @@ namespace Mux.Csharp.Sdk.Model
         }
 
         /// <summary>
+        /// Gets or Sets Meta
+        /// </summary>
+        [DataMember(Name = "meta", EmitDefaultValue = false)]
+        public GetMonitoringHistogramTimeseriesResponseMeta Meta { get; set; }
+
+        /// <summary>
         /// Gets or Sets Data
         /// </summary>
         [DataMember(Name = "data", EmitDefaultValue = false)]
-        public List<ListMonitoringDimensionsResponseData> Data { get; set; }
+        public List<MonitoringHistogramTimeseriesDatapoint> Data { get; set; }
 
         /// <summary>
         /// Gets or Sets TotalRowCount
@@ -77,7 +85,8 @@ namespace Mux.Csharp.Sdk.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class ListRealTimeDimensionsResponse {\n");
+            sb.Append("class GetMonitoringHistogramTimeseriesResponse {\n");
+            sb.Append("  Meta: ").Append(Meta).Append("\n");
             sb.Append("  Data: ").Append(Data).Append("\n");
             sb.Append("  TotalRowCount: ").Append(TotalRowCount).Append("\n");
             sb.Append("  Timeframe: ").Append(Timeframe).Append("\n");
@@ -102,21 +111,26 @@ namespace Mux.Csharp.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as ListRealTimeDimensionsResponse);
+            return this.Equals(input as GetMonitoringHistogramTimeseriesResponse);
         }
 
         /// <summary>
-        /// Returns true if ListRealTimeDimensionsResponse instances are equal
+        /// Returns true if GetMonitoringHistogramTimeseriesResponse instances are equal
         /// </summary>
-        /// <param name="input">Instance of ListRealTimeDimensionsResponse to be compared</param>
+        /// <param name="input">Instance of GetMonitoringHistogramTimeseriesResponse to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ListRealTimeDimensionsResponse input)
+        public bool Equals(GetMonitoringHistogramTimeseriesResponse input)
         {
             if (input == null)
             {
                 return false;
             }
             return 
+                (
+                    this.Meta == input.Meta ||
+                    (this.Meta != null &&
+                    this.Meta.Equals(input.Meta))
+                ) && 
                 (
                     this.Data == input.Data ||
                     this.Data != null &&
@@ -145,6 +159,10 @@ namespace Mux.Csharp.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.Meta != null)
+                {
+                    hashCode = (hashCode * 59) + this.Meta.GetHashCode();
+                }
                 if (this.Data != null)
                 {
                     hashCode = (hashCode * 59) + this.Data.GetHashCode();

@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Data** | [**List&lt;ListRealTimeDimensionsResponseData&gt;**](ListRealTimeDimensionsResponseData.md) |  | [optional] 
+**Data** | [**List&lt;ListMonitoringDimensionsResponseData&gt;**](ListMonitoringDimensionsResponseData.md) |  | [optional] 
 **TotalRowCount** | **long** |  | [optional] 
 **Timeframe** | **List&lt;long&gt;** |  | [optional] 
 

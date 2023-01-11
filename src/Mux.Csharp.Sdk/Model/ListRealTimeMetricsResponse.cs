@@ -38,7 +38,7 @@ namespace Mux.Csharp.Sdk.Model
         /// <param name="data">data.</param>
         /// <param name="totalRowCount">totalRowCount.</param>
         /// <param name="timeframe">timeframe.</param>
-        public ListRealTimeMetricsResponse(List<ListRealTimeDimensionsResponseData> data = default(List<ListRealTimeDimensionsResponseData>), long totalRowCount = default(long), List<long> timeframe = default(List<long>))
+        public ListRealTimeMetricsResponse(List<ListMonitoringDimensionsResponseData> data = default(List<ListMonitoringDimensionsResponseData>), long totalRowCount = default(long), List<long> timeframe = default(List<long>))
         {
             this.Data = data;
             this.TotalRowCount = totalRowCount;
@@ -50,7 +50,7 @@ namespace Mux.Csharp.Sdk.Model
         /// Gets or Sets Data
         /// </summary>
         [DataMember(Name = "data", EmitDefaultValue = false)]
-        public List<ListRealTimeDimensionsResponseData> Data { get; set; }
+        public List<ListMonitoringDimensionsResponseData> Data { get; set; }
 
         /// <summary>
         /// Gets or Sets TotalRowCount
