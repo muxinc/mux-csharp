@@ -27,42 +27,26 @@ using OpenAPIDateConverter = Mux.Csharp.Sdk.Client.OpenAPIDateConverter;
 namespace Mux.Csharp.Sdk.Model
 {
     /// <summary>
-    /// ListRealTimeDimensionsResponse
+    /// GetMonitoringHistogramTimeseriesResponseMeta
     /// </summary>
-    [DataContract(Name = "ListRealTimeDimensionsResponse")]
-    public partial class ListRealTimeDimensionsResponse : IEquatable<ListRealTimeDimensionsResponse>, IValidatableObject
+    [DataContract(Name = "GetMonitoringHistogramTimeseriesResponse_meta")]
+    public partial class GetMonitoringHistogramTimeseriesResponseMeta : IEquatable<GetMonitoringHistogramTimeseriesResponseMeta>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="ListRealTimeDimensionsResponse" /> class.
+        /// Initializes a new instance of the <see cref="GetMonitoringHistogramTimeseriesResponseMeta" /> class.
         /// </summary>
-        /// <param name="data">data.</param>
-        /// <param name="totalRowCount">totalRowCount.</param>
-        /// <param name="timeframe">timeframe.</param>
-        public ListRealTimeDimensionsResponse(List<ListMonitoringDimensionsResponseData> data = default(List<ListMonitoringDimensionsResponseData>), long totalRowCount = default(long), List<long> timeframe = default(List<long>))
+        /// <param name="buckets">buckets.</param>
+        public GetMonitoringHistogramTimeseriesResponseMeta(List<MonitoringHistogramTimeseriesBucket> buckets = default(List<MonitoringHistogramTimeseriesBucket>))
         {
-            this.Data = data;
-            this.TotalRowCount = totalRowCount;
-            this.Timeframe = timeframe;
+            this.Buckets = buckets;
             this.AdditionalProperties = new Dictionary<string, object>();
         }
 
         /// <summary>
-        /// Gets or Sets Data
+        /// Gets or Sets Buckets
         /// </summary>
-        [DataMember(Name = "data", EmitDefaultValue = false)]
-        public List<ListMonitoringDimensionsResponseData> Data { get; set; }
-
-        /// <summary>
-        /// Gets or Sets TotalRowCount
-        /// </summary>
-        [DataMember(Name = "total_row_count", EmitDefaultValue = false)]
-        public long TotalRowCount { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Timeframe
-        /// </summary>
-        [DataMember(Name = "timeframe", EmitDefaultValue = false)]
-        public List<long> Timeframe { get; set; }
+        [DataMember(Name = "buckets", EmitDefaultValue = false)]
+        public List<MonitoringHistogramTimeseriesBucket> Buckets { get; set; }
 
         /// <summary>
         /// Gets or Sets additional properties
@@ -77,10 +61,8 @@ namespace Mux.Csharp.Sdk.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class ListRealTimeDimensionsResponse {\n");
-            sb.Append("  Data: ").Append(Data).Append("\n");
-            sb.Append("  TotalRowCount: ").Append(TotalRowCount).Append("\n");
-            sb.Append("  Timeframe: ").Append(Timeframe).Append("\n");
+            sb.Append("class GetMonitoringHistogramTimeseriesResponseMeta {\n");
+            sb.Append("  Buckets: ").Append(Buckets).Append("\n");
             sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -102,15 +84,15 @@ namespace Mux.Csharp.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as ListRealTimeDimensionsResponse);
+            return this.Equals(input as GetMonitoringHistogramTimeseriesResponseMeta);
         }
 
         /// <summary>
-        /// Returns true if ListRealTimeDimensionsResponse instances are equal
+        /// Returns true if GetMonitoringHistogramTimeseriesResponseMeta instances are equal
         /// </summary>
-        /// <param name="input">Instance of ListRealTimeDimensionsResponse to be compared</param>
+        /// <param name="input">Instance of GetMonitoringHistogramTimeseriesResponseMeta to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ListRealTimeDimensionsResponse input)
+        public bool Equals(GetMonitoringHistogramTimeseriesResponseMeta input)
         {
             if (input == null)
             {
@@ -118,20 +100,10 @@ namespace Mux.Csharp.Sdk.Model
             }
             return 
                 (
-                    this.Data == input.Data ||
-                    this.Data != null &&
-                    input.Data != null &&
-                    this.Data.SequenceEqual(input.Data)
-                ) && 
-                (
-                    this.TotalRowCount == input.TotalRowCount ||
-                    this.TotalRowCount.Equals(input.TotalRowCount)
-                ) && 
-                (
-                    this.Timeframe == input.Timeframe ||
-                    this.Timeframe != null &&
-                    input.Timeframe != null &&
-                    this.Timeframe.SequenceEqual(input.Timeframe)
+                    this.Buckets == input.Buckets ||
+                    this.Buckets != null &&
+                    input.Buckets != null &&
+                    this.Buckets.SequenceEqual(input.Buckets)
                 )
                 && (this.AdditionalProperties.Count == input.AdditionalProperties.Count && !this.AdditionalProperties.Except(input.AdditionalProperties).Any());
         }
@@ -145,14 +117,9 @@ namespace Mux.Csharp.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Data != null)
+                if (this.Buckets != null)
                 {
-                    hashCode = (hashCode * 59) + this.Data.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.TotalRowCount.GetHashCode();
-                if (this.Timeframe != null)
-                {
-                    hashCode = (hashCode * 59) + this.Timeframe.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Buckets.GetHashCode();
                 }
                 if (this.AdditionalProperties != null)
                 {

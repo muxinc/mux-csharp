@@ -52,7 +52,7 @@ namespace Mux.Csharp.Sdk.Api
         /// List Video Views
         /// </summary>
         /// <remarks>
-        /// Returns a list of video views.
+        /// Returns a list of video views which match the filters and have a &#x60;view_end&#x60; within the specified timeframe.
         /// </remarks>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Number of items to include in the response (optional, default to 25)</param>
@@ -69,7 +69,7 @@ namespace Mux.Csharp.Sdk.Api
         /// List Video Views
         /// </summary>
         /// <remarks>
-        /// Returns a list of video views.
+        /// Returns a list of video views which match the filters and have a &#x60;view_end&#x60; within the specified timeframe.
         /// </remarks>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Number of items to include in the response (optional, default to 25)</param>
@@ -117,7 +117,7 @@ namespace Mux.Csharp.Sdk.Api
         /// List Video Views
         /// </summary>
         /// <remarks>
-        /// Returns a list of video views.
+        /// Returns a list of video views which match the filters and have a &#x60;view_end&#x60; within the specified timeframe.
         /// </remarks>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Number of items to include in the response (optional, default to 25)</param>
@@ -135,7 +135,7 @@ namespace Mux.Csharp.Sdk.Api
         /// List Video Views
         /// </summary>
         /// <remarks>
-        /// Returns a list of video views.
+        /// Returns a list of video views which match the filters and have a &#x60;view_end&#x60; within the specified timeframe.
         /// </remarks>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Number of items to include in the response (optional, default to 25)</param>
@@ -415,7 +415,7 @@ namespace Mux.Csharp.Sdk.Api
         }
 
         /// <summary>
-        /// List Video Views Returns a list of video views.
+        /// List Video Views Returns a list of video views which match the filters and have a &#x60;view_end&#x60; within the specified timeframe.
         /// </summary>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Number of items to include in the response (optional, default to 25)</param>
@@ -433,7 +433,7 @@ namespace Mux.Csharp.Sdk.Api
         }
 
         /// <summary>
-        /// List Video Views Returns a list of video views.
+        /// List Video Views Returns a list of video views which match the filters and have a &#x60;view_end&#x60; within the specified timeframe.
         /// </summary>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Number of items to include in the response (optional, default to 25)</param>
@@ -519,7 +519,7 @@ namespace Mux.Csharp.Sdk.Api
         }
 
         /// <summary>
-        /// List Video Views Returns a list of video views.
+        /// List Video Views Returns a list of video views which match the filters and have a &#x60;view_end&#x60; within the specified timeframe.
         /// </summary>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Number of items to include in the response (optional, default to 25)</param>
@@ -538,7 +538,7 @@ namespace Mux.Csharp.Sdk.Api
         }
 
         /// <summary>
-        /// List Video Views Returns a list of video views.
+        /// List Video Views Returns a list of video views which match the filters and have a &#x60;view_end&#x60; within the specified timeframe.
         /// </summary>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Number of items to include in the response (optional, default to 25)</param>

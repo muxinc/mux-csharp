@@ -1,4 +1,4 @@
-# Mux.Csharp.Sdk.Model.ListRealTimeMetricsResponse
+# Mux.Csharp.Sdk.Model.ListMonitoringMetricsResponse
 
 ## Properties
 

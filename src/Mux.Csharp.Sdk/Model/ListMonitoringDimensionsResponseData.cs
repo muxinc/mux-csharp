@@ -27,42 +27,34 @@ using OpenAPIDateConverter = Mux.Csharp.Sdk.Client.OpenAPIDateConverter;
 namespace Mux.Csharp.Sdk.Model
 {
     /// <summary>
-    /// ListRealTimeDimensionsResponse
+    /// ListMonitoringDimensionsResponseData
     /// </summary>
-    [DataContract(Name = "ListRealTimeDimensionsResponse")]
-    public partial class ListRealTimeDimensionsResponse : IEquatable<ListRealTimeDimensionsResponse>, IValidatableObject
+    [DataContract(Name = "ListMonitoringDimensionsResponse_data")]
+    public partial class ListMonitoringDimensionsResponseData : IEquatable<ListMonitoringDimensionsResponseData>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="ListRealTimeDimensionsResponse" /> class.
+        /// Initializes a new instance of the <see cref="ListMonitoringDimensionsResponseData" /> class.
         /// </summary>
-        /// <param name="data">data.</param>
-        /// <param name="totalRowCount">totalRowCount.</param>
-        /// <param name="timeframe">timeframe.</param>
-        public ListRealTimeDimensionsResponse(List<ListMonitoringDimensionsResponseData> data = default(List<ListMonitoringDimensionsResponseData>), long totalRowCount = default(long), List<long> timeframe = default(List<long>))
+        /// <param name="name">name.</param>
+        /// <param name="displayName">displayName.</param>
+        public ListMonitoringDimensionsResponseData(string name = default(string), string displayName = default(string))
         {
-            this.Data = data;
-            this.TotalRowCount = totalRowCount;
-            this.Timeframe = timeframe;
+            this.Name = name;
+            this.DisplayName = displayName;
             this.AdditionalProperties = new Dictionary<string, object>();
         }
 
         /// <summary>
-        /// Gets or Sets Data
+        /// Gets or Sets Name
         /// </summary>
-        [DataMember(Name = "data", EmitDefaultValue = false)]
-        public List<ListMonitoringDimensionsResponseData> Data { get; set; }
+        [DataMember(Name = "name", EmitDefaultValue = false)]
+        public string Name { get; set; }
 
         /// <summary>
-        /// Gets or Sets TotalRowCount
+        /// Gets or Sets DisplayName
         /// </summary>
-        [DataMember(Name = "total_row_count", EmitDefaultValue = false)]
-        public long TotalRowCount { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Timeframe
-        /// </summary>
-        [DataMember(Name = "timeframe", EmitDefaultValue = false)]
-        public List<long> Timeframe { get; set; }
+        [DataMember(Name = "display_name", EmitDefaultValue = false)]
+        public string DisplayName { get; set; }
 
         /// <summary>
         /// Gets or Sets additional properties
@@ -77,10 +69,9 @@ namespace Mux.Csharp.Sdk.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class ListRealTimeDimensionsResponse {\n");
-            sb.Append("  Data: ").Append(Data).Append("\n");
-            sb.Append("  TotalRowCount: ").Append(TotalRowCount).Append("\n");
-            sb.Append("  Timeframe: ").Append(Timeframe).Append("\n");
+            sb.Append("class ListMonitoringDimensionsResponseData {\n");
+            sb.Append("  Name: ").Append(Name).Append("\n");
+            sb.Append("  DisplayName: ").Append(DisplayName).Append("\n");
             sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -102,15 +93,15 @@ namespace Mux.Csharp.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as ListRealTimeDimensionsResponse);
+            return this.Equals(input as ListMonitoringDimensionsResponseData);
         }
 
         /// <summary>
-        /// Returns true if ListRealTimeDimensionsResponse instances are equal
+        /// Returns true if ListMonitoringDimensionsResponseData instances are equal
         /// </summary>
-        /// <param name="input">Instance of ListRealTimeDimensionsResponse to be compared</param>
+        /// <param name="input">Instance of ListMonitoringDimensionsResponseData to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ListRealTimeDimensionsResponse input)
+        public bool Equals(ListMonitoringDimensionsResponseData input)
         {
             if (input == null)
             {
@@ -118,20 +109,14 @@ namespace Mux.Csharp.Sdk.Model
             }
             return 
                 (
-                    this.Data == input.Data ||
-                    this.Data != null &&
-                    input.Data != null &&
-                    this.Data.SequenceEqual(input.Data)
+                    this.Name == input.Name ||
+                    (this.Name != null &&
+                    this.Name.Equals(input.Name))
                 ) && 
                 (
-                    this.TotalRowCount == input.TotalRowCount ||
-                    this.TotalRowCount.Equals(input.TotalRowCount)
-                ) && 
-                (
-                    this.Timeframe == input.Timeframe ||
-                    this.Timeframe != null &&
-                    input.Timeframe != null &&
-                    this.Timeframe.SequenceEqual(input.Timeframe)
+                    this.DisplayName == input.DisplayName ||
+                    (this.DisplayName != null &&
+                    this.DisplayName.Equals(input.DisplayName))
                 )
                 && (this.AdditionalProperties.Count == input.AdditionalProperties.Count && !this.AdditionalProperties.Except(input.AdditionalProperties).Any());
         }
@@ -145,14 +130,13 @@ namespace Mux.Csharp.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Data != null)
+                if (this.Name != null)
                 {
-                    hashCode = (hashCode * 59) + this.Data.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Name.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.TotalRowCount.GetHashCode();
-                if (this.Timeframe != null)
+                if (this.DisplayName != null)
                 {
-                    hashCode = (hashCode * 59) + this.Timeframe.GetHashCode();
+                    hashCode = (hashCode * 59) + this.DisplayName.GetHashCode();
                 }
                 if (this.AdditionalProperties != null)
                 {

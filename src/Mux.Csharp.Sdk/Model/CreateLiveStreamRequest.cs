@@ -72,8 +72,8 @@ namespace Mux.Csharp.Sdk.Model
         /// <param name="playbackPolicy">playbackPolicy.</param>
         /// <param name="newAssetSettings">newAssetSettings.</param>
         /// <param name="reconnectWindow">When live streaming software disconnects from Mux, either intentionally or due to a drop in the network, the Reconnect Window is the time in seconds that Mux should wait for the streaming software to reconnect before considering the live stream finished and completing the recorded asset. Defaults to 60 seconds on the API if not specified.  Reduced and Low Latency streams with a Reconnect Window greater than zero will insert slate media into the recorded asset while waiting for the streaming software to reconnect or when there are brief interruptions in the live stream media. When using a Reconnect Window setting higher than 60 seconds with a Standard Latency stream, we highly recommend enabling slate with the &#x60;use_slate_for_standard_latency&#x60; option.  (default to 60F).</param>
-        /// <param name="useSlateForStandardLatency">By default, Standard Latency live streams do not have slate media inserted while waiting for live streaming software to reconnect to Mux.  Setting this to true enables slate insertion on a Standard Latency stream. (default to false).</param>
-        /// <param name="reconnectSlateUrl">The URL of the image file that Mux should download and use as slate media during interruptions of the live stream media.  This file will be downloaded each time a new recorded asset is created from the live stream.  If this is not set, the default slate media will be used..</param>
+        /// <param name="useSlateForStandardLatency">By default, Standard Latency live streams do not have slate media inserted while waiting for live streaming software to reconnect to Mux. Setting this to true enables slate insertion on a Standard Latency stream. (default to false).</param>
+        /// <param name="reconnectSlateUrl">The URL of the image file that Mux should download and use as slate media during interruptions of the live stream media. This file will be downloaded each time a new recorded asset is created from the live stream. If this is not set, the default slate media will be used..</param>
         /// <param name="passthrough">passthrough.</param>
         /// <param name="audioOnly">Force the live stream to only process the audio track when the value is set to true. Mux drops the video track if broadcasted..</param>
         /// <param name="embeddedSubtitles">Describe the embedded closed caption contents of the incoming live stream..</param>
@@ -124,16 +124,16 @@ namespace Mux.Csharp.Sdk.Model
         public float ReconnectWindow { get; set; }
 
         /// <summary>
-        /// By default, Standard Latency live streams do not have slate media inserted while waiting for live streaming software to reconnect to Mux.  Setting this to true enables slate insertion on a Standard Latency stream.
+        /// By default, Standard Latency live streams do not have slate media inserted while waiting for live streaming software to reconnect to Mux. Setting this to true enables slate insertion on a Standard Latency stream.
         /// </summary>
-        /// <value>By default, Standard Latency live streams do not have slate media inserted while waiting for live streaming software to reconnect to Mux.  Setting this to true enables slate insertion on a Standard Latency stream.</value>
+        /// <value>By default, Standard Latency live streams do not have slate media inserted while waiting for live streaming software to reconnect to Mux. Setting this to true enables slate insertion on a Standard Latency stream.</value>
         [DataMember(Name = "use_slate_for_standard_latency", EmitDefaultValue = true)]
         public bool UseSlateForStandardLatency { get; set; }
 
         /// <summary>
-        /// The URL of the image file that Mux should download and use as slate media during interruptions of the live stream media.  This file will be downloaded each time a new recorded asset is created from the live stream.  If this is not set, the default slate media will be used.
+        /// The URL of the image file that Mux should download and use as slate media during interruptions of the live stream media. This file will be downloaded each time a new recorded asset is created from the live stream. If this is not set, the default slate media will be used.
         /// </summary>
-        /// <value>The URL of the image file that Mux should download and use as slate media during interruptions of the live stream media.  This file will be downloaded each time a new recorded asset is created from the live stream.  If this is not set, the default slate media will be used.</value>
+        /// <value>The URL of the image file that Mux should download and use as slate media during interruptions of the live stream media. This file will be downloaded each time a new recorded asset is created from the live stream. If this is not set, the default slate media will be used.</value>
         [DataMember(Name = "reconnect_slate_url", EmitDefaultValue = false)]
         public string ReconnectSlateUrl { get; set; }
 

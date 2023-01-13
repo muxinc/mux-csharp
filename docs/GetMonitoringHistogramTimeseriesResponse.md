@@ -1,10 +1,11 @@
-# Mux.Csharp.Sdk.Model.ListRealTimeMetricsResponse
+# Mux.Csharp.Sdk.Model.GetMonitoringHistogramTimeseriesResponse
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Data** | [**List&lt;ListMonitoringDimensionsResponseData&gt;**](ListMonitoringDimensionsResponseData.md) |  | [optional] 
+**Meta** | [**GetMonitoringHistogramTimeseriesResponseMeta**](GetMonitoringHistogramTimeseriesResponseMeta.md) |  | [optional] 
+**Data** | [**List&lt;MonitoringHistogramTimeseriesDatapoint&gt;**](MonitoringHistogramTimeseriesDatapoint.md) |  | [optional] 
 **TotalRowCount** | **long** |  | [optional] 
 **Timeframe** | **List&lt;long&gt;** |  | [optional] 
 

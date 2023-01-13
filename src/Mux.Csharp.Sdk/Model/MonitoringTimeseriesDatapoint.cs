@@ -27,42 +27,42 @@ using OpenAPIDateConverter = Mux.Csharp.Sdk.Client.OpenAPIDateConverter;
 namespace Mux.Csharp.Sdk.Model
 {
     /// <summary>
-    /// ListRealTimeDimensionsResponse
+    /// MonitoringTimeseriesDatapoint
     /// </summary>
-    [DataContract(Name = "ListRealTimeDimensionsResponse")]
-    public partial class ListRealTimeDimensionsResponse : IEquatable<ListRealTimeDimensionsResponse>, IValidatableObject
+    [DataContract(Name = "MonitoringTimeseriesDatapoint")]
+    public partial class MonitoringTimeseriesDatapoint : IEquatable<MonitoringTimeseriesDatapoint>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="ListRealTimeDimensionsResponse" /> class.
+        /// Initializes a new instance of the <see cref="MonitoringTimeseriesDatapoint" /> class.
         /// </summary>
-        /// <param name="data">data.</param>
-        /// <param name="totalRowCount">totalRowCount.</param>
-        /// <param name="timeframe">timeframe.</param>
-        public ListRealTimeDimensionsResponse(List<ListMonitoringDimensionsResponseData> data = default(List<ListMonitoringDimensionsResponseData>), long totalRowCount = default(long), List<long> timeframe = default(List<long>))
+        /// <param name="value">value.</param>
+        /// <param name="date">date.</param>
+        /// <param name="concurrentViewers">concurrentViewers.</param>
+        public MonitoringTimeseriesDatapoint(double value = default(double), string date = default(string), long concurrentViewers = default(long))
         {
-            this.Data = data;
-            this.TotalRowCount = totalRowCount;
-            this.Timeframe = timeframe;
+            this.Value = value;
+            this.Date = date;
+            this.ConcurrentViewers = concurrentViewers;
             this.AdditionalProperties = new Dictionary<string, object>();
         }
 
         /// <summary>
-        /// Gets or Sets Data
+        /// Gets or Sets Value
         /// </summary>
-        [DataMember(Name = "data", EmitDefaultValue = false)]
-        public List<ListMonitoringDimensionsResponseData> Data { get; set; }
+        [DataMember(Name = "value", EmitDefaultValue = false)]
+        public double Value { get; set; }
 
         /// <summary>
-        /// Gets or Sets TotalRowCount
+        /// Gets or Sets Date
         /// </summary>
-        [DataMember(Name = "total_row_count", EmitDefaultValue = false)]
-        public long TotalRowCount { get; set; }
+        [DataMember(Name = "date", EmitDefaultValue = false)]
+        public string Date { get; set; }
 
         /// <summary>
-        /// Gets or Sets Timeframe
+        /// Gets or Sets ConcurrentViewers
         /// </summary>
-        [DataMember(Name = "timeframe", EmitDefaultValue = false)]
-        public List<long> Timeframe { get; set; }
+        [DataMember(Name = "concurrent_viewers", EmitDefaultValue = false)]
+        public long ConcurrentViewers { get; set; }
 
         /// <summary>
         /// Gets or Sets additional properties
@@ -77,10 +77,10 @@ namespace Mux.Csharp.Sdk.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class ListRealTimeDimensionsResponse {\n");
-            sb.Append("  Data: ").Append(Data).Append("\n");
-            sb.Append("  TotalRowCount: ").Append(TotalRowCount).Append("\n");
-            sb.Append("  Timeframe: ").Append(Timeframe).Append("\n");
+            sb.Append("class MonitoringTimeseriesDatapoint {\n");
+            sb.Append("  Value: ").Append(Value).Append("\n");
+            sb.Append("  Date: ").Append(Date).Append("\n");
+            sb.Append("  ConcurrentViewers: ").Append(ConcurrentViewers).Append("\n");
             sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -102,15 +102,15 @@ namespace Mux.Csharp.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as ListRealTimeDimensionsResponse);
+            return this.Equals(input as MonitoringTimeseriesDatapoint);
         }
 
         /// <summary>
-        /// Returns true if ListRealTimeDimensionsResponse instances are equal
+        /// Returns true if MonitoringTimeseriesDatapoint instances are equal
         /// </summary>
-        /// <param name="input">Instance of ListRealTimeDimensionsResponse to be compared</param>
+        /// <param name="input">Instance of MonitoringTimeseriesDatapoint to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ListRealTimeDimensionsResponse input)
+        public bool Equals(MonitoringTimeseriesDatapoint input)
         {
             if (input == null)
             {
@@ -118,20 +118,17 @@ namespace Mux.Csharp.Sdk.Model
             }
             return 
                 (
-                    this.Data == input.Data ||
-                    this.Data != null &&
-                    input.Data != null &&
-                    this.Data.SequenceEqual(input.Data)
+                    this.Value == input.Value ||
+                    this.Value.Equals(input.Value)
                 ) && 
                 (
-                    this.TotalRowCount == input.TotalRowCount ||
-                    this.TotalRowCount.Equals(input.TotalRowCount)
+                    this.Date == input.Date ||
+                    (this.Date != null &&
+                    this.Date.Equals(input.Date))
                 ) && 
                 (
-                    this.Timeframe == input.Timeframe ||
-                    this.Timeframe != null &&
-                    input.Timeframe != null &&
-                    this.Timeframe.SequenceEqual(input.Timeframe)
+                    this.ConcurrentViewers == input.ConcurrentViewers ||
+                    this.ConcurrentViewers.Equals(input.ConcurrentViewers)
                 )
                 && (this.AdditionalProperties.Count == input.AdditionalProperties.Count && !this.AdditionalProperties.Except(input.AdditionalProperties).Any());
         }
@@ -145,15 +142,12 @@ namespace Mux.Csharp.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Data != null)
+                hashCode = (hashCode * 59) + this.Value.GetHashCode();
+                if (this.Date != null)
                 {
-                    hashCode = (hashCode * 59) + this.Data.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Date.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.TotalRowCount.GetHashCode();
-                if (this.Timeframe != null)
-                {
-                    hashCode = (hashCode * 59) + this.Timeframe.GetHashCode();
-                }
+                hashCode = (hashCode * 59) + this.ConcurrentViewers.GetHashCode();
                 if (this.AdditionalProperties != null)
                 {
                     hashCode = (hashCode * 59) + this.AdditionalProperties.GetHashCode();

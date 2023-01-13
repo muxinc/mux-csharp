@@ -24,285 +24,265 @@ namespace Mux.Csharp.Sdk.Api
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public interface IRealTimeApiSync : IApiAccessor
+    public interface IMonitoringApiSync : IApiAccessor
     {
         #region Synchronous Operations
         /// <summary>
-        /// Get Real-Time Breakdown
+        /// Get Monitoring Breakdown
         /// </summary>
         /// <remarks>
-        /// Gets breakdown information for a specific dimension and metric along with the number of concurrent viewers and negative impact score. This API is now deprecated, please use the &#x60;Get Monitoring Breakdown&#x60; API.
+        /// Gets breakdown information for a specific dimension and metric along with the number of concurrent viewers and negative impact score.
         /// </remarks>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="REALTIME_METRIC_ID">ID of the Realtime Metric</param>
+        /// <param name="MONITORING_METRIC_ID">ID of the Monitoring Metric</param>
         /// <param name="dimension">Dimension the specified value belongs to (optional)</param>
         /// <param name="timestamp">Timestamp to limit results by. This value must be provided as a unix timestamp. Defaults to the current unix timestamp. (optional)</param>
         /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Filters endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
         /// <param name="orderBy">Value to order the results by (optional)</param>
         /// <param name="orderDirection">Sort order. (optional)</param>
-        /// <returns>GetRealTimeBreakdownResponse</returns>
-        [Obsolete]
-        GetRealTimeBreakdownResponse GetRealtimeBreakdown(string REALTIME_METRIC_ID, string dimension = default(string), int? timestamp = default(int?), List<string> filters = default(List<string>), string orderBy = default(string), string orderDirection = default(string));
+        /// <returns>GetMonitoringBreakdownResponse</returns>
+        GetMonitoringBreakdownResponse GetMonitoringBreakdown(string MONITORING_METRIC_ID, string dimension = default(string), int? timestamp = default(int?), List<string> filters = default(List<string>), string orderBy = default(string), string orderDirection = default(string));
 
         /// <summary>
-        /// Get Real-Time Breakdown
+        /// Get Monitoring Breakdown
         /// </summary>
         /// <remarks>
-        /// Gets breakdown information for a specific dimension and metric along with the number of concurrent viewers and negative impact score. This API is now deprecated, please use the &#x60;Get Monitoring Breakdown&#x60; API.
+        /// Gets breakdown information for a specific dimension and metric along with the number of concurrent viewers and negative impact score.
         /// </remarks>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="REALTIME_METRIC_ID">ID of the Realtime Metric</param>
+        /// <param name="MONITORING_METRIC_ID">ID of the Monitoring Metric</param>
         /// <param name="dimension">Dimension the specified value belongs to (optional)</param>
         /// <param name="timestamp">Timestamp to limit results by. This value must be provided as a unix timestamp. Defaults to the current unix timestamp. (optional)</param>
         /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Filters endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
         /// <param name="orderBy">Value to order the results by (optional)</param>
         /// <param name="orderDirection">Sort order. (optional)</param>
-        /// <returns>ApiResponse of GetRealTimeBreakdownResponse</returns>
-        [Obsolete]
-        ApiResponse<GetRealTimeBreakdownResponse> GetRealtimeBreakdownWithHttpInfo(string REALTIME_METRIC_ID, string dimension = default(string), int? timestamp = default(int?), List<string> filters = default(List<string>), string orderBy = default(string), string orderDirection = default(string));
+        /// <returns>ApiResponse of GetMonitoringBreakdownResponse</returns>
+        ApiResponse<GetMonitoringBreakdownResponse> GetMonitoringBreakdownWithHttpInfo(string MONITORING_METRIC_ID, string dimension = default(string), int? timestamp = default(int?), List<string> filters = default(List<string>), string orderBy = default(string), string orderDirection = default(string));
         /// <summary>
-        /// Get Real-Time Histogram Timeseries
+        /// Get Monitoring Histogram Timeseries
         /// </summary>
         /// <remarks>
-        /// Gets histogram timeseries information for a specific metric. This API is now deprecated, please use the &#x60;Get Monitoring Histogram Timeseries&#x60; API.
+        /// Gets histogram timeseries information for a specific metric.
         /// </remarks>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="REALTIME_HISTOGRAM_METRIC_ID">ID of the Realtime Histogram Metric</param>
+        /// <param name="MONITORING_HISTOGRAM_METRIC_ID">ID of the Monitoring Histogram Metric</param>
         /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Filters endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
-        /// <returns>GetRealTimeHistogramTimeseriesResponse</returns>
-        [Obsolete]
-        GetRealTimeHistogramTimeseriesResponse GetRealtimeHistogramTimeseries(string REALTIME_HISTOGRAM_METRIC_ID, List<string> filters = default(List<string>));
+        /// <returns>GetMonitoringHistogramTimeseriesResponse</returns>
+        GetMonitoringHistogramTimeseriesResponse GetMonitoringHistogramTimeseries(string MONITORING_HISTOGRAM_METRIC_ID, List<string> filters = default(List<string>));
 
         /// <summary>
-        /// Get Real-Time Histogram Timeseries
+        /// Get Monitoring Histogram Timeseries
         /// </summary>
         /// <remarks>
-        /// Gets histogram timeseries information for a specific metric. This API is now deprecated, please use the &#x60;Get Monitoring Histogram Timeseries&#x60; API.
+        /// Gets histogram timeseries information for a specific metric.
         /// </remarks>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="REALTIME_HISTOGRAM_METRIC_ID">ID of the Realtime Histogram Metric</param>
+        /// <param name="MONITORING_HISTOGRAM_METRIC_ID">ID of the Monitoring Histogram Metric</param>
         /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Filters endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
-        /// <returns>ApiResponse of GetRealTimeHistogramTimeseriesResponse</returns>
-        [Obsolete]
-        ApiResponse<GetRealTimeHistogramTimeseriesResponse> GetRealtimeHistogramTimeseriesWithHttpInfo(string REALTIME_HISTOGRAM_METRIC_ID, List<string> filters = default(List<string>));
+        /// <returns>ApiResponse of GetMonitoringHistogramTimeseriesResponse</returns>
+        ApiResponse<GetMonitoringHistogramTimeseriesResponse> GetMonitoringHistogramTimeseriesWithHttpInfo(string MONITORING_HISTOGRAM_METRIC_ID, List<string> filters = default(List<string>));
         /// <summary>
-        /// Get Real-Time Timeseries
+        /// Get Monitoring Timeseries
         /// </summary>
         /// <remarks>
-        /// Gets Time series information for a specific metric along with the number of concurrent viewers. This API is now deprecated, please use the &#x60;Get Monitoring Timeseries&#x60; API.
+        /// Gets Time series information for a specific metric along with the number of concurrent viewers.
         /// </remarks>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="REALTIME_METRIC_ID">ID of the Realtime Metric</param>
+        /// <param name="MONITORING_METRIC_ID">ID of the Monitoring Metric</param>
         /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Filters endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
-        /// <returns>GetRealTimeTimeseriesResponse</returns>
-        [Obsolete]
-        GetRealTimeTimeseriesResponse GetRealtimeTimeseries(string REALTIME_METRIC_ID, List<string> filters = default(List<string>));
+        /// <returns>GetMonitoringTimeseriesResponse</returns>
+        GetMonitoringTimeseriesResponse GetMonitoringTimeseries(string MONITORING_METRIC_ID, List<string> filters = default(List<string>));
 
         /// <summary>
-        /// Get Real-Time Timeseries
+        /// Get Monitoring Timeseries
         /// </summary>
         /// <remarks>
-        /// Gets Time series information for a specific metric along with the number of concurrent viewers. This API is now deprecated, please use the &#x60;Get Monitoring Timeseries&#x60; API.
+        /// Gets Time series information for a specific metric along with the number of concurrent viewers.
         /// </remarks>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="REALTIME_METRIC_ID">ID of the Realtime Metric</param>
+        /// <param name="MONITORING_METRIC_ID">ID of the Monitoring Metric</param>
         /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Filters endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
-        /// <returns>ApiResponse of GetRealTimeTimeseriesResponse</returns>
-        [Obsolete]
-        ApiResponse<GetRealTimeTimeseriesResponse> GetRealtimeTimeseriesWithHttpInfo(string REALTIME_METRIC_ID, List<string> filters = default(List<string>));
+        /// <returns>ApiResponse of GetMonitoringTimeseriesResponse</returns>
+        ApiResponse<GetMonitoringTimeseriesResponse> GetMonitoringTimeseriesWithHttpInfo(string MONITORING_METRIC_ID, List<string> filters = default(List<string>));
         /// <summary>
-        /// List Real-Time Dimensions
+        /// List Monitoring Dimensions
         /// </summary>
         /// <remarks>
-        /// Lists available real-time dimensions. This API is now deprecated, please use the &#x60;List Monitoring Dimensions&#x60; API.
+        /// Lists available monitoring dimensions.
         /// </remarks>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>ListRealTimeDimensionsResponse</returns>
-        [Obsolete]
-        ListRealTimeDimensionsResponse ListRealtimeDimensions();
+        /// <returns>ListMonitoringDimensionsResponse</returns>
+        ListMonitoringDimensionsResponse ListMonitoringDimensions();
 
         /// <summary>
-        /// List Real-Time Dimensions
+        /// List Monitoring Dimensions
         /// </summary>
         /// <remarks>
-        /// Lists available real-time dimensions. This API is now deprecated, please use the &#x60;List Monitoring Dimensions&#x60; API.
+        /// Lists available monitoring dimensions.
         /// </remarks>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>ApiResponse of ListRealTimeDimensionsResponse</returns>
-        [Obsolete]
-        ApiResponse<ListRealTimeDimensionsResponse> ListRealtimeDimensionsWithHttpInfo();
+        /// <returns>ApiResponse of ListMonitoringDimensionsResponse</returns>
+        ApiResponse<ListMonitoringDimensionsResponse> ListMonitoringDimensionsWithHttpInfo();
         /// <summary>
-        /// List Real-Time Metrics
+        /// List Monitoring Metrics
         /// </summary>
         /// <remarks>
-        /// Lists available real-time metrics. This API is now deprecated, please use the &#x60;List Monitoring Metrics&#x60; API.
+        /// Lists available monitoring metrics.
         /// </remarks>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>ListRealTimeMetricsResponse</returns>
-        [Obsolete]
-        ListRealTimeMetricsResponse ListRealtimeMetrics();
+        /// <returns>ListMonitoringMetricsResponse</returns>
+        ListMonitoringMetricsResponse ListMonitoringMetrics();
 
         /// <summary>
-        /// List Real-Time Metrics
+        /// List Monitoring Metrics
         /// </summary>
         /// <remarks>
-        /// Lists available real-time metrics. This API is now deprecated, please use the &#x60;List Monitoring Metrics&#x60; API.
+        /// Lists available monitoring metrics.
         /// </remarks>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>ApiResponse of ListRealTimeMetricsResponse</returns>
-        [Obsolete]
-        ApiResponse<ListRealTimeMetricsResponse> ListRealtimeMetricsWithHttpInfo();
+        /// <returns>ApiResponse of ListMonitoringMetricsResponse</returns>
+        ApiResponse<ListMonitoringMetricsResponse> ListMonitoringMetricsWithHttpInfo();
         #endregion Synchronous Operations
     }
 
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public interface IRealTimeApiAsync : IApiAccessor
+    public interface IMonitoringApiAsync : IApiAccessor
     {
         #region Asynchronous Operations
         /// <summary>
-        /// Get Real-Time Breakdown
+        /// Get Monitoring Breakdown
         /// </summary>
         /// <remarks>
-        /// Gets breakdown information for a specific dimension and metric along with the number of concurrent viewers and negative impact score. This API is now deprecated, please use the &#x60;Get Monitoring Breakdown&#x60; API.
+        /// Gets breakdown information for a specific dimension and metric along with the number of concurrent viewers and negative impact score.
         /// </remarks>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="REALTIME_METRIC_ID">ID of the Realtime Metric</param>
+        /// <param name="MONITORING_METRIC_ID">ID of the Monitoring Metric</param>
         /// <param name="dimension">Dimension the specified value belongs to (optional)</param>
         /// <param name="timestamp">Timestamp to limit results by. This value must be provided as a unix timestamp. Defaults to the current unix timestamp. (optional)</param>
         /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Filters endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
         /// <param name="orderBy">Value to order the results by (optional)</param>
         /// <param name="orderDirection">Sort order. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of GetRealTimeBreakdownResponse</returns>
-        [Obsolete]
-        System.Threading.Tasks.Task<GetRealTimeBreakdownResponse> GetRealtimeBreakdownAsync(string REALTIME_METRIC_ID, string dimension = default(string), int? timestamp = default(int?), List<string> filters = default(List<string>), string orderBy = default(string), string orderDirection = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of GetMonitoringBreakdownResponse</returns>
+        System.Threading.Tasks.Task<GetMonitoringBreakdownResponse> GetMonitoringBreakdownAsync(string MONITORING_METRIC_ID, string dimension = default(string), int? timestamp = default(int?), List<string> filters = default(List<string>), string orderBy = default(string), string orderDirection = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Get Real-Time Breakdown
+        /// Get Monitoring Breakdown
         /// </summary>
         /// <remarks>
-        /// Gets breakdown information for a specific dimension and metric along with the number of concurrent viewers and negative impact score. This API is now deprecated, please use the &#x60;Get Monitoring Breakdown&#x60; API.
+        /// Gets breakdown information for a specific dimension and metric along with the number of concurrent viewers and negative impact score.
         /// </remarks>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="REALTIME_METRIC_ID">ID of the Realtime Metric</param>
+        /// <param name="MONITORING_METRIC_ID">ID of the Monitoring Metric</param>
         /// <param name="dimension">Dimension the specified value belongs to (optional)</param>
         /// <param name="timestamp">Timestamp to limit results by. This value must be provided as a unix timestamp. Defaults to the current unix timestamp. (optional)</param>
         /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Filters endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
         /// <param name="orderBy">Value to order the results by (optional)</param>
         /// <param name="orderDirection">Sort order. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (GetRealTimeBreakdownResponse)</returns>
-        [Obsolete]
-        System.Threading.Tasks.Task<ApiResponse<GetRealTimeBreakdownResponse>> GetRealtimeBreakdownWithHttpInfoAsync(string REALTIME_METRIC_ID, string dimension = default(string), int? timestamp = default(int?), List<string> filters = default(List<string>), string orderBy = default(string), string orderDirection = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (GetMonitoringBreakdownResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<GetMonitoringBreakdownResponse>> GetMonitoringBreakdownWithHttpInfoAsync(string MONITORING_METRIC_ID, string dimension = default(string), int? timestamp = default(int?), List<string> filters = default(List<string>), string orderBy = default(string), string orderDirection = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Get Real-Time Histogram Timeseries
+        /// Get Monitoring Histogram Timeseries
         /// </summary>
         /// <remarks>
-        /// Gets histogram timeseries information for a specific metric. This API is now deprecated, please use the &#x60;Get Monitoring Histogram Timeseries&#x60; API.
+        /// Gets histogram timeseries information for a specific metric.
         /// </remarks>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="REALTIME_HISTOGRAM_METRIC_ID">ID of the Realtime Histogram Metric</param>
+        /// <param name="MONITORING_HISTOGRAM_METRIC_ID">ID of the Monitoring Histogram Metric</param>
         /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Filters endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of GetRealTimeHistogramTimeseriesResponse</returns>
-        [Obsolete]
-        System.Threading.Tasks.Task<GetRealTimeHistogramTimeseriesResponse> GetRealtimeHistogramTimeseriesAsync(string REALTIME_HISTOGRAM_METRIC_ID, List<string> filters = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of GetMonitoringHistogramTimeseriesResponse</returns>
+        System.Threading.Tasks.Task<GetMonitoringHistogramTimeseriesResponse> GetMonitoringHistogramTimeseriesAsync(string MONITORING_HISTOGRAM_METRIC_ID, List<string> filters = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Get Real-Time Histogram Timeseries
+        /// Get Monitoring Histogram Timeseries
         /// </summary>
         /// <remarks>
-        /// Gets histogram timeseries information for a specific metric. This API is now deprecated, please use the &#x60;Get Monitoring Histogram Timeseries&#x60; API.
+        /// Gets histogram timeseries information for a specific metric.
         /// </remarks>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="REALTIME_HISTOGRAM_METRIC_ID">ID of the Realtime Histogram Metric</param>
+        /// <param name="MONITORING_HISTOGRAM_METRIC_ID">ID of the Monitoring Histogram Metric</param>
         /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Filters endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (GetRealTimeHistogramTimeseriesResponse)</returns>
-        [Obsolete]
-        System.Threading.Tasks.Task<ApiResponse<GetRealTimeHistogramTimeseriesResponse>> GetRealtimeHistogramTimeseriesWithHttpInfoAsync(string REALTIME_HISTOGRAM_METRIC_ID, List<string> filters = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (GetMonitoringHistogramTimeseriesResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<GetMonitoringHistogramTimeseriesResponse>> GetMonitoringHistogramTimeseriesWithHttpInfoAsync(string MONITORING_HISTOGRAM_METRIC_ID, List<string> filters = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Get Real-Time Timeseries
+        /// Get Monitoring Timeseries
         /// </summary>
         /// <remarks>
-        /// Gets Time series information for a specific metric along with the number of concurrent viewers. This API is now deprecated, please use the &#x60;Get Monitoring Timeseries&#x60; API.
+        /// Gets Time series information for a specific metric along with the number of concurrent viewers.
         /// </remarks>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="REALTIME_METRIC_ID">ID of the Realtime Metric</param>
+        /// <param name="MONITORING_METRIC_ID">ID of the Monitoring Metric</param>
         /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Filters endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of GetRealTimeTimeseriesResponse</returns>
-        [Obsolete]
-        System.Threading.Tasks.Task<GetRealTimeTimeseriesResponse> GetRealtimeTimeseriesAsync(string REALTIME_METRIC_ID, List<string> filters = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of GetMonitoringTimeseriesResponse</returns>
+        System.Threading.Tasks.Task<GetMonitoringTimeseriesResponse> GetMonitoringTimeseriesAsync(string MONITORING_METRIC_ID, List<string> filters = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Get Real-Time Timeseries
+        /// Get Monitoring Timeseries
         /// </summary>
         /// <remarks>
-        /// Gets Time series information for a specific metric along with the number of concurrent viewers. This API is now deprecated, please use the &#x60;Get Monitoring Timeseries&#x60; API.
+        /// Gets Time series information for a specific metric along with the number of concurrent viewers.
         /// </remarks>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="REALTIME_METRIC_ID">ID of the Realtime Metric</param>
+        /// <param name="MONITORING_METRIC_ID">ID of the Monitoring Metric</param>
         /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Filters endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (GetRealTimeTimeseriesResponse)</returns>
-        [Obsolete]
-        System.Threading.Tasks.Task<ApiResponse<GetRealTimeTimeseriesResponse>> GetRealtimeTimeseriesWithHttpInfoAsync(string REALTIME_METRIC_ID, List<string> filters = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (GetMonitoringTimeseriesResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<GetMonitoringTimeseriesResponse>> GetMonitoringTimeseriesWithHttpInfoAsync(string MONITORING_METRIC_ID, List<string> filters = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// List Real-Time Dimensions
+        /// List Monitoring Dimensions
         /// </summary>
         /// <remarks>
-        /// Lists available real-time dimensions. This API is now deprecated, please use the &#x60;List Monitoring Dimensions&#x60; API.
+        /// Lists available monitoring dimensions.
         /// </remarks>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ListRealTimeDimensionsResponse</returns>
-        [Obsolete]
-        System.Threading.Tasks.Task<ListRealTimeDimensionsResponse> ListRealtimeDimensionsAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ListMonitoringDimensionsResponse</returns>
+        System.Threading.Tasks.Task<ListMonitoringDimensionsResponse> ListMonitoringDimensionsAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// List Real-Time Dimensions
+        /// List Monitoring Dimensions
         /// </summary>
         /// <remarks>
-        /// Lists available real-time dimensions. This API is now deprecated, please use the &#x60;List Monitoring Dimensions&#x60; API.
+        /// Lists available monitoring dimensions.
         /// </remarks>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (ListRealTimeDimensionsResponse)</returns>
-        [Obsolete]
-        System.Threading.Tasks.Task<ApiResponse<ListRealTimeDimensionsResponse>> ListRealtimeDimensionsWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (ListMonitoringDimensionsResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ListMonitoringDimensionsResponse>> ListMonitoringDimensionsWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// List Real-Time Metrics
+        /// List Monitoring Metrics
         /// </summary>
         /// <remarks>
-        /// Lists available real-time metrics. This API is now deprecated, please use the &#x60;List Monitoring Metrics&#x60; API.
+        /// Lists available monitoring metrics.
         /// </remarks>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ListRealTimeMetricsResponse</returns>
-        [Obsolete]
-        System.Threading.Tasks.Task<ListRealTimeMetricsResponse> ListRealtimeMetricsAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ListMonitoringMetricsResponse</returns>
+        System.Threading.Tasks.Task<ListMonitoringMetricsResponse> ListMonitoringMetricsAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// List Real-Time Metrics
+        /// List Monitoring Metrics
         /// </summary>
         /// <remarks>
-        /// Lists available real-time metrics. This API is now deprecated, please use the &#x60;List Monitoring Metrics&#x60; API.
+        /// Lists available monitoring metrics.
         /// </remarks>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (ListRealTimeMetricsResponse)</returns>
-        [Obsolete]
-        System.Threading.Tasks.Task<ApiResponse<ListRealTimeMetricsResponse>> ListRealtimeMetricsWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (ListMonitoringMetricsResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ListMonitoringMetricsResponse>> ListMonitoringMetricsWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public interface IRealTimeApi : IRealTimeApiSync, IRealTimeApiAsync
+    public interface IMonitoringApi : IMonitoringApiSync, IMonitoringApiAsync
     {
 
     }
@@ -310,23 +290,23 @@ namespace Mux.Csharp.Sdk.Api
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public partial class RealTimeApi : IRealTimeApi
+    public partial class MonitoringApi : IMonitoringApi
     {
         private Mux.Csharp.Sdk.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="RealTimeApi"/> class.
+        /// Initializes a new instance of the <see cref="MonitoringApi"/> class.
         /// </summary>
         /// <returns></returns>
-        public RealTimeApi() : this((string)null)
+        public MonitoringApi() : this((string)null)
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="RealTimeApi"/> class.
+        /// Initializes a new instance of the <see cref="MonitoringApi"/> class.
         /// </summary>
         /// <returns></returns>
-        public RealTimeApi(string basePath)
+        public MonitoringApi(string basePath)
         {
             this.Configuration = Mux.Csharp.Sdk.Client.Configuration.MergeConfigurations(
                 Mux.Csharp.Sdk.Client.GlobalConfiguration.Instance,
@@ -338,12 +318,12 @@ namespace Mux.Csharp.Sdk.Api
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="RealTimeApi"/> class
+        /// Initializes a new instance of the <see cref="MonitoringApi"/> class
         /// using Configuration object
         /// </summary>
         /// <param name="configuration">An instance of Configuration</param>
         /// <returns></returns>
-        public RealTimeApi(Mux.Csharp.Sdk.Client.Configuration configuration)
+        public MonitoringApi(Mux.Csharp.Sdk.Client.Configuration configuration)
         {
             if (configuration == null) throw new ArgumentNullException("configuration");
 
@@ -357,13 +337,13 @@ namespace Mux.Csharp.Sdk.Api
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="RealTimeApi"/> class
+        /// Initializes a new instance of the <see cref="MonitoringApi"/> class
         /// using a Configuration object and client instance.
         /// </summary>
         /// <param name="client">The client interface for synchronous API access.</param>
         /// <param name="asyncClient">The client interface for asynchronous API access.</param>
         /// <param name="configuration">The configuration object.</param>
-        public RealTimeApi(Mux.Csharp.Sdk.Client.ISynchronousClient client, Mux.Csharp.Sdk.Client.IAsynchronousClient asyncClient, Mux.Csharp.Sdk.Client.IReadableConfiguration configuration)
+        public MonitoringApi(Mux.Csharp.Sdk.Client.ISynchronousClient client, Mux.Csharp.Sdk.Client.IAsynchronousClient asyncClient, Mux.Csharp.Sdk.Client.IReadableConfiguration configuration)
         {
             if (client == null) throw new ArgumentNullException("client");
             if (asyncClient == null) throw new ArgumentNullException("asyncClient");
@@ -417,41 +397,39 @@ namespace Mux.Csharp.Sdk.Api
         }
 
         /// <summary>
-        /// Get Real-Time Breakdown Gets breakdown information for a specific dimension and metric along with the number of concurrent viewers and negative impact score. This API is now deprecated, please use the &#x60;Get Monitoring Breakdown&#x60; API.
+        /// Get Monitoring Breakdown Gets breakdown information for a specific dimension and metric along with the number of concurrent viewers and negative impact score.
         /// </summary>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="REALTIME_METRIC_ID">ID of the Realtime Metric</param>
+        /// <param name="MONITORING_METRIC_ID">ID of the Monitoring Metric</param>
         /// <param name="dimension">Dimension the specified value belongs to (optional)</param>
         /// <param name="timestamp">Timestamp to limit results by. This value must be provided as a unix timestamp. Defaults to the current unix timestamp. (optional)</param>
         /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Filters endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
         /// <param name="orderBy">Value to order the results by (optional)</param>
         /// <param name="orderDirection">Sort order. (optional)</param>
-        /// <returns>GetRealTimeBreakdownResponse</returns>
-        [Obsolete]
-        public GetRealTimeBreakdownResponse GetRealtimeBreakdown(string REALTIME_METRIC_ID, string dimension = default(string), int? timestamp = default(int?), List<string> filters = default(List<string>), string orderBy = default(string), string orderDirection = default(string))
+        /// <returns>GetMonitoringBreakdownResponse</returns>
+        public GetMonitoringBreakdownResponse GetMonitoringBreakdown(string MONITORING_METRIC_ID, string dimension = default(string), int? timestamp = default(int?), List<string> filters = default(List<string>), string orderBy = default(string), string orderDirection = default(string))
         {
-            Mux.Csharp.Sdk.Client.ApiResponse<GetRealTimeBreakdownResponse> localVarResponse = GetRealtimeBreakdownWithHttpInfo(REALTIME_METRIC_ID, dimension, timestamp, filters, orderBy, orderDirection);
+            Mux.Csharp.Sdk.Client.ApiResponse<GetMonitoringBreakdownResponse> localVarResponse = GetMonitoringBreakdownWithHttpInfo(MONITORING_METRIC_ID, dimension, timestamp, filters, orderBy, orderDirection);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Get Real-Time Breakdown Gets breakdown information for a specific dimension and metric along with the number of concurrent viewers and negative impact score. This API is now deprecated, please use the &#x60;Get Monitoring Breakdown&#x60; API.
+        /// Get Monitoring Breakdown Gets breakdown information for a specific dimension and metric along with the number of concurrent viewers and negative impact score.
         /// </summary>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="REALTIME_METRIC_ID">ID of the Realtime Metric</param>
+        /// <param name="MONITORING_METRIC_ID">ID of the Monitoring Metric</param>
         /// <param name="dimension">Dimension the specified value belongs to (optional)</param>
         /// <param name="timestamp">Timestamp to limit results by. This value must be provided as a unix timestamp. Defaults to the current unix timestamp. (optional)</param>
         /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Filters endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
         /// <param name="orderBy">Value to order the results by (optional)</param>
         /// <param name="orderDirection">Sort order. (optional)</param>
-        /// <returns>ApiResponse of GetRealTimeBreakdownResponse</returns>
-        [Obsolete]
-        public Mux.Csharp.Sdk.Client.ApiResponse<GetRealTimeBreakdownResponse> GetRealtimeBreakdownWithHttpInfo(string REALTIME_METRIC_ID, string dimension = default(string), int? timestamp = default(int?), List<string> filters = default(List<string>), string orderBy = default(string), string orderDirection = default(string))
+        /// <returns>ApiResponse of GetMonitoringBreakdownResponse</returns>
+        public Mux.Csharp.Sdk.Client.ApiResponse<GetMonitoringBreakdownResponse> GetMonitoringBreakdownWithHttpInfo(string MONITORING_METRIC_ID, string dimension = default(string), int? timestamp = default(int?), List<string> filters = default(List<string>), string orderBy = default(string), string orderDirection = default(string))
         {
-            // verify the required parameter 'REALTIME_METRIC_ID' is set
-            if (REALTIME_METRIC_ID == null)
+            // verify the required parameter 'MONITORING_METRIC_ID' is set
+            if (MONITORING_METRIC_ID == null)
             {
-                throw new Mux.Csharp.Sdk.Client.ApiException(400, "Missing required parameter 'REALTIME_METRIC_ID' when calling RealTimeApi->GetRealtimeBreakdown");
+                throw new Mux.Csharp.Sdk.Client.ApiException(400, "Missing required parameter 'MONITORING_METRIC_ID' when calling MonitoringApi->GetMonitoringBreakdown");
             }
 
             Mux.Csharp.Sdk.Client.RequestOptions localVarRequestOptions = new Mux.Csharp.Sdk.Client.RequestOptions();
@@ -476,7 +454,7 @@ namespace Mux.Csharp.Sdk.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            localVarRequestOptions.PathParameters.Add("REALTIME_METRIC_ID", Mux.Csharp.Sdk.Client.ClientUtils.ParameterToString(REALTIME_METRIC_ID)); // path parameter
+            localVarRequestOptions.PathParameters.Add("MONITORING_METRIC_ID", Mux.Csharp.Sdk.Client.ClientUtils.ParameterToString(MONITORING_METRIC_ID)); // path parameter
             if (dimension != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Mux.Csharp.Sdk.Client.ClientUtils.ParameterToMultiMap("", "dimension", dimension));
@@ -506,10 +484,10 @@ namespace Mux.Csharp.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<GetRealTimeBreakdownResponse>("/data/v1/realtime/metrics/{REALTIME_METRIC_ID}/breakdown", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<GetMonitoringBreakdownResponse>("/data/v1/monitoring/metrics/{MONITORING_METRIC_ID}/breakdown", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetRealtimeBreakdown", localVarResponse);
+                Exception _exception = this.ExceptionFactory("GetMonitoringBreakdown", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -520,43 +498,41 @@ namespace Mux.Csharp.Sdk.Api
         }
 
         /// <summary>
-        /// Get Real-Time Breakdown Gets breakdown information for a specific dimension and metric along with the number of concurrent viewers and negative impact score. This API is now deprecated, please use the &#x60;Get Monitoring Breakdown&#x60; API.
+        /// Get Monitoring Breakdown Gets breakdown information for a specific dimension and metric along with the number of concurrent viewers and negative impact score.
         /// </summary>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="REALTIME_METRIC_ID">ID of the Realtime Metric</param>
+        /// <param name="MONITORING_METRIC_ID">ID of the Monitoring Metric</param>
         /// <param name="dimension">Dimension the specified value belongs to (optional)</param>
         /// <param name="timestamp">Timestamp to limit results by. This value must be provided as a unix timestamp. Defaults to the current unix timestamp. (optional)</param>
         /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Filters endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
         /// <param name="orderBy">Value to order the results by (optional)</param>
         /// <param name="orderDirection">Sort order. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of GetRealTimeBreakdownResponse</returns>
-        [Obsolete]
-        public async System.Threading.Tasks.Task<GetRealTimeBreakdownResponse> GetRealtimeBreakdownAsync(string REALTIME_METRIC_ID, string dimension = default(string), int? timestamp = default(int?), List<string> filters = default(List<string>), string orderBy = default(string), string orderDirection = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of GetMonitoringBreakdownResponse</returns>
+        public async System.Threading.Tasks.Task<GetMonitoringBreakdownResponse> GetMonitoringBreakdownAsync(string MONITORING_METRIC_ID, string dimension = default(string), int? timestamp = default(int?), List<string> filters = default(List<string>), string orderBy = default(string), string orderDirection = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Mux.Csharp.Sdk.Client.ApiResponse<GetRealTimeBreakdownResponse> localVarResponse = await GetRealtimeBreakdownWithHttpInfoAsync(REALTIME_METRIC_ID, dimension, timestamp, filters, orderBy, orderDirection, cancellationToken).ConfigureAwait(false);
+            Mux.Csharp.Sdk.Client.ApiResponse<GetMonitoringBreakdownResponse> localVarResponse = await GetMonitoringBreakdownWithHttpInfoAsync(MONITORING_METRIC_ID, dimension, timestamp, filters, orderBy, orderDirection, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Get Real-Time Breakdown Gets breakdown information for a specific dimension and metric along with the number of concurrent viewers and negative impact score. This API is now deprecated, please use the &#x60;Get Monitoring Breakdown&#x60; API.
+        /// Get Monitoring Breakdown Gets breakdown information for a specific dimension and metric along with the number of concurrent viewers and negative impact score.
         /// </summary>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="REALTIME_METRIC_ID">ID of the Realtime Metric</param>
+        /// <param name="MONITORING_METRIC_ID">ID of the Monitoring Metric</param>
         /// <param name="dimension">Dimension the specified value belongs to (optional)</param>
         /// <param name="timestamp">Timestamp to limit results by. This value must be provided as a unix timestamp. Defaults to the current unix timestamp. (optional)</param>
         /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Filters endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
         /// <param name="orderBy">Value to order the results by (optional)</param>
         /// <param name="orderDirection">Sort order. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (GetRealTimeBreakdownResponse)</returns>
-        [Obsolete]
-        public async System.Threading.Tasks.Task<Mux.Csharp.Sdk.Client.ApiResponse<GetRealTimeBreakdownResponse>> GetRealtimeBreakdownWithHttpInfoAsync(string REALTIME_METRIC_ID, string dimension = default(string), int? timestamp = default(int?), List<string> filters = default(List<string>), string orderBy = default(string), string orderDirection = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (GetMonitoringBreakdownResponse)</returns>
+        public async System.Threading.Tasks.Task<Mux.Csharp.Sdk.Client.ApiResponse<GetMonitoringBreakdownResponse>> GetMonitoringBreakdownWithHttpInfoAsync(string MONITORING_METRIC_ID, string dimension = default(string), int? timestamp = default(int?), List<string> filters = default(List<string>), string orderBy = default(string), string orderDirection = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            // verify the required parameter 'REALTIME_METRIC_ID' is set
-            if (REALTIME_METRIC_ID == null)
+            // verify the required parameter 'MONITORING_METRIC_ID' is set
+            if (MONITORING_METRIC_ID == null)
             {
-                throw new Mux.Csharp.Sdk.Client.ApiException(400, "Missing required parameter 'REALTIME_METRIC_ID' when calling RealTimeApi->GetRealtimeBreakdown");
+                throw new Mux.Csharp.Sdk.Client.ApiException(400, "Missing required parameter 'MONITORING_METRIC_ID' when calling MonitoringApi->GetMonitoringBreakdown");
             }
 
 
@@ -582,7 +558,7 @@ namespace Mux.Csharp.Sdk.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            localVarRequestOptions.PathParameters.Add("REALTIME_METRIC_ID", Mux.Csharp.Sdk.Client.ClientUtils.ParameterToString(REALTIME_METRIC_ID)); // path parameter
+            localVarRequestOptions.PathParameters.Add("MONITORING_METRIC_ID", Mux.Csharp.Sdk.Client.ClientUtils.ParameterToString(MONITORING_METRIC_ID)); // path parameter
             if (dimension != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Mux.Csharp.Sdk.Client.ClientUtils.ParameterToMultiMap("", "dimension", dimension));
@@ -612,11 +588,11 @@ namespace Mux.Csharp.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<GetRealTimeBreakdownResponse>("/data/v1/realtime/metrics/{REALTIME_METRIC_ID}/breakdown", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<GetMonitoringBreakdownResponse>("/data/v1/monitoring/metrics/{MONITORING_METRIC_ID}/breakdown", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetRealtimeBreakdown", localVarResponse);
+                Exception _exception = this.ExceptionFactory("GetMonitoringBreakdown", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -627,33 +603,31 @@ namespace Mux.Csharp.Sdk.Api
         }
 
         /// <summary>
-        /// Get Real-Time Histogram Timeseries Gets histogram timeseries information for a specific metric. This API is now deprecated, please use the &#x60;Get Monitoring Histogram Timeseries&#x60; API.
+        /// Get Monitoring Histogram Timeseries Gets histogram timeseries information for a specific metric.
         /// </summary>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="REALTIME_HISTOGRAM_METRIC_ID">ID of the Realtime Histogram Metric</param>
+        /// <param name="MONITORING_HISTOGRAM_METRIC_ID">ID of the Monitoring Histogram Metric</param>
         /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Filters endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
-        /// <returns>GetRealTimeHistogramTimeseriesResponse</returns>
-        [Obsolete]
-        public GetRealTimeHistogramTimeseriesResponse GetRealtimeHistogramTimeseries(string REALTIME_HISTOGRAM_METRIC_ID, List<string> filters = default(List<string>))
+        /// <returns>GetMonitoringHistogramTimeseriesResponse</returns>
+        public GetMonitoringHistogramTimeseriesResponse GetMonitoringHistogramTimeseries(string MONITORING_HISTOGRAM_METRIC_ID, List<string> filters = default(List<string>))
         {
-            Mux.Csharp.Sdk.Client.ApiResponse<GetRealTimeHistogramTimeseriesResponse> localVarResponse = GetRealtimeHistogramTimeseriesWithHttpInfo(REALTIME_HISTOGRAM_METRIC_ID, filters);
+            Mux.Csharp.Sdk.Client.ApiResponse<GetMonitoringHistogramTimeseriesResponse> localVarResponse = GetMonitoringHistogramTimeseriesWithHttpInfo(MONITORING_HISTOGRAM_METRIC_ID, filters);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Get Real-Time Histogram Timeseries Gets histogram timeseries information for a specific metric. This API is now deprecated, please use the &#x60;Get Monitoring Histogram Timeseries&#x60; API.
+        /// Get Monitoring Histogram Timeseries Gets histogram timeseries information for a specific metric.
         /// </summary>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="REALTIME_HISTOGRAM_METRIC_ID">ID of the Realtime Histogram Metric</param>
+        /// <param name="MONITORING_HISTOGRAM_METRIC_ID">ID of the Monitoring Histogram Metric</param>
         /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Filters endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
-        /// <returns>ApiResponse of GetRealTimeHistogramTimeseriesResponse</returns>
-        [Obsolete]
-        public Mux.Csharp.Sdk.Client.ApiResponse<GetRealTimeHistogramTimeseriesResponse> GetRealtimeHistogramTimeseriesWithHttpInfo(string REALTIME_HISTOGRAM_METRIC_ID, List<string> filters = default(List<string>))
+        /// <returns>ApiResponse of GetMonitoringHistogramTimeseriesResponse</returns>
+        public Mux.Csharp.Sdk.Client.ApiResponse<GetMonitoringHistogramTimeseriesResponse> GetMonitoringHistogramTimeseriesWithHttpInfo(string MONITORING_HISTOGRAM_METRIC_ID, List<string> filters = default(List<string>))
         {
-            // verify the required parameter 'REALTIME_HISTOGRAM_METRIC_ID' is set
-            if (REALTIME_HISTOGRAM_METRIC_ID == null)
+            // verify the required parameter 'MONITORING_HISTOGRAM_METRIC_ID' is set
+            if (MONITORING_HISTOGRAM_METRIC_ID == null)
             {
-                throw new Mux.Csharp.Sdk.Client.ApiException(400, "Missing required parameter 'REALTIME_HISTOGRAM_METRIC_ID' when calling RealTimeApi->GetRealtimeHistogramTimeseries");
+                throw new Mux.Csharp.Sdk.Client.ApiException(400, "Missing required parameter 'MONITORING_HISTOGRAM_METRIC_ID' when calling MonitoringApi->GetMonitoringHistogramTimeseries");
             }
 
             Mux.Csharp.Sdk.Client.RequestOptions localVarRequestOptions = new Mux.Csharp.Sdk.Client.RequestOptions();
@@ -678,7 +652,7 @@ namespace Mux.Csharp.Sdk.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            localVarRequestOptions.PathParameters.Add("REALTIME_HISTOGRAM_METRIC_ID", Mux.Csharp.Sdk.Client.ClientUtils.ParameterToString(REALTIME_HISTOGRAM_METRIC_ID)); // path parameter
+            localVarRequestOptions.PathParameters.Add("MONITORING_HISTOGRAM_METRIC_ID", Mux.Csharp.Sdk.Client.ClientUtils.ParameterToString(MONITORING_HISTOGRAM_METRIC_ID)); // path parameter
             if (filters != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Mux.Csharp.Sdk.Client.ClientUtils.ParameterToMultiMap("multi", "filters[]", filters));
@@ -692,10 +666,10 @@ namespace Mux.Csharp.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<GetRealTimeHistogramTimeseriesResponse>("/data/v1/realtime/metrics/{REALTIME_HISTOGRAM_METRIC_ID}/histogram-timeseries", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<GetMonitoringHistogramTimeseriesResponse>("/data/v1/monitoring/metrics/{MONITORING_HISTOGRAM_METRIC_ID}/histogram-timeseries", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetRealtimeHistogramTimeseries", localVarResponse);
+                Exception _exception = this.ExceptionFactory("GetMonitoringHistogramTimeseries", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -706,35 +680,33 @@ namespace Mux.Csharp.Sdk.Api
         }
 
         /// <summary>
-        /// Get Real-Time Histogram Timeseries Gets histogram timeseries information for a specific metric. This API is now deprecated, please use the &#x60;Get Monitoring Histogram Timeseries&#x60; API.
+        /// Get Monitoring Histogram Timeseries Gets histogram timeseries information for a specific metric.
         /// </summary>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="REALTIME_HISTOGRAM_METRIC_ID">ID of the Realtime Histogram Metric</param>
+        /// <param name="MONITORING_HISTOGRAM_METRIC_ID">ID of the Monitoring Histogram Metric</param>
         /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Filters endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of GetRealTimeHistogramTimeseriesResponse</returns>
-        [Obsolete]
-        public async System.Threading.Tasks.Task<GetRealTimeHistogramTimeseriesResponse> GetRealtimeHistogramTimeseriesAsync(string REALTIME_HISTOGRAM_METRIC_ID, List<string> filters = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of GetMonitoringHistogramTimeseriesResponse</returns>
+        public async System.Threading.Tasks.Task<GetMonitoringHistogramTimeseriesResponse> GetMonitoringHistogramTimeseriesAsync(string MONITORING_HISTOGRAM_METRIC_ID, List<string> filters = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Mux.Csharp.Sdk.Client.ApiResponse<GetRealTimeHistogramTimeseriesResponse> localVarResponse = await GetRealtimeHistogramTimeseriesWithHttpInfoAsync(REALTIME_HISTOGRAM_METRIC_ID, filters, cancellationToken).ConfigureAwait(false);
+            Mux.Csharp.Sdk.Client.ApiResponse<GetMonitoringHistogramTimeseriesResponse> localVarResponse = await GetMonitoringHistogramTimeseriesWithHttpInfoAsync(MONITORING_HISTOGRAM_METRIC_ID, filters, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Get Real-Time Histogram Timeseries Gets histogram timeseries information for a specific metric. This API is now deprecated, please use the &#x60;Get Monitoring Histogram Timeseries&#x60; API.
+        /// Get Monitoring Histogram Timeseries Gets histogram timeseries information for a specific metric.
         /// </summary>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="REALTIME_HISTOGRAM_METRIC_ID">ID of the Realtime Histogram Metric</param>
+        /// <param name="MONITORING_HISTOGRAM_METRIC_ID">ID of the Monitoring Histogram Metric</param>
         /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Filters endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (GetRealTimeHistogramTimeseriesResponse)</returns>
-        [Obsolete]
-        public async System.Threading.Tasks.Task<Mux.Csharp.Sdk.Client.ApiResponse<GetRealTimeHistogramTimeseriesResponse>> GetRealtimeHistogramTimeseriesWithHttpInfoAsync(string REALTIME_HISTOGRAM_METRIC_ID, List<string> filters = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (GetMonitoringHistogramTimeseriesResponse)</returns>
+        public async System.Threading.Tasks.Task<Mux.Csharp.Sdk.Client.ApiResponse<GetMonitoringHistogramTimeseriesResponse>> GetMonitoringHistogramTimeseriesWithHttpInfoAsync(string MONITORING_HISTOGRAM_METRIC_ID, List<string> filters = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            // verify the required parameter 'REALTIME_HISTOGRAM_METRIC_ID' is set
-            if (REALTIME_HISTOGRAM_METRIC_ID == null)
+            // verify the required parameter 'MONITORING_HISTOGRAM_METRIC_ID' is set
+            if (MONITORING_HISTOGRAM_METRIC_ID == null)
             {
-                throw new Mux.Csharp.Sdk.Client.ApiException(400, "Missing required parameter 'REALTIME_HISTOGRAM_METRIC_ID' when calling RealTimeApi->GetRealtimeHistogramTimeseries");
+                throw new Mux.Csharp.Sdk.Client.ApiException(400, "Missing required parameter 'MONITORING_HISTOGRAM_METRIC_ID' when calling MonitoringApi->GetMonitoringHistogramTimeseries");
             }
 
 
@@ -760,7 +732,7 @@ namespace Mux.Csharp.Sdk.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            localVarRequestOptions.PathParameters.Add("REALTIME_HISTOGRAM_METRIC_ID", Mux.Csharp.Sdk.Client.ClientUtils.ParameterToString(REALTIME_HISTOGRAM_METRIC_ID)); // path parameter
+            localVarRequestOptions.PathParameters.Add("MONITORING_HISTOGRAM_METRIC_ID", Mux.Csharp.Sdk.Client.ClientUtils.ParameterToString(MONITORING_HISTOGRAM_METRIC_ID)); // path parameter
             if (filters != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Mux.Csharp.Sdk.Client.ClientUtils.ParameterToMultiMap("multi", "filters[]", filters));
@@ -774,11 +746,11 @@ namespace Mux.Csharp.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<GetRealTimeHistogramTimeseriesResponse>("/data/v1/realtime/metrics/{REALTIME_HISTOGRAM_METRIC_ID}/histogram-timeseries", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<GetMonitoringHistogramTimeseriesResponse>("/data/v1/monitoring/metrics/{MONITORING_HISTOGRAM_METRIC_ID}/histogram-timeseries", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetRealtimeHistogramTimeseries", localVarResponse);
+                Exception _exception = this.ExceptionFactory("GetMonitoringHistogramTimeseries", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -789,33 +761,31 @@ namespace Mux.Csharp.Sdk.Api
         }
 
         /// <summary>
-        /// Get Real-Time Timeseries Gets Time series information for a specific metric along with the number of concurrent viewers. This API is now deprecated, please use the &#x60;Get Monitoring Timeseries&#x60; API.
+        /// Get Monitoring Timeseries Gets Time series information for a specific metric along with the number of concurrent viewers.
         /// </summary>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="REALTIME_METRIC_ID">ID of the Realtime Metric</param>
+        /// <param name="MONITORING_METRIC_ID">ID of the Monitoring Metric</param>
         /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Filters endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
-        /// <returns>GetRealTimeTimeseriesResponse</returns>
-        [Obsolete]
-        public GetRealTimeTimeseriesResponse GetRealtimeTimeseries(string REALTIME_METRIC_ID, List<string> filters = default(List<string>))
+        /// <returns>GetMonitoringTimeseriesResponse</returns>
+        public GetMonitoringTimeseriesResponse GetMonitoringTimeseries(string MONITORING_METRIC_ID, List<string> filters = default(List<string>))
         {
-            Mux.Csharp.Sdk.Client.ApiResponse<GetRealTimeTimeseriesResponse> localVarResponse = GetRealtimeTimeseriesWithHttpInfo(REALTIME_METRIC_ID, filters);
+            Mux.Csharp.Sdk.Client.ApiResponse<GetMonitoringTimeseriesResponse> localVarResponse = GetMonitoringTimeseriesWithHttpInfo(MONITORING_METRIC_ID, filters);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Get Real-Time Timeseries Gets Time series information for a specific metric along with the number of concurrent viewers. This API is now deprecated, please use the &#x60;Get Monitoring Timeseries&#x60; API.
+        /// Get Monitoring Timeseries Gets Time series information for a specific metric along with the number of concurrent viewers.
         /// </summary>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="REALTIME_METRIC_ID">ID of the Realtime Metric</param>
+        /// <param name="MONITORING_METRIC_ID">ID of the Monitoring Metric</param>
         /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Filters endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
-        /// <returns>ApiResponse of GetRealTimeTimeseriesResponse</returns>
-        [Obsolete]
-        public Mux.Csharp.Sdk.Client.ApiResponse<GetRealTimeTimeseriesResponse> GetRealtimeTimeseriesWithHttpInfo(string REALTIME_METRIC_ID, List<string> filters = default(List<string>))
+        /// <returns>ApiResponse of GetMonitoringTimeseriesResponse</returns>
+        public Mux.Csharp.Sdk.Client.ApiResponse<GetMonitoringTimeseriesResponse> GetMonitoringTimeseriesWithHttpInfo(string MONITORING_METRIC_ID, List<string> filters = default(List<string>))
         {
-            // verify the required parameter 'REALTIME_METRIC_ID' is set
-            if (REALTIME_METRIC_ID == null)
+            // verify the required parameter 'MONITORING_METRIC_ID' is set
+            if (MONITORING_METRIC_ID == null)
             {
-                throw new Mux.Csharp.Sdk.Client.ApiException(400, "Missing required parameter 'REALTIME_METRIC_ID' when calling RealTimeApi->GetRealtimeTimeseries");
+                throw new Mux.Csharp.Sdk.Client.ApiException(400, "Missing required parameter 'MONITORING_METRIC_ID' when calling MonitoringApi->GetMonitoringTimeseries");
             }
 
             Mux.Csharp.Sdk.Client.RequestOptions localVarRequestOptions = new Mux.Csharp.Sdk.Client.RequestOptions();
@@ -840,7 +810,7 @@ namespace Mux.Csharp.Sdk.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            localVarRequestOptions.PathParameters.Add("REALTIME_METRIC_ID", Mux.Csharp.Sdk.Client.ClientUtils.ParameterToString(REALTIME_METRIC_ID)); // path parameter
+            localVarRequestOptions.PathParameters.Add("MONITORING_METRIC_ID", Mux.Csharp.Sdk.Client.ClientUtils.ParameterToString(MONITORING_METRIC_ID)); // path parameter
             if (filters != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Mux.Csharp.Sdk.Client.ClientUtils.ParameterToMultiMap("multi", "filters[]", filters));
@@ -854,10 +824,10 @@ namespace Mux.Csharp.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<GetRealTimeTimeseriesResponse>("/data/v1/realtime/metrics/{REALTIME_METRIC_ID}/timeseries", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<GetMonitoringTimeseriesResponse>("/data/v1/monitoring/metrics/{MONITORING_METRIC_ID}/timeseries", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetRealtimeTimeseries", localVarResponse);
+                Exception _exception = this.ExceptionFactory("GetMonitoringTimeseries", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -868,35 +838,33 @@ namespace Mux.Csharp.Sdk.Api
         }
 
         /// <summary>
-        /// Get Real-Time Timeseries Gets Time series information for a specific metric along with the number of concurrent viewers. This API is now deprecated, please use the &#x60;Get Monitoring Timeseries&#x60; API.
+        /// Get Monitoring Timeseries Gets Time series information for a specific metric along with the number of concurrent viewers.
         /// </summary>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="REALTIME_METRIC_ID">ID of the Realtime Metric</param>
+        /// <param name="MONITORING_METRIC_ID">ID of the Monitoring Metric</param>
         /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Filters endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of GetRealTimeTimeseriesResponse</returns>
-        [Obsolete]
-        public async System.Threading.Tasks.Task<GetRealTimeTimeseriesResponse> GetRealtimeTimeseriesAsync(string REALTIME_METRIC_ID, List<string> filters = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of GetMonitoringTimeseriesResponse</returns>
+        public async System.Threading.Tasks.Task<GetMonitoringTimeseriesResponse> GetMonitoringTimeseriesAsync(string MONITORING_METRIC_ID, List<string> filters = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Mux.Csharp.Sdk.Client.ApiResponse<GetRealTimeTimeseriesResponse> localVarResponse = await GetRealtimeTimeseriesWithHttpInfoAsync(REALTIME_METRIC_ID, filters, cancellationToken).ConfigureAwait(false);
+            Mux.Csharp.Sdk.Client.ApiResponse<GetMonitoringTimeseriesResponse> localVarResponse = await GetMonitoringTimeseriesWithHttpInfoAsync(MONITORING_METRIC_ID, filters, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Get Real-Time Timeseries Gets Time series information for a specific metric along with the number of concurrent viewers. This API is now deprecated, please use the &#x60;Get Monitoring Timeseries&#x60; API.
+        /// Get Monitoring Timeseries Gets Time series information for a specific metric along with the number of concurrent viewers.
         /// </summary>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="REALTIME_METRIC_ID">ID of the Realtime Metric</param>
+        /// <param name="MONITORING_METRIC_ID">ID of the Monitoring Metric</param>
         /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Filters endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (GetRealTimeTimeseriesResponse)</returns>
-        [Obsolete]
-        public async System.Threading.Tasks.Task<Mux.Csharp.Sdk.Client.ApiResponse<GetRealTimeTimeseriesResponse>> GetRealtimeTimeseriesWithHttpInfoAsync(string REALTIME_METRIC_ID, List<string> filters = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (GetMonitoringTimeseriesResponse)</returns>
+        public async System.Threading.Tasks.Task<Mux.Csharp.Sdk.Client.ApiResponse<GetMonitoringTimeseriesResponse>> GetMonitoringTimeseriesWithHttpInfoAsync(string MONITORING_METRIC_ID, List<string> filters = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            // verify the required parameter 'REALTIME_METRIC_ID' is set
-            if (REALTIME_METRIC_ID == null)
+            // verify the required parameter 'MONITORING_METRIC_ID' is set
+            if (MONITORING_METRIC_ID == null)
             {
-                throw new Mux.Csharp.Sdk.Client.ApiException(400, "Missing required parameter 'REALTIME_METRIC_ID' when calling RealTimeApi->GetRealtimeTimeseries");
+                throw new Mux.Csharp.Sdk.Client.ApiException(400, "Missing required parameter 'MONITORING_METRIC_ID' when calling MonitoringApi->GetMonitoringTimeseries");
             }
 
 
@@ -922,7 +890,7 @@ namespace Mux.Csharp.Sdk.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            localVarRequestOptions.PathParameters.Add("REALTIME_METRIC_ID", Mux.Csharp.Sdk.Client.ClientUtils.ParameterToString(REALTIME_METRIC_ID)); // path parameter
+            localVarRequestOptions.PathParameters.Add("MONITORING_METRIC_ID", Mux.Csharp.Sdk.Client.ClientUtils.ParameterToString(MONITORING_METRIC_ID)); // path parameter
             if (filters != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Mux.Csharp.Sdk.Client.ClientUtils.ParameterToMultiMap("multi", "filters[]", filters));
@@ -936,11 +904,11 @@ namespace Mux.Csharp.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<GetRealTimeTimeseriesResponse>("/data/v1/realtime/metrics/{REALTIME_METRIC_ID}/timeseries", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<GetMonitoringTimeseriesResponse>("/data/v1/monitoring/metrics/{MONITORING_METRIC_ID}/timeseries", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetRealtimeTimeseries", localVarResponse);
+                Exception _exception = this.ExceptionFactory("GetMonitoringTimeseries", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -951,24 +919,22 @@ namespace Mux.Csharp.Sdk.Api
         }
 
         /// <summary>
-        /// List Real-Time Dimensions Lists available real-time dimensions. This API is now deprecated, please use the &#x60;List Monitoring Dimensions&#x60; API.
+        /// List Monitoring Dimensions Lists available monitoring dimensions.
         /// </summary>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>ListRealTimeDimensionsResponse</returns>
-        [Obsolete]
-        public ListRealTimeDimensionsResponse ListRealtimeDimensions()
+        /// <returns>ListMonitoringDimensionsResponse</returns>
+        public ListMonitoringDimensionsResponse ListMonitoringDimensions()
         {
-            Mux.Csharp.Sdk.Client.ApiResponse<ListRealTimeDimensionsResponse> localVarResponse = ListRealtimeDimensionsWithHttpInfo();
+            Mux.Csharp.Sdk.Client.ApiResponse<ListMonitoringDimensionsResponse> localVarResponse = ListMonitoringDimensionsWithHttpInfo();
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// List Real-Time Dimensions Lists available real-time dimensions. This API is now deprecated, please use the &#x60;List Monitoring Dimensions&#x60; API.
+        /// List Monitoring Dimensions Lists available monitoring dimensions.
         /// </summary>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>ApiResponse of ListRealTimeDimensionsResponse</returns>
-        [Obsolete]
-        public Mux.Csharp.Sdk.Client.ApiResponse<ListRealTimeDimensionsResponse> ListRealtimeDimensionsWithHttpInfo()
+        /// <returns>ApiResponse of ListMonitoringDimensionsResponse</returns>
+        public Mux.Csharp.Sdk.Client.ApiResponse<ListMonitoringDimensionsResponse> ListMonitoringDimensionsWithHttpInfo()
         {
             Mux.Csharp.Sdk.Client.RequestOptions localVarRequestOptions = new Mux.Csharp.Sdk.Client.RequestOptions();
 
@@ -1001,10 +967,10 @@ namespace Mux.Csharp.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<ListRealTimeDimensionsResponse>("/data/v1/realtime/dimensions", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<ListMonitoringDimensionsResponse>("/data/v1/monitoring/dimensions", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("ListRealtimeDimensions", localVarResponse);
+                Exception _exception = this.ExceptionFactory("ListMonitoringDimensions", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -1015,158 +981,24 @@ namespace Mux.Csharp.Sdk.Api
         }
 
         /// <summary>
-        /// List Real-Time Dimensions Lists available real-time dimensions. This API is now deprecated, please use the &#x60;List Monitoring Dimensions&#x60; API.
+        /// List Monitoring Dimensions Lists available monitoring dimensions.
         /// </summary>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ListRealTimeDimensionsResponse</returns>
-        [Obsolete]
-        public async System.Threading.Tasks.Task<ListRealTimeDimensionsResponse> ListRealtimeDimensionsAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ListMonitoringDimensionsResponse</returns>
+        public async System.Threading.Tasks.Task<ListMonitoringDimensionsResponse> ListMonitoringDimensionsAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Mux.Csharp.Sdk.Client.ApiResponse<ListRealTimeDimensionsResponse> localVarResponse = await ListRealtimeDimensionsWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
+            Mux.Csharp.Sdk.Client.ApiResponse<ListMonitoringDimensionsResponse> localVarResponse = await ListMonitoringDimensionsWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// List Real-Time Dimensions Lists available real-time dimensions. This API is now deprecated, please use the &#x60;List Monitoring Dimensions&#x60; API.
+        /// List Monitoring Dimensions Lists available monitoring dimensions.
         /// </summary>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (ListRealTimeDimensionsResponse)</returns>
-        [Obsolete]
-        public async System.Threading.Tasks.Task<Mux.Csharp.Sdk.Client.ApiResponse<ListRealTimeDimensionsResponse>> ListRealtimeDimensionsWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
-        {
-
-            Mux.Csharp.Sdk.Client.RequestOptions localVarRequestOptions = new Mux.Csharp.Sdk.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = Mux.Csharp.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = Mux.Csharp.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-
-            // authentication (accessToken) required
-            // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Mux.Csharp.Sdk.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
-            }
-
-            // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<ListRealTimeDimensionsResponse>("/data/v1/realtime/dimensions", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("ListRealtimeDimensions", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// List Real-Time Metrics Lists available real-time metrics. This API is now deprecated, please use the &#x60;List Monitoring Metrics&#x60; API.
-        /// </summary>
-        /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>ListRealTimeMetricsResponse</returns>
-        [Obsolete]
-        public ListRealTimeMetricsResponse ListRealtimeMetrics()
-        {
-            Mux.Csharp.Sdk.Client.ApiResponse<ListRealTimeMetricsResponse> localVarResponse = ListRealtimeMetricsWithHttpInfo();
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// List Real-Time Metrics Lists available real-time metrics. This API is now deprecated, please use the &#x60;List Monitoring Metrics&#x60; API.
-        /// </summary>
-        /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>ApiResponse of ListRealTimeMetricsResponse</returns>
-        [Obsolete]
-        public Mux.Csharp.Sdk.Client.ApiResponse<ListRealTimeMetricsResponse> ListRealtimeMetricsWithHttpInfo()
-        {
-            Mux.Csharp.Sdk.Client.RequestOptions localVarRequestOptions = new Mux.Csharp.Sdk.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = Mux.Csharp.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = Mux.Csharp.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-
-            // authentication (accessToken) required
-            // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Mux.Csharp.Sdk.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
-            }
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<ListRealTimeMetricsResponse>("/data/v1/realtime/metrics", localVarRequestOptions, this.Configuration);
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("ListRealtimeMetrics", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// List Real-Time Metrics Lists available real-time metrics. This API is now deprecated, please use the &#x60;List Monitoring Metrics&#x60; API.
-        /// </summary>
-        /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ListRealTimeMetricsResponse</returns>
-        [Obsolete]
-        public async System.Threading.Tasks.Task<ListRealTimeMetricsResponse> ListRealtimeMetricsAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
-        {
-            Mux.Csharp.Sdk.Client.ApiResponse<ListRealTimeMetricsResponse> localVarResponse = await ListRealtimeMetricsWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// List Real-Time Metrics Lists available real-time metrics. This API is now deprecated, please use the &#x60;List Monitoring Metrics&#x60; API.
-        /// </summary>
-        /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (ListRealTimeMetricsResponse)</returns>
-        [Obsolete]
-        public async System.Threading.Tasks.Task<Mux.Csharp.Sdk.Client.ApiResponse<ListRealTimeMetricsResponse>> ListRealtimeMetricsWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (ListMonitoringDimensionsResponse)</returns>
+        public async System.Threading.Tasks.Task<Mux.Csharp.Sdk.Client.ApiResponse<ListMonitoringDimensionsResponse>> ListMonitoringDimensionsWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             Mux.Csharp.Sdk.Client.RequestOptions localVarRequestOptions = new Mux.Csharp.Sdk.Client.RequestOptions();
@@ -1200,11 +1032,139 @@ namespace Mux.Csharp.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<ListRealTimeMetricsResponse>("/data/v1/realtime/metrics", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<ListMonitoringDimensionsResponse>("/data/v1/monitoring/dimensions", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("ListRealtimeMetrics", localVarResponse);
+                Exception _exception = this.ExceptionFactory("ListMonitoringDimensions", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// List Monitoring Metrics Lists available monitoring metrics.
+        /// </summary>
+        /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ListMonitoringMetricsResponse</returns>
+        public ListMonitoringMetricsResponse ListMonitoringMetrics()
+        {
+            Mux.Csharp.Sdk.Client.ApiResponse<ListMonitoringMetricsResponse> localVarResponse = ListMonitoringMetricsWithHttpInfo();
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// List Monitoring Metrics Lists available monitoring metrics.
+        /// </summary>
+        /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of ListMonitoringMetricsResponse</returns>
+        public Mux.Csharp.Sdk.Client.ApiResponse<ListMonitoringMetricsResponse> ListMonitoringMetricsWithHttpInfo()
+        {
+            Mux.Csharp.Sdk.Client.RequestOptions localVarRequestOptions = new Mux.Csharp.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = Mux.Csharp.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Mux.Csharp.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+
+            // authentication (accessToken) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Mux.Csharp.Sdk.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<ListMonitoringMetricsResponse>("/data/v1/monitoring/metrics", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ListMonitoringMetrics", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// List Monitoring Metrics Lists available monitoring metrics.
+        /// </summary>
+        /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ListMonitoringMetricsResponse</returns>
+        public async System.Threading.Tasks.Task<ListMonitoringMetricsResponse> ListMonitoringMetricsAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            Mux.Csharp.Sdk.Client.ApiResponse<ListMonitoringMetricsResponse> localVarResponse = await ListMonitoringMetricsWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// List Monitoring Metrics Lists available monitoring metrics.
+        /// </summary>
+        /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (ListMonitoringMetricsResponse)</returns>
+        public async System.Threading.Tasks.Task<Mux.Csharp.Sdk.Client.ApiResponse<ListMonitoringMetricsResponse>> ListMonitoringMetricsWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+
+            Mux.Csharp.Sdk.Client.RequestOptions localVarRequestOptions = new Mux.Csharp.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = Mux.Csharp.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Mux.Csharp.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+
+            // authentication (accessToken) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Mux.Csharp.Sdk.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.GetAsync<ListMonitoringMetricsResponse>("/data/v1/monitoring/metrics", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ListMonitoringMetrics", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
