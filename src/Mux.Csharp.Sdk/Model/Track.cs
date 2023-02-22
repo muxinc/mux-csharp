@@ -151,7 +151,13 @@ namespace Mux.Csharp.Sdk.Model
             /// Enum Errored for value: errored
             /// </summary>
             [EnumMember(Value = "errored")]
-            Errored = 3
+            Errored = 3,
+
+            /// <summary>
+            /// Enum Deleted for value: deleted
+            /// </summary>
+            [EnumMember(Value = "deleted")]
+            Deleted = 4
 
         }
 
