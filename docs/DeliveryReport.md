@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **AssetState** | **string** | The state of the asset. | [optional] 
 **AssetDuration** | **double** | The duration of the asset in seconds. | [optional] 
 **DeliveredSeconds** | **double** | Total number of delivered seconds during this time window. | [optional] 
+**DeliveredSecondsByResolution** | [**DeliveryReportDeliveredSecondsByResolution**](DeliveryReportDeliveredSecondsByResolution.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

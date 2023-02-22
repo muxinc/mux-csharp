@@ -30,6 +30,7 @@ docs/CreateTrackResponse.md
 docs/CreateTranscriptionVocabularyRequest.md
 docs/CreateUploadRequest.md
 docs/DeliveryReport.md
+docs/DeliveryReportDeliveredSecondsByResolution.md
 docs/DeliveryUsageApi.md
 docs/DimensionValue.md
 docs/DimensionsApi.md
@@ -224,6 +225,7 @@ src/Mux.Csharp.Sdk/Model/CreateTrackResponse.cs
 src/Mux.Csharp.Sdk/Model/CreateTranscriptionVocabularyRequest.cs
 src/Mux.Csharp.Sdk/Model/CreateUploadRequest.cs
 src/Mux.Csharp.Sdk/Model/DeliveryReport.cs
+src/Mux.Csharp.Sdk/Model/DeliveryReportDeliveredSecondsByResolution.cs
 src/Mux.Csharp.Sdk/Model/DimensionValue.cs
 src/Mux.Csharp.Sdk/Model/DisableLiveStreamResponse.cs
 src/Mux.Csharp.Sdk/Model/EnableLiveStreamResponse.cs

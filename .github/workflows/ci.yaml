@@ -1,3 +1,4 @@
+---
 name: CI
 on:
   push:
@@ -14,27 +15,27 @@ jobs:
         dotnet-configuration: [Debug, Release]
 
     steps:
-    - name: Install .NET
-      uses: actions/setup-dotnet@v3
-      with:
-        dotnet-version: '3.1.x'
-    - name: Check out code
-      uses: actions/checkout@v3
-    - name: Adding /tmp/output
-      run: mkdir -p /tmp/output
+      - name: Install .NET
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: '3.1.x'
+      - name: Check out code
+        uses: actions/checkout@v3
+      - name: Adding /tmp/output
+        run: mkdir -p /tmp/output
 
-    - name: Build for ${{ matrix.dotnet-configuration }}
-      run: dotnet build --configuration ${{ matrix.dotnet-configuration }}
-    - name: Test for ${{ matrix.dotnet-configuration }}
-      env:
+      - name: Build for ${{ matrix.dotnet-configuration }}
+        run: dotnet build --configuration ${{ matrix.dotnet-configuration }}
+      - name: Test for ${{ matrix.dotnet-configuration }}
+        env:
           MUX_TOKEN_ID: "${{ secrets.MUX_TOKEN_ID }}"
           MUX_TOKEN_SECRET: "${{ secrets.MUX_TOKEN_SECRET }}"
-      run: dotnet test --configuration ${{ matrix.dotnet-configuration }} --no-build
-    - name: Pack for ${{ matrix.dotnet-configuration }}
-      run: cp README.md icon.png src/Mux.Csharp.Sdk && dotnet pack --configuration ${{ matrix.dotnet-configuration }} --no-build --include-source --include-symbols --output /tmp/output
+        run: dotnet test --configuration ${{ matrix.dotnet-configuration }} --no-build
+      - name: Pack for ${{ matrix.dotnet-configuration }}
+        run: cp README.md icon.png src/Mux.Csharp.Sdk && dotnet pack --configuration ${{ matrix.dotnet-configuration }} --no-build --include-source --include-symbols --property:PackageOutputPath=/tmp/output
 
-    - name: Uploading artifact for ${{ matrix.dotnet-configuration }}
-      uses: actions/upload-artifact@v2
-      with:
-        name: Mux.Csharp.Sdk-${{ matrix.dotnet-configuration }}
-        path: /tmp/output/*
+      - name: Uploading artifact for ${{ matrix.dotnet-configuration }}
+        uses: actions/upload-artifact@v3
+        with:
+          name: Mux.Csharp.Sdk-${{ matrix.dotnet-configuration }}
+          path: /tmp/output/*

@@ -27,9 +27,9 @@ using OpenAPIDateConverter = Mux.Csharp.Sdk.Client.OpenAPIDateConverter;
 namespace Mux.Csharp.Sdk.Model
 {
     /// <summary>
-    /// The layout used when broadcasting the space. Defaults to &#x60;gallery&#x60; if not set.
+    /// The layout used when broadcasting the space.  The &#x60;gallery&#x60; layout will show participants in a grid that automatically resizes each participant’s stream to best fit up to 10 participants in the window. The &#x60;active-speaker&#x60; layout will show only the current active speaker, without a border. The &#x60;crop&#x60; layout uses as much of the available space as possible to show the participant&#39;s stream.  Defaults to &#x60;gallery&#x60; if not set. 
     /// </summary>
-    /// <value>The layout used when broadcasting the space. Defaults to &#x60;gallery&#x60; if not set.</value>
+    /// <value>The layout used when broadcasting the space.  The &#x60;gallery&#x60; layout will show participants in a grid that automatically resizes each participant’s stream to best fit up to 10 participants in the window. The &#x60;active-speaker&#x60; layout will show only the current active speaker, without a border. The &#x60;crop&#x60; layout uses as much of the available space as possible to show the participant&#39;s stream.  Defaults to &#x60;gallery&#x60; if not set. </value>
     [JsonConverter(typeof(StringEnumConverter))]
     public enum BroadcastLayout
     {
@@ -43,7 +43,13 @@ namespace Mux.Csharp.Sdk.Model
         /// Enum ActiveSpeaker for value: active-speaker
         /// </summary>
         [EnumMember(Value = "active-speaker")]
-        ActiveSpeaker = 2
+        ActiveSpeaker = 2,
+
+        /// <summary>
+        /// Enum Crop for value: crop
+        /// </summary>
+        [EnumMember(Value = "crop")]
+        Crop = 3
 
     }
 

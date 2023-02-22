@@ -77,7 +77,8 @@ namespace Mux.Csharp.Sdk.Model
         /// <param name="assetState">The state of the asset..</param>
         /// <param name="assetDuration">The duration of the asset in seconds..</param>
         /// <param name="deliveredSeconds">Total number of delivered seconds during this time window..</param>
-        public DeliveryReport(string liveStreamId = default(string), string assetId = default(string), string passthrough = default(string), string createdAt = default(string), string deletedAt = default(string), AssetStateEnum? assetState = default(AssetStateEnum?), double assetDuration = default(double), double deliveredSeconds = default(double))
+        /// <param name="deliveredSecondsByResolution">deliveredSecondsByResolution.</param>
+        public DeliveryReport(string liveStreamId = default(string), string assetId = default(string), string passthrough = default(string), string createdAt = default(string), string deletedAt = default(string), AssetStateEnum? assetState = default(AssetStateEnum?), double assetDuration = default(double), double deliveredSeconds = default(double), DeliveryReportDeliveredSecondsByResolution deliveredSecondsByResolution = default(DeliveryReportDeliveredSecondsByResolution))
         {
             this.LiveStreamId = liveStreamId;
             this.AssetId = assetId;
@@ -87,6 +88,7 @@ namespace Mux.Csharp.Sdk.Model
             this.AssetState = assetState;
             this.AssetDuration = assetDuration;
             this.DeliveredSeconds = deliveredSeconds;
+            this.DeliveredSecondsByResolution = deliveredSecondsByResolution;
             this.AdditionalProperties = new Dictionary<string, object>();
         }
 
@@ -140,6 +142,12 @@ namespace Mux.Csharp.Sdk.Model
         public double DeliveredSeconds { get; set; }
 
         /// <summary>
+        /// Gets or Sets DeliveredSecondsByResolution
+        /// </summary>
+        [DataMember(Name = "delivered_seconds_by_resolution", EmitDefaultValue = false)]
+        public DeliveryReportDeliveredSecondsByResolution DeliveredSecondsByResolution { get; set; }
+
+        /// <summary>
         /// Gets or Sets additional properties
         /// </summary>
         [JsonExtensionData]
@@ -161,6 +169,7 @@ namespace Mux.Csharp.Sdk.Model
             sb.Append("  AssetState: ").Append(AssetState).Append("\n");
             sb.Append("  AssetDuration: ").Append(AssetDuration).Append("\n");
             sb.Append("  DeliveredSeconds: ").Append(DeliveredSeconds).Append("\n");
+            sb.Append("  DeliveredSecondsByResolution: ").Append(DeliveredSecondsByResolution).Append("\n");
             sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -233,6 +242,11 @@ namespace Mux.Csharp.Sdk.Model
                 (
                     this.DeliveredSeconds == input.DeliveredSeconds ||
                     this.DeliveredSeconds.Equals(input.DeliveredSeconds)
+                ) && 
+                (
+                    this.DeliveredSecondsByResolution == input.DeliveredSecondsByResolution ||
+                    (this.DeliveredSecondsByResolution != null &&
+                    this.DeliveredSecondsByResolution.Equals(input.DeliveredSecondsByResolution))
                 )
                 && (this.AdditionalProperties.Count == input.AdditionalProperties.Count && !this.AdditionalProperties.Except(input.AdditionalProperties).Any());
         }
@@ -269,6 +283,10 @@ namespace Mux.Csharp.Sdk.Model
                 hashCode = (hashCode * 59) + this.AssetState.GetHashCode();
                 hashCode = (hashCode * 59) + this.AssetDuration.GetHashCode();
                 hashCode = (hashCode * 59) + this.DeliveredSeconds.GetHashCode();
+                if (this.DeliveredSecondsByResolution != null)
+                {
+                    hashCode = (hashCode * 59) + this.DeliveredSecondsByResolution.GetHashCode();
+                }
                 if (this.AdditionalProperties != null)
                 {
                     hashCode = (hashCode * 59) + this.AdditionalProperties.GetHashCode();
