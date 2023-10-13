@@ -37,7 +37,7 @@ namespace Mux.Csharp.Sdk.Api
         /// <param name="MONITORING_METRIC_ID">ID of the Monitoring Metric</param>
         /// <param name="dimension">Dimension the specified value belongs to (optional)</param>
         /// <param name="timestamp">Timestamp to limit results by. This value must be provided as a unix timestamp. Defaults to the current unix timestamp. (optional)</param>
-        /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Filters endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
+        /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Monitoring Dimensions endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
         /// <param name="orderBy">Value to order the results by (optional)</param>
         /// <param name="orderDirection">Sort order. (optional)</param>
         /// <returns>GetMonitoringBreakdownResponse</returns>
@@ -53,11 +53,44 @@ namespace Mux.Csharp.Sdk.Api
         /// <param name="MONITORING_METRIC_ID">ID of the Monitoring Metric</param>
         /// <param name="dimension">Dimension the specified value belongs to (optional)</param>
         /// <param name="timestamp">Timestamp to limit results by. This value must be provided as a unix timestamp. Defaults to the current unix timestamp. (optional)</param>
-        /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Filters endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
+        /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Monitoring Dimensions endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
         /// <param name="orderBy">Value to order the results by (optional)</param>
         /// <param name="orderDirection">Sort order. (optional)</param>
         /// <returns>ApiResponse of GetMonitoringBreakdownResponse</returns>
         ApiResponse<GetMonitoringBreakdownResponse> GetMonitoringBreakdownWithHttpInfo(string MONITORING_METRIC_ID, string dimension = default(string), int? timestamp = default(int?), List<string> filters = default(List<string>), string orderBy = default(string), string orderDirection = default(string));
+        /// <summary>
+        /// Get Monitoring Breakdown Timeseries
+        /// </summary>
+        /// <remarks>
+        /// Gets timeseries of breakdown information for a specific dimension and metric. Each datapoint in the response represents 5 seconds worth of data.
+        /// </remarks>
+        /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="MONITORING_METRIC_ID">ID of the Monitoring Metric</param>
+        /// <param name="dimension">Dimension the specified value belongs to (optional)</param>
+        /// <param name="timeframe">Timeframe window to limit results by. Must be provided as an array query string parameter (e.g. timeframe[]&#x3D;).  The default for this is the last 60 seconds of available data. Timeframes larger than 10 minutes are not allowed, and must be within the last 24 hours.  (optional)</param>
+        /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Monitoring Dimensions endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
+        /// <param name="limit">Number of items to include in each timestamp&#39;s &#x60;value&#x60; list.  The default is 10, and the maximum is 100.  (optional, default to 10)</param>
+        /// <param name="orderBy">Value to order the results by (optional)</param>
+        /// <param name="orderDirection">Sort order. (optional)</param>
+        /// <returns>GetMonitoringBreakdownTimeseriesResponse</returns>
+        GetMonitoringBreakdownTimeseriesResponse GetMonitoringBreakdownTimeseries(string MONITORING_METRIC_ID, string dimension = default(string), List<string> timeframe = default(List<string>), List<string> filters = default(List<string>), int? limit = default(int?), string orderBy = default(string), string orderDirection = default(string));
+
+        /// <summary>
+        /// Get Monitoring Breakdown Timeseries
+        /// </summary>
+        /// <remarks>
+        /// Gets timeseries of breakdown information for a specific dimension and metric. Each datapoint in the response represents 5 seconds worth of data.
+        /// </remarks>
+        /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="MONITORING_METRIC_ID">ID of the Monitoring Metric</param>
+        /// <param name="dimension">Dimension the specified value belongs to (optional)</param>
+        /// <param name="timeframe">Timeframe window to limit results by. Must be provided as an array query string parameter (e.g. timeframe[]&#x3D;).  The default for this is the last 60 seconds of available data. Timeframes larger than 10 minutes are not allowed, and must be within the last 24 hours.  (optional)</param>
+        /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Monitoring Dimensions endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
+        /// <param name="limit">Number of items to include in each timestamp&#39;s &#x60;value&#x60; list.  The default is 10, and the maximum is 100.  (optional, default to 10)</param>
+        /// <param name="orderBy">Value to order the results by (optional)</param>
+        /// <param name="orderDirection">Sort order. (optional)</param>
+        /// <returns>ApiResponse of GetMonitoringBreakdownTimeseriesResponse</returns>
+        ApiResponse<GetMonitoringBreakdownTimeseriesResponse> GetMonitoringBreakdownTimeseriesWithHttpInfo(string MONITORING_METRIC_ID, string dimension = default(string), List<string> timeframe = default(List<string>), List<string> filters = default(List<string>), int? limit = default(int?), string orderBy = default(string), string orderDirection = default(string));
         /// <summary>
         /// Get Monitoring Histogram Timeseries
         /// </summary>
@@ -66,7 +99,7 @@ namespace Mux.Csharp.Sdk.Api
         /// </remarks>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="MONITORING_HISTOGRAM_METRIC_ID">ID of the Monitoring Histogram Metric</param>
-        /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Filters endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
+        /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Monitoring Dimensions endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
         /// <returns>GetMonitoringHistogramTimeseriesResponse</returns>
         GetMonitoringHistogramTimeseriesResponse GetMonitoringHistogramTimeseries(string MONITORING_HISTOGRAM_METRIC_ID, List<string> filters = default(List<string>));
 
@@ -78,7 +111,7 @@ namespace Mux.Csharp.Sdk.Api
         /// </remarks>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="MONITORING_HISTOGRAM_METRIC_ID">ID of the Monitoring Histogram Metric</param>
-        /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Filters endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
+        /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Monitoring Dimensions endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
         /// <returns>ApiResponse of GetMonitoringHistogramTimeseriesResponse</returns>
         ApiResponse<GetMonitoringHistogramTimeseriesResponse> GetMonitoringHistogramTimeseriesWithHttpInfo(string MONITORING_HISTOGRAM_METRIC_ID, List<string> filters = default(List<string>));
         /// <summary>
@@ -89,9 +122,10 @@ namespace Mux.Csharp.Sdk.Api
         /// </remarks>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="MONITORING_METRIC_ID">ID of the Monitoring Metric</param>
-        /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Filters endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
+        /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Monitoring Dimensions endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
+        /// <param name="timestamp">Timestamp to use as the start of the timeseries data. This value must be provided as a unix timestamp. Defaults to 30 minutes ago. (optional)</param>
         /// <returns>GetMonitoringTimeseriesResponse</returns>
-        GetMonitoringTimeseriesResponse GetMonitoringTimeseries(string MONITORING_METRIC_ID, List<string> filters = default(List<string>));
+        GetMonitoringTimeseriesResponse GetMonitoringTimeseries(string MONITORING_METRIC_ID, List<string> filters = default(List<string>), int? timestamp = default(int?));
 
         /// <summary>
         /// Get Monitoring Timeseries
@@ -101,9 +135,10 @@ namespace Mux.Csharp.Sdk.Api
         /// </remarks>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="MONITORING_METRIC_ID">ID of the Monitoring Metric</param>
-        /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Filters endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
+        /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Monitoring Dimensions endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
+        /// <param name="timestamp">Timestamp to use as the start of the timeseries data. This value must be provided as a unix timestamp. Defaults to 30 minutes ago. (optional)</param>
         /// <returns>ApiResponse of GetMonitoringTimeseriesResponse</returns>
-        ApiResponse<GetMonitoringTimeseriesResponse> GetMonitoringTimeseriesWithHttpInfo(string MONITORING_METRIC_ID, List<string> filters = default(List<string>));
+        ApiResponse<GetMonitoringTimeseriesResponse> GetMonitoringTimeseriesWithHttpInfo(string MONITORING_METRIC_ID, List<string> filters = default(List<string>), int? timestamp = default(int?));
         /// <summary>
         /// List Monitoring Dimensions
         /// </summary>
@@ -161,7 +196,7 @@ namespace Mux.Csharp.Sdk.Api
         /// <param name="MONITORING_METRIC_ID">ID of the Monitoring Metric</param>
         /// <param name="dimension">Dimension the specified value belongs to (optional)</param>
         /// <param name="timestamp">Timestamp to limit results by. This value must be provided as a unix timestamp. Defaults to the current unix timestamp. (optional)</param>
-        /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Filters endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
+        /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Monitoring Dimensions endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
         /// <param name="orderBy">Value to order the results by (optional)</param>
         /// <param name="orderDirection">Sort order. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -178,12 +213,47 @@ namespace Mux.Csharp.Sdk.Api
         /// <param name="MONITORING_METRIC_ID">ID of the Monitoring Metric</param>
         /// <param name="dimension">Dimension the specified value belongs to (optional)</param>
         /// <param name="timestamp">Timestamp to limit results by. This value must be provided as a unix timestamp. Defaults to the current unix timestamp. (optional)</param>
-        /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Filters endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
+        /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Monitoring Dimensions endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
         /// <param name="orderBy">Value to order the results by (optional)</param>
         /// <param name="orderDirection">Sort order. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (GetMonitoringBreakdownResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<GetMonitoringBreakdownResponse>> GetMonitoringBreakdownWithHttpInfoAsync(string MONITORING_METRIC_ID, string dimension = default(string), int? timestamp = default(int?), List<string> filters = default(List<string>), string orderBy = default(string), string orderDirection = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// Get Monitoring Breakdown Timeseries
+        /// </summary>
+        /// <remarks>
+        /// Gets timeseries of breakdown information for a specific dimension and metric. Each datapoint in the response represents 5 seconds worth of data.
+        /// </remarks>
+        /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="MONITORING_METRIC_ID">ID of the Monitoring Metric</param>
+        /// <param name="dimension">Dimension the specified value belongs to (optional)</param>
+        /// <param name="timeframe">Timeframe window to limit results by. Must be provided as an array query string parameter (e.g. timeframe[]&#x3D;).  The default for this is the last 60 seconds of available data. Timeframes larger than 10 minutes are not allowed, and must be within the last 24 hours.  (optional)</param>
+        /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Monitoring Dimensions endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
+        /// <param name="limit">Number of items to include in each timestamp&#39;s &#x60;value&#x60; list.  The default is 10, and the maximum is 100.  (optional, default to 10)</param>
+        /// <param name="orderBy">Value to order the results by (optional)</param>
+        /// <param name="orderDirection">Sort order. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of GetMonitoringBreakdownTimeseriesResponse</returns>
+        System.Threading.Tasks.Task<GetMonitoringBreakdownTimeseriesResponse> GetMonitoringBreakdownTimeseriesAsync(string MONITORING_METRIC_ID, string dimension = default(string), List<string> timeframe = default(List<string>), List<string> filters = default(List<string>), int? limit = default(int?), string orderBy = default(string), string orderDirection = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Get Monitoring Breakdown Timeseries
+        /// </summary>
+        /// <remarks>
+        /// Gets timeseries of breakdown information for a specific dimension and metric. Each datapoint in the response represents 5 seconds worth of data.
+        /// </remarks>
+        /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="MONITORING_METRIC_ID">ID of the Monitoring Metric</param>
+        /// <param name="dimension">Dimension the specified value belongs to (optional)</param>
+        /// <param name="timeframe">Timeframe window to limit results by. Must be provided as an array query string parameter (e.g. timeframe[]&#x3D;).  The default for this is the last 60 seconds of available data. Timeframes larger than 10 minutes are not allowed, and must be within the last 24 hours.  (optional)</param>
+        /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Monitoring Dimensions endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
+        /// <param name="limit">Number of items to include in each timestamp&#39;s &#x60;value&#x60; list.  The default is 10, and the maximum is 100.  (optional, default to 10)</param>
+        /// <param name="orderBy">Value to order the results by (optional)</param>
+        /// <param name="orderDirection">Sort order. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (GetMonitoringBreakdownTimeseriesResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<GetMonitoringBreakdownTimeseriesResponse>> GetMonitoringBreakdownTimeseriesWithHttpInfoAsync(string MONITORING_METRIC_ID, string dimension = default(string), List<string> timeframe = default(List<string>), List<string> filters = default(List<string>), int? limit = default(int?), string orderBy = default(string), string orderDirection = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Get Monitoring Histogram Timeseries
         /// </summary>
@@ -192,7 +262,7 @@ namespace Mux.Csharp.Sdk.Api
         /// </remarks>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="MONITORING_HISTOGRAM_METRIC_ID">ID of the Monitoring Histogram Metric</param>
-        /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Filters endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
+        /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Monitoring Dimensions endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of GetMonitoringHistogramTimeseriesResponse</returns>
         System.Threading.Tasks.Task<GetMonitoringHistogramTimeseriesResponse> GetMonitoringHistogramTimeseriesAsync(string MONITORING_HISTOGRAM_METRIC_ID, List<string> filters = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
@@ -205,7 +275,7 @@ namespace Mux.Csharp.Sdk.Api
         /// </remarks>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="MONITORING_HISTOGRAM_METRIC_ID">ID of the Monitoring Histogram Metric</param>
-        /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Filters endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
+        /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Monitoring Dimensions endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (GetMonitoringHistogramTimeseriesResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<GetMonitoringHistogramTimeseriesResponse>> GetMonitoringHistogramTimeseriesWithHttpInfoAsync(string MONITORING_HISTOGRAM_METRIC_ID, List<string> filters = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
@@ -217,10 +287,11 @@ namespace Mux.Csharp.Sdk.Api
         /// </remarks>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="MONITORING_METRIC_ID">ID of the Monitoring Metric</param>
-        /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Filters endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
+        /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Monitoring Dimensions endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
+        /// <param name="timestamp">Timestamp to use as the start of the timeseries data. This value must be provided as a unix timestamp. Defaults to 30 minutes ago. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of GetMonitoringTimeseriesResponse</returns>
-        System.Threading.Tasks.Task<GetMonitoringTimeseriesResponse> GetMonitoringTimeseriesAsync(string MONITORING_METRIC_ID, List<string> filters = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<GetMonitoringTimeseriesResponse> GetMonitoringTimeseriesAsync(string MONITORING_METRIC_ID, List<string> filters = default(List<string>), int? timestamp = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Get Monitoring Timeseries
@@ -230,10 +301,11 @@ namespace Mux.Csharp.Sdk.Api
         /// </remarks>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="MONITORING_METRIC_ID">ID of the Monitoring Metric</param>
-        /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Filters endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
+        /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Monitoring Dimensions endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
+        /// <param name="timestamp">Timestamp to use as the start of the timeseries data. This value must be provided as a unix timestamp. Defaults to 30 minutes ago. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (GetMonitoringTimeseriesResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GetMonitoringTimeseriesResponse>> GetMonitoringTimeseriesWithHttpInfoAsync(string MONITORING_METRIC_ID, List<string> filters = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<GetMonitoringTimeseriesResponse>> GetMonitoringTimeseriesWithHttpInfoAsync(string MONITORING_METRIC_ID, List<string> filters = default(List<string>), int? timestamp = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List Monitoring Dimensions
         /// </summary>
@@ -403,7 +475,7 @@ namespace Mux.Csharp.Sdk.Api
         /// <param name="MONITORING_METRIC_ID">ID of the Monitoring Metric</param>
         /// <param name="dimension">Dimension the specified value belongs to (optional)</param>
         /// <param name="timestamp">Timestamp to limit results by. This value must be provided as a unix timestamp. Defaults to the current unix timestamp. (optional)</param>
-        /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Filters endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
+        /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Monitoring Dimensions endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
         /// <param name="orderBy">Value to order the results by (optional)</param>
         /// <param name="orderDirection">Sort order. (optional)</param>
         /// <returns>GetMonitoringBreakdownResponse</returns>
@@ -420,7 +492,7 @@ namespace Mux.Csharp.Sdk.Api
         /// <param name="MONITORING_METRIC_ID">ID of the Monitoring Metric</param>
         /// <param name="dimension">Dimension the specified value belongs to (optional)</param>
         /// <param name="timestamp">Timestamp to limit results by. This value must be provided as a unix timestamp. Defaults to the current unix timestamp. (optional)</param>
-        /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Filters endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
+        /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Monitoring Dimensions endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
         /// <param name="orderBy">Value to order the results by (optional)</param>
         /// <param name="orderDirection">Sort order. (optional)</param>
         /// <returns>ApiResponse of GetMonitoringBreakdownResponse</returns>
@@ -504,7 +576,7 @@ namespace Mux.Csharp.Sdk.Api
         /// <param name="MONITORING_METRIC_ID">ID of the Monitoring Metric</param>
         /// <param name="dimension">Dimension the specified value belongs to (optional)</param>
         /// <param name="timestamp">Timestamp to limit results by. This value must be provided as a unix timestamp. Defaults to the current unix timestamp. (optional)</param>
-        /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Filters endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
+        /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Monitoring Dimensions endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
         /// <param name="orderBy">Value to order the results by (optional)</param>
         /// <param name="orderDirection">Sort order. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -522,7 +594,7 @@ namespace Mux.Csharp.Sdk.Api
         /// <param name="MONITORING_METRIC_ID">ID of the Monitoring Metric</param>
         /// <param name="dimension">Dimension the specified value belongs to (optional)</param>
         /// <param name="timestamp">Timestamp to limit results by. This value must be provided as a unix timestamp. Defaults to the current unix timestamp. (optional)</param>
-        /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Filters endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
+        /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Monitoring Dimensions endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
         /// <param name="orderBy">Value to order the results by (optional)</param>
         /// <param name="orderDirection">Sort order. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -603,11 +675,229 @@ namespace Mux.Csharp.Sdk.Api
         }
 
         /// <summary>
+        /// Get Monitoring Breakdown Timeseries Gets timeseries of breakdown information for a specific dimension and metric. Each datapoint in the response represents 5 seconds worth of data.
+        /// </summary>
+        /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="MONITORING_METRIC_ID">ID of the Monitoring Metric</param>
+        /// <param name="dimension">Dimension the specified value belongs to (optional)</param>
+        /// <param name="timeframe">Timeframe window to limit results by. Must be provided as an array query string parameter (e.g. timeframe[]&#x3D;).  The default for this is the last 60 seconds of available data. Timeframes larger than 10 minutes are not allowed, and must be within the last 24 hours.  (optional)</param>
+        /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Monitoring Dimensions endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
+        /// <param name="limit">Number of items to include in each timestamp&#39;s &#x60;value&#x60; list.  The default is 10, and the maximum is 100.  (optional, default to 10)</param>
+        /// <param name="orderBy">Value to order the results by (optional)</param>
+        /// <param name="orderDirection">Sort order. (optional)</param>
+        /// <returns>GetMonitoringBreakdownTimeseriesResponse</returns>
+        public GetMonitoringBreakdownTimeseriesResponse GetMonitoringBreakdownTimeseries(string MONITORING_METRIC_ID, string dimension = default(string), List<string> timeframe = default(List<string>), List<string> filters = default(List<string>), int? limit = default(int?), string orderBy = default(string), string orderDirection = default(string))
+        {
+            Mux.Csharp.Sdk.Client.ApiResponse<GetMonitoringBreakdownTimeseriesResponse> localVarResponse = GetMonitoringBreakdownTimeseriesWithHttpInfo(MONITORING_METRIC_ID, dimension, timeframe, filters, limit, orderBy, orderDirection);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get Monitoring Breakdown Timeseries Gets timeseries of breakdown information for a specific dimension and metric. Each datapoint in the response represents 5 seconds worth of data.
+        /// </summary>
+        /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="MONITORING_METRIC_ID">ID of the Monitoring Metric</param>
+        /// <param name="dimension">Dimension the specified value belongs to (optional)</param>
+        /// <param name="timeframe">Timeframe window to limit results by. Must be provided as an array query string parameter (e.g. timeframe[]&#x3D;).  The default for this is the last 60 seconds of available data. Timeframes larger than 10 minutes are not allowed, and must be within the last 24 hours.  (optional)</param>
+        /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Monitoring Dimensions endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
+        /// <param name="limit">Number of items to include in each timestamp&#39;s &#x60;value&#x60; list.  The default is 10, and the maximum is 100.  (optional, default to 10)</param>
+        /// <param name="orderBy">Value to order the results by (optional)</param>
+        /// <param name="orderDirection">Sort order. (optional)</param>
+        /// <returns>ApiResponse of GetMonitoringBreakdownTimeseriesResponse</returns>
+        public Mux.Csharp.Sdk.Client.ApiResponse<GetMonitoringBreakdownTimeseriesResponse> GetMonitoringBreakdownTimeseriesWithHttpInfo(string MONITORING_METRIC_ID, string dimension = default(string), List<string> timeframe = default(List<string>), List<string> filters = default(List<string>), int? limit = default(int?), string orderBy = default(string), string orderDirection = default(string))
+        {
+            // verify the required parameter 'MONITORING_METRIC_ID' is set
+            if (MONITORING_METRIC_ID == null)
+            {
+                throw new Mux.Csharp.Sdk.Client.ApiException(400, "Missing required parameter 'MONITORING_METRIC_ID' when calling MonitoringApi->GetMonitoringBreakdownTimeseries");
+            }
+
+            Mux.Csharp.Sdk.Client.RequestOptions localVarRequestOptions = new Mux.Csharp.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = Mux.Csharp.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Mux.Csharp.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("MONITORING_METRIC_ID", Mux.Csharp.Sdk.Client.ClientUtils.ParameterToString(MONITORING_METRIC_ID)); // path parameter
+            if (dimension != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Mux.Csharp.Sdk.Client.ClientUtils.ParameterToMultiMap("", "dimension", dimension));
+            }
+            if (timeframe != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Mux.Csharp.Sdk.Client.ClientUtils.ParameterToMultiMap("multi", "timeframe[]", timeframe));
+            }
+            if (filters != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Mux.Csharp.Sdk.Client.ClientUtils.ParameterToMultiMap("multi", "filters[]", filters));
+            }
+            if (limit != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Mux.Csharp.Sdk.Client.ClientUtils.ParameterToMultiMap("", "limit", limit));
+            }
+            if (orderBy != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Mux.Csharp.Sdk.Client.ClientUtils.ParameterToMultiMap("", "order_by", orderBy));
+            }
+            if (orderDirection != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Mux.Csharp.Sdk.Client.ClientUtils.ParameterToMultiMap("", "order_direction", orderDirection));
+            }
+
+            // authentication (accessToken) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Mux.Csharp.Sdk.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<GetMonitoringBreakdownTimeseriesResponse>("/data/v1/monitoring/metrics/{MONITORING_METRIC_ID}/breakdown-timeseries", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetMonitoringBreakdownTimeseries", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Get Monitoring Breakdown Timeseries Gets timeseries of breakdown information for a specific dimension and metric. Each datapoint in the response represents 5 seconds worth of data.
+        /// </summary>
+        /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="MONITORING_METRIC_ID">ID of the Monitoring Metric</param>
+        /// <param name="dimension">Dimension the specified value belongs to (optional)</param>
+        /// <param name="timeframe">Timeframe window to limit results by. Must be provided as an array query string parameter (e.g. timeframe[]&#x3D;).  The default for this is the last 60 seconds of available data. Timeframes larger than 10 minutes are not allowed, and must be within the last 24 hours.  (optional)</param>
+        /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Monitoring Dimensions endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
+        /// <param name="limit">Number of items to include in each timestamp&#39;s &#x60;value&#x60; list.  The default is 10, and the maximum is 100.  (optional, default to 10)</param>
+        /// <param name="orderBy">Value to order the results by (optional)</param>
+        /// <param name="orderDirection">Sort order. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of GetMonitoringBreakdownTimeseriesResponse</returns>
+        public async System.Threading.Tasks.Task<GetMonitoringBreakdownTimeseriesResponse> GetMonitoringBreakdownTimeseriesAsync(string MONITORING_METRIC_ID, string dimension = default(string), List<string> timeframe = default(List<string>), List<string> filters = default(List<string>), int? limit = default(int?), string orderBy = default(string), string orderDirection = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            Mux.Csharp.Sdk.Client.ApiResponse<GetMonitoringBreakdownTimeseriesResponse> localVarResponse = await GetMonitoringBreakdownTimeseriesWithHttpInfoAsync(MONITORING_METRIC_ID, dimension, timeframe, filters, limit, orderBy, orderDirection, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get Monitoring Breakdown Timeseries Gets timeseries of breakdown information for a specific dimension and metric. Each datapoint in the response represents 5 seconds worth of data.
+        /// </summary>
+        /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="MONITORING_METRIC_ID">ID of the Monitoring Metric</param>
+        /// <param name="dimension">Dimension the specified value belongs to (optional)</param>
+        /// <param name="timeframe">Timeframe window to limit results by. Must be provided as an array query string parameter (e.g. timeframe[]&#x3D;).  The default for this is the last 60 seconds of available data. Timeframes larger than 10 minutes are not allowed, and must be within the last 24 hours.  (optional)</param>
+        /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Monitoring Dimensions endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
+        /// <param name="limit">Number of items to include in each timestamp&#39;s &#x60;value&#x60; list.  The default is 10, and the maximum is 100.  (optional, default to 10)</param>
+        /// <param name="orderBy">Value to order the results by (optional)</param>
+        /// <param name="orderDirection">Sort order. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (GetMonitoringBreakdownTimeseriesResponse)</returns>
+        public async System.Threading.Tasks.Task<Mux.Csharp.Sdk.Client.ApiResponse<GetMonitoringBreakdownTimeseriesResponse>> GetMonitoringBreakdownTimeseriesWithHttpInfoAsync(string MONITORING_METRIC_ID, string dimension = default(string), List<string> timeframe = default(List<string>), List<string> filters = default(List<string>), int? limit = default(int?), string orderBy = default(string), string orderDirection = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'MONITORING_METRIC_ID' is set
+            if (MONITORING_METRIC_ID == null)
+            {
+                throw new Mux.Csharp.Sdk.Client.ApiException(400, "Missing required parameter 'MONITORING_METRIC_ID' when calling MonitoringApi->GetMonitoringBreakdownTimeseries");
+            }
+
+
+            Mux.Csharp.Sdk.Client.RequestOptions localVarRequestOptions = new Mux.Csharp.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = Mux.Csharp.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Mux.Csharp.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("MONITORING_METRIC_ID", Mux.Csharp.Sdk.Client.ClientUtils.ParameterToString(MONITORING_METRIC_ID)); // path parameter
+            if (dimension != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Mux.Csharp.Sdk.Client.ClientUtils.ParameterToMultiMap("", "dimension", dimension));
+            }
+            if (timeframe != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Mux.Csharp.Sdk.Client.ClientUtils.ParameterToMultiMap("multi", "timeframe[]", timeframe));
+            }
+            if (filters != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Mux.Csharp.Sdk.Client.ClientUtils.ParameterToMultiMap("multi", "filters[]", filters));
+            }
+            if (limit != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Mux.Csharp.Sdk.Client.ClientUtils.ParameterToMultiMap("", "limit", limit));
+            }
+            if (orderBy != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Mux.Csharp.Sdk.Client.ClientUtils.ParameterToMultiMap("", "order_by", orderBy));
+            }
+            if (orderDirection != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Mux.Csharp.Sdk.Client.ClientUtils.ParameterToMultiMap("", "order_direction", orderDirection));
+            }
+
+            // authentication (accessToken) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Mux.Csharp.Sdk.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.GetAsync<GetMonitoringBreakdownTimeseriesResponse>("/data/v1/monitoring/metrics/{MONITORING_METRIC_ID}/breakdown-timeseries", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetMonitoringBreakdownTimeseries", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
         /// Get Monitoring Histogram Timeseries Gets histogram timeseries information for a specific metric.
         /// </summary>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="MONITORING_HISTOGRAM_METRIC_ID">ID of the Monitoring Histogram Metric</param>
-        /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Filters endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
+        /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Monitoring Dimensions endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
         /// <returns>GetMonitoringHistogramTimeseriesResponse</returns>
         public GetMonitoringHistogramTimeseriesResponse GetMonitoringHistogramTimeseries(string MONITORING_HISTOGRAM_METRIC_ID, List<string> filters = default(List<string>))
         {
@@ -620,7 +910,7 @@ namespace Mux.Csharp.Sdk.Api
         /// </summary>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="MONITORING_HISTOGRAM_METRIC_ID">ID of the Monitoring Histogram Metric</param>
-        /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Filters endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
+        /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Monitoring Dimensions endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
         /// <returns>ApiResponse of GetMonitoringHistogramTimeseriesResponse</returns>
         public Mux.Csharp.Sdk.Client.ApiResponse<GetMonitoringHistogramTimeseriesResponse> GetMonitoringHistogramTimeseriesWithHttpInfo(string MONITORING_HISTOGRAM_METRIC_ID, List<string> filters = default(List<string>))
         {
@@ -684,7 +974,7 @@ namespace Mux.Csharp.Sdk.Api
         /// </summary>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="MONITORING_HISTOGRAM_METRIC_ID">ID of the Monitoring Histogram Metric</param>
-        /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Filters endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
+        /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Monitoring Dimensions endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of GetMonitoringHistogramTimeseriesResponse</returns>
         public async System.Threading.Tasks.Task<GetMonitoringHistogramTimeseriesResponse> GetMonitoringHistogramTimeseriesAsync(string MONITORING_HISTOGRAM_METRIC_ID, List<string> filters = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
@@ -698,7 +988,7 @@ namespace Mux.Csharp.Sdk.Api
         /// </summary>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="MONITORING_HISTOGRAM_METRIC_ID">ID of the Monitoring Histogram Metric</param>
-        /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Filters endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
+        /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Monitoring Dimensions endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (GetMonitoringHistogramTimeseriesResponse)</returns>
         public async System.Threading.Tasks.Task<Mux.Csharp.Sdk.Client.ApiResponse<GetMonitoringHistogramTimeseriesResponse>> GetMonitoringHistogramTimeseriesWithHttpInfoAsync(string MONITORING_HISTOGRAM_METRIC_ID, List<string> filters = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
@@ -765,11 +1055,12 @@ namespace Mux.Csharp.Sdk.Api
         /// </summary>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="MONITORING_METRIC_ID">ID of the Monitoring Metric</param>
-        /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Filters endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
+        /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Monitoring Dimensions endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
+        /// <param name="timestamp">Timestamp to use as the start of the timeseries data. This value must be provided as a unix timestamp. Defaults to 30 minutes ago. (optional)</param>
         /// <returns>GetMonitoringTimeseriesResponse</returns>
-        public GetMonitoringTimeseriesResponse GetMonitoringTimeseries(string MONITORING_METRIC_ID, List<string> filters = default(List<string>))
+        public GetMonitoringTimeseriesResponse GetMonitoringTimeseries(string MONITORING_METRIC_ID, List<string> filters = default(List<string>), int? timestamp = default(int?))
         {
-            Mux.Csharp.Sdk.Client.ApiResponse<GetMonitoringTimeseriesResponse> localVarResponse = GetMonitoringTimeseriesWithHttpInfo(MONITORING_METRIC_ID, filters);
+            Mux.Csharp.Sdk.Client.ApiResponse<GetMonitoringTimeseriesResponse> localVarResponse = GetMonitoringTimeseriesWithHttpInfo(MONITORING_METRIC_ID, filters, timestamp);
             return localVarResponse.Data;
         }
 
@@ -778,9 +1069,10 @@ namespace Mux.Csharp.Sdk.Api
         /// </summary>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="MONITORING_METRIC_ID">ID of the Monitoring Metric</param>
-        /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Filters endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
+        /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Monitoring Dimensions endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
+        /// <param name="timestamp">Timestamp to use as the start of the timeseries data. This value must be provided as a unix timestamp. Defaults to 30 minutes ago. (optional)</param>
         /// <returns>ApiResponse of GetMonitoringTimeseriesResponse</returns>
-        public Mux.Csharp.Sdk.Client.ApiResponse<GetMonitoringTimeseriesResponse> GetMonitoringTimeseriesWithHttpInfo(string MONITORING_METRIC_ID, List<string> filters = default(List<string>))
+        public Mux.Csharp.Sdk.Client.ApiResponse<GetMonitoringTimeseriesResponse> GetMonitoringTimeseriesWithHttpInfo(string MONITORING_METRIC_ID, List<string> filters = default(List<string>), int? timestamp = default(int?))
         {
             // verify the required parameter 'MONITORING_METRIC_ID' is set
             if (MONITORING_METRIC_ID == null)
@@ -814,6 +1106,10 @@ namespace Mux.Csharp.Sdk.Api
             if (filters != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Mux.Csharp.Sdk.Client.ClientUtils.ParameterToMultiMap("multi", "filters[]", filters));
+            }
+            if (timestamp != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Mux.Csharp.Sdk.Client.ClientUtils.ParameterToMultiMap("", "timestamp", timestamp));
             }
 
             // authentication (accessToken) required
@@ -842,12 +1138,13 @@ namespace Mux.Csharp.Sdk.Api
         /// </summary>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="MONITORING_METRIC_ID">ID of the Monitoring Metric</param>
-        /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Filters endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
+        /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Monitoring Dimensions endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
+        /// <param name="timestamp">Timestamp to use as the start of the timeseries data. This value must be provided as a unix timestamp. Defaults to 30 minutes ago. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of GetMonitoringTimeseriesResponse</returns>
-        public async System.Threading.Tasks.Task<GetMonitoringTimeseriesResponse> GetMonitoringTimeseriesAsync(string MONITORING_METRIC_ID, List<string> filters = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<GetMonitoringTimeseriesResponse> GetMonitoringTimeseriesAsync(string MONITORING_METRIC_ID, List<string> filters = default(List<string>), int? timestamp = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Mux.Csharp.Sdk.Client.ApiResponse<GetMonitoringTimeseriesResponse> localVarResponse = await GetMonitoringTimeseriesWithHttpInfoAsync(MONITORING_METRIC_ID, filters, cancellationToken).ConfigureAwait(false);
+            Mux.Csharp.Sdk.Client.ApiResponse<GetMonitoringTimeseriesResponse> localVarResponse = await GetMonitoringTimeseriesWithHttpInfoAsync(MONITORING_METRIC_ID, filters, timestamp, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -856,10 +1153,11 @@ namespace Mux.Csharp.Sdk.Api
         /// </summary>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="MONITORING_METRIC_ID">ID of the Monitoring Metric</param>
-        /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Filters endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
+        /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Monitoring Dimensions endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
+        /// <param name="timestamp">Timestamp to use as the start of the timeseries data. This value must be provided as a unix timestamp. Defaults to 30 minutes ago. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (GetMonitoringTimeseriesResponse)</returns>
-        public async System.Threading.Tasks.Task<Mux.Csharp.Sdk.Client.ApiResponse<GetMonitoringTimeseriesResponse>> GetMonitoringTimeseriesWithHttpInfoAsync(string MONITORING_METRIC_ID, List<string> filters = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Mux.Csharp.Sdk.Client.ApiResponse<GetMonitoringTimeseriesResponse>> GetMonitoringTimeseriesWithHttpInfoAsync(string MONITORING_METRIC_ID, List<string> filters = default(List<string>), int? timestamp = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'MONITORING_METRIC_ID' is set
             if (MONITORING_METRIC_ID == null)
@@ -894,6 +1192,10 @@ namespace Mux.Csharp.Sdk.Api
             if (filters != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Mux.Csharp.Sdk.Client.ClientUtils.ParameterToMultiMap("multi", "filters[]", filters));
+            }
+            if (timestamp != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Mux.Csharp.Sdk.Client.ClientUtils.ParameterToMultiMap("", "timestamp", timestamp));
             }
 
             // authentication (accessToken) required

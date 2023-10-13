@@ -16,7 +16,7 @@ Mux is how developers build online video. This API encompasses both Mux Video an
 **PLEASE NOTE:** This is an early build of the Mux C# SDK, as evidenced by its pre-1.0 status, but we're reasonably certain of its stability and usability against the Mux API.. Documentation is currently best-effort, but it'll improve over time! Instead of contacting Mux Support, please file an issue on this repository or email [Mux DevEx](devex@mux.com) for assistance.
 
 - API version: v1
-- SDK version: 0.6.0
+- SDK version: 0.7.0
     [https://docs.mux.com](https://docs.mux.com)
 
 <a name="frameworks-supported"></a>
@@ -166,6 +166,7 @@ Class | Method | HTTP request | Description
 *MetricsApi* | [**ListBreakdownValues**](docs/MetricsApi.md#listbreakdownvalues) | **GET** /data/v1/metrics/{METRIC_ID}/breakdown | List breakdown values
 *MetricsApi* | [**ListInsights**](docs/MetricsApi.md#listinsights) | **GET** /data/v1/metrics/{METRIC_ID}/insights | List Insights
 *MonitoringApi* | [**GetMonitoringBreakdown**](docs/MonitoringApi.md#getmonitoringbreakdown) | **GET** /data/v1/monitoring/metrics/{MONITORING_METRIC_ID}/breakdown | Get Monitoring Breakdown
+*MonitoringApi* | [**GetMonitoringBreakdownTimeseries**](docs/MonitoringApi.md#getmonitoringbreakdowntimeseries) | **GET** /data/v1/monitoring/metrics/{MONITORING_METRIC_ID}/breakdown-timeseries | Get Monitoring Breakdown Timeseries
 *MonitoringApi* | [**GetMonitoringHistogramTimeseries**](docs/MonitoringApi.md#getmonitoringhistogramtimeseries) | **GET** /data/v1/monitoring/metrics/{MONITORING_HISTOGRAM_METRIC_ID}/histogram-timeseries | Get Monitoring Histogram Timeseries
 *MonitoringApi* | [**GetMonitoringTimeseries**](docs/MonitoringApi.md#getmonitoringtimeseries) | **GET** /data/v1/monitoring/metrics/{MONITORING_METRIC_ID}/timeseries | Get Monitoring Timeseries
 *MonitoringApi* | [**ListMonitoringDimensions**](docs/MonitoringApi.md#listmonitoringdimensions) | **GET** /data/v1/monitoring/dimensions | List Monitoring Dimensions
@@ -181,6 +182,10 @@ Class | Method | HTTP request | Description
 *RealTimeApi* | [**GetRealtimeTimeseries**](docs/RealTimeApi.md#getrealtimetimeseries) | **GET** /data/v1/realtime/metrics/{REALTIME_METRIC_ID}/timeseries | Get Real-Time Timeseries
 *RealTimeApi* | [**ListRealtimeDimensions**](docs/RealTimeApi.md#listrealtimedimensions) | **GET** /data/v1/realtime/dimensions | List Real-Time Dimensions
 *RealTimeApi* | [**ListRealtimeMetrics**](docs/RealTimeApi.md#listrealtimemetrics) | **GET** /data/v1/realtime/metrics | List Real-Time Metrics
+*SigningKeysApi* | [**CreateSigningKey**](docs/SigningKeysApi.md#createsigningkey) | **POST** /system/v1/signing-keys | Create a signing key
+*SigningKeysApi* | [**DeleteSigningKey**](docs/SigningKeysApi.md#deletesigningkey) | **DELETE** /system/v1/signing-keys/{SIGNING_KEY_ID} | Delete a signing key
+*SigningKeysApi* | [**GetSigningKey**](docs/SigningKeysApi.md#getsigningkey) | **GET** /system/v1/signing-keys/{SIGNING_KEY_ID} | Retrieve a signing key
+*SigningKeysApi* | [**ListSigningKeys**](docs/SigningKeysApi.md#listsigningkeys) | **GET** /system/v1/signing-keys | List signing keys
 *SpacesApi* | [**CreateSpace**](docs/SpacesApi.md#createspace) | **POST** /video/v1/spaces | Create a space
 *SpacesApi* | [**CreateSpaceBroadcast**](docs/SpacesApi.md#createspacebroadcast) | **POST** /video/v1/spaces/{SPACE_ID}/broadcasts | Create a space broadcast
 *SpacesApi* | [**DeleteSpace**](docs/SpacesApi.md#deletespace) | **DELETE** /video/v1/spaces/{SPACE_ID} | Delete a space
@@ -209,6 +214,7 @@ Class | Method | HTTP request | Description
  - [Model.AbridgedVideoView](docs/AbridgedVideoView.md)
  - [Model.Asset](docs/Asset.md)
  - [Model.AssetErrors](docs/AssetErrors.md)
+ - [Model.AssetGeneratedSubtitleSettings](docs/AssetGeneratedSubtitleSettings.md)
  - [Model.AssetMaster](docs/AssetMaster.md)
  - [Model.AssetNonStandardInputReasons](docs/AssetNonStandardInputReasons.md)
  - [Model.AssetRecordingTimes](docs/AssetRecordingTimes.md)
@@ -250,6 +256,7 @@ Class | Method | HTTP request | Description
  - [Model.GetLiveStreamPlaybackIDResponse](docs/GetLiveStreamPlaybackIDResponse.md)
  - [Model.GetMetricTimeseriesDataResponse](docs/GetMetricTimeseriesDataResponse.md)
  - [Model.GetMonitoringBreakdownResponse](docs/GetMonitoringBreakdownResponse.md)
+ - [Model.GetMonitoringBreakdownTimeseriesResponse](docs/GetMonitoringBreakdownTimeseriesResponse.md)
  - [Model.GetMonitoringHistogramTimeseriesResponse](docs/GetMonitoringHistogramTimeseriesResponse.md)
  - [Model.GetMonitoringHistogramTimeseriesResponseMeta](docs/GetMonitoringHistogramTimeseriesResponseMeta.md)
  - [Model.GetMonitoringTimeseriesResponse](docs/GetMonitoringTimeseriesResponse.md)
@@ -302,6 +309,8 @@ Class | Method | HTTP request | Description
  - [Model.LiveStreamResponse](docs/LiveStreamResponse.md)
  - [Model.LiveStreamStatus](docs/LiveStreamStatus.md)
  - [Model.Metric](docs/Metric.md)
+ - [Model.MonitoringBreakdownTimeseriesDatapoint](docs/MonitoringBreakdownTimeseriesDatapoint.md)
+ - [Model.MonitoringBreakdownTimeseriesValues](docs/MonitoringBreakdownTimeseriesValues.md)
  - [Model.MonitoringBreakdownValue](docs/MonitoringBreakdownValue.md)
  - [Model.MonitoringHistogramTimeseriesBucket](docs/MonitoringHistogramTimeseriesBucket.md)
  - [Model.MonitoringHistogramTimeseriesBucketValues](docs/MonitoringHistogramTimeseriesBucketValues.md)

@@ -89,6 +89,68 @@ namespace Mux.Csharp.Sdk.Model
         [DataMember(Name = "master_access", EmitDefaultValue = false)]
         public MasterAccessEnum? MasterAccess { get; set; }
         /// <summary>
+        /// Max resolution tier can be used to control the maximum &#x60;resolution_tier&#x60; your asset is encoded, stored, and streamed at. If not set, this defaults to &#x60;1080p&#x60;.
+        /// </summary>
+        /// <value>Max resolution tier can be used to control the maximum &#x60;resolution_tier&#x60; your asset is encoded, stored, and streamed at. If not set, this defaults to &#x60;1080p&#x60;.</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum MaxResolutionTierEnum
+        {
+            /// <summary>
+            /// Enum _1080p for value: 1080p
+            /// </summary>
+            [EnumMember(Value = "1080p")]
+            _1080p = 1,
+
+            /// <summary>
+            /// Enum _1440p for value: 1440p
+            /// </summary>
+            [EnumMember(Value = "1440p")]
+            _1440p = 2,
+
+            /// <summary>
+            /// Enum _2160p for value: 2160p
+            /// </summary>
+            [EnumMember(Value = "2160p")]
+            _2160p = 3
+
+        }
+
+
+        /// <summary>
+        /// Max resolution tier can be used to control the maximum &#x60;resolution_tier&#x60; your asset is encoded, stored, and streamed at. If not set, this defaults to &#x60;1080p&#x60;.
+        /// </summary>
+        /// <value>Max resolution tier can be used to control the maximum &#x60;resolution_tier&#x60; your asset is encoded, stored, and streamed at. If not set, this defaults to &#x60;1080p&#x60;.</value>
+        [DataMember(Name = "max_resolution_tier", EmitDefaultValue = false)]
+        public MaxResolutionTierEnum? MaxResolutionTier { get; set; }
+        /// <summary>
+        /// The encoding tier informs the cost, quality, and available platform features for the asset. By default the &#x60;smart&#x60; encoding tier is used.
+        /// </summary>
+        /// <value>The encoding tier informs the cost, quality, and available platform features for the asset. By default the &#x60;smart&#x60; encoding tier is used.</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum EncodingTierEnum
+        {
+            /// <summary>
+            /// Enum Smart for value: smart
+            /// </summary>
+            [EnumMember(Value = "smart")]
+            Smart = 1,
+
+            /// <summary>
+            /// Enum Baseline for value: baseline
+            /// </summary>
+            [EnumMember(Value = "baseline")]
+            Baseline = 2
+
+        }
+
+
+        /// <summary>
+        /// The encoding tier informs the cost, quality, and available platform features for the asset. By default the &#x60;smart&#x60; encoding tier is used.
+        /// </summary>
+        /// <value>The encoding tier informs the cost, quality, and available platform features for the asset. By default the &#x60;smart&#x60; encoding tier is used.</value>
+        [DataMember(Name = "encoding_tier", EmitDefaultValue = false)]
+        public EncodingTierEnum? EncodingTier { get; set; }
+        /// <summary>
         /// Initializes a new instance of the <see cref="CreateAssetRequest" /> class.
         /// </summary>
         /// <param name="input">An array of objects that each describe an input file to be used to create the asset. As a shortcut, input can also be a string URL for a file when only one input file is used. See &#x60;input[].url&#x60; for requirements..</param>
@@ -99,7 +161,9 @@ namespace Mux.Csharp.Sdk.Model
         /// <param name="normalizeAudio">Normalize the audio track loudness level. This parameter is only applicable to on-demand (not live) assets. (default to false).</param>
         /// <param name="masterAccess">Specify what level (if any) of support for master access. Master access can be enabled temporarily for your asset to be downloaded. See the [Download your videos guide](/guides/video/download-your-videos) for more information..</param>
         /// <param name="test">Marks the asset as a test asset when the value is set to true. A Test asset can help evaluate the Mux Video APIs without incurring any cost. There is no limit on number of test assets created. Test asset are watermarked with the Mux logo, limited to 10 seconds, deleted after 24 hrs..</param>
-        public CreateAssetRequest(List<InputSettings> input = default(List<InputSettings>), List<PlaybackPolicy> playbackPolicy = default(List<PlaybackPolicy>), bool perTitleEncode = default(bool), string passthrough = default(string), Mp4SupportEnum? mp4Support = default(Mp4SupportEnum?), bool normalizeAudio = false, MasterAccessEnum? masterAccess = default(MasterAccessEnum?), bool test = default(bool))
+        /// <param name="maxResolutionTier">Max resolution tier can be used to control the maximum &#x60;resolution_tier&#x60; your asset is encoded, stored, and streamed at. If not set, this defaults to &#x60;1080p&#x60;..</param>
+        /// <param name="encodingTier">The encoding tier informs the cost, quality, and available platform features for the asset. By default the &#x60;smart&#x60; encoding tier is used..</param>
+        public CreateAssetRequest(List<InputSettings> input = default(List<InputSettings>), List<PlaybackPolicy> playbackPolicy = default(List<PlaybackPolicy>), bool perTitleEncode = default(bool), string passthrough = default(string), Mp4SupportEnum? mp4Support = default(Mp4SupportEnum?), bool normalizeAudio = false, MasterAccessEnum? masterAccess = default(MasterAccessEnum?), bool test = default(bool), MaxResolutionTierEnum? maxResolutionTier = default(MaxResolutionTierEnum?), EncodingTierEnum? encodingTier = default(EncodingTierEnum?))
         {
             this.Input = input;
             this.PlaybackPolicy = playbackPolicy;
@@ -109,6 +173,8 @@ namespace Mux.Csharp.Sdk.Model
             this.NormalizeAudio = normalizeAudio;
             this.MasterAccess = masterAccess;
             this.Test = test;
+            this.MaxResolutionTier = maxResolutionTier;
+            this.EncodingTier = encodingTier;
             this.AdditionalProperties = new Dictionary<string, object>();
         }
 
@@ -176,6 +242,8 @@ namespace Mux.Csharp.Sdk.Model
             sb.Append("  NormalizeAudio: ").Append(NormalizeAudio).Append("\n");
             sb.Append("  MasterAccess: ").Append(MasterAccess).Append("\n");
             sb.Append("  Test: ").Append(Test).Append("\n");
+            sb.Append("  MaxResolutionTier: ").Append(MaxResolutionTier).Append("\n");
+            sb.Append("  EncodingTier: ").Append(EncodingTier).Append("\n");
             sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -248,6 +316,14 @@ namespace Mux.Csharp.Sdk.Model
                 (
                     this.Test == input.Test ||
                     this.Test.Equals(input.Test)
+                ) && 
+                (
+                    this.MaxResolutionTier == input.MaxResolutionTier ||
+                    this.MaxResolutionTier.Equals(input.MaxResolutionTier)
+                ) && 
+                (
+                    this.EncodingTier == input.EncodingTier ||
+                    this.EncodingTier.Equals(input.EncodingTier)
                 )
                 && (this.AdditionalProperties.Count == input.AdditionalProperties.Count && !this.AdditionalProperties.Except(input.AdditionalProperties).Any());
         }
@@ -278,6 +354,8 @@ namespace Mux.Csharp.Sdk.Model
                 hashCode = (hashCode * 59) + this.NormalizeAudio.GetHashCode();
                 hashCode = (hashCode * 59) + this.MasterAccess.GetHashCode();
                 hashCode = (hashCode * 59) + this.Test.GetHashCode();
+                hashCode = (hashCode * 59) + this.MaxResolutionTier.GetHashCode();
+                hashCode = (hashCode * 59) + this.EncodingTier.GetHashCode();
                 if (this.AdditionalProperties != null)
                 {
                     hashCode = (hashCode * 59) + this.AdditionalProperties.GetHashCode();

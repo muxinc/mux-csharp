@@ -42,7 +42,13 @@ namespace Mux.Csharp.Sdk.Model
             /// Enum Text for value: text
             /// </summary>
             [EnumMember(Value = "text")]
-            Text = 1
+            Text = 1,
+
+            /// <summary>
+            /// Enum Audio for value: audio
+            /// </summary>
+            [EnumMember(Value = "audio")]
+            Audio = 2
 
         }
 
@@ -83,11 +89,11 @@ namespace Mux.Csharp.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CreateTrackRequest" /> class.
         /// </summary>
-        /// <param name="url">url (required).</param>
+        /// <param name="url">The URL of the file that Mux should download and use. * For &#x60;audio&#x60; tracks, the URL is the location of the audio file for Mux to download, for example an M4A, WAV, or MP3 file. Mux supports most audio file formats and codecs, but for fastest processing, you should [use standard inputs wherever possible](https://docs.mux.com/guides/video/minimize-processing-time). * For &#x60;text&#x60; tracks, the URL is the location of subtitle/captions file. Mux supports [SubRip Text (SRT)](https://en.wikipedia.org/wiki/SubRip) and [Web Video Text Tracks](https://www.w3.org/TR/webvtt1/) formats for ingesting Subtitles and Closed Captions.  (required).</param>
         /// <param name="type">type (required).</param>
         /// <param name="textType">textType (required).</param>
         /// <param name="languageCode">The language code value must be a valid BCP 47 specification compliant value. For example, en for English or en-US for the US version of English. (required).</param>
-        /// <param name="name">The name of the track containing a human-readable description. This value must be unique across all the text type and subtitles text type tracks. HLS manifest will associate subtitle text track with this value. For example, set the value to \&quot;English\&quot; for subtitles text track with language_code as en-US. If this parameter is not included, Mux will auto-populate based on the language_code value..</param>
+        /// <param name="name">The name of the track containing a human-readable description. This value must be unique within each group of &#x60;text&#x60; or &#x60;audio&#x60; track types. The HLS manifest will associate the &#x60;text&#x60; or &#x60;audio&#x60; track with this value. For example, set the value to \&quot;English\&quot; for subtitles text track with &#x60;language_code&#x60; as en-US. If this parameter is not included, Mux will auto-populate a value based on the &#x60;language_code&#x60; value..</param>
         /// <param name="closedCaptions">Indicates the track provides Subtitles for the Deaf or Hard-of-hearing (SDH)..</param>
         /// <param name="passthrough">Arbitrary user-supplied metadata set for the track either when creating the asset or track..</param>
         public CreateTrackRequest(string url = default(string), TypeEnum type = default(TypeEnum), TextTypeEnum textType = default(TextTypeEnum), string languageCode = default(string), string name = default(string), bool closedCaptions = default(bool), string passthrough = default(string))
@@ -111,8 +117,9 @@ namespace Mux.Csharp.Sdk.Model
         }
 
         /// <summary>
-        /// Gets or Sets Url
+        /// The URL of the file that Mux should download and use. * For &#x60;audio&#x60; tracks, the URL is the location of the audio file for Mux to download, for example an M4A, WAV, or MP3 file. Mux supports most audio file formats and codecs, but for fastest processing, you should [use standard inputs wherever possible](https://docs.mux.com/guides/video/minimize-processing-time). * For &#x60;text&#x60; tracks, the URL is the location of subtitle/captions file. Mux supports [SubRip Text (SRT)](https://en.wikipedia.org/wiki/SubRip) and [Web Video Text Tracks](https://www.w3.org/TR/webvtt1/) formats for ingesting Subtitles and Closed Captions. 
         /// </summary>
+        /// <value>The URL of the file that Mux should download and use. * For &#x60;audio&#x60; tracks, the URL is the location of the audio file for Mux to download, for example an M4A, WAV, or MP3 file. Mux supports most audio file formats and codecs, but for fastest processing, you should [use standard inputs wherever possible](https://docs.mux.com/guides/video/minimize-processing-time). * For &#x60;text&#x60; tracks, the URL is the location of subtitle/captions file. Mux supports [SubRip Text (SRT)](https://en.wikipedia.org/wiki/SubRip) and [Web Video Text Tracks](https://www.w3.org/TR/webvtt1/) formats for ingesting Subtitles and Closed Captions. </value>
         [DataMember(Name = "url", IsRequired = true, EmitDefaultValue = false)]
         public string Url { get; set; }
 
@@ -124,9 +131,9 @@ namespace Mux.Csharp.Sdk.Model
         public string LanguageCode { get; set; }
 
         /// <summary>
-        /// The name of the track containing a human-readable description. This value must be unique across all the text type and subtitles text type tracks. HLS manifest will associate subtitle text track with this value. For example, set the value to \&quot;English\&quot; for subtitles text track with language_code as en-US. If this parameter is not included, Mux will auto-populate based on the language_code value.
+        /// The name of the track containing a human-readable description. This value must be unique within each group of &#x60;text&#x60; or &#x60;audio&#x60; track types. The HLS manifest will associate the &#x60;text&#x60; or &#x60;audio&#x60; track with this value. For example, set the value to \&quot;English\&quot; for subtitles text track with &#x60;language_code&#x60; as en-US. If this parameter is not included, Mux will auto-populate a value based on the &#x60;language_code&#x60; value.
         /// </summary>
-        /// <value>The name of the track containing a human-readable description. This value must be unique across all the text type and subtitles text type tracks. HLS manifest will associate subtitle text track with this value. For example, set the value to \&quot;English\&quot; for subtitles text track with language_code as en-US. If this parameter is not included, Mux will auto-populate based on the language_code value.</value>
+        /// <value>The name of the track containing a human-readable description. This value must be unique within each group of &#x60;text&#x60; or &#x60;audio&#x60; track types. The HLS manifest will associate the &#x60;text&#x60; or &#x60;audio&#x60; track with this value. For example, set the value to \&quot;English\&quot; for subtitles text track with &#x60;language_code&#x60; as en-US. If this parameter is not included, Mux will auto-populate a value based on the &#x60;language_code&#x60; value.</value>
         [DataMember(Name = "name", EmitDefaultValue = false)]
         public string Name { get; set; }
 

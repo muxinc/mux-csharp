@@ -35,11 +35,15 @@ namespace Mux.Csharp.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="DeliveryReportDeliveredSecondsByResolution" /> class.
         /// </summary>
-        /// <param name="tier1080p">Total number of delivered seconds during this time window that had a resolution larger than the 720p tier (over 921,600 pixels total)..</param>
+        /// <param name="tier2160p">Total number of delivered seconds during this time window that had a resolution larger than the 1440p tier (over 4,194,304 pixels total)..</param>
+        /// <param name="tier1440p">Total number of delivered seconds during this time window that had a resolution larger than the 1080p tier but less than or equal to the 2160p tier (over 2,073,600 and &lt;&#x3D; 4,194,304 pixels total)..</param>
+        /// <param name="tier1080p">Total number of delivered seconds during this time window that had a resolution larger than the 720p tier but less than or equal to the 1440p tier (over 921,600 and &lt;&#x3D; 2,073,600 pixels total)..</param>
         /// <param name="tier720p">Total number of delivered seconds during this time window that had a resolution within the 720p tier (up to 921,600 pixels total, based on typical 1280x720)..</param>
         /// <param name="tierAudioOnly">Total number of delivered seconds during this time window that had a resolution of audio only..</param>
-        public DeliveryReportDeliveredSecondsByResolution(double tier1080p = default(double), double tier720p = default(double), double tierAudioOnly = default(double))
+        public DeliveryReportDeliveredSecondsByResolution(double tier2160p = default(double), double tier1440p = default(double), double tier1080p = default(double), double tier720p = default(double), double tierAudioOnly = default(double))
         {
+            this.Tier2160p = tier2160p;
+            this.Tier1440p = tier1440p;
             this.Tier1080p = tier1080p;
             this.Tier720p = tier720p;
             this.TierAudioOnly = tierAudioOnly;
@@ -47,9 +51,23 @@ namespace Mux.Csharp.Sdk.Model
         }
 
         /// <summary>
-        /// Total number of delivered seconds during this time window that had a resolution larger than the 720p tier (over 921,600 pixels total).
+        /// Total number of delivered seconds during this time window that had a resolution larger than the 1440p tier (over 4,194,304 pixels total).
         /// </summary>
-        /// <value>Total number of delivered seconds during this time window that had a resolution larger than the 720p tier (over 921,600 pixels total).</value>
+        /// <value>Total number of delivered seconds during this time window that had a resolution larger than the 1440p tier (over 4,194,304 pixels total).</value>
+        [DataMember(Name = "tier_2160p", EmitDefaultValue = false)]
+        public double Tier2160p { get; set; }
+
+        /// <summary>
+        /// Total number of delivered seconds during this time window that had a resolution larger than the 1080p tier but less than or equal to the 2160p tier (over 2,073,600 and &lt;&#x3D; 4,194,304 pixels total).
+        /// </summary>
+        /// <value>Total number of delivered seconds during this time window that had a resolution larger than the 1080p tier but less than or equal to the 2160p tier (over 2,073,600 and &lt;&#x3D; 4,194,304 pixels total).</value>
+        [DataMember(Name = "tier_1440p", EmitDefaultValue = false)]
+        public double Tier1440p { get; set; }
+
+        /// <summary>
+        /// Total number of delivered seconds during this time window that had a resolution larger than the 720p tier but less than or equal to the 1440p tier (over 921,600 and &lt;&#x3D; 2,073,600 pixels total).
+        /// </summary>
+        /// <value>Total number of delivered seconds during this time window that had a resolution larger than the 720p tier but less than or equal to the 1440p tier (over 921,600 and &lt;&#x3D; 2,073,600 pixels total).</value>
         [DataMember(Name = "tier_1080p", EmitDefaultValue = false)]
         public double Tier1080p { get; set; }
 
@@ -81,6 +99,8 @@ namespace Mux.Csharp.Sdk.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class DeliveryReportDeliveredSecondsByResolution {\n");
+            sb.Append("  Tier2160p: ").Append(Tier2160p).Append("\n");
+            sb.Append("  Tier1440p: ").Append(Tier1440p).Append("\n");
             sb.Append("  Tier1080p: ").Append(Tier1080p).Append("\n");
             sb.Append("  Tier720p: ").Append(Tier720p).Append("\n");
             sb.Append("  TierAudioOnly: ").Append(TierAudioOnly).Append("\n");
@@ -121,6 +141,14 @@ namespace Mux.Csharp.Sdk.Model
             }
             return 
                 (
+                    this.Tier2160p == input.Tier2160p ||
+                    this.Tier2160p.Equals(input.Tier2160p)
+                ) && 
+                (
+                    this.Tier1440p == input.Tier1440p ||
+                    this.Tier1440p.Equals(input.Tier1440p)
+                ) && 
+                (
                     this.Tier1080p == input.Tier1080p ||
                     this.Tier1080p.Equals(input.Tier1080p)
                 ) && 
@@ -144,6 +172,8 @@ namespace Mux.Csharp.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                hashCode = (hashCode * 59) + this.Tier2160p.GetHashCode();
+                hashCode = (hashCode * 59) + this.Tier1440p.GetHashCode();
                 hashCode = (hashCode * 59) + this.Tier1080p.GetHashCode();
                 hashCode = (hashCode * 59) + this.Tier720p.GetHashCode();
                 hashCode = (hashCode * 59) + this.TierAudioOnly.GetHashCode();

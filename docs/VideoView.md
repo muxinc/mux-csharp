@@ -129,6 +129,22 @@ Name | Type | Description | Notes
 **Custom3** | **string** |  | [optional] 
 **Custom4** | **string** |  | [optional] 
 **Custom5** | **string** |  | [optional] 
+**Custom6** | **string** |  | [optional] 
+**Custom7** | **string** |  | [optional] 
+**Custom8** | **string** |  | [optional] 
+**Custom9** | **string** |  | [optional] 
+**Custom10** | **string** |  | [optional] 
+**LiveStreamLatency** | **long?** |  | [optional] 
+**AssetId** | **string** |  | [optional] 
+**EnvironmentId** | **string** |  | [optional] 
+**LiveStreamId** | **string** |  | [optional] 
+**MuxEmbed** | **string** |  | [optional] 
+**PlaybackId** | **string** |  | [optional] 
+**PlayerErrorContext** | **string** |  | [optional] 
+**ViewDrmType** | **string** |  | [optional] 
+**ViewDroppedFrameCount** | **long?** |  | [optional] 
+**ViewHasAd** | **bool** |  | [optional] 
+**VideoStartupFailure** | **bool** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

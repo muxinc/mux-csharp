@@ -37,7 +37,7 @@ namespace Mux.Csharp.Sdk.Api
         /// <param name="REALTIME_METRIC_ID">ID of the Realtime Metric</param>
         /// <param name="dimension">Dimension the specified value belongs to (optional)</param>
         /// <param name="timestamp">Timestamp to limit results by. This value must be provided as a unix timestamp. Defaults to the current unix timestamp. (optional)</param>
-        /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Filters endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
+        /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Monitoring Dimensions endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
         /// <param name="orderBy">Value to order the results by (optional)</param>
         /// <param name="orderDirection">Sort order. (optional)</param>
         /// <returns>GetRealTimeBreakdownResponse</returns>
@@ -54,7 +54,7 @@ namespace Mux.Csharp.Sdk.Api
         /// <param name="REALTIME_METRIC_ID">ID of the Realtime Metric</param>
         /// <param name="dimension">Dimension the specified value belongs to (optional)</param>
         /// <param name="timestamp">Timestamp to limit results by. This value must be provided as a unix timestamp. Defaults to the current unix timestamp. (optional)</param>
-        /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Filters endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
+        /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Monitoring Dimensions endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
         /// <param name="orderBy">Value to order the results by (optional)</param>
         /// <param name="orderDirection">Sort order. (optional)</param>
         /// <returns>ApiResponse of GetRealTimeBreakdownResponse</returns>
@@ -68,7 +68,7 @@ namespace Mux.Csharp.Sdk.Api
         /// </remarks>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="REALTIME_HISTOGRAM_METRIC_ID">ID of the Realtime Histogram Metric</param>
-        /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Filters endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
+        /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Monitoring Dimensions endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
         /// <returns>GetRealTimeHistogramTimeseriesResponse</returns>
         [Obsolete]
         GetRealTimeHistogramTimeseriesResponse GetRealtimeHistogramTimeseries(string REALTIME_HISTOGRAM_METRIC_ID, List<string> filters = default(List<string>));
@@ -81,7 +81,7 @@ namespace Mux.Csharp.Sdk.Api
         /// </remarks>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="REALTIME_HISTOGRAM_METRIC_ID">ID of the Realtime Histogram Metric</param>
-        /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Filters endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
+        /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Monitoring Dimensions endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
         /// <returns>ApiResponse of GetRealTimeHistogramTimeseriesResponse</returns>
         [Obsolete]
         ApiResponse<GetRealTimeHistogramTimeseriesResponse> GetRealtimeHistogramTimeseriesWithHttpInfo(string REALTIME_HISTOGRAM_METRIC_ID, List<string> filters = default(List<string>));
@@ -93,10 +93,11 @@ namespace Mux.Csharp.Sdk.Api
         /// </remarks>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="REALTIME_METRIC_ID">ID of the Realtime Metric</param>
-        /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Filters endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
+        /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Monitoring Dimensions endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
+        /// <param name="timestamp">Timestamp to use as the start of the timeseries data. This value must be provided as a unix timestamp. Defaults to 30 minutes ago. (optional)</param>
         /// <returns>GetRealTimeTimeseriesResponse</returns>
         [Obsolete]
-        GetRealTimeTimeseriesResponse GetRealtimeTimeseries(string REALTIME_METRIC_ID, List<string> filters = default(List<string>));
+        GetRealTimeTimeseriesResponse GetRealtimeTimeseries(string REALTIME_METRIC_ID, List<string> filters = default(List<string>), int? timestamp = default(int?));
 
         /// <summary>
         /// Get Real-Time Timeseries
@@ -106,10 +107,11 @@ namespace Mux.Csharp.Sdk.Api
         /// </remarks>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="REALTIME_METRIC_ID">ID of the Realtime Metric</param>
-        /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Filters endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
+        /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Monitoring Dimensions endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
+        /// <param name="timestamp">Timestamp to use as the start of the timeseries data. This value must be provided as a unix timestamp. Defaults to 30 minutes ago. (optional)</param>
         /// <returns>ApiResponse of GetRealTimeTimeseriesResponse</returns>
         [Obsolete]
-        ApiResponse<GetRealTimeTimeseriesResponse> GetRealtimeTimeseriesWithHttpInfo(string REALTIME_METRIC_ID, List<string> filters = default(List<string>));
+        ApiResponse<GetRealTimeTimeseriesResponse> GetRealtimeTimeseriesWithHttpInfo(string REALTIME_METRIC_ID, List<string> filters = default(List<string>), int? timestamp = default(int?));
         /// <summary>
         /// List Real-Time Dimensions
         /// </summary>
@@ -171,7 +173,7 @@ namespace Mux.Csharp.Sdk.Api
         /// <param name="REALTIME_METRIC_ID">ID of the Realtime Metric</param>
         /// <param name="dimension">Dimension the specified value belongs to (optional)</param>
         /// <param name="timestamp">Timestamp to limit results by. This value must be provided as a unix timestamp. Defaults to the current unix timestamp. (optional)</param>
-        /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Filters endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
+        /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Monitoring Dimensions endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
         /// <param name="orderBy">Value to order the results by (optional)</param>
         /// <param name="orderDirection">Sort order. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -189,7 +191,7 @@ namespace Mux.Csharp.Sdk.Api
         /// <param name="REALTIME_METRIC_ID">ID of the Realtime Metric</param>
         /// <param name="dimension">Dimension the specified value belongs to (optional)</param>
         /// <param name="timestamp">Timestamp to limit results by. This value must be provided as a unix timestamp. Defaults to the current unix timestamp. (optional)</param>
-        /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Filters endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
+        /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Monitoring Dimensions endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
         /// <param name="orderBy">Value to order the results by (optional)</param>
         /// <param name="orderDirection">Sort order. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -204,7 +206,7 @@ namespace Mux.Csharp.Sdk.Api
         /// </remarks>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="REALTIME_HISTOGRAM_METRIC_ID">ID of the Realtime Histogram Metric</param>
-        /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Filters endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
+        /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Monitoring Dimensions endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of GetRealTimeHistogramTimeseriesResponse</returns>
         [Obsolete]
@@ -218,7 +220,7 @@ namespace Mux.Csharp.Sdk.Api
         /// </remarks>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="REALTIME_HISTOGRAM_METRIC_ID">ID of the Realtime Histogram Metric</param>
-        /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Filters endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
+        /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Monitoring Dimensions endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (GetRealTimeHistogramTimeseriesResponse)</returns>
         [Obsolete]
@@ -231,11 +233,12 @@ namespace Mux.Csharp.Sdk.Api
         /// </remarks>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="REALTIME_METRIC_ID">ID of the Realtime Metric</param>
-        /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Filters endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
+        /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Monitoring Dimensions endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
+        /// <param name="timestamp">Timestamp to use as the start of the timeseries data. This value must be provided as a unix timestamp. Defaults to 30 minutes ago. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of GetRealTimeTimeseriesResponse</returns>
         [Obsolete]
-        System.Threading.Tasks.Task<GetRealTimeTimeseriesResponse> GetRealtimeTimeseriesAsync(string REALTIME_METRIC_ID, List<string> filters = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<GetRealTimeTimeseriesResponse> GetRealtimeTimeseriesAsync(string REALTIME_METRIC_ID, List<string> filters = default(List<string>), int? timestamp = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Get Real-Time Timeseries
@@ -245,11 +248,12 @@ namespace Mux.Csharp.Sdk.Api
         /// </remarks>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="REALTIME_METRIC_ID">ID of the Realtime Metric</param>
-        /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Filters endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
+        /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Monitoring Dimensions endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
+        /// <param name="timestamp">Timestamp to use as the start of the timeseries data. This value must be provided as a unix timestamp. Defaults to 30 minutes ago. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (GetRealTimeTimeseriesResponse)</returns>
         [Obsolete]
-        System.Threading.Tasks.Task<ApiResponse<GetRealTimeTimeseriesResponse>> GetRealtimeTimeseriesWithHttpInfoAsync(string REALTIME_METRIC_ID, List<string> filters = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<GetRealTimeTimeseriesResponse>> GetRealtimeTimeseriesWithHttpInfoAsync(string REALTIME_METRIC_ID, List<string> filters = default(List<string>), int? timestamp = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List Real-Time Dimensions
         /// </summary>
@@ -423,7 +427,7 @@ namespace Mux.Csharp.Sdk.Api
         /// <param name="REALTIME_METRIC_ID">ID of the Realtime Metric</param>
         /// <param name="dimension">Dimension the specified value belongs to (optional)</param>
         /// <param name="timestamp">Timestamp to limit results by. This value must be provided as a unix timestamp. Defaults to the current unix timestamp. (optional)</param>
-        /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Filters endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
+        /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Monitoring Dimensions endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
         /// <param name="orderBy">Value to order the results by (optional)</param>
         /// <param name="orderDirection">Sort order. (optional)</param>
         /// <returns>GetRealTimeBreakdownResponse</returns>
@@ -441,7 +445,7 @@ namespace Mux.Csharp.Sdk.Api
         /// <param name="REALTIME_METRIC_ID">ID of the Realtime Metric</param>
         /// <param name="dimension">Dimension the specified value belongs to (optional)</param>
         /// <param name="timestamp">Timestamp to limit results by. This value must be provided as a unix timestamp. Defaults to the current unix timestamp. (optional)</param>
-        /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Filters endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
+        /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Monitoring Dimensions endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
         /// <param name="orderBy">Value to order the results by (optional)</param>
         /// <param name="orderDirection">Sort order. (optional)</param>
         /// <returns>ApiResponse of GetRealTimeBreakdownResponse</returns>
@@ -526,7 +530,7 @@ namespace Mux.Csharp.Sdk.Api
         /// <param name="REALTIME_METRIC_ID">ID of the Realtime Metric</param>
         /// <param name="dimension">Dimension the specified value belongs to (optional)</param>
         /// <param name="timestamp">Timestamp to limit results by. This value must be provided as a unix timestamp. Defaults to the current unix timestamp. (optional)</param>
-        /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Filters endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
+        /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Monitoring Dimensions endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
         /// <param name="orderBy">Value to order the results by (optional)</param>
         /// <param name="orderDirection">Sort order. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -545,7 +549,7 @@ namespace Mux.Csharp.Sdk.Api
         /// <param name="REALTIME_METRIC_ID">ID of the Realtime Metric</param>
         /// <param name="dimension">Dimension the specified value belongs to (optional)</param>
         /// <param name="timestamp">Timestamp to limit results by. This value must be provided as a unix timestamp. Defaults to the current unix timestamp. (optional)</param>
-        /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Filters endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
+        /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Monitoring Dimensions endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
         /// <param name="orderBy">Value to order the results by (optional)</param>
         /// <param name="orderDirection">Sort order. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -631,7 +635,7 @@ namespace Mux.Csharp.Sdk.Api
         /// </summary>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="REALTIME_HISTOGRAM_METRIC_ID">ID of the Realtime Histogram Metric</param>
-        /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Filters endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
+        /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Monitoring Dimensions endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
         /// <returns>GetRealTimeHistogramTimeseriesResponse</returns>
         [Obsolete]
         public GetRealTimeHistogramTimeseriesResponse GetRealtimeHistogramTimeseries(string REALTIME_HISTOGRAM_METRIC_ID, List<string> filters = default(List<string>))
@@ -645,7 +649,7 @@ namespace Mux.Csharp.Sdk.Api
         /// </summary>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="REALTIME_HISTOGRAM_METRIC_ID">ID of the Realtime Histogram Metric</param>
-        /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Filters endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
+        /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Monitoring Dimensions endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
         /// <returns>ApiResponse of GetRealTimeHistogramTimeseriesResponse</returns>
         [Obsolete]
         public Mux.Csharp.Sdk.Client.ApiResponse<GetRealTimeHistogramTimeseriesResponse> GetRealtimeHistogramTimeseriesWithHttpInfo(string REALTIME_HISTOGRAM_METRIC_ID, List<string> filters = default(List<string>))
@@ -710,7 +714,7 @@ namespace Mux.Csharp.Sdk.Api
         /// </summary>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="REALTIME_HISTOGRAM_METRIC_ID">ID of the Realtime Histogram Metric</param>
-        /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Filters endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
+        /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Monitoring Dimensions endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of GetRealTimeHistogramTimeseriesResponse</returns>
         [Obsolete]
@@ -725,7 +729,7 @@ namespace Mux.Csharp.Sdk.Api
         /// </summary>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="REALTIME_HISTOGRAM_METRIC_ID">ID of the Realtime Histogram Metric</param>
-        /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Filters endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
+        /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Monitoring Dimensions endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (GetRealTimeHistogramTimeseriesResponse)</returns>
         [Obsolete]
@@ -793,12 +797,13 @@ namespace Mux.Csharp.Sdk.Api
         /// </summary>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="REALTIME_METRIC_ID">ID of the Realtime Metric</param>
-        /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Filters endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
+        /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Monitoring Dimensions endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
+        /// <param name="timestamp">Timestamp to use as the start of the timeseries data. This value must be provided as a unix timestamp. Defaults to 30 minutes ago. (optional)</param>
         /// <returns>GetRealTimeTimeseriesResponse</returns>
         [Obsolete]
-        public GetRealTimeTimeseriesResponse GetRealtimeTimeseries(string REALTIME_METRIC_ID, List<string> filters = default(List<string>))
+        public GetRealTimeTimeseriesResponse GetRealtimeTimeseries(string REALTIME_METRIC_ID, List<string> filters = default(List<string>), int? timestamp = default(int?))
         {
-            Mux.Csharp.Sdk.Client.ApiResponse<GetRealTimeTimeseriesResponse> localVarResponse = GetRealtimeTimeseriesWithHttpInfo(REALTIME_METRIC_ID, filters);
+            Mux.Csharp.Sdk.Client.ApiResponse<GetRealTimeTimeseriesResponse> localVarResponse = GetRealtimeTimeseriesWithHttpInfo(REALTIME_METRIC_ID, filters, timestamp);
             return localVarResponse.Data;
         }
 
@@ -807,10 +812,11 @@ namespace Mux.Csharp.Sdk.Api
         /// </summary>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="REALTIME_METRIC_ID">ID of the Realtime Metric</param>
-        /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Filters endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
+        /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Monitoring Dimensions endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
+        /// <param name="timestamp">Timestamp to use as the start of the timeseries data. This value must be provided as a unix timestamp. Defaults to 30 minutes ago. (optional)</param>
         /// <returns>ApiResponse of GetRealTimeTimeseriesResponse</returns>
         [Obsolete]
-        public Mux.Csharp.Sdk.Client.ApiResponse<GetRealTimeTimeseriesResponse> GetRealtimeTimeseriesWithHttpInfo(string REALTIME_METRIC_ID, List<string> filters = default(List<string>))
+        public Mux.Csharp.Sdk.Client.ApiResponse<GetRealTimeTimeseriesResponse> GetRealtimeTimeseriesWithHttpInfo(string REALTIME_METRIC_ID, List<string> filters = default(List<string>), int? timestamp = default(int?))
         {
             // verify the required parameter 'REALTIME_METRIC_ID' is set
             if (REALTIME_METRIC_ID == null)
@@ -844,6 +850,10 @@ namespace Mux.Csharp.Sdk.Api
             if (filters != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Mux.Csharp.Sdk.Client.ClientUtils.ParameterToMultiMap("multi", "filters[]", filters));
+            }
+            if (timestamp != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Mux.Csharp.Sdk.Client.ClientUtils.ParameterToMultiMap("", "timestamp", timestamp));
             }
 
             // authentication (accessToken) required
@@ -872,13 +882,14 @@ namespace Mux.Csharp.Sdk.Api
         /// </summary>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="REALTIME_METRIC_ID">ID of the Realtime Metric</param>
-        /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Filters endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
+        /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Monitoring Dimensions endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
+        /// <param name="timestamp">Timestamp to use as the start of the timeseries data. This value must be provided as a unix timestamp. Defaults to 30 minutes ago. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of GetRealTimeTimeseriesResponse</returns>
         [Obsolete]
-        public async System.Threading.Tasks.Task<GetRealTimeTimeseriesResponse> GetRealtimeTimeseriesAsync(string REALTIME_METRIC_ID, List<string> filters = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<GetRealTimeTimeseriesResponse> GetRealtimeTimeseriesAsync(string REALTIME_METRIC_ID, List<string> filters = default(List<string>), int? timestamp = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Mux.Csharp.Sdk.Client.ApiResponse<GetRealTimeTimeseriesResponse> localVarResponse = await GetRealtimeTimeseriesWithHttpInfoAsync(REALTIME_METRIC_ID, filters, cancellationToken).ConfigureAwait(false);
+            Mux.Csharp.Sdk.Client.ApiResponse<GetRealTimeTimeseriesResponse> localVarResponse = await GetRealtimeTimeseriesWithHttpInfoAsync(REALTIME_METRIC_ID, filters, timestamp, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -887,11 +898,12 @@ namespace Mux.Csharp.Sdk.Api
         /// </summary>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="REALTIME_METRIC_ID">ID of the Realtime Metric</param>
-        /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Filters endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
+        /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Monitoring Dimensions endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
+        /// <param name="timestamp">Timestamp to use as the start of the timeseries data. This value must be provided as a unix timestamp. Defaults to 30 minutes ago. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (GetRealTimeTimeseriesResponse)</returns>
         [Obsolete]
-        public async System.Threading.Tasks.Task<Mux.Csharp.Sdk.Client.ApiResponse<GetRealTimeTimeseriesResponse>> GetRealtimeTimeseriesWithHttpInfoAsync(string REALTIME_METRIC_ID, List<string> filters = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Mux.Csharp.Sdk.Client.ApiResponse<GetRealTimeTimeseriesResponse>> GetRealtimeTimeseriesWithHttpInfoAsync(string REALTIME_METRIC_ID, List<string> filters = default(List<string>), int? timestamp = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'REALTIME_METRIC_ID' is set
             if (REALTIME_METRIC_ID == null)
@@ -926,6 +938,10 @@ namespace Mux.Csharp.Sdk.Api
             if (filters != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Mux.Csharp.Sdk.Client.ClientUtils.ParameterToMultiMap("multi", "filters[]", filters));
+            }
+            if (timestamp != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Mux.Csharp.Sdk.Client.ClientUtils.ParameterToMultiMap("", "timestamp", timestamp));
             }
 
             // authentication (accessToken) required

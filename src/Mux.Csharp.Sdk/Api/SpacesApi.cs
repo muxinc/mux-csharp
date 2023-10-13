@@ -36,6 +36,7 @@ namespace Mux.Csharp.Sdk.Api
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createSpaceRequest"></param>
         /// <returns>SpaceResponse</returns>
+        [Obsolete]
         SpaceResponse CreateSpace(CreateSpaceRequest createSpaceRequest);
 
         /// <summary>
@@ -47,6 +48,7 @@ namespace Mux.Csharp.Sdk.Api
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createSpaceRequest"></param>
         /// <returns>ApiResponse of SpaceResponse</returns>
+        [Obsolete]
         ApiResponse<SpaceResponse> CreateSpaceWithHttpInfo(CreateSpaceRequest createSpaceRequest);
         /// <summary>
         /// Create a space broadcast
@@ -58,6 +60,7 @@ namespace Mux.Csharp.Sdk.Api
         /// <param name="SPACE_ID">The space ID.</param>
         /// <param name="createBroadcastRequest"></param>
         /// <returns>BroadcastResponse</returns>
+        [Obsolete]
         BroadcastResponse CreateSpaceBroadcast(string SPACE_ID, CreateBroadcastRequest createBroadcastRequest);
 
         /// <summary>
@@ -70,6 +73,7 @@ namespace Mux.Csharp.Sdk.Api
         /// <param name="SPACE_ID">The space ID.</param>
         /// <param name="createBroadcastRequest"></param>
         /// <returns>ApiResponse of BroadcastResponse</returns>
+        [Obsolete]
         ApiResponse<BroadcastResponse> CreateSpaceBroadcastWithHttpInfo(string SPACE_ID, CreateBroadcastRequest createBroadcastRequest);
         /// <summary>
         /// Delete a space
@@ -80,6 +84,7 @@ namespace Mux.Csharp.Sdk.Api
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="SPACE_ID">The space ID.</param>
         /// <returns></returns>
+        [Obsolete]
         void DeleteSpace(string SPACE_ID);
 
         /// <summary>
@@ -91,6 +96,7 @@ namespace Mux.Csharp.Sdk.Api
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="SPACE_ID">The space ID.</param>
         /// <returns>ApiResponse of Object(void)</returns>
+        [Obsolete]
         ApiResponse<Object> DeleteSpaceWithHttpInfo(string SPACE_ID);
         /// <summary>
         /// Delete a space broadcast
@@ -102,6 +108,7 @@ namespace Mux.Csharp.Sdk.Api
         /// <param name="SPACE_ID">The space ID.</param>
         /// <param name="BROADCAST_ID">The broadcast ID.</param>
         /// <returns></returns>
+        [Obsolete]
         void DeleteSpaceBroadcast(string SPACE_ID, string BROADCAST_ID);
 
         /// <summary>
@@ -114,6 +121,7 @@ namespace Mux.Csharp.Sdk.Api
         /// <param name="SPACE_ID">The space ID.</param>
         /// <param name="BROADCAST_ID">The broadcast ID.</param>
         /// <returns>ApiResponse of Object(void)</returns>
+        [Obsolete]
         ApiResponse<Object> DeleteSpaceBroadcastWithHttpInfo(string SPACE_ID, string BROADCAST_ID);
         /// <summary>
         /// Retrieve a space
@@ -124,6 +132,7 @@ namespace Mux.Csharp.Sdk.Api
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="SPACE_ID">The space ID.</param>
         /// <returns>SpaceResponse</returns>
+        [Obsolete]
         SpaceResponse GetSpace(string SPACE_ID);
 
         /// <summary>
@@ -135,6 +144,7 @@ namespace Mux.Csharp.Sdk.Api
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="SPACE_ID">The space ID.</param>
         /// <returns>ApiResponse of SpaceResponse</returns>
+        [Obsolete]
         ApiResponse<SpaceResponse> GetSpaceWithHttpInfo(string SPACE_ID);
         /// <summary>
         /// Retrieve space broadcast
@@ -146,6 +156,7 @@ namespace Mux.Csharp.Sdk.Api
         /// <param name="SPACE_ID">The space ID.</param>
         /// <param name="BROADCAST_ID">The broadcast ID.</param>
         /// <returns>BroadcastResponse</returns>
+        [Obsolete]
         BroadcastResponse GetSpaceBroadcast(string SPACE_ID, string BROADCAST_ID);
 
         /// <summary>
@@ -158,6 +169,7 @@ namespace Mux.Csharp.Sdk.Api
         /// <param name="SPACE_ID">The space ID.</param>
         /// <param name="BROADCAST_ID">The broadcast ID.</param>
         /// <returns>ApiResponse of BroadcastResponse</returns>
+        [Obsolete]
         ApiResponse<BroadcastResponse> GetSpaceBroadcastWithHttpInfo(string SPACE_ID, string BROADCAST_ID);
         /// <summary>
         /// List spaces
@@ -169,6 +181,7 @@ namespace Mux.Csharp.Sdk.Api
         /// <param name="limit">Number of items to include in the response (optional, default to 25)</param>
         /// <param name="page">Offset by this many pages, of the size of &#x60;limit&#x60; (optional, default to 1)</param>
         /// <returns>ListSpacesResponse</returns>
+        [Obsolete]
         ListSpacesResponse ListSpaces(int? limit = default(int?), int? page = default(int?));
 
         /// <summary>
@@ -181,6 +194,7 @@ namespace Mux.Csharp.Sdk.Api
         /// <param name="limit">Number of items to include in the response (optional, default to 25)</param>
         /// <param name="page">Offset by this many pages, of the size of &#x60;limit&#x60; (optional, default to 1)</param>
         /// <returns>ApiResponse of ListSpacesResponse</returns>
+        [Obsolete]
         ApiResponse<ListSpacesResponse> ListSpacesWithHttpInfo(int? limit = default(int?), int? page = default(int?));
         /// <summary>
         /// Start a space broadcast
@@ -192,6 +206,7 @@ namespace Mux.Csharp.Sdk.Api
         /// <param name="SPACE_ID">The space ID.</param>
         /// <param name="BROADCAST_ID">The broadcast ID.</param>
         /// <returns>StartSpaceBroadcastResponse</returns>
+        [Obsolete]
         StartSpaceBroadcastResponse StartSpaceBroadcast(string SPACE_ID, string BROADCAST_ID);
 
         /// <summary>
@@ -204,6 +219,7 @@ namespace Mux.Csharp.Sdk.Api
         /// <param name="SPACE_ID">The space ID.</param>
         /// <param name="BROADCAST_ID">The broadcast ID.</param>
         /// <returns>ApiResponse of StartSpaceBroadcastResponse</returns>
+        [Obsolete]
         ApiResponse<StartSpaceBroadcastResponse> StartSpaceBroadcastWithHttpInfo(string SPACE_ID, string BROADCAST_ID);
         /// <summary>
         /// Stop a space broadcast
@@ -215,6 +231,7 @@ namespace Mux.Csharp.Sdk.Api
         /// <param name="SPACE_ID">The space ID.</param>
         /// <param name="BROADCAST_ID">The broadcast ID.</param>
         /// <returns>StopSpaceBroadcastResponse</returns>
+        [Obsolete]
         StopSpaceBroadcastResponse StopSpaceBroadcast(string SPACE_ID, string BROADCAST_ID);
 
         /// <summary>
@@ -227,6 +244,7 @@ namespace Mux.Csharp.Sdk.Api
         /// <param name="SPACE_ID">The space ID.</param>
         /// <param name="BROADCAST_ID">The broadcast ID.</param>
         /// <returns>ApiResponse of StopSpaceBroadcastResponse</returns>
+        [Obsolete]
         ApiResponse<StopSpaceBroadcastResponse> StopSpaceBroadcastWithHttpInfo(string SPACE_ID, string BROADCAST_ID);
         #endregion Synchronous Operations
     }
@@ -247,6 +265,7 @@ namespace Mux.Csharp.Sdk.Api
         /// <param name="createSpaceRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of SpaceResponse</returns>
+        [Obsolete]
         System.Threading.Tasks.Task<SpaceResponse> CreateSpaceAsync(CreateSpaceRequest createSpaceRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
@@ -259,6 +278,7 @@ namespace Mux.Csharp.Sdk.Api
         /// <param name="createSpaceRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (SpaceResponse)</returns>
+        [Obsolete]
         System.Threading.Tasks.Task<ApiResponse<SpaceResponse>> CreateSpaceWithHttpInfoAsync(CreateSpaceRequest createSpaceRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Create a space broadcast
@@ -271,6 +291,7 @@ namespace Mux.Csharp.Sdk.Api
         /// <param name="createBroadcastRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of BroadcastResponse</returns>
+        [Obsolete]
         System.Threading.Tasks.Task<BroadcastResponse> CreateSpaceBroadcastAsync(string SPACE_ID, CreateBroadcastRequest createBroadcastRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
@@ -284,6 +305,7 @@ namespace Mux.Csharp.Sdk.Api
         /// <param name="createBroadcastRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (BroadcastResponse)</returns>
+        [Obsolete]
         System.Threading.Tasks.Task<ApiResponse<BroadcastResponse>> CreateSpaceBroadcastWithHttpInfoAsync(string SPACE_ID, CreateBroadcastRequest createBroadcastRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Delete a space
@@ -295,6 +317,7 @@ namespace Mux.Csharp.Sdk.Api
         /// <param name="SPACE_ID">The space ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
+        [Obsolete]
         System.Threading.Tasks.Task DeleteSpaceAsync(string SPACE_ID, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
@@ -307,6 +330,7 @@ namespace Mux.Csharp.Sdk.Api
         /// <param name="SPACE_ID">The space ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
+        [Obsolete]
         System.Threading.Tasks.Task<ApiResponse<Object>> DeleteSpaceWithHttpInfoAsync(string SPACE_ID, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Delete a space broadcast
@@ -319,6 +343,7 @@ namespace Mux.Csharp.Sdk.Api
         /// <param name="BROADCAST_ID">The broadcast ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
+        [Obsolete]
         System.Threading.Tasks.Task DeleteSpaceBroadcastAsync(string SPACE_ID, string BROADCAST_ID, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
@@ -332,6 +357,7 @@ namespace Mux.Csharp.Sdk.Api
         /// <param name="BROADCAST_ID">The broadcast ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
+        [Obsolete]
         System.Threading.Tasks.Task<ApiResponse<Object>> DeleteSpaceBroadcastWithHttpInfoAsync(string SPACE_ID, string BROADCAST_ID, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Retrieve a space
@@ -343,6 +369,7 @@ namespace Mux.Csharp.Sdk.Api
         /// <param name="SPACE_ID">The space ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of SpaceResponse</returns>
+        [Obsolete]
         System.Threading.Tasks.Task<SpaceResponse> GetSpaceAsync(string SPACE_ID, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
@@ -355,6 +382,7 @@ namespace Mux.Csharp.Sdk.Api
         /// <param name="SPACE_ID">The space ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (SpaceResponse)</returns>
+        [Obsolete]
         System.Threading.Tasks.Task<ApiResponse<SpaceResponse>> GetSpaceWithHttpInfoAsync(string SPACE_ID, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Retrieve space broadcast
@@ -367,6 +395,7 @@ namespace Mux.Csharp.Sdk.Api
         /// <param name="BROADCAST_ID">The broadcast ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of BroadcastResponse</returns>
+        [Obsolete]
         System.Threading.Tasks.Task<BroadcastResponse> GetSpaceBroadcastAsync(string SPACE_ID, string BROADCAST_ID, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
@@ -380,6 +409,7 @@ namespace Mux.Csharp.Sdk.Api
         /// <param name="BROADCAST_ID">The broadcast ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (BroadcastResponse)</returns>
+        [Obsolete]
         System.Threading.Tasks.Task<ApiResponse<BroadcastResponse>> GetSpaceBroadcastWithHttpInfoAsync(string SPACE_ID, string BROADCAST_ID, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List spaces
@@ -392,6 +422,7 @@ namespace Mux.Csharp.Sdk.Api
         /// <param name="page">Offset by this many pages, of the size of &#x60;limit&#x60; (optional, default to 1)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ListSpacesResponse</returns>
+        [Obsolete]
         System.Threading.Tasks.Task<ListSpacesResponse> ListSpacesAsync(int? limit = default(int?), int? page = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
@@ -405,6 +436,7 @@ namespace Mux.Csharp.Sdk.Api
         /// <param name="page">Offset by this many pages, of the size of &#x60;limit&#x60; (optional, default to 1)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ListSpacesResponse)</returns>
+        [Obsolete]
         System.Threading.Tasks.Task<ApiResponse<ListSpacesResponse>> ListSpacesWithHttpInfoAsync(int? limit = default(int?), int? page = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Start a space broadcast
@@ -417,6 +449,7 @@ namespace Mux.Csharp.Sdk.Api
         /// <param name="BROADCAST_ID">The broadcast ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of StartSpaceBroadcastResponse</returns>
+        [Obsolete]
         System.Threading.Tasks.Task<StartSpaceBroadcastResponse> StartSpaceBroadcastAsync(string SPACE_ID, string BROADCAST_ID, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
@@ -430,6 +463,7 @@ namespace Mux.Csharp.Sdk.Api
         /// <param name="BROADCAST_ID">The broadcast ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (StartSpaceBroadcastResponse)</returns>
+        [Obsolete]
         System.Threading.Tasks.Task<ApiResponse<StartSpaceBroadcastResponse>> StartSpaceBroadcastWithHttpInfoAsync(string SPACE_ID, string BROADCAST_ID, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Stop a space broadcast
@@ -442,6 +476,7 @@ namespace Mux.Csharp.Sdk.Api
         /// <param name="BROADCAST_ID">The broadcast ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of StopSpaceBroadcastResponse</returns>
+        [Obsolete]
         System.Threading.Tasks.Task<StopSpaceBroadcastResponse> StopSpaceBroadcastAsync(string SPACE_ID, string BROADCAST_ID, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
@@ -455,6 +490,7 @@ namespace Mux.Csharp.Sdk.Api
         /// <param name="BROADCAST_ID">The broadcast ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (StopSpaceBroadcastResponse)</returns>
+        [Obsolete]
         System.Threading.Tasks.Task<ApiResponse<StopSpaceBroadcastResponse>> StopSpaceBroadcastWithHttpInfoAsync(string SPACE_ID, string BROADCAST_ID, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
@@ -582,6 +618,7 @@ namespace Mux.Csharp.Sdk.Api
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createSpaceRequest"></param>
         /// <returns>SpaceResponse</returns>
+        [Obsolete]
         public SpaceResponse CreateSpace(CreateSpaceRequest createSpaceRequest)
         {
             Mux.Csharp.Sdk.Client.ApiResponse<SpaceResponse> localVarResponse = CreateSpaceWithHttpInfo(createSpaceRequest);
@@ -594,6 +631,7 @@ namespace Mux.Csharp.Sdk.Api
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createSpaceRequest"></param>
         /// <returns>ApiResponse of SpaceResponse</returns>
+        [Obsolete]
         public Mux.Csharp.Sdk.Client.ApiResponse<SpaceResponse> CreateSpaceWithHttpInfo(CreateSpaceRequest createSpaceRequest)
         {
             // verify the required parameter 'createSpaceRequest' is set
@@ -655,6 +693,7 @@ namespace Mux.Csharp.Sdk.Api
         /// <param name="createSpaceRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of SpaceResponse</returns>
+        [Obsolete]
         public async System.Threading.Tasks.Task<SpaceResponse> CreateSpaceAsync(CreateSpaceRequest createSpaceRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             Mux.Csharp.Sdk.Client.ApiResponse<SpaceResponse> localVarResponse = await CreateSpaceWithHttpInfoAsync(createSpaceRequest, cancellationToken).ConfigureAwait(false);
@@ -668,6 +707,7 @@ namespace Mux.Csharp.Sdk.Api
         /// <param name="createSpaceRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (SpaceResponse)</returns>
+        [Obsolete]
         public async System.Threading.Tasks.Task<Mux.Csharp.Sdk.Client.ApiResponse<SpaceResponse>> CreateSpaceWithHttpInfoAsync(CreateSpaceRequest createSpaceRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'createSpaceRequest' is set
@@ -731,6 +771,7 @@ namespace Mux.Csharp.Sdk.Api
         /// <param name="SPACE_ID">The space ID.</param>
         /// <param name="createBroadcastRequest"></param>
         /// <returns>BroadcastResponse</returns>
+        [Obsolete]
         public BroadcastResponse CreateSpaceBroadcast(string SPACE_ID, CreateBroadcastRequest createBroadcastRequest)
         {
             Mux.Csharp.Sdk.Client.ApiResponse<BroadcastResponse> localVarResponse = CreateSpaceBroadcastWithHttpInfo(SPACE_ID, createBroadcastRequest);
@@ -744,6 +785,7 @@ namespace Mux.Csharp.Sdk.Api
         /// <param name="SPACE_ID">The space ID.</param>
         /// <param name="createBroadcastRequest"></param>
         /// <returns>ApiResponse of BroadcastResponse</returns>
+        [Obsolete]
         public Mux.Csharp.Sdk.Client.ApiResponse<BroadcastResponse> CreateSpaceBroadcastWithHttpInfo(string SPACE_ID, CreateBroadcastRequest createBroadcastRequest)
         {
             // verify the required parameter 'SPACE_ID' is set
@@ -813,6 +855,7 @@ namespace Mux.Csharp.Sdk.Api
         /// <param name="createBroadcastRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of BroadcastResponse</returns>
+        [Obsolete]
         public async System.Threading.Tasks.Task<BroadcastResponse> CreateSpaceBroadcastAsync(string SPACE_ID, CreateBroadcastRequest createBroadcastRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             Mux.Csharp.Sdk.Client.ApiResponse<BroadcastResponse> localVarResponse = await CreateSpaceBroadcastWithHttpInfoAsync(SPACE_ID, createBroadcastRequest, cancellationToken).ConfigureAwait(false);
@@ -827,6 +870,7 @@ namespace Mux.Csharp.Sdk.Api
         /// <param name="createBroadcastRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (BroadcastResponse)</returns>
+        [Obsolete]
         public async System.Threading.Tasks.Task<Mux.Csharp.Sdk.Client.ApiResponse<BroadcastResponse>> CreateSpaceBroadcastWithHttpInfoAsync(string SPACE_ID, CreateBroadcastRequest createBroadcastRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'SPACE_ID' is set
@@ -896,6 +940,7 @@ namespace Mux.Csharp.Sdk.Api
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="SPACE_ID">The space ID.</param>
         /// <returns></returns>
+        [Obsolete]
         public void DeleteSpace(string SPACE_ID)
         {
             DeleteSpaceWithHttpInfo(SPACE_ID);
@@ -907,6 +952,7 @@ namespace Mux.Csharp.Sdk.Api
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="SPACE_ID">The space ID.</param>
         /// <returns>ApiResponse of Object(void)</returns>
+        [Obsolete]
         public Mux.Csharp.Sdk.Client.ApiResponse<Object> DeleteSpaceWithHttpInfo(string SPACE_ID)
         {
             // verify the required parameter 'SPACE_ID' is set
@@ -966,6 +1012,7 @@ namespace Mux.Csharp.Sdk.Api
         /// <param name="SPACE_ID">The space ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
+        [Obsolete]
         public async System.Threading.Tasks.Task DeleteSpaceAsync(string SPACE_ID, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             await DeleteSpaceWithHttpInfoAsync(SPACE_ID, cancellationToken).ConfigureAwait(false);
@@ -978,6 +1025,7 @@ namespace Mux.Csharp.Sdk.Api
         /// <param name="SPACE_ID">The space ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
+        [Obsolete]
         public async System.Threading.Tasks.Task<Mux.Csharp.Sdk.Client.ApiResponse<Object>> DeleteSpaceWithHttpInfoAsync(string SPACE_ID, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'SPACE_ID' is set
@@ -1039,6 +1087,7 @@ namespace Mux.Csharp.Sdk.Api
         /// <param name="SPACE_ID">The space ID.</param>
         /// <param name="BROADCAST_ID">The broadcast ID.</param>
         /// <returns></returns>
+        [Obsolete]
         public void DeleteSpaceBroadcast(string SPACE_ID, string BROADCAST_ID)
         {
             DeleteSpaceBroadcastWithHttpInfo(SPACE_ID, BROADCAST_ID);
@@ -1051,6 +1100,7 @@ namespace Mux.Csharp.Sdk.Api
         /// <param name="SPACE_ID">The space ID.</param>
         /// <param name="BROADCAST_ID">The broadcast ID.</param>
         /// <returns>ApiResponse of Object(void)</returns>
+        [Obsolete]
         public Mux.Csharp.Sdk.Client.ApiResponse<Object> DeleteSpaceBroadcastWithHttpInfo(string SPACE_ID, string BROADCAST_ID)
         {
             // verify the required parameter 'SPACE_ID' is set
@@ -1118,6 +1168,7 @@ namespace Mux.Csharp.Sdk.Api
         /// <param name="BROADCAST_ID">The broadcast ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
+        [Obsolete]
         public async System.Threading.Tasks.Task DeleteSpaceBroadcastAsync(string SPACE_ID, string BROADCAST_ID, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             await DeleteSpaceBroadcastWithHttpInfoAsync(SPACE_ID, BROADCAST_ID, cancellationToken).ConfigureAwait(false);
@@ -1131,6 +1182,7 @@ namespace Mux.Csharp.Sdk.Api
         /// <param name="BROADCAST_ID">The broadcast ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
+        [Obsolete]
         public async System.Threading.Tasks.Task<Mux.Csharp.Sdk.Client.ApiResponse<Object>> DeleteSpaceBroadcastWithHttpInfoAsync(string SPACE_ID, string BROADCAST_ID, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'SPACE_ID' is set
@@ -1198,6 +1250,7 @@ namespace Mux.Csharp.Sdk.Api
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="SPACE_ID">The space ID.</param>
         /// <returns>SpaceResponse</returns>
+        [Obsolete]
         public SpaceResponse GetSpace(string SPACE_ID)
         {
             Mux.Csharp.Sdk.Client.ApiResponse<SpaceResponse> localVarResponse = GetSpaceWithHttpInfo(SPACE_ID);
@@ -1210,6 +1263,7 @@ namespace Mux.Csharp.Sdk.Api
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="SPACE_ID">The space ID.</param>
         /// <returns>ApiResponse of SpaceResponse</returns>
+        [Obsolete]
         public Mux.Csharp.Sdk.Client.ApiResponse<SpaceResponse> GetSpaceWithHttpInfo(string SPACE_ID)
         {
             // verify the required parameter 'SPACE_ID' is set
@@ -1270,6 +1324,7 @@ namespace Mux.Csharp.Sdk.Api
         /// <param name="SPACE_ID">The space ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of SpaceResponse</returns>
+        [Obsolete]
         public async System.Threading.Tasks.Task<SpaceResponse> GetSpaceAsync(string SPACE_ID, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             Mux.Csharp.Sdk.Client.ApiResponse<SpaceResponse> localVarResponse = await GetSpaceWithHttpInfoAsync(SPACE_ID, cancellationToken).ConfigureAwait(false);
@@ -1283,6 +1338,7 @@ namespace Mux.Csharp.Sdk.Api
         /// <param name="SPACE_ID">The space ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (SpaceResponse)</returns>
+        [Obsolete]
         public async System.Threading.Tasks.Task<Mux.Csharp.Sdk.Client.ApiResponse<SpaceResponse>> GetSpaceWithHttpInfoAsync(string SPACE_ID, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'SPACE_ID' is set
@@ -1345,6 +1401,7 @@ namespace Mux.Csharp.Sdk.Api
         /// <param name="SPACE_ID">The space ID.</param>
         /// <param name="BROADCAST_ID">The broadcast ID.</param>
         /// <returns>BroadcastResponse</returns>
+        [Obsolete]
         public BroadcastResponse GetSpaceBroadcast(string SPACE_ID, string BROADCAST_ID)
         {
             Mux.Csharp.Sdk.Client.ApiResponse<BroadcastResponse> localVarResponse = GetSpaceBroadcastWithHttpInfo(SPACE_ID, BROADCAST_ID);
@@ -1358,6 +1415,7 @@ namespace Mux.Csharp.Sdk.Api
         /// <param name="SPACE_ID">The space ID.</param>
         /// <param name="BROADCAST_ID">The broadcast ID.</param>
         /// <returns>ApiResponse of BroadcastResponse</returns>
+        [Obsolete]
         public Mux.Csharp.Sdk.Client.ApiResponse<BroadcastResponse> GetSpaceBroadcastWithHttpInfo(string SPACE_ID, string BROADCAST_ID)
         {
             // verify the required parameter 'SPACE_ID' is set
@@ -1426,6 +1484,7 @@ namespace Mux.Csharp.Sdk.Api
         /// <param name="BROADCAST_ID">The broadcast ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of BroadcastResponse</returns>
+        [Obsolete]
         public async System.Threading.Tasks.Task<BroadcastResponse> GetSpaceBroadcastAsync(string SPACE_ID, string BROADCAST_ID, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             Mux.Csharp.Sdk.Client.ApiResponse<BroadcastResponse> localVarResponse = await GetSpaceBroadcastWithHttpInfoAsync(SPACE_ID, BROADCAST_ID, cancellationToken).ConfigureAwait(false);
@@ -1440,6 +1499,7 @@ namespace Mux.Csharp.Sdk.Api
         /// <param name="BROADCAST_ID">The broadcast ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (BroadcastResponse)</returns>
+        [Obsolete]
         public async System.Threading.Tasks.Task<Mux.Csharp.Sdk.Client.ApiResponse<BroadcastResponse>> GetSpaceBroadcastWithHttpInfoAsync(string SPACE_ID, string BROADCAST_ID, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'SPACE_ID' is set
@@ -1509,6 +1569,7 @@ namespace Mux.Csharp.Sdk.Api
         /// <param name="limit">Number of items to include in the response (optional, default to 25)</param>
         /// <param name="page">Offset by this many pages, of the size of &#x60;limit&#x60; (optional, default to 1)</param>
         /// <returns>ListSpacesResponse</returns>
+        [Obsolete]
         public ListSpacesResponse ListSpaces(int? limit = default(int?), int? page = default(int?))
         {
             Mux.Csharp.Sdk.Client.ApiResponse<ListSpacesResponse> localVarResponse = ListSpacesWithHttpInfo(limit, page);
@@ -1522,6 +1583,7 @@ namespace Mux.Csharp.Sdk.Api
         /// <param name="limit">Number of items to include in the response (optional, default to 25)</param>
         /// <param name="page">Offset by this many pages, of the size of &#x60;limit&#x60; (optional, default to 1)</param>
         /// <returns>ApiResponse of ListSpacesResponse</returns>
+        [Obsolete]
         public Mux.Csharp.Sdk.Client.ApiResponse<ListSpacesResponse> ListSpacesWithHttpInfo(int? limit = default(int?), int? page = default(int?))
         {
             Mux.Csharp.Sdk.Client.RequestOptions localVarRequestOptions = new Mux.Csharp.Sdk.Client.RequestOptions();
@@ -1584,6 +1646,7 @@ namespace Mux.Csharp.Sdk.Api
         /// <param name="page">Offset by this many pages, of the size of &#x60;limit&#x60; (optional, default to 1)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ListSpacesResponse</returns>
+        [Obsolete]
         public async System.Threading.Tasks.Task<ListSpacesResponse> ListSpacesAsync(int? limit = default(int?), int? page = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             Mux.Csharp.Sdk.Client.ApiResponse<ListSpacesResponse> localVarResponse = await ListSpacesWithHttpInfoAsync(limit, page, cancellationToken).ConfigureAwait(false);
@@ -1598,6 +1661,7 @@ namespace Mux.Csharp.Sdk.Api
         /// <param name="page">Offset by this many pages, of the size of &#x60;limit&#x60; (optional, default to 1)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ListSpacesResponse)</returns>
+        [Obsolete]
         public async System.Threading.Tasks.Task<Mux.Csharp.Sdk.Client.ApiResponse<ListSpacesResponse>> ListSpacesWithHttpInfoAsync(int? limit = default(int?), int? page = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
@@ -1661,6 +1725,7 @@ namespace Mux.Csharp.Sdk.Api
         /// <param name="SPACE_ID">The space ID.</param>
         /// <param name="BROADCAST_ID">The broadcast ID.</param>
         /// <returns>StartSpaceBroadcastResponse</returns>
+        [Obsolete]
         public StartSpaceBroadcastResponse StartSpaceBroadcast(string SPACE_ID, string BROADCAST_ID)
         {
             Mux.Csharp.Sdk.Client.ApiResponse<StartSpaceBroadcastResponse> localVarResponse = StartSpaceBroadcastWithHttpInfo(SPACE_ID, BROADCAST_ID);
@@ -1674,6 +1739,7 @@ namespace Mux.Csharp.Sdk.Api
         /// <param name="SPACE_ID">The space ID.</param>
         /// <param name="BROADCAST_ID">The broadcast ID.</param>
         /// <returns>ApiResponse of StartSpaceBroadcastResponse</returns>
+        [Obsolete]
         public Mux.Csharp.Sdk.Client.ApiResponse<StartSpaceBroadcastResponse> StartSpaceBroadcastWithHttpInfo(string SPACE_ID, string BROADCAST_ID)
         {
             // verify the required parameter 'SPACE_ID' is set
@@ -1742,6 +1808,7 @@ namespace Mux.Csharp.Sdk.Api
         /// <param name="BROADCAST_ID">The broadcast ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of StartSpaceBroadcastResponse</returns>
+        [Obsolete]
         public async System.Threading.Tasks.Task<StartSpaceBroadcastResponse> StartSpaceBroadcastAsync(string SPACE_ID, string BROADCAST_ID, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             Mux.Csharp.Sdk.Client.ApiResponse<StartSpaceBroadcastResponse> localVarResponse = await StartSpaceBroadcastWithHttpInfoAsync(SPACE_ID, BROADCAST_ID, cancellationToken).ConfigureAwait(false);
@@ -1756,6 +1823,7 @@ namespace Mux.Csharp.Sdk.Api
         /// <param name="BROADCAST_ID">The broadcast ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (StartSpaceBroadcastResponse)</returns>
+        [Obsolete]
         public async System.Threading.Tasks.Task<Mux.Csharp.Sdk.Client.ApiResponse<StartSpaceBroadcastResponse>> StartSpaceBroadcastWithHttpInfoAsync(string SPACE_ID, string BROADCAST_ID, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'SPACE_ID' is set
@@ -1825,6 +1893,7 @@ namespace Mux.Csharp.Sdk.Api
         /// <param name="SPACE_ID">The space ID.</param>
         /// <param name="BROADCAST_ID">The broadcast ID.</param>
         /// <returns>StopSpaceBroadcastResponse</returns>
+        [Obsolete]
         public StopSpaceBroadcastResponse StopSpaceBroadcast(string SPACE_ID, string BROADCAST_ID)
         {
             Mux.Csharp.Sdk.Client.ApiResponse<StopSpaceBroadcastResponse> localVarResponse = StopSpaceBroadcastWithHttpInfo(SPACE_ID, BROADCAST_ID);
@@ -1838,6 +1907,7 @@ namespace Mux.Csharp.Sdk.Api
         /// <param name="SPACE_ID">The space ID.</param>
         /// <param name="BROADCAST_ID">The broadcast ID.</param>
         /// <returns>ApiResponse of StopSpaceBroadcastResponse</returns>
+        [Obsolete]
         public Mux.Csharp.Sdk.Client.ApiResponse<StopSpaceBroadcastResponse> StopSpaceBroadcastWithHttpInfo(string SPACE_ID, string BROADCAST_ID)
         {
             // verify the required parameter 'SPACE_ID' is set
@@ -1906,6 +1976,7 @@ namespace Mux.Csharp.Sdk.Api
         /// <param name="BROADCAST_ID">The broadcast ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of StopSpaceBroadcastResponse</returns>
+        [Obsolete]
         public async System.Threading.Tasks.Task<StopSpaceBroadcastResponse> StopSpaceBroadcastAsync(string SPACE_ID, string BROADCAST_ID, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             Mux.Csharp.Sdk.Client.ApiResponse<StopSpaceBroadcastResponse> localVarResponse = await StopSpaceBroadcastWithHttpInfoAsync(SPACE_ID, BROADCAST_ID, cancellationToken).ConfigureAwait(false);
@@ -1920,6 +1991,7 @@ namespace Mux.Csharp.Sdk.Api
         /// <param name="BROADCAST_ID">The broadcast ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (StopSpaceBroadcastResponse)</returns>
+        [Obsolete]
         public async System.Threading.Tasks.Task<Mux.Csharp.Sdk.Client.ApiResponse<StopSpaceBroadcastResponse>> StopSpaceBroadcastWithHttpInfoAsync(string SPACE_ID, string BROADCAST_ID, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'SPACE_ID' is set

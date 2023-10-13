@@ -75,7 +75,7 @@ namespace Mux.Csharp.Sdk.Api
         /// Create an asset track
         /// </summary>
         /// <remarks>
-        /// Adds an asset track (for example, subtitles) to an asset.
+        /// Adds an asset track (for example, subtitles, or an alternate audio track) to an asset.
         /// </remarks>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ASSET_ID">The asset ID.</param>
@@ -87,7 +87,7 @@ namespace Mux.Csharp.Sdk.Api
         /// Create an asset track
         /// </summary>
         /// <remarks>
-        /// Adds an asset track (for example, subtitles) to an asset.
+        /// Adds an asset track (for example, subtitles, or an alternate audio track) to an asset.
         /// </remarks>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ASSET_ID">The asset ID.</param>
@@ -383,7 +383,7 @@ namespace Mux.Csharp.Sdk.Api
         /// Create an asset track
         /// </summary>
         /// <remarks>
-        /// Adds an asset track (for example, subtitles) to an asset.
+        /// Adds an asset track (for example, subtitles, or an alternate audio track) to an asset.
         /// </remarks>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ASSET_ID">The asset ID.</param>
@@ -396,7 +396,7 @@ namespace Mux.Csharp.Sdk.Api
         /// Create an asset track
         /// </summary>
         /// <remarks>
-        /// Adds an asset track (for example, subtitles) to an asset.
+        /// Adds an asset track (for example, subtitles, or an alternate audio track) to an asset.
         /// </remarks>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ASSET_ID">The asset ID.</param>
@@ -1087,7 +1087,7 @@ namespace Mux.Csharp.Sdk.Api
         }
 
         /// <summary>
-        /// Create an asset track Adds an asset track (for example, subtitles) to an asset.
+        /// Create an asset track Adds an asset track (for example, subtitles, or an alternate audio track) to an asset.
         /// </summary>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ASSET_ID">The asset ID.</param>
@@ -1100,7 +1100,7 @@ namespace Mux.Csharp.Sdk.Api
         }
 
         /// <summary>
-        /// Create an asset track Adds an asset track (for example, subtitles) to an asset.
+        /// Create an asset track Adds an asset track (for example, subtitles, or an alternate audio track) to an asset.
         /// </summary>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ASSET_ID">The asset ID.</param>
@@ -1168,7 +1168,7 @@ namespace Mux.Csharp.Sdk.Api
         }
 
         /// <summary>
-        /// Create an asset track Adds an asset track (for example, subtitles) to an asset.
+        /// Create an asset track Adds an asset track (for example, subtitles, or an alternate audio track) to an asset.
         /// </summary>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ASSET_ID">The asset ID.</param>
@@ -1182,7 +1182,7 @@ namespace Mux.Csharp.Sdk.Api
         }
 
         /// <summary>
-        /// Create an asset track Adds an asset track (for example, subtitles) to an asset.
+        /// Create an asset track Adds an asset track (for example, subtitles, or an alternate audio track) to an asset.
         /// </summary>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ASSET_ID">The asset ID.</param>

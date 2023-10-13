@@ -4,6 +4,7 @@ README.md
 docs/AbridgedVideoView.md
 docs/Asset.md
 docs/AssetErrors.md
+docs/AssetGeneratedSubtitleSettings.md
 docs/AssetMaster.md
 docs/AssetNonStandardInputReasons.md
 docs/AssetRecordingTimes.md
@@ -52,6 +53,7 @@ docs/GetAssetPlaybackIDResponse.md
 docs/GetLiveStreamPlaybackIDResponse.md
 docs/GetMetricTimeseriesDataResponse.md
 docs/GetMonitoringBreakdownResponse.md
+docs/GetMonitoringBreakdownTimeseriesResponse.md
 docs/GetMonitoringHistogramTimeseriesResponse.md
 docs/GetMonitoringHistogramTimeseriesResponseMeta.md
 docs/GetMonitoringTimeseriesResponse.md
@@ -108,6 +110,8 @@ docs/LiveStreamsApi.md
 docs/Metric.md
 docs/MetricsApi.md
 docs/MonitoringApi.md
+docs/MonitoringBreakdownTimeseriesDatapoint.md
+docs/MonitoringBreakdownTimeseriesValues.md
 docs/MonitoringBreakdownValue.md
 docs/MonitoringHistogramTimeseriesBucket.md
 docs/MonitoringHistogramTimeseriesBucketValues.md
@@ -132,6 +136,7 @@ docs/Score.md
 docs/SignalLiveStreamCompleteResponse.md
 docs/SigningKey.md
 docs/SigningKeyResponse.md
+docs/SigningKeysApi.md
 docs/SimulcastTarget.md
 docs/SimulcastTargetResponse.md
 docs/Space.md
@@ -176,6 +181,7 @@ src/Mux.Csharp.Sdk/Api/MonitoringApi.cs
 src/Mux.Csharp.Sdk/Api/PlaybackIDApi.cs
 src/Mux.Csharp.Sdk/Api/PlaybackRestrictionsApi.cs
 src/Mux.Csharp.Sdk/Api/RealTimeApi.cs
+src/Mux.Csharp.Sdk/Api/SigningKeysApi.cs
 src/Mux.Csharp.Sdk/Api/SpacesApi.cs
 src/Mux.Csharp.Sdk/Api/TranscriptionVocabulariesApi.cs
 src/Mux.Csharp.Sdk/Api/URLSigningKeysApi.cs
@@ -200,6 +206,7 @@ src/Mux.Csharp.Sdk/Model/AbridgedVideoView.cs
 src/Mux.Csharp.Sdk/Model/AbstractOpenAPISchema.cs
 src/Mux.Csharp.Sdk/Model/Asset.cs
 src/Mux.Csharp.Sdk/Model/AssetErrors.cs
+src/Mux.Csharp.Sdk/Model/AssetGeneratedSubtitleSettings.cs
 src/Mux.Csharp.Sdk/Model/AssetMaster.cs
 src/Mux.Csharp.Sdk/Model/AssetNonStandardInputReasons.cs
 src/Mux.Csharp.Sdk/Model/AssetRecordingTimes.cs
@@ -241,6 +248,7 @@ src/Mux.Csharp.Sdk/Model/GetAssetPlaybackIDResponse.cs
 src/Mux.Csharp.Sdk/Model/GetLiveStreamPlaybackIDResponse.cs
 src/Mux.Csharp.Sdk/Model/GetMetricTimeseriesDataResponse.cs
 src/Mux.Csharp.Sdk/Model/GetMonitoringBreakdownResponse.cs
+src/Mux.Csharp.Sdk/Model/GetMonitoringBreakdownTimeseriesResponse.cs
 src/Mux.Csharp.Sdk/Model/GetMonitoringHistogramTimeseriesResponse.cs
 src/Mux.Csharp.Sdk/Model/GetMonitoringHistogramTimeseriesResponseMeta.cs
 src/Mux.Csharp.Sdk/Model/GetMonitoringTimeseriesResponse.cs
@@ -293,6 +301,8 @@ src/Mux.Csharp.Sdk/Model/LiveStreamGeneratedSubtitleSettings.cs
 src/Mux.Csharp.Sdk/Model/LiveStreamResponse.cs
 src/Mux.Csharp.Sdk/Model/LiveStreamStatus.cs
 src/Mux.Csharp.Sdk/Model/Metric.cs
+src/Mux.Csharp.Sdk/Model/MonitoringBreakdownTimeseriesDatapoint.cs
+src/Mux.Csharp.Sdk/Model/MonitoringBreakdownTimeseriesValues.cs
 src/Mux.Csharp.Sdk/Model/MonitoringBreakdownValue.cs
 src/Mux.Csharp.Sdk/Model/MonitoringHistogramTimeseriesBucket.cs
 src/Mux.Csharp.Sdk/Model/MonitoringHistogramTimeseriesBucketValues.cs
