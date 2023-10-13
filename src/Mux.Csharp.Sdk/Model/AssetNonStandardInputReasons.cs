@@ -155,7 +155,8 @@ namespace Mux.Csharp.Sdk.Model
         /// <param name="videoEditList">Video Edit List reason indicates that the input file&#39;s video track contains a complex Edit Decision List..</param>
         /// <param name="audioEditList">Audio Edit List reason indicates that the input file&#39;s audio track contains a complex Edit Decision List..</param>
         /// <param name="unexpectedMediaFileParameters">A catch-all reason when the input file in created with non-standard encoding parameters..</param>
-        public AssetNonStandardInputReasons(string videoCodec = default(string), string audioCodec = default(string), VideoGopSizeEnum? videoGopSize = default(VideoGopSizeEnum?), string videoFrameRate = default(string), string videoResolution = default(string), VideoBitrateEnum? videoBitrate = default(VideoBitrateEnum?), string pixelAspectRatio = default(string), VideoEditListEnum? videoEditList = default(VideoEditListEnum?), AudioEditListEnum? audioEditList = default(AudioEditListEnum?), UnexpectedMediaFileParametersEnum? unexpectedMediaFileParameters = default(UnexpectedMediaFileParametersEnum?))
+        /// <param name="unsupportedPixelFormat">The video pixel format, as a string, returned by libav. Considered non-standard if not one of yuv420p or yuvj420p..</param>
+        public AssetNonStandardInputReasons(string videoCodec = default(string), string audioCodec = default(string), VideoGopSizeEnum? videoGopSize = default(VideoGopSizeEnum?), string videoFrameRate = default(string), string videoResolution = default(string), VideoBitrateEnum? videoBitrate = default(VideoBitrateEnum?), string pixelAspectRatio = default(string), VideoEditListEnum? videoEditList = default(VideoEditListEnum?), AudioEditListEnum? audioEditList = default(AudioEditListEnum?), UnexpectedMediaFileParametersEnum? unexpectedMediaFileParameters = default(UnexpectedMediaFileParametersEnum?), string unsupportedPixelFormat = default(string))
         {
             this.VideoCodec = videoCodec;
             this.AudioCodec = audioCodec;
@@ -167,6 +168,7 @@ namespace Mux.Csharp.Sdk.Model
             this.VideoEditList = videoEditList;
             this.AudioEditList = audioEditList;
             this.UnexpectedMediaFileParameters = unexpectedMediaFileParameters;
+            this.UnsupportedPixelFormat = unsupportedPixelFormat;
             this.AdditionalProperties = new Dictionary<string, object>();
         }
 
@@ -206,6 +208,13 @@ namespace Mux.Csharp.Sdk.Model
         public string PixelAspectRatio { get; set; }
 
         /// <summary>
+        /// The video pixel format, as a string, returned by libav. Considered non-standard if not one of yuv420p or yuvj420p.
+        /// </summary>
+        /// <value>The video pixel format, as a string, returned by libav. Considered non-standard if not one of yuv420p or yuvj420p.</value>
+        [DataMember(Name = "unsupported_pixel_format", EmitDefaultValue = false)]
+        public string UnsupportedPixelFormat { get; set; }
+
+        /// <summary>
         /// Gets or Sets additional properties
         /// </summary>
         [JsonExtensionData]
@@ -229,6 +238,7 @@ namespace Mux.Csharp.Sdk.Model
             sb.Append("  VideoEditList: ").Append(VideoEditList).Append("\n");
             sb.Append("  AudioEditList: ").Append(AudioEditList).Append("\n");
             sb.Append("  UnexpectedMediaFileParameters: ").Append(UnexpectedMediaFileParameters).Append("\n");
+            sb.Append("  UnsupportedPixelFormat: ").Append(UnsupportedPixelFormat).Append("\n");
             sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -309,6 +319,11 @@ namespace Mux.Csharp.Sdk.Model
                 (
                     this.UnexpectedMediaFileParameters == input.UnexpectedMediaFileParameters ||
                     this.UnexpectedMediaFileParameters.Equals(input.UnexpectedMediaFileParameters)
+                ) && 
+                (
+                    this.UnsupportedPixelFormat == input.UnsupportedPixelFormat ||
+                    (this.UnsupportedPixelFormat != null &&
+                    this.UnsupportedPixelFormat.Equals(input.UnsupportedPixelFormat))
                 )
                 && (this.AdditionalProperties.Count == input.AdditionalProperties.Count && !this.AdditionalProperties.Except(input.AdditionalProperties).Any());
         }
@@ -347,6 +362,10 @@ namespace Mux.Csharp.Sdk.Model
                 hashCode = (hashCode * 59) + this.VideoEditList.GetHashCode();
                 hashCode = (hashCode * 59) + this.AudioEditList.GetHashCode();
                 hashCode = (hashCode * 59) + this.UnexpectedMediaFileParameters.GetHashCode();
+                if (this.UnsupportedPixelFormat != null)
+                {
+                    hashCode = (hashCode * 59) + this.UnsupportedPixelFormat.GetHashCode();
+                }
                 if (this.AdditionalProperties != null)
                 {
                     hashCode = (hashCode * 59) + this.AdditionalProperties.GetHashCode();

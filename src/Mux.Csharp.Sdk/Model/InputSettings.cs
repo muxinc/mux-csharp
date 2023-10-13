@@ -91,20 +91,22 @@ namespace Mux.Csharp.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InputSettings" /> class.
         /// </summary>
-        /// <param name="url">The URL of the file that Mux should download and use. * For subtitles text tracks, the URL is the location of subtitle/captions file. Mux supports [SubRip Text (SRT)](https://en.wikipedia.org/wiki/SubRip) and [Web Video Text Tracks](https://www.w3.org/TR/webvtt1/) format for ingesting Subtitles and Closed Captions. * For Watermarking or Overlay, the URL is the location of the watermark image. * When creating clips from existing Mux assets, the URL is defined with &#x60;mux://assets/{asset_id}&#x60; template where &#x60;asset_id&#x60; is the Asset Identifier for creating the clip from. .</param>
+        /// <param name="url">The URL of the file that Mux should download and use. * For the main input file, this should be the URL to the muxed file for Mux to download, for example an MP4, MOV, MKV, or TS file. Mux supports most audio/video file formats and codecs, but for fastest processing, you should [use standard inputs wherever possible](https://docs.mux.com/guides/video/minimize-processing-time). * For &#x60;audio&#x60; tracks, the URL is the location of the audio file for Mux to download, for example an M4A, WAV, or MP3 file. Mux supports most audio file formats and codecs, but for fastest processing, you should [use standard inputs wherever possible](https://docs.mux.com/guides/video/minimize-processing-time). * For &#x60;text&#x60; tracks, the URL is the location of subtitle/captions file. Mux supports [SubRip Text (SRT)](https://en.wikipedia.org/wiki/SubRip) and [Web Video Text Tracks](https://www.w3.org/TR/webvtt1/) formats for ingesting Subtitles and Closed Captions. * For Watermarking or Overlay, the URL is the location of the watermark image. * When creating clips from existing Mux assets, the URL is defined with &#x60;mux://assets/{asset_id}&#x60; template where &#x60;asset_id&#x60; is the Asset Identifier for creating the clip from. The url property may be omitted on the first input object when providing asset settings for LiveStream and Upload objects, in order to configure settings related to the primary (live stream or direct upload) input. .</param>
         /// <param name="overlaySettings">overlaySettings.</param>
+        /// <param name="generatedSubtitles">Generate subtitle tracks using automatic speech recognition using this configuration. This may only be provided for the first input object (the main input file). For direct uploads, this first input should omit the url parameter, as the main input file is provided via the direct upload. This will create subtitles based on the audio track ingested from that main input file. Note that subtitle generation happens after initial ingest, so the generated tracks will be in the &#x60;preparing&#x60; state when the asset transitions to &#x60;ready&#x60;..</param>
         /// <param name="startTime">The time offset in seconds from the beginning of the video indicating the clip&#39;s starting marker. The default value is 0 when not included. This parameter is only applicable for creating clips when &#x60;input.url&#x60; has &#x60;mux://assets/{asset_id}&#x60; format..</param>
         /// <param name="endTime">The time offset in seconds from the beginning of the video, indicating the clip&#39;s ending marker. The default value is the duration of the video when not included. This parameter is only applicable for creating clips when &#x60;input.url&#x60; has &#x60;mux://assets/{asset_id}&#x60; format..</param>
         /// <param name="type">This parameter is required for &#x60;text&#x60; type tracks..</param>
         /// <param name="textType">Type of text track. This parameter only supports subtitles value. For more information on Subtitles / Closed Captions, [see this blog post](https://mux.com/blog/subtitles-captions-webvtt-hls-and-those-magic-flags/). This parameter is required for &#x60;text&#x60; type tracks..</param>
-        /// <param name="languageCode">The language code value must be a valid [BCP 47](https://tools.ietf.org/html/bcp47) specification compliant value. For example, en for English or en-US for the US version of English. This parameter is required for text type and subtitles text type track..</param>
-        /// <param name="name">The name of the track containing a human-readable description. This value must be unique across all text type and subtitles &#x60;text&#x60; type tracks. The hls manifest will associate a subtitle text track with this value. For example, the value should be \&quot;English\&quot; for subtitles text track with language_code as en. This optional parameter should be used only for &#x60;text&#x60; type and subtitles &#x60;text&#x60; type tracks. If this parameter is not included, Mux will auto-populate based on the &#x60;input[].language_code&#x60; value..</param>
-        /// <param name="closedCaptions">Indicates the track provides Subtitles for the Deaf or Hard-of-hearing (SDH). This optional parameter should be used for &#x60;text&#x60; type and subtitles &#x60;text&#x60; type tracks..</param>
-        /// <param name="passthrough">This optional parameter should be used for &#x60;text&#x60; type and subtitles &#x60;text&#x60; type tracks..</param>
-        public InputSettings(string url = default(string), InputSettingsOverlaySettings overlaySettings = default(InputSettingsOverlaySettings), double startTime = default(double), double endTime = default(double), TypeEnum? type = default(TypeEnum?), TextTypeEnum? textType = default(TextTypeEnum?), string languageCode = default(string), string name = default(string), bool closedCaptions = default(bool), string passthrough = default(string))
+        /// <param name="languageCode">The language code value must be a valid [BCP 47](https://tools.ietf.org/html/bcp47) specification compliant value. For example, &#x60;en&#x60; for English or &#x60;en-US&#x60; for the US version of English. This parameter is required for &#x60;text&#x60; and &#x60;audio&#x60; track types..</param>
+        /// <param name="name">The name of the track containing a human-readable description. This value must be unique within each group of &#x60;text&#x60; or &#x60;audio&#x60; track types. The HLS manifest will associate a subtitle text track with this value. For example, the value should be \&quot;English\&quot; for a subtitle text track with &#x60;language_code&#x60; set to &#x60;en&#x60;. This optional parameter should be used only for &#x60;text&#x60; and &#x60;audio&#x60; type tracks. This parameter can be optionally provided for the first video input to denote the name of the muxed audio track if present. If this parameter is not included, Mux will auto-populate based on the &#x60;input[].language_code&#x60; value..</param>
+        /// <param name="closedCaptions">Indicates the track provides Subtitles for the Deaf or Hard-of-hearing (SDH). This optional parameter should be used for tracks with &#x60;type&#x60; of &#x60;text&#x60; and &#x60;text_type&#x60; set to &#x60;subtitles&#x60;..</param>
+        /// <param name="passthrough">This optional parameter should be used tracks with &#x60;type&#x60; of &#x60;text&#x60; and &#x60;text_type&#x60; set to &#x60;subtitles&#x60;..</param>
+        public InputSettings(string url = default(string), InputSettingsOverlaySettings overlaySettings = default(InputSettingsOverlaySettings), List<AssetGeneratedSubtitleSettings> generatedSubtitles = default(List<AssetGeneratedSubtitleSettings>), double startTime = default(double), double endTime = default(double), TypeEnum? type = default(TypeEnum?), TextTypeEnum? textType = default(TextTypeEnum?), string languageCode = default(string), string name = default(string), bool closedCaptions = default(bool), string passthrough = default(string))
         {
             this.Url = url;
             this.OverlaySettings = overlaySettings;
+            this.GeneratedSubtitles = generatedSubtitles;
             this.StartTime = startTime;
             this.EndTime = endTime;
             this.Type = type;
@@ -117,9 +119,9 @@ namespace Mux.Csharp.Sdk.Model
         }
 
         /// <summary>
-        /// The URL of the file that Mux should download and use. * For subtitles text tracks, the URL is the location of subtitle/captions file. Mux supports [SubRip Text (SRT)](https://en.wikipedia.org/wiki/SubRip) and [Web Video Text Tracks](https://www.w3.org/TR/webvtt1/) format for ingesting Subtitles and Closed Captions. * For Watermarking or Overlay, the URL is the location of the watermark image. * When creating clips from existing Mux assets, the URL is defined with &#x60;mux://assets/{asset_id}&#x60; template where &#x60;asset_id&#x60; is the Asset Identifier for creating the clip from. 
+        /// The URL of the file that Mux should download and use. * For the main input file, this should be the URL to the muxed file for Mux to download, for example an MP4, MOV, MKV, or TS file. Mux supports most audio/video file formats and codecs, but for fastest processing, you should [use standard inputs wherever possible](https://docs.mux.com/guides/video/minimize-processing-time). * For &#x60;audio&#x60; tracks, the URL is the location of the audio file for Mux to download, for example an M4A, WAV, or MP3 file. Mux supports most audio file formats and codecs, but for fastest processing, you should [use standard inputs wherever possible](https://docs.mux.com/guides/video/minimize-processing-time). * For &#x60;text&#x60; tracks, the URL is the location of subtitle/captions file. Mux supports [SubRip Text (SRT)](https://en.wikipedia.org/wiki/SubRip) and [Web Video Text Tracks](https://www.w3.org/TR/webvtt1/) formats for ingesting Subtitles and Closed Captions. * For Watermarking or Overlay, the URL is the location of the watermark image. * When creating clips from existing Mux assets, the URL is defined with &#x60;mux://assets/{asset_id}&#x60; template where &#x60;asset_id&#x60; is the Asset Identifier for creating the clip from. The url property may be omitted on the first input object when providing asset settings for LiveStream and Upload objects, in order to configure settings related to the primary (live stream or direct upload) input. 
         /// </summary>
-        /// <value>The URL of the file that Mux should download and use. * For subtitles text tracks, the URL is the location of subtitle/captions file. Mux supports [SubRip Text (SRT)](https://en.wikipedia.org/wiki/SubRip) and [Web Video Text Tracks](https://www.w3.org/TR/webvtt1/) format for ingesting Subtitles and Closed Captions. * For Watermarking or Overlay, the URL is the location of the watermark image. * When creating clips from existing Mux assets, the URL is defined with &#x60;mux://assets/{asset_id}&#x60; template where &#x60;asset_id&#x60; is the Asset Identifier for creating the clip from. </value>
+        /// <value>The URL of the file that Mux should download and use. * For the main input file, this should be the URL to the muxed file for Mux to download, for example an MP4, MOV, MKV, or TS file. Mux supports most audio/video file formats and codecs, but for fastest processing, you should [use standard inputs wherever possible](https://docs.mux.com/guides/video/minimize-processing-time). * For &#x60;audio&#x60; tracks, the URL is the location of the audio file for Mux to download, for example an M4A, WAV, or MP3 file. Mux supports most audio file formats and codecs, but for fastest processing, you should [use standard inputs wherever possible](https://docs.mux.com/guides/video/minimize-processing-time). * For &#x60;text&#x60; tracks, the URL is the location of subtitle/captions file. Mux supports [SubRip Text (SRT)](https://en.wikipedia.org/wiki/SubRip) and [Web Video Text Tracks](https://www.w3.org/TR/webvtt1/) formats for ingesting Subtitles and Closed Captions. * For Watermarking or Overlay, the URL is the location of the watermark image. * When creating clips from existing Mux assets, the URL is defined with &#x60;mux://assets/{asset_id}&#x60; template where &#x60;asset_id&#x60; is the Asset Identifier for creating the clip from. The url property may be omitted on the first input object when providing asset settings for LiveStream and Upload objects, in order to configure settings related to the primary (live stream or direct upload) input. </value>
         [DataMember(Name = "url", EmitDefaultValue = false)]
         public string Url { get; set; }
 
@@ -128,6 +130,13 @@ namespace Mux.Csharp.Sdk.Model
         /// </summary>
         [DataMember(Name = "overlay_settings", EmitDefaultValue = false)]
         public InputSettingsOverlaySettings OverlaySettings { get; set; }
+
+        /// <summary>
+        /// Generate subtitle tracks using automatic speech recognition using this configuration. This may only be provided for the first input object (the main input file). For direct uploads, this first input should omit the url parameter, as the main input file is provided via the direct upload. This will create subtitles based on the audio track ingested from that main input file. Note that subtitle generation happens after initial ingest, so the generated tracks will be in the &#x60;preparing&#x60; state when the asset transitions to &#x60;ready&#x60;.
+        /// </summary>
+        /// <value>Generate subtitle tracks using automatic speech recognition using this configuration. This may only be provided for the first input object (the main input file). For direct uploads, this first input should omit the url parameter, as the main input file is provided via the direct upload. This will create subtitles based on the audio track ingested from that main input file. Note that subtitle generation happens after initial ingest, so the generated tracks will be in the &#x60;preparing&#x60; state when the asset transitions to &#x60;ready&#x60;.</value>
+        [DataMember(Name = "generated_subtitles", EmitDefaultValue = false)]
+        public List<AssetGeneratedSubtitleSettings> GeneratedSubtitles { get; set; }
 
         /// <summary>
         /// The time offset in seconds from the beginning of the video indicating the clip&#39;s starting marker. The default value is 0 when not included. This parameter is only applicable for creating clips when &#x60;input.url&#x60; has &#x60;mux://assets/{asset_id}&#x60; format.
@@ -144,30 +153,30 @@ namespace Mux.Csharp.Sdk.Model
         public double EndTime { get; set; }
 
         /// <summary>
-        /// The language code value must be a valid [BCP 47](https://tools.ietf.org/html/bcp47) specification compliant value. For example, en for English or en-US for the US version of English. This parameter is required for text type and subtitles text type track.
+        /// The language code value must be a valid [BCP 47](https://tools.ietf.org/html/bcp47) specification compliant value. For example, &#x60;en&#x60; for English or &#x60;en-US&#x60; for the US version of English. This parameter is required for &#x60;text&#x60; and &#x60;audio&#x60; track types.
         /// </summary>
-        /// <value>The language code value must be a valid [BCP 47](https://tools.ietf.org/html/bcp47) specification compliant value. For example, en for English or en-US for the US version of English. This parameter is required for text type and subtitles text type track.</value>
+        /// <value>The language code value must be a valid [BCP 47](https://tools.ietf.org/html/bcp47) specification compliant value. For example, &#x60;en&#x60; for English or &#x60;en-US&#x60; for the US version of English. This parameter is required for &#x60;text&#x60; and &#x60;audio&#x60; track types.</value>
         [DataMember(Name = "language_code", EmitDefaultValue = false)]
         public string LanguageCode { get; set; }
 
         /// <summary>
-        /// The name of the track containing a human-readable description. This value must be unique across all text type and subtitles &#x60;text&#x60; type tracks. The hls manifest will associate a subtitle text track with this value. For example, the value should be \&quot;English\&quot; for subtitles text track with language_code as en. This optional parameter should be used only for &#x60;text&#x60; type and subtitles &#x60;text&#x60; type tracks. If this parameter is not included, Mux will auto-populate based on the &#x60;input[].language_code&#x60; value.
+        /// The name of the track containing a human-readable description. This value must be unique within each group of &#x60;text&#x60; or &#x60;audio&#x60; track types. The HLS manifest will associate a subtitle text track with this value. For example, the value should be \&quot;English\&quot; for a subtitle text track with &#x60;language_code&#x60; set to &#x60;en&#x60;. This optional parameter should be used only for &#x60;text&#x60; and &#x60;audio&#x60; type tracks. This parameter can be optionally provided for the first video input to denote the name of the muxed audio track if present. If this parameter is not included, Mux will auto-populate based on the &#x60;input[].language_code&#x60; value.
         /// </summary>
-        /// <value>The name of the track containing a human-readable description. This value must be unique across all text type and subtitles &#x60;text&#x60; type tracks. The hls manifest will associate a subtitle text track with this value. For example, the value should be \&quot;English\&quot; for subtitles text track with language_code as en. This optional parameter should be used only for &#x60;text&#x60; type and subtitles &#x60;text&#x60; type tracks. If this parameter is not included, Mux will auto-populate based on the &#x60;input[].language_code&#x60; value.</value>
+        /// <value>The name of the track containing a human-readable description. This value must be unique within each group of &#x60;text&#x60; or &#x60;audio&#x60; track types. The HLS manifest will associate a subtitle text track with this value. For example, the value should be \&quot;English\&quot; for a subtitle text track with &#x60;language_code&#x60; set to &#x60;en&#x60;. This optional parameter should be used only for &#x60;text&#x60; and &#x60;audio&#x60; type tracks. This parameter can be optionally provided for the first video input to denote the name of the muxed audio track if present. If this parameter is not included, Mux will auto-populate based on the &#x60;input[].language_code&#x60; value.</value>
         [DataMember(Name = "name", EmitDefaultValue = false)]
         public string Name { get; set; }
 
         /// <summary>
-        /// Indicates the track provides Subtitles for the Deaf or Hard-of-hearing (SDH). This optional parameter should be used for &#x60;text&#x60; type and subtitles &#x60;text&#x60; type tracks.
+        /// Indicates the track provides Subtitles for the Deaf or Hard-of-hearing (SDH). This optional parameter should be used for tracks with &#x60;type&#x60; of &#x60;text&#x60; and &#x60;text_type&#x60; set to &#x60;subtitles&#x60;.
         /// </summary>
-        /// <value>Indicates the track provides Subtitles for the Deaf or Hard-of-hearing (SDH). This optional parameter should be used for &#x60;text&#x60; type and subtitles &#x60;text&#x60; type tracks.</value>
+        /// <value>Indicates the track provides Subtitles for the Deaf or Hard-of-hearing (SDH). This optional parameter should be used for tracks with &#x60;type&#x60; of &#x60;text&#x60; and &#x60;text_type&#x60; set to &#x60;subtitles&#x60;.</value>
         [DataMember(Name = "closed_captions", EmitDefaultValue = true)]
         public bool ClosedCaptions { get; set; }
 
         /// <summary>
-        /// This optional parameter should be used for &#x60;text&#x60; type and subtitles &#x60;text&#x60; type tracks.
+        /// This optional parameter should be used tracks with &#x60;type&#x60; of &#x60;text&#x60; and &#x60;text_type&#x60; set to &#x60;subtitles&#x60;.
         /// </summary>
-        /// <value>This optional parameter should be used for &#x60;text&#x60; type and subtitles &#x60;text&#x60; type tracks.</value>
+        /// <value>This optional parameter should be used tracks with &#x60;type&#x60; of &#x60;text&#x60; and &#x60;text_type&#x60; set to &#x60;subtitles&#x60;.</value>
         [DataMember(Name = "passthrough", EmitDefaultValue = false)]
         public string Passthrough { get; set; }
 
@@ -187,6 +196,7 @@ namespace Mux.Csharp.Sdk.Model
             sb.Append("class InputSettings {\n");
             sb.Append("  Url: ").Append(Url).Append("\n");
             sb.Append("  OverlaySettings: ").Append(OverlaySettings).Append("\n");
+            sb.Append("  GeneratedSubtitles: ").Append(GeneratedSubtitles).Append("\n");
             sb.Append("  StartTime: ").Append(StartTime).Append("\n");
             sb.Append("  EndTime: ").Append(EndTime).Append("\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
@@ -242,6 +252,12 @@ namespace Mux.Csharp.Sdk.Model
                     this.OverlaySettings.Equals(input.OverlaySettings))
                 ) && 
                 (
+                    this.GeneratedSubtitles == input.GeneratedSubtitles ||
+                    this.GeneratedSubtitles != null &&
+                    input.GeneratedSubtitles != null &&
+                    this.GeneratedSubtitles.SequenceEqual(input.GeneratedSubtitles)
+                ) && 
+                (
                     this.StartTime == input.StartTime ||
                     this.StartTime.Equals(input.StartTime)
                 ) && 
@@ -295,6 +311,10 @@ namespace Mux.Csharp.Sdk.Model
                 if (this.OverlaySettings != null)
                 {
                     hashCode = (hashCode * 59) + this.OverlaySettings.GetHashCode();
+                }
+                if (this.GeneratedSubtitles != null)
+                {
+                    hashCode = (hashCode * 59) + this.GeneratedSubtitles.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.StartTime.GetHashCode();
                 hashCode = (hashCode * 59) + this.EndTime.GetHashCode();

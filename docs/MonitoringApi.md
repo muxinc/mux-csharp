@@ -5,6 +5,7 @@ All URIs are relative to *https://api.mux.com*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**GetMonitoringBreakdown**](MonitoringApi.md#getmonitoringbreakdown) | **GET** /data/v1/monitoring/metrics/{MONITORING_METRIC_ID}/breakdown | Get Monitoring Breakdown
+[**GetMonitoringBreakdownTimeseries**](MonitoringApi.md#getmonitoringbreakdowntimeseries) | **GET** /data/v1/monitoring/metrics/{MONITORING_METRIC_ID}/breakdown-timeseries | Get Monitoring Breakdown Timeseries
 [**GetMonitoringHistogramTimeseries**](MonitoringApi.md#getmonitoringhistogramtimeseries) | **GET** /data/v1/monitoring/metrics/{MONITORING_HISTOGRAM_METRIC_ID}/histogram-timeseries | Get Monitoring Histogram Timeseries
 [**GetMonitoringTimeseries**](MonitoringApi.md#getmonitoringtimeseries) | **GET** /data/v1/monitoring/metrics/{MONITORING_METRIC_ID}/timeseries | Get Monitoring Timeseries
 [**ListMonitoringDimensions**](MonitoringApi.md#listmonitoringdimensions) | **GET** /data/v1/monitoring/dimensions | List Monitoring Dimensions
@@ -43,7 +44,7 @@ namespace Example
             var MONITORING_METRIC_ID = current-concurrent-viewers;  // string | ID of the Monitoring Metric
             var dimension = "asn";  // string | Dimension the specified value belongs to (optional) 
             var timestamp = 56;  // int? | Timestamp to limit results by. This value must be provided as a unix timestamp. Defaults to the current unix timestamp. (optional) 
-            var filters = new List<string>(); // List<string> | Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a `!` character to the dimension.  Possible filter names are the same as returned by the List Filters endpoint.  Example:    * `filters[]=operating_system:windows&filters[]=!country:US`  (optional) 
+            var filters = new List<string>(); // List<string> | Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a `!` character to the dimension.  Possible filter names are the same as returned by the List Monitoring Dimensions endpoint.  Example:    * `filters[]=operating_system:windows&filters[]=!country:US`  (optional) 
             var orderBy = "negative_impact";  // string | Value to order the results by (optional) 
             var orderDirection = "asc";  // string | Sort order. (optional) 
 
@@ -71,13 +72,100 @@ Name | Type | Description  | Notes
  **MONITORING_METRIC_ID** | **string**| ID of the Monitoring Metric | 
  **dimension** | **string**| Dimension the specified value belongs to | [optional] 
  **timestamp** | **int?**| Timestamp to limit results by. This value must be provided as a unix timestamp. Defaults to the current unix timestamp. | [optional] 
- **filters** | [**List&lt;string&gt;**](string.md)| Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Filters endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  | [optional] 
+ **filters** | [**List&lt;string&gt;**](string.md)| Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Monitoring Dimensions endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  | [optional] 
  **orderBy** | **string**| Value to order the results by | [optional] 
  **orderDirection** | **string**| Sort order. | [optional] 
 
 ### Return type
 
 [**GetMonitoringBreakdownResponse**](GetMonitoringBreakdownResponse.md)
+
+### Authorization
+
+[accessToken](../README.md#accessToken)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="getmonitoringbreakdowntimeseries"></a>
+# **GetMonitoringBreakdownTimeseries**
+> GetMonitoringBreakdownTimeseriesResponse GetMonitoringBreakdownTimeseries (string MONITORING_METRIC_ID, string dimension = null, List<string> timeframe = null, List<string> filters = null, int? limit = null, string orderBy = null, string orderDirection = null)
+
+Get Monitoring Breakdown Timeseries
+
+Gets timeseries of breakdown information for a specific dimension and metric. Each datapoint in the response represents 5 seconds worth of data.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Mux.Csharp.Sdk.Api;
+using Mux.Csharp.Sdk.Client;
+using Mux.Csharp.Sdk.Model;
+
+namespace Example
+{
+    public class GetMonitoringBreakdownTimeseriesExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.mux.com";
+            // Configure HTTP basic authorization: accessToken
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+
+            var apiInstance = new MonitoringApi(config);
+            var MONITORING_METRIC_ID = current-concurrent-viewers;  // string | ID of the Monitoring Metric
+            var dimension = "asn";  // string | Dimension the specified value belongs to (optional) 
+            var timeframe = new List<string>(); // List<string> | Timeframe window to limit results by. Must be provided as an array query string parameter (e.g. timeframe[]=).  The default for this is the last 60 seconds of available data. Timeframes larger than 10 minutes are not allowed, and must be within the last 24 hours.  (optional) 
+            var filters = new List<string>(); // List<string> | Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a `!` character to the dimension.  Possible filter names are the same as returned by the List Monitoring Dimensions endpoint.  Example:    * `filters[]=operating_system:windows&filters[]=!country:US`  (optional) 
+            var limit = 10;  // int? | Number of items to include in each timestamp's `value` list.  The default is 10, and the maximum is 100.  (optional)  (default to 10)
+            var orderBy = "negative_impact";  // string | Value to order the results by (optional) 
+            var orderDirection = "asc";  // string | Sort order. (optional) 
+
+            try
+            {
+                // Get Monitoring Breakdown Timeseries
+                GetMonitoringBreakdownTimeseriesResponse result = apiInstance.GetMonitoringBreakdownTimeseries(MONITORING_METRIC_ID, dimension, timeframe, filters, limit, orderBy, orderDirection);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling MonitoringApi.GetMonitoringBreakdownTimeseries: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **MONITORING_METRIC_ID** | **string**| ID of the Monitoring Metric | 
+ **dimension** | **string**| Dimension the specified value belongs to | [optional] 
+ **timeframe** | [**List&lt;string&gt;**](string.md)| Timeframe window to limit results by. Must be provided as an array query string parameter (e.g. timeframe[]&#x3D;).  The default for this is the last 60 seconds of available data. Timeframes larger than 10 minutes are not allowed, and must be within the last 24 hours.  | [optional] 
+ **filters** | [**List&lt;string&gt;**](string.md)| Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Monitoring Dimensions endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  | [optional] 
+ **limit** | **int?**| Number of items to include in each timestamp&#39;s &#x60;value&#x60; list.  The default is 10, and the maximum is 100.  | [optional] [default to 10]
+ **orderBy** | **string**| Value to order the results by | [optional] 
+ **orderDirection** | **string**| Sort order. | [optional] 
+
+### Return type
+
+[**GetMonitoringBreakdownTimeseriesResponse**](GetMonitoringBreakdownTimeseriesResponse.md)
 
 ### Authorization
 
@@ -126,7 +214,7 @@ namespace Example
 
             var apiInstance = new MonitoringApi(config);
             var MONITORING_HISTOGRAM_METRIC_ID = video-startup-time;  // string | ID of the Monitoring Histogram Metric
-            var filters = new List<string>(); // List<string> | Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a `!` character to the dimension.  Possible filter names are the same as returned by the List Filters endpoint.  Example:    * `filters[]=operating_system:windows&filters[]=!country:US`  (optional) 
+            var filters = new List<string>(); // List<string> | Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a `!` character to the dimension.  Possible filter names are the same as returned by the List Monitoring Dimensions endpoint.  Example:    * `filters[]=operating_system:windows&filters[]=!country:US`  (optional) 
 
             try
             {
@@ -150,7 +238,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **MONITORING_HISTOGRAM_METRIC_ID** | **string**| ID of the Monitoring Histogram Metric | 
- **filters** | [**List&lt;string&gt;**](string.md)| Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Filters endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  | [optional] 
+ **filters** | [**List&lt;string&gt;**](string.md)| Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Monitoring Dimensions endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  | [optional] 
 
 ### Return type
 
@@ -175,7 +263,7 @@ Name | Type | Description  | Notes
 
 <a name="getmonitoringtimeseries"></a>
 # **GetMonitoringTimeseries**
-> GetMonitoringTimeseriesResponse GetMonitoringTimeseries (string MONITORING_METRIC_ID, List<string> filters = null)
+> GetMonitoringTimeseriesResponse GetMonitoringTimeseries (string MONITORING_METRIC_ID, List<string> filters = null, int? timestamp = null)
 
 Get Monitoring Timeseries
 
@@ -203,12 +291,13 @@ namespace Example
 
             var apiInstance = new MonitoringApi(config);
             var MONITORING_METRIC_ID = current-concurrent-viewers;  // string | ID of the Monitoring Metric
-            var filters = new List<string>(); // List<string> | Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a `!` character to the dimension.  Possible filter names are the same as returned by the List Filters endpoint.  Example:    * `filters[]=operating_system:windows&filters[]=!country:US`  (optional) 
+            var filters = new List<string>(); // List<string> | Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a `!` character to the dimension.  Possible filter names are the same as returned by the List Monitoring Dimensions endpoint.  Example:    * `filters[]=operating_system:windows&filters[]=!country:US`  (optional) 
+            var timestamp = 56;  // int? | Timestamp to use as the start of the timeseries data. This value must be provided as a unix timestamp. Defaults to 30 minutes ago. (optional) 
 
             try
             {
                 // Get Monitoring Timeseries
-                GetMonitoringTimeseriesResponse result = apiInstance.GetMonitoringTimeseries(MONITORING_METRIC_ID, filters);
+                GetMonitoringTimeseriesResponse result = apiInstance.GetMonitoringTimeseries(MONITORING_METRIC_ID, filters, timestamp);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -227,7 +316,8 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **MONITORING_METRIC_ID** | **string**| ID of the Monitoring Metric | 
- **filters** | [**List&lt;string&gt;**](string.md)| Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Filters endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  | [optional] 
+ **filters** | [**List&lt;string&gt;**](string.md)| Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Monitoring Dimensions endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  | [optional] 
+ **timestamp** | **int?**| Timestamp to use as the start of the timeseries data. This value must be provided as a unix timestamp. Defaults to 30 minutes ago. | [optional] 
 
 ### Return type
 

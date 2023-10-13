@@ -94,7 +94,7 @@ namespace Mux.Csharp.Sdk.Api
         /// List direct uploads
         /// </summary>
         /// <remarks>
-        /// Lists currently extant direct uploads in the current environment.
+        /// Lists direct uploads in the current environment.
         /// </remarks>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Number of items to include in the response (optional, default to 25)</param>
@@ -106,7 +106,7 @@ namespace Mux.Csharp.Sdk.Api
         /// List direct uploads
         /// </summary>
         /// <remarks>
-        /// Lists currently extant direct uploads in the current environment.
+        /// Lists direct uploads in the current environment.
         /// </remarks>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Number of items to include in the response (optional, default to 25)</param>
@@ -195,7 +195,7 @@ namespace Mux.Csharp.Sdk.Api
         /// List direct uploads
         /// </summary>
         /// <remarks>
-        /// Lists currently extant direct uploads in the current environment.
+        /// Lists direct uploads in the current environment.
         /// </remarks>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Number of items to include in the response (optional, default to 25)</param>
@@ -208,7 +208,7 @@ namespace Mux.Csharp.Sdk.Api
         /// List direct uploads
         /// </summary>
         /// <remarks>
-        /// Lists currently extant direct uploads in the current environment.
+        /// Lists direct uploads in the current environment.
         /// </remarks>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Number of items to include in the response (optional, default to 25)</param>
@@ -777,7 +777,7 @@ namespace Mux.Csharp.Sdk.Api
         }
 
         /// <summary>
-        /// List direct uploads Lists currently extant direct uploads in the current environment.
+        /// List direct uploads Lists direct uploads in the current environment.
         /// </summary>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Number of items to include in the response (optional, default to 25)</param>
@@ -790,7 +790,7 @@ namespace Mux.Csharp.Sdk.Api
         }
 
         /// <summary>
-        /// List direct uploads Lists currently extant direct uploads in the current environment.
+        /// List direct uploads Lists direct uploads in the current environment.
         /// </summary>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Number of items to include in the response (optional, default to 25)</param>
@@ -851,7 +851,7 @@ namespace Mux.Csharp.Sdk.Api
         }
 
         /// <summary>
-        /// List direct uploads Lists currently extant direct uploads in the current environment.
+        /// List direct uploads Lists direct uploads in the current environment.
         /// </summary>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Number of items to include in the response (optional, default to 25)</param>
@@ -865,7 +865,7 @@ namespace Mux.Csharp.Sdk.Api
         }
 
         /// <summary>
-        /// List direct uploads Lists currently extant direct uploads in the current environment.
+        /// List direct uploads Lists direct uploads in the current environment.
         /// </summary>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Number of items to include in the response (optional, default to 25)</param>

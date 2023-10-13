@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **DeletedAt** | **string** | If exists, time at which the asset was deleted. Measured in seconds since the Unix epoch. | [optional] 
 **AssetState** | **string** | The state of the asset. | [optional] 
 **AssetDuration** | **double** | The duration of the asset in seconds. | [optional] 
+**AssetResolutionTier** | **string** | The resolution tier that the asset was ingested at, affecting billing for ingest &amp; storage | [optional] 
 **DeliveredSeconds** | **double** | Total number of delivered seconds during this time window. | [optional] 
 **DeliveredSecondsByResolution** | [**DeliveryReportDeliveredSecondsByResolution**](DeliveryReportDeliveredSecondsByResolution.md) |  | [optional] 
 

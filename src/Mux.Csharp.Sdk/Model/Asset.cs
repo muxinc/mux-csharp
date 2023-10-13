@@ -67,9 +67,9 @@ namespace Mux.Csharp.Sdk.Model
         [DataMember(Name = "status", EmitDefaultValue = false)]
         public StatusEnum? Status { get; set; }
         /// <summary>
-        /// The maximum resolution that has been stored for the asset. The asset may be delivered at lower resolutions depending on the device and bandwidth, however it cannot be delivered at a higher value than is stored.
+        /// This field is deprecated. Please use &#x60;resolution_tier&#x60; instead. The maximum resolution that has been stored for the asset. The asset may be delivered at lower resolutions depending on the device and bandwidth, however it cannot be delivered at a higher value than is stored.
         /// </summary>
-        /// <value>The maximum resolution that has been stored for the asset. The asset may be delivered at lower resolutions depending on the device and bandwidth, however it cannot be delivered at a higher value than is stored.</value>
+        /// <value>This field is deprecated. Please use &#x60;resolution_tier&#x60; instead. The maximum resolution that has been stored for the asset. The asset may be delivered at lower resolutions depending on the device and bandwidth, however it cannot be delivered at a higher value than is stored.</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum MaxStoredResolutionEnum
         {
@@ -107,11 +107,120 @@ namespace Mux.Csharp.Sdk.Model
 
 
         /// <summary>
-        /// The maximum resolution that has been stored for the asset. The asset may be delivered at lower resolutions depending on the device and bandwidth, however it cannot be delivered at a higher value than is stored.
+        /// This field is deprecated. Please use &#x60;resolution_tier&#x60; instead. The maximum resolution that has been stored for the asset. The asset may be delivered at lower resolutions depending on the device and bandwidth, however it cannot be delivered at a higher value than is stored.
         /// </summary>
-        /// <value>The maximum resolution that has been stored for the asset. The asset may be delivered at lower resolutions depending on the device and bandwidth, however it cannot be delivered at a higher value than is stored.</value>
+        /// <value>This field is deprecated. Please use &#x60;resolution_tier&#x60; instead. The maximum resolution that has been stored for the asset. The asset may be delivered at lower resolutions depending on the device and bandwidth, however it cannot be delivered at a higher value than is stored.</value>
         [DataMember(Name = "max_stored_resolution", EmitDefaultValue = false)]
+        [Obsolete]
         public MaxStoredResolutionEnum? MaxStoredResolution { get; set; }
+        /// <summary>
+        /// The resolution tier that the asset was ingested at, affecting billing for ingest &amp; storage. This field also represents the highest resolution tier that the content can be delivered at, however the actual resolution may be lower depending on the device, bandwidth, and exact resolution of the uploaded asset.
+        /// </summary>
+        /// <value>The resolution tier that the asset was ingested at, affecting billing for ingest &amp; storage. This field also represents the highest resolution tier that the content can be delivered at, however the actual resolution may be lower depending on the device, bandwidth, and exact resolution of the uploaded asset.</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum ResolutionTierEnum
+        {
+            /// <summary>
+            /// Enum AudioOnly for value: audio-only
+            /// </summary>
+            [EnumMember(Value = "audio-only")]
+            AudioOnly = 1,
+
+            /// <summary>
+            /// Enum _720p for value: 720p
+            /// </summary>
+            [EnumMember(Value = "720p")]
+            _720p = 2,
+
+            /// <summary>
+            /// Enum _1080p for value: 1080p
+            /// </summary>
+            [EnumMember(Value = "1080p")]
+            _1080p = 3,
+
+            /// <summary>
+            /// Enum _1440p for value: 1440p
+            /// </summary>
+            [EnumMember(Value = "1440p")]
+            _1440p = 4,
+
+            /// <summary>
+            /// Enum _2160p for value: 2160p
+            /// </summary>
+            [EnumMember(Value = "2160p")]
+            _2160p = 5
+
+        }
+
+
+        /// <summary>
+        /// The resolution tier that the asset was ingested at, affecting billing for ingest &amp; storage. This field also represents the highest resolution tier that the content can be delivered at, however the actual resolution may be lower depending on the device, bandwidth, and exact resolution of the uploaded asset.
+        /// </summary>
+        /// <value>The resolution tier that the asset was ingested at, affecting billing for ingest &amp; storage. This field also represents the highest resolution tier that the content can be delivered at, however the actual resolution may be lower depending on the device, bandwidth, and exact resolution of the uploaded asset.</value>
+        [DataMember(Name = "resolution_tier", EmitDefaultValue = false)]
+        public ResolutionTierEnum? ResolutionTier { get; set; }
+        /// <summary>
+        /// Max resolution tier can be used to control the maximum &#x60;resolution_tier&#x60; your asset is encoded, stored, and streamed at. If not set, this defaults to &#x60;1080p&#x60;.
+        /// </summary>
+        /// <value>Max resolution tier can be used to control the maximum &#x60;resolution_tier&#x60; your asset is encoded, stored, and streamed at. If not set, this defaults to &#x60;1080p&#x60;.</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum MaxResolutionTierEnum
+        {
+            /// <summary>
+            /// Enum _1080p for value: 1080p
+            /// </summary>
+            [EnumMember(Value = "1080p")]
+            _1080p = 1,
+
+            /// <summary>
+            /// Enum _1440p for value: 1440p
+            /// </summary>
+            [EnumMember(Value = "1440p")]
+            _1440p = 2,
+
+            /// <summary>
+            /// Enum _2160p for value: 2160p
+            /// </summary>
+            [EnumMember(Value = "2160p")]
+            _2160p = 3
+
+        }
+
+
+        /// <summary>
+        /// Max resolution tier can be used to control the maximum &#x60;resolution_tier&#x60; your asset is encoded, stored, and streamed at. If not set, this defaults to &#x60;1080p&#x60;.
+        /// </summary>
+        /// <value>Max resolution tier can be used to control the maximum &#x60;resolution_tier&#x60; your asset is encoded, stored, and streamed at. If not set, this defaults to &#x60;1080p&#x60;.</value>
+        [DataMember(Name = "max_resolution_tier", EmitDefaultValue = false)]
+        public MaxResolutionTierEnum? MaxResolutionTier { get; set; }
+        /// <summary>
+        /// The encoding tier informs the cost, quality, and available platform features for the asset. By default the &#x60;smart&#x60; encoding tier is used.
+        /// </summary>
+        /// <value>The encoding tier informs the cost, quality, and available platform features for the asset. By default the &#x60;smart&#x60; encoding tier is used.</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum EncodingTierEnum
+        {
+            /// <summary>
+            /// Enum Smart for value: smart
+            /// </summary>
+            [EnumMember(Value = "smart")]
+            Smart = 1,
+
+            /// <summary>
+            /// Enum Baseline for value: baseline
+            /// </summary>
+            [EnumMember(Value = "baseline")]
+            Baseline = 2
+
+        }
+
+
+        /// <summary>
+        /// The encoding tier informs the cost, quality, and available platform features for the asset. By default the &#x60;smart&#x60; encoding tier is used.
+        /// </summary>
+        /// <value>The encoding tier informs the cost, quality, and available platform features for the asset. By default the &#x60;smart&#x60; encoding tier is used.</value>
+        [DataMember(Name = "encoding_tier", EmitDefaultValue = false)]
+        public EncodingTierEnum? EncodingTier { get; set; }
         /// <summary>
         /// Defines MasterAccess
         /// </summary>
@@ -171,7 +280,10 @@ namespace Mux.Csharp.Sdk.Model
         /// <param name="createdAt">Time the Asset was created, defined as a Unix timestamp (seconds since epoch)..</param>
         /// <param name="status">The status of the asset..</param>
         /// <param name="duration">The duration of the asset in seconds (max duration for a single asset is 12 hours)..</param>
-        /// <param name="maxStoredResolution">The maximum resolution that has been stored for the asset. The asset may be delivered at lower resolutions depending on the device and bandwidth, however it cannot be delivered at a higher value than is stored..</param>
+        /// <param name="maxStoredResolution">This field is deprecated. Please use &#x60;resolution_tier&#x60; instead. The maximum resolution that has been stored for the asset. The asset may be delivered at lower resolutions depending on the device and bandwidth, however it cannot be delivered at a higher value than is stored..</param>
+        /// <param name="resolutionTier">The resolution tier that the asset was ingested at, affecting billing for ingest &amp; storage. This field also represents the highest resolution tier that the content can be delivered at, however the actual resolution may be lower depending on the device, bandwidth, and exact resolution of the uploaded asset..</param>
+        /// <param name="maxResolutionTier">Max resolution tier can be used to control the maximum &#x60;resolution_tier&#x60; your asset is encoded, stored, and streamed at. If not set, this defaults to &#x60;1080p&#x60;..</param>
+        /// <param name="encodingTier">The encoding tier informs the cost, quality, and available platform features for the asset. By default the &#x60;smart&#x60; encoding tier is used..</param>
         /// <param name="maxStoredFrameRate">The maximum frame rate that has been stored for the asset. The asset may be delivered at lower frame rates depending on the device and bandwidth, however it cannot be delivered at a higher value than is stored. This field may return -1 if the frame rate of the input cannot be reliably determined..</param>
         /// <param name="aspectRatio">The aspect ratio of the asset in the form of &#x60;width:height&#x60;, for example &#x60;16:9&#x60;..</param>
         /// <param name="playbackIds">An array of Playback ID objects. Use these to create HLS playback URLs. See [Play your videos](https://docs.mux.com/guides/video/play-your-videos) for more details..</param>
@@ -191,13 +303,16 @@ namespace Mux.Csharp.Sdk.Model
         /// <param name="recordingTimes">An array of individual live stream recording sessions. A recording session is created on each encoder connection during the live stream. Additionally any time slate media is inserted during brief interruptions in the live stream media or times when the live streaming software disconnects, a recording session representing the slate media will be added with a \&quot;slate\&quot; type..</param>
         /// <param name="nonStandardInputReasons">nonStandardInputReasons.</param>
         /// <param name="test">True means this live stream is a test asset. A test asset can help evaluate the Mux Video APIs without incurring any cost. There is no limit on number of test assets created. Test assets are watermarked with the Mux logo, limited to 10 seconds, and deleted after 24 hrs..</param>
-        public Asset(string id = default(string), string createdAt = default(string), StatusEnum? status = default(StatusEnum?), double duration = default(double), MaxStoredResolutionEnum? maxStoredResolution = default(MaxStoredResolutionEnum?), double maxStoredFrameRate = default(double), string aspectRatio = default(string), List<PlaybackID> playbackIds = default(List<PlaybackID>), List<Track> tracks = default(List<Track>), AssetErrors errors = default(AssetErrors), bool perTitleEncode = default(bool), string uploadId = default(string), bool isLive = default(bool), string passthrough = default(string), string liveStreamId = default(string), AssetMaster master = default(AssetMaster), MasterAccessEnum? masterAccess = MasterAccessEnum.None, Mp4SupportEnum? mp4Support = Mp4SupportEnum.None, string sourceAssetId = default(string), bool normalizeAudio = false, AssetStaticRenditions staticRenditions = default(AssetStaticRenditions), List<AssetRecordingTimes> recordingTimes = default(List<AssetRecordingTimes>), AssetNonStandardInputReasons nonStandardInputReasons = default(AssetNonStandardInputReasons), bool test = default(bool))
+        public Asset(string id = default(string), string createdAt = default(string), StatusEnum? status = default(StatusEnum?), double duration = default(double), MaxStoredResolutionEnum? maxStoredResolution = default(MaxStoredResolutionEnum?), ResolutionTierEnum? resolutionTier = default(ResolutionTierEnum?), MaxResolutionTierEnum? maxResolutionTier = default(MaxResolutionTierEnum?), EncodingTierEnum? encodingTier = default(EncodingTierEnum?), double maxStoredFrameRate = default(double), string aspectRatio = default(string), List<PlaybackID> playbackIds = default(List<PlaybackID>), List<Track> tracks = default(List<Track>), AssetErrors errors = default(AssetErrors), bool perTitleEncode = default(bool), string uploadId = default(string), bool isLive = default(bool), string passthrough = default(string), string liveStreamId = default(string), AssetMaster master = default(AssetMaster), MasterAccessEnum? masterAccess = MasterAccessEnum.None, Mp4SupportEnum? mp4Support = Mp4SupportEnum.None, string sourceAssetId = default(string), bool normalizeAudio = false, AssetStaticRenditions staticRenditions = default(AssetStaticRenditions), List<AssetRecordingTimes> recordingTimes = default(List<AssetRecordingTimes>), AssetNonStandardInputReasons nonStandardInputReasons = default(AssetNonStandardInputReasons), bool test = default(bool))
         {
             this.Id = id;
             this.CreatedAt = createdAt;
             this.Status = status;
             this.Duration = duration;
             this.MaxStoredResolution = maxStoredResolution;
+            this.ResolutionTier = resolutionTier;
+            this.MaxResolutionTier = maxResolutionTier;
+            this.EncodingTier = encodingTier;
             this.MaxStoredFrameRate = maxStoredFrameRate;
             this.AspectRatio = aspectRatio;
             this.PlaybackIds = playbackIds;
@@ -375,6 +490,9 @@ namespace Mux.Csharp.Sdk.Model
             sb.Append("  Status: ").Append(Status).Append("\n");
             sb.Append("  Duration: ").Append(Duration).Append("\n");
             sb.Append("  MaxStoredResolution: ").Append(MaxStoredResolution).Append("\n");
+            sb.Append("  ResolutionTier: ").Append(ResolutionTier).Append("\n");
+            sb.Append("  MaxResolutionTier: ").Append(MaxResolutionTier).Append("\n");
+            sb.Append("  EncodingTier: ").Append(EncodingTier).Append("\n");
             sb.Append("  MaxStoredFrameRate: ").Append(MaxStoredFrameRate).Append("\n");
             sb.Append("  AspectRatio: ").Append(AspectRatio).Append("\n");
             sb.Append("  PlaybackIds: ").Append(PlaybackIds).Append("\n");
@@ -451,6 +569,18 @@ namespace Mux.Csharp.Sdk.Model
                 (
                     this.MaxStoredResolution == input.MaxStoredResolution ||
                     this.MaxStoredResolution.Equals(input.MaxStoredResolution)
+                ) && 
+                (
+                    this.ResolutionTier == input.ResolutionTier ||
+                    this.ResolutionTier.Equals(input.ResolutionTier)
+                ) && 
+                (
+                    this.MaxResolutionTier == input.MaxResolutionTier ||
+                    this.MaxResolutionTier.Equals(input.MaxResolutionTier)
+                ) && 
+                (
+                    this.EncodingTier == input.EncodingTier ||
+                    this.EncodingTier.Equals(input.EncodingTier)
                 ) && 
                 (
                     this.MaxStoredFrameRate == input.MaxStoredFrameRate ||
@@ -566,6 +696,9 @@ namespace Mux.Csharp.Sdk.Model
                 hashCode = (hashCode * 59) + this.Status.GetHashCode();
                 hashCode = (hashCode * 59) + this.Duration.GetHashCode();
                 hashCode = (hashCode * 59) + this.MaxStoredResolution.GetHashCode();
+                hashCode = (hashCode * 59) + this.ResolutionTier.GetHashCode();
+                hashCode = (hashCode * 59) + this.MaxResolutionTier.GetHashCode();
+                hashCode = (hashCode * 59) + this.EncodingTier.GetHashCode();
                 hashCode = (hashCode * 59) + this.MaxStoredFrameRate.GetHashCode();
                 if (this.AspectRatio != null)
                 {

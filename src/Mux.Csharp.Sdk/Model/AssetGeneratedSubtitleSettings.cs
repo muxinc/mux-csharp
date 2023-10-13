@@ -27,88 +27,66 @@ using OpenAPIDateConverter = Mux.Csharp.Sdk.Client.OpenAPIDateConverter;
 namespace Mux.Csharp.Sdk.Model
 {
     /// <summary>
-    /// LiveStreamEmbeddedSubtitleSettings
+    /// AssetGeneratedSubtitleSettings
     /// </summary>
-    [DataContract(Name = "LiveStreamEmbeddedSubtitleSettings")]
-    public partial class LiveStreamEmbeddedSubtitleSettings : IEquatable<LiveStreamEmbeddedSubtitleSettings>, IValidatableObject
+    [DataContract(Name = "AssetGeneratedSubtitleSettings")]
+    public partial class AssetGeneratedSubtitleSettings : IEquatable<AssetGeneratedSubtitleSettings>, IValidatableObject
     {
         /// <summary>
-        /// CEA-608 caption channel to read data from.
+        /// The language to generate subtitles in.
         /// </summary>
-        /// <value>CEA-608 caption channel to read data from.</value>
+        /// <value>The language to generate subtitles in.</value>
         [JsonConverter(typeof(StringEnumConverter))]
-        public enum LanguageChannelEnum
+        public enum LanguageCodeEnum
         {
             /// <summary>
-            /// Enum Cc1 for value: cc1
+            /// Enum En for value: en
             /// </summary>
-            [EnumMember(Value = "cc1")]
-            Cc1 = 1,
+            [EnumMember(Value = "en")]
+            En = 1,
 
             /// <summary>
-            /// Enum Cc2 for value: cc2
+            /// Enum EnUS for value: en-US
             /// </summary>
-            [EnumMember(Value = "cc2")]
-            Cc2 = 2,
-
-            /// <summary>
-            /// Enum Cc3 for value: cc3
-            /// </summary>
-            [EnumMember(Value = "cc3")]
-            Cc3 = 3,
-
-            /// <summary>
-            /// Enum Cc4 for value: cc4
-            /// </summary>
-            [EnumMember(Value = "cc4")]
-            Cc4 = 4
+            [EnumMember(Value = "en-US")]
+            EnUS = 2
 
         }
 
 
         /// <summary>
-        /// CEA-608 caption channel to read data from.
+        /// The language to generate subtitles in.
         /// </summary>
-        /// <value>CEA-608 caption channel to read data from.</value>
-        [DataMember(Name = "language_channel", EmitDefaultValue = false)]
-        public LanguageChannelEnum? LanguageChannel { get; set; }
+        /// <value>The language to generate subtitles in.</value>
+        [DataMember(Name = "language_code", EmitDefaultValue = false)]
+        public LanguageCodeEnum? LanguageCode { get; set; }
         /// <summary>
-        /// Initializes a new instance of the <see cref="LiveStreamEmbeddedSubtitleSettings" /> class.
+        /// Initializes a new instance of the <see cref="AssetGeneratedSubtitleSettings" /> class.
         /// </summary>
-        /// <param name="name">A name for this live stream closed caption track..</param>
-        /// <param name="passthrough">Arbitrary user-supplied metadata set for the live stream closed caption track. Max 255 characters..</param>
-        /// <param name="languageCode">The language of the closed caption stream. Value must be BCP 47 compliant. (default to &quot;en&quot;).</param>
-        /// <param name="languageChannel">CEA-608 caption channel to read data from. (default to LanguageChannelEnum.Cc1).</param>
-        public LiveStreamEmbeddedSubtitleSettings(string name = default(string), string passthrough = default(string), string languageCode = "en", LanguageChannelEnum? languageChannel = LanguageChannelEnum.Cc1)
+        /// <param name="name">A name for this subtitle track..</param>
+        /// <param name="passthrough">Arbitrary metadata set for the subtitle track. Max 255 characters..</param>
+        /// <param name="languageCode">The language to generate subtitles in. (default to LanguageCodeEnum.En).</param>
+        public AssetGeneratedSubtitleSettings(string name = default(string), string passthrough = default(string), LanguageCodeEnum? languageCode = LanguageCodeEnum.En)
         {
             this.Name = name;
             this.Passthrough = passthrough;
-            // use default value if no "languageCode" provided
-            this.LanguageCode = languageCode ?? "en";
-            this.LanguageChannel = languageChannel;
+            this.LanguageCode = languageCode;
             this.AdditionalProperties = new Dictionary<string, object>();
         }
 
         /// <summary>
-        /// A name for this live stream closed caption track.
+        /// A name for this subtitle track.
         /// </summary>
-        /// <value>A name for this live stream closed caption track.</value>
+        /// <value>A name for this subtitle track.</value>
         [DataMember(Name = "name", EmitDefaultValue = false)]
         public string Name { get; set; }
 
         /// <summary>
-        /// Arbitrary user-supplied metadata set for the live stream closed caption track. Max 255 characters.
+        /// Arbitrary metadata set for the subtitle track. Max 255 characters.
         /// </summary>
-        /// <value>Arbitrary user-supplied metadata set for the live stream closed caption track. Max 255 characters.</value>
+        /// <value>Arbitrary metadata set for the subtitle track. Max 255 characters.</value>
         [DataMember(Name = "passthrough", EmitDefaultValue = false)]
         public string Passthrough { get; set; }
-
-        /// <summary>
-        /// The language of the closed caption stream. Value must be BCP 47 compliant.
-        /// </summary>
-        /// <value>The language of the closed caption stream. Value must be BCP 47 compliant.</value>
-        [DataMember(Name = "language_code", EmitDefaultValue = false)]
-        public string LanguageCode { get; set; }
 
         /// <summary>
         /// Gets or Sets additional properties
@@ -123,11 +101,10 @@ namespace Mux.Csharp.Sdk.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class LiveStreamEmbeddedSubtitleSettings {\n");
+            sb.Append("class AssetGeneratedSubtitleSettings {\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  Passthrough: ").Append(Passthrough).Append("\n");
             sb.Append("  LanguageCode: ").Append(LanguageCode).Append("\n");
-            sb.Append("  LanguageChannel: ").Append(LanguageChannel).Append("\n");
             sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -149,15 +126,15 @@ namespace Mux.Csharp.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as LiveStreamEmbeddedSubtitleSettings);
+            return this.Equals(input as AssetGeneratedSubtitleSettings);
         }
 
         /// <summary>
-        /// Returns true if LiveStreamEmbeddedSubtitleSettings instances are equal
+        /// Returns true if AssetGeneratedSubtitleSettings instances are equal
         /// </summary>
-        /// <param name="input">Instance of LiveStreamEmbeddedSubtitleSettings to be compared</param>
+        /// <param name="input">Instance of AssetGeneratedSubtitleSettings to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(LiveStreamEmbeddedSubtitleSettings input)
+        public bool Equals(AssetGeneratedSubtitleSettings input)
         {
             if (input == null)
             {
@@ -176,12 +153,7 @@ namespace Mux.Csharp.Sdk.Model
                 ) && 
                 (
                     this.LanguageCode == input.LanguageCode ||
-                    (this.LanguageCode != null &&
-                    this.LanguageCode.Equals(input.LanguageCode))
-                ) && 
-                (
-                    this.LanguageChannel == input.LanguageChannel ||
-                    this.LanguageChannel.Equals(input.LanguageChannel)
+                    this.LanguageCode.Equals(input.LanguageCode)
                 )
                 && (this.AdditionalProperties.Count == input.AdditionalProperties.Count && !this.AdditionalProperties.Except(input.AdditionalProperties).Any());
         }
@@ -203,11 +175,7 @@ namespace Mux.Csharp.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Passthrough.GetHashCode();
                 }
-                if (this.LanguageCode != null)
-                {
-                    hashCode = (hashCode * 59) + this.LanguageCode.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.LanguageChannel.GetHashCode();
+                hashCode = (hashCode * 59) + this.LanguageCode.GetHashCode();
                 if (this.AdditionalProperties != null)
                 {
                     hashCode = (hashCode * 59) + this.AdditionalProperties.GetHashCode();

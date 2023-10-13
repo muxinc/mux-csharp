@@ -43,7 +43,7 @@ namespace Example
             var REALTIME_METRIC_ID = current-concurrent-viewers;  // string | ID of the Realtime Metric
             var dimension = "asn";  // string | Dimension the specified value belongs to (optional) 
             var timestamp = 56;  // int? | Timestamp to limit results by. This value must be provided as a unix timestamp. Defaults to the current unix timestamp. (optional) 
-            var filters = new List<string>(); // List<string> | Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a `!` character to the dimension.  Possible filter names are the same as returned by the List Filters endpoint.  Example:    * `filters[]=operating_system:windows&filters[]=!country:US`  (optional) 
+            var filters = new List<string>(); // List<string> | Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a `!` character to the dimension.  Possible filter names are the same as returned by the List Monitoring Dimensions endpoint.  Example:    * `filters[]=operating_system:windows&filters[]=!country:US`  (optional) 
             var orderBy = "negative_impact";  // string | Value to order the results by (optional) 
             var orderDirection = "asc";  // string | Sort order. (optional) 
 
@@ -71,7 +71,7 @@ Name | Type | Description  | Notes
  **REALTIME_METRIC_ID** | **string**| ID of the Realtime Metric | 
  **dimension** | **string**| Dimension the specified value belongs to | [optional] 
  **timestamp** | **int?**| Timestamp to limit results by. This value must be provided as a unix timestamp. Defaults to the current unix timestamp. | [optional] 
- **filters** | [**List&lt;string&gt;**](string.md)| Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Filters endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  | [optional] 
+ **filters** | [**List&lt;string&gt;**](string.md)| Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Monitoring Dimensions endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  | [optional] 
  **orderBy** | **string**| Value to order the results by | [optional] 
  **orderDirection** | **string**| Sort order. | [optional] 
 
@@ -126,7 +126,7 @@ namespace Example
 
             var apiInstance = new RealTimeApi(config);
             var REALTIME_HISTOGRAM_METRIC_ID = video-startup-time;  // string | ID of the Realtime Histogram Metric
-            var filters = new List<string>(); // List<string> | Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a `!` character to the dimension.  Possible filter names are the same as returned by the List Filters endpoint.  Example:    * `filters[]=operating_system:windows&filters[]=!country:US`  (optional) 
+            var filters = new List<string>(); // List<string> | Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a `!` character to the dimension.  Possible filter names are the same as returned by the List Monitoring Dimensions endpoint.  Example:    * `filters[]=operating_system:windows&filters[]=!country:US`  (optional) 
 
             try
             {
@@ -150,7 +150,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **REALTIME_HISTOGRAM_METRIC_ID** | **string**| ID of the Realtime Histogram Metric | 
- **filters** | [**List&lt;string&gt;**](string.md)| Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Filters endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  | [optional] 
+ **filters** | [**List&lt;string&gt;**](string.md)| Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Monitoring Dimensions endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  | [optional] 
 
 ### Return type
 
@@ -175,7 +175,7 @@ Name | Type | Description  | Notes
 
 <a name="getrealtimetimeseries"></a>
 # **GetRealtimeTimeseries**
-> GetRealTimeTimeseriesResponse GetRealtimeTimeseries (string REALTIME_METRIC_ID, List<string> filters = null)
+> GetRealTimeTimeseriesResponse GetRealtimeTimeseries (string REALTIME_METRIC_ID, List<string> filters = null, int? timestamp = null)
 
 Get Real-Time Timeseries
 
@@ -203,12 +203,13 @@ namespace Example
 
             var apiInstance = new RealTimeApi(config);
             var REALTIME_METRIC_ID = current-concurrent-viewers;  // string | ID of the Realtime Metric
-            var filters = new List<string>(); // List<string> | Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a `!` character to the dimension.  Possible filter names are the same as returned by the List Filters endpoint.  Example:    * `filters[]=operating_system:windows&filters[]=!country:US`  (optional) 
+            var filters = new List<string>(); // List<string> | Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a `!` character to the dimension.  Possible filter names are the same as returned by the List Monitoring Dimensions endpoint.  Example:    * `filters[]=operating_system:windows&filters[]=!country:US`  (optional) 
+            var timestamp = 56;  // int? | Timestamp to use as the start of the timeseries data. This value must be provided as a unix timestamp. Defaults to 30 minutes ago. (optional) 
 
             try
             {
                 // Get Real-Time Timeseries
-                GetRealTimeTimeseriesResponse result = apiInstance.GetRealtimeTimeseries(REALTIME_METRIC_ID, filters);
+                GetRealTimeTimeseriesResponse result = apiInstance.GetRealtimeTimeseries(REALTIME_METRIC_ID, filters, timestamp);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -227,7 +228,8 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **REALTIME_METRIC_ID** | **string**| ID of the Realtime Metric | 
- **filters** | [**List&lt;string&gt;**](string.md)| Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Filters endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  | [optional] 
+ **filters** | [**List&lt;string&gt;**](string.md)| Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Monitoring Dimensions endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  | [optional] 
+ **timestamp** | **int?**| Timestamp to use as the start of the timeseries data. This value must be provided as a unix timestamp. Defaults to 30 minutes ago. | [optional] 
 
 ### Return type
 

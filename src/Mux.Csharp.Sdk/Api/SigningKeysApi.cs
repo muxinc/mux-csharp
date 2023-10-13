@@ -24,217 +24,201 @@ namespace Mux.Csharp.Sdk.Api
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public interface IURLSigningKeysApiSync : IApiAccessor
+    public interface ISigningKeysApiSync : IApiAccessor
     {
         #region Synchronous Operations
         /// <summary>
-        /// Create a URL signing key
+        /// Create a signing key
         /// </summary>
         /// <remarks>
-        /// This route is now deprecated, please use the &#x60;Signing Keys&#x60; API. Creates a new signing key pair. When creating a new signing key, the API will generate a 2048-bit RSA key-pair and return the private key and a generated key-id; the public key will be stored at Mux to validate signed tokens.  Note: Any new access tokens authenticating this route will be required to have &#x60;System&#x60; level permissions. 
+        /// Creates a new signing key pair. When creating a new signing key, the API will generate a 2048-bit RSA key-pair and return the private key and a generated key-id; the public key will be stored at Mux to validate signed tokens.
         /// </remarks>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>SigningKeyResponse</returns>
-        [Obsolete]
-        SigningKeyResponse CreateUrlSigningKey();
+        SigningKeyResponse CreateSigningKey();
 
         /// <summary>
-        /// Create a URL signing key
+        /// Create a signing key
         /// </summary>
         /// <remarks>
-        /// This route is now deprecated, please use the &#x60;Signing Keys&#x60; API. Creates a new signing key pair. When creating a new signing key, the API will generate a 2048-bit RSA key-pair and return the private key and a generated key-id; the public key will be stored at Mux to validate signed tokens.  Note: Any new access tokens authenticating this route will be required to have &#x60;System&#x60; level permissions. 
+        /// Creates a new signing key pair. When creating a new signing key, the API will generate a 2048-bit RSA key-pair and return the private key and a generated key-id; the public key will be stored at Mux to validate signed tokens.
         /// </remarks>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of SigningKeyResponse</returns>
-        [Obsolete]
-        ApiResponse<SigningKeyResponse> CreateUrlSigningKeyWithHttpInfo();
+        ApiResponse<SigningKeyResponse> CreateSigningKeyWithHttpInfo();
         /// <summary>
-        /// Delete a URL signing key
+        /// Delete a signing key
         /// </summary>
         /// <remarks>
-        /// This route is now deprecated, please use the &#x60;Signing Keys&#x60; API. Deletes an existing signing key. Use with caution, as this will invalidate any existing signatures and no URLs can be signed using the key again.  Note: Any new access tokens authenticating this route will be required to have &#x60;System&#x60; level permissions. 
+        /// Deletes an existing signing key. Use with caution, as this will invalidate any existing signatures and no JWTs can be signed using the key again.
         /// </remarks>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="SIGNING_KEY_ID">The ID of the signing key.</param>
         /// <returns></returns>
-        [Obsolete]
-        void DeleteUrlSigningKey(string SIGNING_KEY_ID);
+        void DeleteSigningKey(string SIGNING_KEY_ID);
 
         /// <summary>
-        /// Delete a URL signing key
+        /// Delete a signing key
         /// </summary>
         /// <remarks>
-        /// This route is now deprecated, please use the &#x60;Signing Keys&#x60; API. Deletes an existing signing key. Use with caution, as this will invalidate any existing signatures and no URLs can be signed using the key again.  Note: Any new access tokens authenticating this route will be required to have &#x60;System&#x60; level permissions. 
+        /// Deletes an existing signing key. Use with caution, as this will invalidate any existing signatures and no JWTs can be signed using the key again.
         /// </remarks>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="SIGNING_KEY_ID">The ID of the signing key.</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        [Obsolete]
-        ApiResponse<Object> DeleteUrlSigningKeyWithHttpInfo(string SIGNING_KEY_ID);
+        ApiResponse<Object> DeleteSigningKeyWithHttpInfo(string SIGNING_KEY_ID);
         /// <summary>
-        /// Retrieve a URL signing key
+        /// Retrieve a signing key
         /// </summary>
         /// <remarks>
-        /// This route is now deprecated, please use the &#x60;Signing Keys&#x60; API. Retrieves the details of a URL signing key that has previously been created. Supply the unique signing key ID that was returned from your previous request, and Mux will return the corresponding signing key information. **The private key is not returned in this response.**  Note: Any new access tokens authenticating this route will be required to have &#x60;System&#x60; level permissions. 
+        /// Retrieves the details of a signing key that has previously been created. Supply the unique signing key ID that was returned from your previous request, and Mux will return the corresponding signing key information. **The private key is not returned in this response.** 
         /// </remarks>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="SIGNING_KEY_ID">The ID of the signing key.</param>
         /// <returns>SigningKeyResponse</returns>
-        [Obsolete]
-        SigningKeyResponse GetUrlSigningKey(string SIGNING_KEY_ID);
+        SigningKeyResponse GetSigningKey(string SIGNING_KEY_ID);
 
         /// <summary>
-        /// Retrieve a URL signing key
+        /// Retrieve a signing key
         /// </summary>
         /// <remarks>
-        /// This route is now deprecated, please use the &#x60;Signing Keys&#x60; API. Retrieves the details of a URL signing key that has previously been created. Supply the unique signing key ID that was returned from your previous request, and Mux will return the corresponding signing key information. **The private key is not returned in this response.**  Note: Any new access tokens authenticating this route will be required to have &#x60;System&#x60; level permissions. 
+        /// Retrieves the details of a signing key that has previously been created. Supply the unique signing key ID that was returned from your previous request, and Mux will return the corresponding signing key information. **The private key is not returned in this response.** 
         /// </remarks>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="SIGNING_KEY_ID">The ID of the signing key.</param>
         /// <returns>ApiResponse of SigningKeyResponse</returns>
-        [Obsolete]
-        ApiResponse<SigningKeyResponse> GetUrlSigningKeyWithHttpInfo(string SIGNING_KEY_ID);
+        ApiResponse<SigningKeyResponse> GetSigningKeyWithHttpInfo(string SIGNING_KEY_ID);
         /// <summary>
-        /// List URL signing keys
+        /// List signing keys
         /// </summary>
         /// <remarks>
-        /// This route is now deprecated, please use the &#x60;Signing Keys&#x60; API. Returns a list of URL signing keys.  Note: Any new access tokens authenticating this route will be required to have &#x60;System&#x60; level permissions. 
+        /// Returns a list of signing keys.
         /// </remarks>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Number of items to include in the response (optional, default to 25)</param>
         /// <param name="page">Offset by this many pages, of the size of &#x60;limit&#x60; (optional, default to 1)</param>
         /// <returns>ListSigningKeysResponse</returns>
-        [Obsolete]
-        ListSigningKeysResponse ListUrlSigningKeys(int? limit = default(int?), int? page = default(int?));
+        ListSigningKeysResponse ListSigningKeys(int? limit = default(int?), int? page = default(int?));
 
         /// <summary>
-        /// List URL signing keys
+        /// List signing keys
         /// </summary>
         /// <remarks>
-        /// This route is now deprecated, please use the &#x60;Signing Keys&#x60; API. Returns a list of URL signing keys.  Note: Any new access tokens authenticating this route will be required to have &#x60;System&#x60; level permissions. 
+        /// Returns a list of signing keys.
         /// </remarks>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Number of items to include in the response (optional, default to 25)</param>
         /// <param name="page">Offset by this many pages, of the size of &#x60;limit&#x60; (optional, default to 1)</param>
         /// <returns>ApiResponse of ListSigningKeysResponse</returns>
-        [Obsolete]
-        ApiResponse<ListSigningKeysResponse> ListUrlSigningKeysWithHttpInfo(int? limit = default(int?), int? page = default(int?));
+        ApiResponse<ListSigningKeysResponse> ListSigningKeysWithHttpInfo(int? limit = default(int?), int? page = default(int?));
         #endregion Synchronous Operations
     }
 
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public interface IURLSigningKeysApiAsync : IApiAccessor
+    public interface ISigningKeysApiAsync : IApiAccessor
     {
         #region Asynchronous Operations
         /// <summary>
-        /// Create a URL signing key
+        /// Create a signing key
         /// </summary>
         /// <remarks>
-        /// This route is now deprecated, please use the &#x60;Signing Keys&#x60; API. Creates a new signing key pair. When creating a new signing key, the API will generate a 2048-bit RSA key-pair and return the private key and a generated key-id; the public key will be stored at Mux to validate signed tokens.  Note: Any new access tokens authenticating this route will be required to have &#x60;System&#x60; level permissions. 
+        /// Creates a new signing key pair. When creating a new signing key, the API will generate a 2048-bit RSA key-pair and return the private key and a generated key-id; the public key will be stored at Mux to validate signed tokens.
         /// </remarks>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of SigningKeyResponse</returns>
-        [Obsolete]
-        System.Threading.Tasks.Task<SigningKeyResponse> CreateUrlSigningKeyAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<SigningKeyResponse> CreateSigningKeyAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Create a URL signing key
+        /// Create a signing key
         /// </summary>
         /// <remarks>
-        /// This route is now deprecated, please use the &#x60;Signing Keys&#x60; API. Creates a new signing key pair. When creating a new signing key, the API will generate a 2048-bit RSA key-pair and return the private key and a generated key-id; the public key will be stored at Mux to validate signed tokens.  Note: Any new access tokens authenticating this route will be required to have &#x60;System&#x60; level permissions. 
+        /// Creates a new signing key pair. When creating a new signing key, the API will generate a 2048-bit RSA key-pair and return the private key and a generated key-id; the public key will be stored at Mux to validate signed tokens.
         /// </remarks>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (SigningKeyResponse)</returns>
-        [Obsolete]
-        System.Threading.Tasks.Task<ApiResponse<SigningKeyResponse>> CreateUrlSigningKeyWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<SigningKeyResponse>> CreateSigningKeyWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Delete a URL signing key
+        /// Delete a signing key
         /// </summary>
         /// <remarks>
-        /// This route is now deprecated, please use the &#x60;Signing Keys&#x60; API. Deletes an existing signing key. Use with caution, as this will invalidate any existing signatures and no URLs can be signed using the key again.  Note: Any new access tokens authenticating this route will be required to have &#x60;System&#x60; level permissions. 
+        /// Deletes an existing signing key. Use with caution, as this will invalidate any existing signatures and no JWTs can be signed using the key again.
         /// </remarks>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="SIGNING_KEY_ID">The ID of the signing key.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        [Obsolete]
-        System.Threading.Tasks.Task DeleteUrlSigningKeyAsync(string SIGNING_KEY_ID, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task DeleteSigningKeyAsync(string SIGNING_KEY_ID, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Delete a URL signing key
+        /// Delete a signing key
         /// </summary>
         /// <remarks>
-        /// This route is now deprecated, please use the &#x60;Signing Keys&#x60; API. Deletes an existing signing key. Use with caution, as this will invalidate any existing signatures and no URLs can be signed using the key again.  Note: Any new access tokens authenticating this route will be required to have &#x60;System&#x60; level permissions. 
+        /// Deletes an existing signing key. Use with caution, as this will invalidate any existing signatures and no JWTs can be signed using the key again.
         /// </remarks>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="SIGNING_KEY_ID">The ID of the signing key.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        [Obsolete]
-        System.Threading.Tasks.Task<ApiResponse<Object>> DeleteUrlSigningKeyWithHttpInfoAsync(string SIGNING_KEY_ID, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Object>> DeleteSigningKeyWithHttpInfoAsync(string SIGNING_KEY_ID, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Retrieve a URL signing key
+        /// Retrieve a signing key
         /// </summary>
         /// <remarks>
-        /// This route is now deprecated, please use the &#x60;Signing Keys&#x60; API. Retrieves the details of a URL signing key that has previously been created. Supply the unique signing key ID that was returned from your previous request, and Mux will return the corresponding signing key information. **The private key is not returned in this response.**  Note: Any new access tokens authenticating this route will be required to have &#x60;System&#x60; level permissions. 
+        /// Retrieves the details of a signing key that has previously been created. Supply the unique signing key ID that was returned from your previous request, and Mux will return the corresponding signing key information. **The private key is not returned in this response.** 
         /// </remarks>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="SIGNING_KEY_ID">The ID of the signing key.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of SigningKeyResponse</returns>
-        [Obsolete]
-        System.Threading.Tasks.Task<SigningKeyResponse> GetUrlSigningKeyAsync(string SIGNING_KEY_ID, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<SigningKeyResponse> GetSigningKeyAsync(string SIGNING_KEY_ID, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Retrieve a URL signing key
+        /// Retrieve a signing key
         /// </summary>
         /// <remarks>
-        /// This route is now deprecated, please use the &#x60;Signing Keys&#x60; API. Retrieves the details of a URL signing key that has previously been created. Supply the unique signing key ID that was returned from your previous request, and Mux will return the corresponding signing key information. **The private key is not returned in this response.**  Note: Any new access tokens authenticating this route will be required to have &#x60;System&#x60; level permissions. 
+        /// Retrieves the details of a signing key that has previously been created. Supply the unique signing key ID that was returned from your previous request, and Mux will return the corresponding signing key information. **The private key is not returned in this response.** 
         /// </remarks>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="SIGNING_KEY_ID">The ID of the signing key.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (SigningKeyResponse)</returns>
-        [Obsolete]
-        System.Threading.Tasks.Task<ApiResponse<SigningKeyResponse>> GetUrlSigningKeyWithHttpInfoAsync(string SIGNING_KEY_ID, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<SigningKeyResponse>> GetSigningKeyWithHttpInfoAsync(string SIGNING_KEY_ID, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// List URL signing keys
+        /// List signing keys
         /// </summary>
         /// <remarks>
-        /// This route is now deprecated, please use the &#x60;Signing Keys&#x60; API. Returns a list of URL signing keys.  Note: Any new access tokens authenticating this route will be required to have &#x60;System&#x60; level permissions. 
+        /// Returns a list of signing keys.
         /// </remarks>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Number of items to include in the response (optional, default to 25)</param>
         /// <param name="page">Offset by this many pages, of the size of &#x60;limit&#x60; (optional, default to 1)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ListSigningKeysResponse</returns>
-        [Obsolete]
-        System.Threading.Tasks.Task<ListSigningKeysResponse> ListUrlSigningKeysAsync(int? limit = default(int?), int? page = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ListSigningKeysResponse> ListSigningKeysAsync(int? limit = default(int?), int? page = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// List URL signing keys
+        /// List signing keys
         /// </summary>
         /// <remarks>
-        /// This route is now deprecated, please use the &#x60;Signing Keys&#x60; API. Returns a list of URL signing keys.  Note: Any new access tokens authenticating this route will be required to have &#x60;System&#x60; level permissions. 
+        /// Returns a list of signing keys.
         /// </remarks>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Number of items to include in the response (optional, default to 25)</param>
         /// <param name="page">Offset by this many pages, of the size of &#x60;limit&#x60; (optional, default to 1)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ListSigningKeysResponse)</returns>
-        [Obsolete]
-        System.Threading.Tasks.Task<ApiResponse<ListSigningKeysResponse>> ListUrlSigningKeysWithHttpInfoAsync(int? limit = default(int?), int? page = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ListSigningKeysResponse>> ListSigningKeysWithHttpInfoAsync(int? limit = default(int?), int? page = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public interface IURLSigningKeysApi : IURLSigningKeysApiSync, IURLSigningKeysApiAsync
+    public interface ISigningKeysApi : ISigningKeysApiSync, ISigningKeysApiAsync
     {
 
     }
@@ -242,23 +226,23 @@ namespace Mux.Csharp.Sdk.Api
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public partial class URLSigningKeysApi : IURLSigningKeysApi
+    public partial class SigningKeysApi : ISigningKeysApi
     {
         private Mux.Csharp.Sdk.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="URLSigningKeysApi"/> class.
+        /// Initializes a new instance of the <see cref="SigningKeysApi"/> class.
         /// </summary>
         /// <returns></returns>
-        public URLSigningKeysApi() : this((string)null)
+        public SigningKeysApi() : this((string)null)
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="URLSigningKeysApi"/> class.
+        /// Initializes a new instance of the <see cref="SigningKeysApi"/> class.
         /// </summary>
         /// <returns></returns>
-        public URLSigningKeysApi(string basePath)
+        public SigningKeysApi(string basePath)
         {
             this.Configuration = Mux.Csharp.Sdk.Client.Configuration.MergeConfigurations(
                 Mux.Csharp.Sdk.Client.GlobalConfiguration.Instance,
@@ -270,12 +254,12 @@ namespace Mux.Csharp.Sdk.Api
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="URLSigningKeysApi"/> class
+        /// Initializes a new instance of the <see cref="SigningKeysApi"/> class
         /// using Configuration object
         /// </summary>
         /// <param name="configuration">An instance of Configuration</param>
         /// <returns></returns>
-        public URLSigningKeysApi(Mux.Csharp.Sdk.Client.Configuration configuration)
+        public SigningKeysApi(Mux.Csharp.Sdk.Client.Configuration configuration)
         {
             if (configuration == null) throw new ArgumentNullException("configuration");
 
@@ -289,13 +273,13 @@ namespace Mux.Csharp.Sdk.Api
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="URLSigningKeysApi"/> class
+        /// Initializes a new instance of the <see cref="SigningKeysApi"/> class
         /// using a Configuration object and client instance.
         /// </summary>
         /// <param name="client">The client interface for synchronous API access.</param>
         /// <param name="asyncClient">The client interface for asynchronous API access.</param>
         /// <param name="configuration">The configuration object.</param>
-        public URLSigningKeysApi(Mux.Csharp.Sdk.Client.ISynchronousClient client, Mux.Csharp.Sdk.Client.IAsynchronousClient asyncClient, Mux.Csharp.Sdk.Client.IReadableConfiguration configuration)
+        public SigningKeysApi(Mux.Csharp.Sdk.Client.ISynchronousClient client, Mux.Csharp.Sdk.Client.IAsynchronousClient asyncClient, Mux.Csharp.Sdk.Client.IReadableConfiguration configuration)
         {
             if (client == null) throw new ArgumentNullException("client");
             if (asyncClient == null) throw new ArgumentNullException("asyncClient");
@@ -349,24 +333,22 @@ namespace Mux.Csharp.Sdk.Api
         }
 
         /// <summary>
-        /// Create a URL signing key This route is now deprecated, please use the &#x60;Signing Keys&#x60; API. Creates a new signing key pair. When creating a new signing key, the API will generate a 2048-bit RSA key-pair and return the private key and a generated key-id; the public key will be stored at Mux to validate signed tokens.  Note: Any new access tokens authenticating this route will be required to have &#x60;System&#x60; level permissions. 
+        /// Create a signing key Creates a new signing key pair. When creating a new signing key, the API will generate a 2048-bit RSA key-pair and return the private key and a generated key-id; the public key will be stored at Mux to validate signed tokens.
         /// </summary>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>SigningKeyResponse</returns>
-        [Obsolete]
-        public SigningKeyResponse CreateUrlSigningKey()
+        public SigningKeyResponse CreateSigningKey()
         {
-            Mux.Csharp.Sdk.Client.ApiResponse<SigningKeyResponse> localVarResponse = CreateUrlSigningKeyWithHttpInfo();
+            Mux.Csharp.Sdk.Client.ApiResponse<SigningKeyResponse> localVarResponse = CreateSigningKeyWithHttpInfo();
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Create a URL signing key This route is now deprecated, please use the &#x60;Signing Keys&#x60; API. Creates a new signing key pair. When creating a new signing key, the API will generate a 2048-bit RSA key-pair and return the private key and a generated key-id; the public key will be stored at Mux to validate signed tokens.  Note: Any new access tokens authenticating this route will be required to have &#x60;System&#x60; level permissions. 
+        /// Create a signing key Creates a new signing key pair. When creating a new signing key, the API will generate a 2048-bit RSA key-pair and return the private key and a generated key-id; the public key will be stored at Mux to validate signed tokens.
         /// </summary>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of SigningKeyResponse</returns>
-        [Obsolete]
-        public Mux.Csharp.Sdk.Client.ApiResponse<SigningKeyResponse> CreateUrlSigningKeyWithHttpInfo()
+        public Mux.Csharp.Sdk.Client.ApiResponse<SigningKeyResponse> CreateSigningKeyWithHttpInfo()
         {
             Mux.Csharp.Sdk.Client.RequestOptions localVarRequestOptions = new Mux.Csharp.Sdk.Client.RequestOptions();
 
@@ -399,10 +381,10 @@ namespace Mux.Csharp.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Post<SigningKeyResponse>("/video/v1/signing-keys", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Post<SigningKeyResponse>("/system/v1/signing-keys", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("CreateUrlSigningKey", localVarResponse);
+                Exception _exception = this.ExceptionFactory("CreateSigningKey", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -413,26 +395,24 @@ namespace Mux.Csharp.Sdk.Api
         }
 
         /// <summary>
-        /// Create a URL signing key This route is now deprecated, please use the &#x60;Signing Keys&#x60; API. Creates a new signing key pair. When creating a new signing key, the API will generate a 2048-bit RSA key-pair and return the private key and a generated key-id; the public key will be stored at Mux to validate signed tokens.  Note: Any new access tokens authenticating this route will be required to have &#x60;System&#x60; level permissions. 
+        /// Create a signing key Creates a new signing key pair. When creating a new signing key, the API will generate a 2048-bit RSA key-pair and return the private key and a generated key-id; the public key will be stored at Mux to validate signed tokens.
         /// </summary>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of SigningKeyResponse</returns>
-        [Obsolete]
-        public async System.Threading.Tasks.Task<SigningKeyResponse> CreateUrlSigningKeyAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<SigningKeyResponse> CreateSigningKeyAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Mux.Csharp.Sdk.Client.ApiResponse<SigningKeyResponse> localVarResponse = await CreateUrlSigningKeyWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
+            Mux.Csharp.Sdk.Client.ApiResponse<SigningKeyResponse> localVarResponse = await CreateSigningKeyWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Create a URL signing key This route is now deprecated, please use the &#x60;Signing Keys&#x60; API. Creates a new signing key pair. When creating a new signing key, the API will generate a 2048-bit RSA key-pair and return the private key and a generated key-id; the public key will be stored at Mux to validate signed tokens.  Note: Any new access tokens authenticating this route will be required to have &#x60;System&#x60; level permissions. 
+        /// Create a signing key Creates a new signing key pair. When creating a new signing key, the API will generate a 2048-bit RSA key-pair and return the private key and a generated key-id; the public key will be stored at Mux to validate signed tokens.
         /// </summary>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (SigningKeyResponse)</returns>
-        [Obsolete]
-        public async System.Threading.Tasks.Task<Mux.Csharp.Sdk.Client.ApiResponse<SigningKeyResponse>> CreateUrlSigningKeyWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Mux.Csharp.Sdk.Client.ApiResponse<SigningKeyResponse>> CreateSigningKeyWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             Mux.Csharp.Sdk.Client.RequestOptions localVarRequestOptions = new Mux.Csharp.Sdk.Client.RequestOptions();
@@ -466,11 +446,11 @@ namespace Mux.Csharp.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.PostAsync<SigningKeyResponse>("/video/v1/signing-keys", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.PostAsync<SigningKeyResponse>("/system/v1/signing-keys", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("CreateUrlSigningKey", localVarResponse);
+                Exception _exception = this.ExceptionFactory("CreateSigningKey", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -481,30 +461,28 @@ namespace Mux.Csharp.Sdk.Api
         }
 
         /// <summary>
-        /// Delete a URL signing key This route is now deprecated, please use the &#x60;Signing Keys&#x60; API. Deletes an existing signing key. Use with caution, as this will invalidate any existing signatures and no URLs can be signed using the key again.  Note: Any new access tokens authenticating this route will be required to have &#x60;System&#x60; level permissions. 
+        /// Delete a signing key Deletes an existing signing key. Use with caution, as this will invalidate any existing signatures and no JWTs can be signed using the key again.
         /// </summary>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="SIGNING_KEY_ID">The ID of the signing key.</param>
         /// <returns></returns>
-        [Obsolete]
-        public void DeleteUrlSigningKey(string SIGNING_KEY_ID)
+        public void DeleteSigningKey(string SIGNING_KEY_ID)
         {
-            DeleteUrlSigningKeyWithHttpInfo(SIGNING_KEY_ID);
+            DeleteSigningKeyWithHttpInfo(SIGNING_KEY_ID);
         }
 
         /// <summary>
-        /// Delete a URL signing key This route is now deprecated, please use the &#x60;Signing Keys&#x60; API. Deletes an existing signing key. Use with caution, as this will invalidate any existing signatures and no URLs can be signed using the key again.  Note: Any new access tokens authenticating this route will be required to have &#x60;System&#x60; level permissions. 
+        /// Delete a signing key Deletes an existing signing key. Use with caution, as this will invalidate any existing signatures and no JWTs can be signed using the key again.
         /// </summary>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="SIGNING_KEY_ID">The ID of the signing key.</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        [Obsolete]
-        public Mux.Csharp.Sdk.Client.ApiResponse<Object> DeleteUrlSigningKeyWithHttpInfo(string SIGNING_KEY_ID)
+        public Mux.Csharp.Sdk.Client.ApiResponse<Object> DeleteSigningKeyWithHttpInfo(string SIGNING_KEY_ID)
         {
             // verify the required parameter 'SIGNING_KEY_ID' is set
             if (SIGNING_KEY_ID == null)
             {
-                throw new Mux.Csharp.Sdk.Client.ApiException(400, "Missing required parameter 'SIGNING_KEY_ID' when calling URLSigningKeysApi->DeleteUrlSigningKey");
+                throw new Mux.Csharp.Sdk.Client.ApiException(400, "Missing required parameter 'SIGNING_KEY_ID' when calling SigningKeysApi->DeleteSigningKey");
             }
 
             Mux.Csharp.Sdk.Client.RequestOptions localVarRequestOptions = new Mux.Csharp.Sdk.Client.RequestOptions();
@@ -538,10 +516,10 @@ namespace Mux.Csharp.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Delete<Object>("/video/v1/signing-keys/{SIGNING_KEY_ID}", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Delete<Object>("/system/v1/signing-keys/{SIGNING_KEY_ID}", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("DeleteUrlSigningKey", localVarResponse);
+                Exception _exception = this.ExceptionFactory("DeleteSigningKey", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -552,32 +530,30 @@ namespace Mux.Csharp.Sdk.Api
         }
 
         /// <summary>
-        /// Delete a URL signing key This route is now deprecated, please use the &#x60;Signing Keys&#x60; API. Deletes an existing signing key. Use with caution, as this will invalidate any existing signatures and no URLs can be signed using the key again.  Note: Any new access tokens authenticating this route will be required to have &#x60;System&#x60; level permissions. 
+        /// Delete a signing key Deletes an existing signing key. Use with caution, as this will invalidate any existing signatures and no JWTs can be signed using the key again.
         /// </summary>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="SIGNING_KEY_ID">The ID of the signing key.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        [Obsolete]
-        public async System.Threading.Tasks.Task DeleteUrlSigningKeyAsync(string SIGNING_KEY_ID, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task DeleteSigningKeyAsync(string SIGNING_KEY_ID, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            await DeleteUrlSigningKeyWithHttpInfoAsync(SIGNING_KEY_ID, cancellationToken).ConfigureAwait(false);
+            await DeleteSigningKeyWithHttpInfoAsync(SIGNING_KEY_ID, cancellationToken).ConfigureAwait(false);
         }
 
         /// <summary>
-        /// Delete a URL signing key This route is now deprecated, please use the &#x60;Signing Keys&#x60; API. Deletes an existing signing key. Use with caution, as this will invalidate any existing signatures and no URLs can be signed using the key again.  Note: Any new access tokens authenticating this route will be required to have &#x60;System&#x60; level permissions. 
+        /// Delete a signing key Deletes an existing signing key. Use with caution, as this will invalidate any existing signatures and no JWTs can be signed using the key again.
         /// </summary>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="SIGNING_KEY_ID">The ID of the signing key.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        [Obsolete]
-        public async System.Threading.Tasks.Task<Mux.Csharp.Sdk.Client.ApiResponse<Object>> DeleteUrlSigningKeyWithHttpInfoAsync(string SIGNING_KEY_ID, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Mux.Csharp.Sdk.Client.ApiResponse<Object>> DeleteSigningKeyWithHttpInfoAsync(string SIGNING_KEY_ID, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'SIGNING_KEY_ID' is set
             if (SIGNING_KEY_ID == null)
             {
-                throw new Mux.Csharp.Sdk.Client.ApiException(400, "Missing required parameter 'SIGNING_KEY_ID' when calling URLSigningKeysApi->DeleteUrlSigningKey");
+                throw new Mux.Csharp.Sdk.Client.ApiException(400, "Missing required parameter 'SIGNING_KEY_ID' when calling SigningKeysApi->DeleteSigningKey");
             }
 
 
@@ -612,11 +588,11 @@ namespace Mux.Csharp.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.DeleteAsync<Object>("/video/v1/signing-keys/{SIGNING_KEY_ID}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.DeleteAsync<Object>("/system/v1/signing-keys/{SIGNING_KEY_ID}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("DeleteUrlSigningKey", localVarResponse);
+                Exception _exception = this.ExceptionFactory("DeleteSigningKey", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -627,31 +603,29 @@ namespace Mux.Csharp.Sdk.Api
         }
 
         /// <summary>
-        /// Retrieve a URL signing key This route is now deprecated, please use the &#x60;Signing Keys&#x60; API. Retrieves the details of a URL signing key that has previously been created. Supply the unique signing key ID that was returned from your previous request, and Mux will return the corresponding signing key information. **The private key is not returned in this response.**  Note: Any new access tokens authenticating this route will be required to have &#x60;System&#x60; level permissions. 
+        /// Retrieve a signing key Retrieves the details of a signing key that has previously been created. Supply the unique signing key ID that was returned from your previous request, and Mux will return the corresponding signing key information. **The private key is not returned in this response.** 
         /// </summary>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="SIGNING_KEY_ID">The ID of the signing key.</param>
         /// <returns>SigningKeyResponse</returns>
-        [Obsolete]
-        public SigningKeyResponse GetUrlSigningKey(string SIGNING_KEY_ID)
+        public SigningKeyResponse GetSigningKey(string SIGNING_KEY_ID)
         {
-            Mux.Csharp.Sdk.Client.ApiResponse<SigningKeyResponse> localVarResponse = GetUrlSigningKeyWithHttpInfo(SIGNING_KEY_ID);
+            Mux.Csharp.Sdk.Client.ApiResponse<SigningKeyResponse> localVarResponse = GetSigningKeyWithHttpInfo(SIGNING_KEY_ID);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Retrieve a URL signing key This route is now deprecated, please use the &#x60;Signing Keys&#x60; API. Retrieves the details of a URL signing key that has previously been created. Supply the unique signing key ID that was returned from your previous request, and Mux will return the corresponding signing key information. **The private key is not returned in this response.**  Note: Any new access tokens authenticating this route will be required to have &#x60;System&#x60; level permissions. 
+        /// Retrieve a signing key Retrieves the details of a signing key that has previously been created. Supply the unique signing key ID that was returned from your previous request, and Mux will return the corresponding signing key information. **The private key is not returned in this response.** 
         /// </summary>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="SIGNING_KEY_ID">The ID of the signing key.</param>
         /// <returns>ApiResponse of SigningKeyResponse</returns>
-        [Obsolete]
-        public Mux.Csharp.Sdk.Client.ApiResponse<SigningKeyResponse> GetUrlSigningKeyWithHttpInfo(string SIGNING_KEY_ID)
+        public Mux.Csharp.Sdk.Client.ApiResponse<SigningKeyResponse> GetSigningKeyWithHttpInfo(string SIGNING_KEY_ID)
         {
             // verify the required parameter 'SIGNING_KEY_ID' is set
             if (SIGNING_KEY_ID == null)
             {
-                throw new Mux.Csharp.Sdk.Client.ApiException(400, "Missing required parameter 'SIGNING_KEY_ID' when calling URLSigningKeysApi->GetUrlSigningKey");
+                throw new Mux.Csharp.Sdk.Client.ApiException(400, "Missing required parameter 'SIGNING_KEY_ID' when calling SigningKeysApi->GetSigningKey");
             }
 
             Mux.Csharp.Sdk.Client.RequestOptions localVarRequestOptions = new Mux.Csharp.Sdk.Client.RequestOptions();
@@ -686,10 +660,10 @@ namespace Mux.Csharp.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<SigningKeyResponse>("/video/v1/signing-keys/{SIGNING_KEY_ID}", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<SigningKeyResponse>("/system/v1/signing-keys/{SIGNING_KEY_ID}", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetUrlSigningKey", localVarResponse);
+                Exception _exception = this.ExceptionFactory("GetSigningKey", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -700,33 +674,31 @@ namespace Mux.Csharp.Sdk.Api
         }
 
         /// <summary>
-        /// Retrieve a URL signing key This route is now deprecated, please use the &#x60;Signing Keys&#x60; API. Retrieves the details of a URL signing key that has previously been created. Supply the unique signing key ID that was returned from your previous request, and Mux will return the corresponding signing key information. **The private key is not returned in this response.**  Note: Any new access tokens authenticating this route will be required to have &#x60;System&#x60; level permissions. 
+        /// Retrieve a signing key Retrieves the details of a signing key that has previously been created. Supply the unique signing key ID that was returned from your previous request, and Mux will return the corresponding signing key information. **The private key is not returned in this response.** 
         /// </summary>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="SIGNING_KEY_ID">The ID of the signing key.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of SigningKeyResponse</returns>
-        [Obsolete]
-        public async System.Threading.Tasks.Task<SigningKeyResponse> GetUrlSigningKeyAsync(string SIGNING_KEY_ID, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<SigningKeyResponse> GetSigningKeyAsync(string SIGNING_KEY_ID, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Mux.Csharp.Sdk.Client.ApiResponse<SigningKeyResponse> localVarResponse = await GetUrlSigningKeyWithHttpInfoAsync(SIGNING_KEY_ID, cancellationToken).ConfigureAwait(false);
+            Mux.Csharp.Sdk.Client.ApiResponse<SigningKeyResponse> localVarResponse = await GetSigningKeyWithHttpInfoAsync(SIGNING_KEY_ID, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Retrieve a URL signing key This route is now deprecated, please use the &#x60;Signing Keys&#x60; API. Retrieves the details of a URL signing key that has previously been created. Supply the unique signing key ID that was returned from your previous request, and Mux will return the corresponding signing key information. **The private key is not returned in this response.**  Note: Any new access tokens authenticating this route will be required to have &#x60;System&#x60; level permissions. 
+        /// Retrieve a signing key Retrieves the details of a signing key that has previously been created. Supply the unique signing key ID that was returned from your previous request, and Mux will return the corresponding signing key information. **The private key is not returned in this response.** 
         /// </summary>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="SIGNING_KEY_ID">The ID of the signing key.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (SigningKeyResponse)</returns>
-        [Obsolete]
-        public async System.Threading.Tasks.Task<Mux.Csharp.Sdk.Client.ApiResponse<SigningKeyResponse>> GetUrlSigningKeyWithHttpInfoAsync(string SIGNING_KEY_ID, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Mux.Csharp.Sdk.Client.ApiResponse<SigningKeyResponse>> GetSigningKeyWithHttpInfoAsync(string SIGNING_KEY_ID, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'SIGNING_KEY_ID' is set
             if (SIGNING_KEY_ID == null)
             {
-                throw new Mux.Csharp.Sdk.Client.ApiException(400, "Missing required parameter 'SIGNING_KEY_ID' when calling URLSigningKeysApi->GetUrlSigningKey");
+                throw new Mux.Csharp.Sdk.Client.ApiException(400, "Missing required parameter 'SIGNING_KEY_ID' when calling SigningKeysApi->GetSigningKey");
             }
 
 
@@ -762,11 +734,11 @@ namespace Mux.Csharp.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<SigningKeyResponse>("/video/v1/signing-keys/{SIGNING_KEY_ID}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<SigningKeyResponse>("/system/v1/signing-keys/{SIGNING_KEY_ID}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetUrlSigningKey", localVarResponse);
+                Exception _exception = this.ExceptionFactory("GetSigningKey", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -777,28 +749,26 @@ namespace Mux.Csharp.Sdk.Api
         }
 
         /// <summary>
-        /// List URL signing keys This route is now deprecated, please use the &#x60;Signing Keys&#x60; API. Returns a list of URL signing keys.  Note: Any new access tokens authenticating this route will be required to have &#x60;System&#x60; level permissions. 
+        /// List signing keys Returns a list of signing keys.
         /// </summary>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Number of items to include in the response (optional, default to 25)</param>
         /// <param name="page">Offset by this many pages, of the size of &#x60;limit&#x60; (optional, default to 1)</param>
         /// <returns>ListSigningKeysResponse</returns>
-        [Obsolete]
-        public ListSigningKeysResponse ListUrlSigningKeys(int? limit = default(int?), int? page = default(int?))
+        public ListSigningKeysResponse ListSigningKeys(int? limit = default(int?), int? page = default(int?))
         {
-            Mux.Csharp.Sdk.Client.ApiResponse<ListSigningKeysResponse> localVarResponse = ListUrlSigningKeysWithHttpInfo(limit, page);
+            Mux.Csharp.Sdk.Client.ApiResponse<ListSigningKeysResponse> localVarResponse = ListSigningKeysWithHttpInfo(limit, page);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// List URL signing keys This route is now deprecated, please use the &#x60;Signing Keys&#x60; API. Returns a list of URL signing keys.  Note: Any new access tokens authenticating this route will be required to have &#x60;System&#x60; level permissions. 
+        /// List signing keys Returns a list of signing keys.
         /// </summary>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Number of items to include in the response (optional, default to 25)</param>
         /// <param name="page">Offset by this many pages, of the size of &#x60;limit&#x60; (optional, default to 1)</param>
         /// <returns>ApiResponse of ListSigningKeysResponse</returns>
-        [Obsolete]
-        public Mux.Csharp.Sdk.Client.ApiResponse<ListSigningKeysResponse> ListUrlSigningKeysWithHttpInfo(int? limit = default(int?), int? page = default(int?))
+        public Mux.Csharp.Sdk.Client.ApiResponse<ListSigningKeysResponse> ListSigningKeysWithHttpInfo(int? limit = default(int?), int? page = default(int?))
         {
             Mux.Csharp.Sdk.Client.RequestOptions localVarRequestOptions = new Mux.Csharp.Sdk.Client.RequestOptions();
 
@@ -839,10 +809,10 @@ namespace Mux.Csharp.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<ListSigningKeysResponse>("/video/v1/signing-keys", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<ListSigningKeysResponse>("/system/v1/signing-keys", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("ListUrlSigningKeys", localVarResponse);
+                Exception _exception = this.ExceptionFactory("ListSigningKeys", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -853,30 +823,28 @@ namespace Mux.Csharp.Sdk.Api
         }
 
         /// <summary>
-        /// List URL signing keys This route is now deprecated, please use the &#x60;Signing Keys&#x60; API. Returns a list of URL signing keys.  Note: Any new access tokens authenticating this route will be required to have &#x60;System&#x60; level permissions. 
+        /// List signing keys Returns a list of signing keys.
         /// </summary>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Number of items to include in the response (optional, default to 25)</param>
         /// <param name="page">Offset by this many pages, of the size of &#x60;limit&#x60; (optional, default to 1)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ListSigningKeysResponse</returns>
-        [Obsolete]
-        public async System.Threading.Tasks.Task<ListSigningKeysResponse> ListUrlSigningKeysAsync(int? limit = default(int?), int? page = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ListSigningKeysResponse> ListSigningKeysAsync(int? limit = default(int?), int? page = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Mux.Csharp.Sdk.Client.ApiResponse<ListSigningKeysResponse> localVarResponse = await ListUrlSigningKeysWithHttpInfoAsync(limit, page, cancellationToken).ConfigureAwait(false);
+            Mux.Csharp.Sdk.Client.ApiResponse<ListSigningKeysResponse> localVarResponse = await ListSigningKeysWithHttpInfoAsync(limit, page, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// List URL signing keys This route is now deprecated, please use the &#x60;Signing Keys&#x60; API. Returns a list of URL signing keys.  Note: Any new access tokens authenticating this route will be required to have &#x60;System&#x60; level permissions. 
+        /// List signing keys Returns a list of signing keys.
         /// </summary>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Number of items to include in the response (optional, default to 25)</param>
         /// <param name="page">Offset by this many pages, of the size of &#x60;limit&#x60; (optional, default to 1)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ListSigningKeysResponse)</returns>
-        [Obsolete]
-        public async System.Threading.Tasks.Task<Mux.Csharp.Sdk.Client.ApiResponse<ListSigningKeysResponse>> ListUrlSigningKeysWithHttpInfoAsync(int? limit = default(int?), int? page = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Mux.Csharp.Sdk.Client.ApiResponse<ListSigningKeysResponse>> ListSigningKeysWithHttpInfoAsync(int? limit = default(int?), int? page = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             Mux.Csharp.Sdk.Client.RequestOptions localVarRequestOptions = new Mux.Csharp.Sdk.Client.RequestOptions();
@@ -918,11 +886,11 @@ namespace Mux.Csharp.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<ListSigningKeysResponse>("/video/v1/signing-keys", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<ListSigningKeysResponse>("/system/v1/signing-keys", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("ListUrlSigningKeys", localVarResponse);
+                Exception _exception = this.ExceptionFactory("ListSigningKeys", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
