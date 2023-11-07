@@ -117,7 +117,13 @@ namespace Mux.Csharp.Sdk.Model
             /// Enum GeneratedLiveFinal for value: generated_live_final
             /// </summary>
             [EnumMember(Value = "generated_live_final")]
-            GeneratedLiveFinal = 4
+            GeneratedLiveFinal = 4,
+
+            /// <summary>
+            /// Enum GeneratedVod for value: generated_vod
+            /// </summary>
+            [EnumMember(Value = "generated_vod")]
+            GeneratedVod = 5
 
         }
 
