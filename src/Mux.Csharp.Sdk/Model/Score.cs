@@ -37,16 +37,26 @@ namespace Mux.Csharp.Sdk.Model
         /// </summary>
         /// <param name="watchTime">watchTime.</param>
         /// <param name="viewCount">viewCount.</param>
+        /// <param name="uniqueViewers">uniqueViewers.</param>
+        /// <param name="startedViews">startedViews.</param>
+        /// <param name="totalPlayingTime">totalPlayingTime.</param>
         /// <param name="name">name.</param>
+        /// <param name="endedViews">endedViews.</param>
         /// <param name="value">value.</param>
+        /// <param name="type">type.</param>
         /// <param name="metric">metric.</param>
         /// <param name="items">items.</param>
-        public Score(long watchTime = default(long), long viewCount = default(long), string name = default(string), double value = default(double), string metric = default(string), List<Metric> items = default(List<Metric>))
+        public Score(long? watchTime = default(long?), long viewCount = default(long), long uniqueViewers = default(long), long startedViews = default(long), long? totalPlayingTime = default(long?), string name = default(string), long endedViews = default(long), double value = default(double), string type = default(string), string metric = default(string), List<Metric> items = default(List<Metric>))
         {
             this.WatchTime = watchTime;
             this.ViewCount = viewCount;
+            this.UniqueViewers = uniqueViewers;
+            this.StartedViews = startedViews;
+            this.TotalPlayingTime = totalPlayingTime;
             this.Name = name;
+            this.EndedViews = endedViews;
             this.Value = value;
+            this.Type = type;
             this.Metric = metric;
             this.Items = items;
             this.AdditionalProperties = new Dictionary<string, object>();
@@ -55,8 +65,8 @@ namespace Mux.Csharp.Sdk.Model
         /// <summary>
         /// Gets or Sets WatchTime
         /// </summary>
-        [DataMember(Name = "watch_time", EmitDefaultValue = false)]
-        public long WatchTime { get; set; }
+        [DataMember(Name = "watch_time", EmitDefaultValue = true)]
+        public long? WatchTime { get; set; }
 
         /// <summary>
         /// Gets or Sets ViewCount
@@ -65,16 +75,46 @@ namespace Mux.Csharp.Sdk.Model
         public long ViewCount { get; set; }
 
         /// <summary>
+        /// Gets or Sets UniqueViewers
+        /// </summary>
+        [DataMember(Name = "unique_viewers", EmitDefaultValue = false)]
+        public long UniqueViewers { get; set; }
+
+        /// <summary>
+        /// Gets or Sets StartedViews
+        /// </summary>
+        [DataMember(Name = "started_views", EmitDefaultValue = false)]
+        public long StartedViews { get; set; }
+
+        /// <summary>
+        /// Gets or Sets TotalPlayingTime
+        /// </summary>
+        [DataMember(Name = "total_playing_time", EmitDefaultValue = true)]
+        public long? TotalPlayingTime { get; set; }
+
+        /// <summary>
         /// Gets or Sets Name
         /// </summary>
         [DataMember(Name = "name", EmitDefaultValue = false)]
         public string Name { get; set; }
 
         /// <summary>
+        /// Gets or Sets EndedViews
+        /// </summary>
+        [DataMember(Name = "ended_views", EmitDefaultValue = false)]
+        public long EndedViews { get; set; }
+
+        /// <summary>
         /// Gets or Sets Value
         /// </summary>
         [DataMember(Name = "value", EmitDefaultValue = false)]
         public double Value { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Type
+        /// </summary>
+        [DataMember(Name = "type", EmitDefaultValue = false)]
+        public string Type { get; set; }
 
         /// <summary>
         /// Gets or Sets Metric
@@ -104,8 +144,13 @@ namespace Mux.Csharp.Sdk.Model
             sb.Append("class Score {\n");
             sb.Append("  WatchTime: ").Append(WatchTime).Append("\n");
             sb.Append("  ViewCount: ").Append(ViewCount).Append("\n");
+            sb.Append("  UniqueViewers: ").Append(UniqueViewers).Append("\n");
+            sb.Append("  StartedViews: ").Append(StartedViews).Append("\n");
+            sb.Append("  TotalPlayingTime: ").Append(TotalPlayingTime).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
+            sb.Append("  EndedViews: ").Append(EndedViews).Append("\n");
             sb.Append("  Value: ").Append(Value).Append("\n");
+            sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  Metric: ").Append(Metric).Append("\n");
             sb.Append("  Items: ").Append(Items).Append("\n");
             sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
@@ -146,11 +191,25 @@ namespace Mux.Csharp.Sdk.Model
             return 
                 (
                     this.WatchTime == input.WatchTime ||
-                    this.WatchTime.Equals(input.WatchTime)
+                    (this.WatchTime != null &&
+                    this.WatchTime.Equals(input.WatchTime))
                 ) && 
                 (
                     this.ViewCount == input.ViewCount ||
                     this.ViewCount.Equals(input.ViewCount)
+                ) && 
+                (
+                    this.UniqueViewers == input.UniqueViewers ||
+                    this.UniqueViewers.Equals(input.UniqueViewers)
+                ) && 
+                (
+                    this.StartedViews == input.StartedViews ||
+                    this.StartedViews.Equals(input.StartedViews)
+                ) && 
+                (
+                    this.TotalPlayingTime == input.TotalPlayingTime ||
+                    (this.TotalPlayingTime != null &&
+                    this.TotalPlayingTime.Equals(input.TotalPlayingTime))
                 ) && 
                 (
                     this.Name == input.Name ||
@@ -158,8 +217,17 @@ namespace Mux.Csharp.Sdk.Model
                     this.Name.Equals(input.Name))
                 ) && 
                 (
+                    this.EndedViews == input.EndedViews ||
+                    this.EndedViews.Equals(input.EndedViews)
+                ) && 
+                (
                     this.Value == input.Value ||
                     this.Value.Equals(input.Value)
+                ) && 
+                (
+                    this.Type == input.Type ||
+                    (this.Type != null &&
+                    this.Type.Equals(input.Type))
                 ) && 
                 (
                     this.Metric == input.Metric ||
@@ -184,13 +252,27 @@ namespace Mux.Csharp.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = (hashCode * 59) + this.WatchTime.GetHashCode();
+                if (this.WatchTime != null)
+                {
+                    hashCode = (hashCode * 59) + this.WatchTime.GetHashCode();
+                }
                 hashCode = (hashCode * 59) + this.ViewCount.GetHashCode();
+                hashCode = (hashCode * 59) + this.UniqueViewers.GetHashCode();
+                hashCode = (hashCode * 59) + this.StartedViews.GetHashCode();
+                if (this.TotalPlayingTime != null)
+                {
+                    hashCode = (hashCode * 59) + this.TotalPlayingTime.GetHashCode();
+                }
                 if (this.Name != null)
                 {
                     hashCode = (hashCode * 59) + this.Name.GetHashCode();
                 }
+                hashCode = (hashCode * 59) + this.EndedViews.GetHashCode();
                 hashCode = (hashCode * 59) + this.Value.GetHashCode();
+                if (this.Type != null)
+                {
+                    hashCode = (hashCode * 59) + this.Type.GetHashCode();
+                }
                 if (this.Metric != null)
                 {
                     hashCode = (hashCode * 59) + this.Metric.GetHashCode();

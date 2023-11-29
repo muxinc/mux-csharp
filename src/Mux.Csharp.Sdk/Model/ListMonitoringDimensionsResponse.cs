@@ -38,7 +38,7 @@ namespace Mux.Csharp.Sdk.Model
         /// <param name="data">data.</param>
         /// <param name="totalRowCount">totalRowCount.</param>
         /// <param name="timeframe">timeframe.</param>
-        public ListMonitoringDimensionsResponse(List<ListMonitoringDimensionsResponseData> data = default(List<ListMonitoringDimensionsResponseData>), long totalRowCount = default(long), List<long> timeframe = default(List<long>))
+        public ListMonitoringDimensionsResponse(List<ListMonitoringDimensionsResponseData> data = default(List<ListMonitoringDimensionsResponseData>), long? totalRowCount = default(long?), List<long> timeframe = default(List<long>))
         {
             this.Data = data;
             this.TotalRowCount = totalRowCount;
@@ -55,8 +55,8 @@ namespace Mux.Csharp.Sdk.Model
         /// <summary>
         /// Gets or Sets TotalRowCount
         /// </summary>
-        [DataMember(Name = "total_row_count", EmitDefaultValue = false)]
-        public long TotalRowCount { get; set; }
+        [DataMember(Name = "total_row_count", EmitDefaultValue = true)]
+        public long? TotalRowCount { get; set; }
 
         /// <summary>
         /// Gets or Sets Timeframe
@@ -125,7 +125,8 @@ namespace Mux.Csharp.Sdk.Model
                 ) && 
                 (
                     this.TotalRowCount == input.TotalRowCount ||
-                    this.TotalRowCount.Equals(input.TotalRowCount)
+                    (this.TotalRowCount != null &&
+                    this.TotalRowCount.Equals(input.TotalRowCount))
                 ) && 
                 (
                     this.Timeframe == input.Timeframe ||
@@ -149,7 +150,10 @@ namespace Mux.Csharp.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Data.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.TotalRowCount.GetHashCode();
+                if (this.TotalRowCount != null)
+                {
+                    hashCode = (hashCode * 59) + this.TotalRowCount.GetHashCode();
+                }
                 if (this.Timeframe != null)
                 {
                     hashCode = (hashCode * 59) + this.Timeframe.GetHashCode();

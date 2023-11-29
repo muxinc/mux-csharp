@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Value** | **double** |  | [optional] 
+**Value** | **double?** |  | [optional] 
 **Type** | **string** |  | [optional] 
 **Name** | **string** |  | [optional] 
 **_Metric** | **string** |  | [optional] 

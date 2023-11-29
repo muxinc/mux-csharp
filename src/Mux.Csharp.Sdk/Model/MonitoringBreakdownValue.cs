@@ -40,20 +40,22 @@ namespace Mux.Csharp.Sdk.Model
         /// <param name="metricValue">metricValue.</param>
         /// <param name="displayValue">displayValue.</param>
         /// <param name="concurrentViewers">concurrentViewers.</param>
-        public MonitoringBreakdownValue(string value = default(string), long negativeImpact = default(long), double metricValue = default(double), string displayValue = default(string), long concurrentViewers = default(long))
+        /// <param name="startingUpViewers">startingUpViewers.</param>
+        public MonitoringBreakdownValue(string value = default(string), long negativeImpact = default(long), double? metricValue = default(double?), string displayValue = default(string), long concurrentViewers = default(long), long startingUpViewers = default(long))
         {
             this.Value = value;
             this.NegativeImpact = negativeImpact;
             this.MetricValue = metricValue;
             this.DisplayValue = displayValue;
             this.ConcurrentViewers = concurrentViewers;
+            this.StartingUpViewers = startingUpViewers;
             this.AdditionalProperties = new Dictionary<string, object>();
         }
 
         /// <summary>
         /// Gets or Sets Value
         /// </summary>
-        [DataMember(Name = "value", EmitDefaultValue = false)]
+        [DataMember(Name = "value", EmitDefaultValue = true)]
         public string Value { get; set; }
 
         /// <summary>
@@ -65,8 +67,8 @@ namespace Mux.Csharp.Sdk.Model
         /// <summary>
         /// Gets or Sets MetricValue
         /// </summary>
-        [DataMember(Name = "metric_value", EmitDefaultValue = false)]
-        public double MetricValue { get; set; }
+        [DataMember(Name = "metric_value", EmitDefaultValue = true)]
+        public double? MetricValue { get; set; }
 
         /// <summary>
         /// Gets or Sets DisplayValue
@@ -79,6 +81,12 @@ namespace Mux.Csharp.Sdk.Model
         /// </summary>
         [DataMember(Name = "concurrent_viewers", EmitDefaultValue = false)]
         public long ConcurrentViewers { get; set; }
+
+        /// <summary>
+        /// Gets or Sets StartingUpViewers
+        /// </summary>
+        [DataMember(Name = "starting_up_viewers", EmitDefaultValue = false)]
+        public long StartingUpViewers { get; set; }
 
         /// <summary>
         /// Gets or Sets additional properties
@@ -99,6 +107,7 @@ namespace Mux.Csharp.Sdk.Model
             sb.Append("  MetricValue: ").Append(MetricValue).Append("\n");
             sb.Append("  DisplayValue: ").Append(DisplayValue).Append("\n");
             sb.Append("  ConcurrentViewers: ").Append(ConcurrentViewers).Append("\n");
+            sb.Append("  StartingUpViewers: ").Append(StartingUpViewers).Append("\n");
             sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -146,7 +155,8 @@ namespace Mux.Csharp.Sdk.Model
                 ) && 
                 (
                     this.MetricValue == input.MetricValue ||
-                    this.MetricValue.Equals(input.MetricValue)
+                    (this.MetricValue != null &&
+                    this.MetricValue.Equals(input.MetricValue))
                 ) && 
                 (
                     this.DisplayValue == input.DisplayValue ||
@@ -156,6 +166,10 @@ namespace Mux.Csharp.Sdk.Model
                 (
                     this.ConcurrentViewers == input.ConcurrentViewers ||
                     this.ConcurrentViewers.Equals(input.ConcurrentViewers)
+                ) && 
+                (
+                    this.StartingUpViewers == input.StartingUpViewers ||
+                    this.StartingUpViewers.Equals(input.StartingUpViewers)
                 )
                 && (this.AdditionalProperties.Count == input.AdditionalProperties.Count && !this.AdditionalProperties.Except(input.AdditionalProperties).Any());
         }
@@ -174,12 +188,16 @@ namespace Mux.Csharp.Sdk.Model
                     hashCode = (hashCode * 59) + this.Value.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.NegativeImpact.GetHashCode();
-                hashCode = (hashCode * 59) + this.MetricValue.GetHashCode();
+                if (this.MetricValue != null)
+                {
+                    hashCode = (hashCode * 59) + this.MetricValue.GetHashCode();
+                }
                 if (this.DisplayValue != null)
                 {
                     hashCode = (hashCode * 59) + this.DisplayValue.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.ConcurrentViewers.GetHashCode();
+                hashCode = (hashCode * 59) + this.StartingUpViewers.GetHashCode();
                 if (this.AdditionalProperties != null)
                 {
                     hashCode = (hashCode * 59) + this.AdditionalProperties.GetHashCode();

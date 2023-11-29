@@ -40,7 +40,7 @@ namespace Mux.Csharp.Sdk.Model
         /// <param name="name">name.</param>
         /// <param name="metric">metric.</param>
         /// <param name="measurement">measurement.</param>
-        public Metric(double value = default(double), string type = default(string), string name = default(string), string metric = default(string), string measurement = default(string))
+        public Metric(double? value = default(double?), string type = default(string), string name = default(string), string metric = default(string), string measurement = default(string))
         {
             this.Value = value;
             this.Type = type;
@@ -53,8 +53,8 @@ namespace Mux.Csharp.Sdk.Model
         /// <summary>
         /// Gets or Sets Value
         /// </summary>
-        [DataMember(Name = "value", EmitDefaultValue = false)]
-        public double Value { get; set; }
+        [DataMember(Name = "value", EmitDefaultValue = true)]
+        public double? Value { get; set; }
 
         /// <summary>
         /// Gets or Sets Type
@@ -137,7 +137,8 @@ namespace Mux.Csharp.Sdk.Model
             return 
                 (
                     this.Value == input.Value ||
-                    this.Value.Equals(input.Value)
+                    (this.Value != null &&
+                    this.Value.Equals(input.Value))
                 ) && 
                 (
                     this.Type == input.Type ||
@@ -171,7 +172,10 @@ namespace Mux.Csharp.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = (hashCode * 59) + this.Value.GetHashCode();
+                if (this.Value != null)
+                {
+                    hashCode = (hashCode * 59) + this.Value.GetHashCode();
+                }
                 if (this.Type != null)
                 {
                     hashCode = (hashCode * 59) + this.Type.GetHashCode();

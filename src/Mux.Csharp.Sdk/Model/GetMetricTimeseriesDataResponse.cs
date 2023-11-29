@@ -38,11 +38,13 @@ namespace Mux.Csharp.Sdk.Model
         /// <param name="data">data.</param>
         /// <param name="totalRowCount">totalRowCount.</param>
         /// <param name="timeframe">timeframe.</param>
-        public GetMetricTimeseriesDataResponse(List<List<string>> data = default(List<List<string>>), long totalRowCount = default(long), List<long> timeframe = default(List<long>))
+        /// <param name="meta">meta.</param>
+        public GetMetricTimeseriesDataResponse(List<List<string>> data = default(List<List<string>>), long totalRowCount = default(long), List<long> timeframe = default(List<long>), ListBreakdownValuesResponseMeta meta = default(ListBreakdownValuesResponseMeta))
         {
             this.Data = data;
             this.TotalRowCount = totalRowCount;
             this.Timeframe = timeframe;
+            this.Meta = meta;
             this.AdditionalProperties = new Dictionary<string, object>();
         }
 
@@ -65,6 +67,12 @@ namespace Mux.Csharp.Sdk.Model
         public List<long> Timeframe { get; set; }
 
         /// <summary>
+        /// Gets or Sets Meta
+        /// </summary>
+        [DataMember(Name = "meta", EmitDefaultValue = false)]
+        public ListBreakdownValuesResponseMeta Meta { get; set; }
+
+        /// <summary>
         /// Gets or Sets additional properties
         /// </summary>
         [JsonExtensionData]
@@ -81,6 +89,7 @@ namespace Mux.Csharp.Sdk.Model
             sb.Append("  Data: ").Append(Data).Append("\n");
             sb.Append("  TotalRowCount: ").Append(TotalRowCount).Append("\n");
             sb.Append("  Timeframe: ").Append(Timeframe).Append("\n");
+            sb.Append("  Meta: ").Append(Meta).Append("\n");
             sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -132,6 +141,11 @@ namespace Mux.Csharp.Sdk.Model
                     this.Timeframe != null &&
                     input.Timeframe != null &&
                     this.Timeframe.SequenceEqual(input.Timeframe)
+                ) && 
+                (
+                    this.Meta == input.Meta ||
+                    (this.Meta != null &&
+                    this.Meta.Equals(input.Meta))
                 )
                 && (this.AdditionalProperties.Count == input.AdditionalProperties.Count && !this.AdditionalProperties.Except(input.AdditionalProperties).Any());
         }
@@ -153,6 +167,10 @@ namespace Mux.Csharp.Sdk.Model
                 if (this.Timeframe != null)
                 {
                     hashCode = (hashCode * 59) + this.Timeframe.GetHashCode();
+                }
+                if (this.Meta != null)
+                {
+                    hashCode = (hashCode * 59) + this.Meta.GetHashCode();
                 }
                 if (this.AdditionalProperties != null)
                 {

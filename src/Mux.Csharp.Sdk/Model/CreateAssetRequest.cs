@@ -33,9 +33,9 @@ namespace Mux.Csharp.Sdk.Model
     public partial class CreateAssetRequest : IEquatable<CreateAssetRequest>, IValidatableObject
     {
         /// <summary>
-        /// Specify what level (if any) of support for mp4 playback. In most cases you should use our default HLS-based streaming playback ({playback_id}.m3u8) which can automatically adjust to viewers&#39; connection speeds, but an mp4 can be useful for some legacy devices or downloading for offline playback. See the [Download your videos guide](/guides/video/download-your-videos) for more information.
+        /// Specify what level (if any) of support for mp4 playback. In most cases you should use our default HLS-based streaming playback ({playback_id}.m3u8) which can automatically adjust to viewers&#39; connection speeds, but an mp4 can be useful for some legacy devices or downloading for offline playback. See the [Download your videos guide](https://docs.mux.com/guides/enable-static-mp4-renditions) for more information.
         /// </summary>
-        /// <value>Specify what level (if any) of support for mp4 playback. In most cases you should use our default HLS-based streaming playback ({playback_id}.m3u8) which can automatically adjust to viewers&#39; connection speeds, but an mp4 can be useful for some legacy devices or downloading for offline playback. See the [Download your videos guide](/guides/video/download-your-videos) for more information.</value>
+        /// <value>Specify what level (if any) of support for mp4 playback. In most cases you should use our default HLS-based streaming playback ({playback_id}.m3u8) which can automatically adjust to viewers&#39; connection speeds, but an mp4 can be useful for some legacy devices or downloading for offline playback. See the [Download your videos guide](https://docs.mux.com/guides/enable-static-mp4-renditions) for more information.</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum Mp4SupportEnum
         {
@@ -55,15 +55,15 @@ namespace Mux.Csharp.Sdk.Model
 
 
         /// <summary>
-        /// Specify what level (if any) of support for mp4 playback. In most cases you should use our default HLS-based streaming playback ({playback_id}.m3u8) which can automatically adjust to viewers&#39; connection speeds, but an mp4 can be useful for some legacy devices or downloading for offline playback. See the [Download your videos guide](/guides/video/download-your-videos) for more information.
+        /// Specify what level (if any) of support for mp4 playback. In most cases you should use our default HLS-based streaming playback ({playback_id}.m3u8) which can automatically adjust to viewers&#39; connection speeds, but an mp4 can be useful for some legacy devices or downloading for offline playback. See the [Download your videos guide](https://docs.mux.com/guides/enable-static-mp4-renditions) for more information.
         /// </summary>
-        /// <value>Specify what level (if any) of support for mp4 playback. In most cases you should use our default HLS-based streaming playback ({playback_id}.m3u8) which can automatically adjust to viewers&#39; connection speeds, but an mp4 can be useful for some legacy devices or downloading for offline playback. See the [Download your videos guide](/guides/video/download-your-videos) for more information.</value>
+        /// <value>Specify what level (if any) of support for mp4 playback. In most cases you should use our default HLS-based streaming playback ({playback_id}.m3u8) which can automatically adjust to viewers&#39; connection speeds, but an mp4 can be useful for some legacy devices or downloading for offline playback. See the [Download your videos guide](https://docs.mux.com/guides/enable-static-mp4-renditions) for more information.</value>
         [DataMember(Name = "mp4_support", EmitDefaultValue = false)]
         public Mp4SupportEnum? Mp4Support { get; set; }
         /// <summary>
-        /// Specify what level (if any) of support for master access. Master access can be enabled temporarily for your asset to be downloaded. See the [Download your videos guide](/guides/video/download-your-videos) for more information.
+        /// Specify what level (if any) of support for master access. Master access can be enabled temporarily for your asset to be downloaded. See the [Download your videos guide](https://docs.mux.com/guides/enable-static-mp4-renditions) for more information.
         /// </summary>
-        /// <value>Specify what level (if any) of support for master access. Master access can be enabled temporarily for your asset to be downloaded. See the [Download your videos guide](/guides/video/download-your-videos) for more information.</value>
+        /// <value>Specify what level (if any) of support for master access. Master access can be enabled temporarily for your asset to be downloaded. See the [Download your videos guide](https://docs.mux.com/guides/enable-static-mp4-renditions) for more information.</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum MasterAccessEnum
         {
@@ -83,9 +83,9 @@ namespace Mux.Csharp.Sdk.Model
 
 
         /// <summary>
-        /// Specify what level (if any) of support for master access. Master access can be enabled temporarily for your asset to be downloaded. See the [Download your videos guide](/guides/video/download-your-videos) for more information.
+        /// Specify what level (if any) of support for master access. Master access can be enabled temporarily for your asset to be downloaded. See the [Download your videos guide](https://docs.mux.com/guides/enable-static-mp4-renditions) for more information.
         /// </summary>
-        /// <value>Specify what level (if any) of support for master access. Master access can be enabled temporarily for your asset to be downloaded. See the [Download your videos guide](/guides/video/download-your-videos) for more information.</value>
+        /// <value>Specify what level (if any) of support for master access. Master access can be enabled temporarily for your asset to be downloaded. See the [Download your videos guide](https://docs.mux.com/guides/enable-static-mp4-renditions) for more information.</value>
         [DataMember(Name = "master_access", EmitDefaultValue = false)]
         public MasterAccessEnum? MasterAccess { get; set; }
         /// <summary>
@@ -123,9 +123,9 @@ namespace Mux.Csharp.Sdk.Model
         [DataMember(Name = "max_resolution_tier", EmitDefaultValue = false)]
         public MaxResolutionTierEnum? MaxResolutionTier { get; set; }
         /// <summary>
-        /// The encoding tier informs the cost, quality, and available platform features for the asset. By default the &#x60;smart&#x60; encoding tier is used. [See the guide for more details.](https://docs.mux.com/guides/video/use-encoding-tiers)
+        /// The encoding tier informs the cost, quality, and available platform features for the asset. By default the &#x60;smart&#x60; encoding tier is used. [See the guide for more details.](https://docs.mux.com/guides/use-encoding-tiers)
         /// </summary>
-        /// <value>The encoding tier informs the cost, quality, and available platform features for the asset. By default the &#x60;smart&#x60; encoding tier is used. [See the guide for more details.](https://docs.mux.com/guides/video/use-encoding-tiers)</value>
+        /// <value>The encoding tier informs the cost, quality, and available platform features for the asset. By default the &#x60;smart&#x60; encoding tier is used. [See the guide for more details.](https://docs.mux.com/guides/use-encoding-tiers)</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum EncodingTierEnum
         {
@@ -145,9 +145,9 @@ namespace Mux.Csharp.Sdk.Model
 
 
         /// <summary>
-        /// The encoding tier informs the cost, quality, and available platform features for the asset. By default the &#x60;smart&#x60; encoding tier is used. [See the guide for more details.](https://docs.mux.com/guides/video/use-encoding-tiers)
+        /// The encoding tier informs the cost, quality, and available platform features for the asset. By default the &#x60;smart&#x60; encoding tier is used. [See the guide for more details.](https://docs.mux.com/guides/use-encoding-tiers)
         /// </summary>
-        /// <value>The encoding tier informs the cost, quality, and available platform features for the asset. By default the &#x60;smart&#x60; encoding tier is used. [See the guide for more details.](https://docs.mux.com/guides/video/use-encoding-tiers)</value>
+        /// <value>The encoding tier informs the cost, quality, and available platform features for the asset. By default the &#x60;smart&#x60; encoding tier is used. [See the guide for more details.](https://docs.mux.com/guides/use-encoding-tiers)</value>
         [DataMember(Name = "encoding_tier", EmitDefaultValue = false)]
         public EncodingTierEnum? EncodingTier { get; set; }
         /// <summary>
@@ -157,12 +157,12 @@ namespace Mux.Csharp.Sdk.Model
         /// <param name="playbackPolicy">An array of playback policy names that you want applied to this asset and available through &#x60;playback_ids&#x60;. Options include: &#x60;\&quot;public\&quot;&#x60; (anyone with the playback URL can stream the asset). And &#x60;\&quot;signed\&quot;&#x60; (an additional access token is required to play the asset). If no playback_policy is set, the asset will have no playback IDs and will therefore not be playable. For simplicity, a single string name can be used in place of the array in the case of only one playback policy..</param>
         /// <param name="perTitleEncode">perTitleEncode.</param>
         /// <param name="passthrough">Arbitrary user-supplied metadata that will be included in the asset details and related webhooks. Can be used to store your own ID for a video along with the asset. **Max: 255 characters**..</param>
-        /// <param name="mp4Support">Specify what level (if any) of support for mp4 playback. In most cases you should use our default HLS-based streaming playback ({playback_id}.m3u8) which can automatically adjust to viewers&#39; connection speeds, but an mp4 can be useful for some legacy devices or downloading for offline playback. See the [Download your videos guide](/guides/video/download-your-videos) for more information..</param>
+        /// <param name="mp4Support">Specify what level (if any) of support for mp4 playback. In most cases you should use our default HLS-based streaming playback ({playback_id}.m3u8) which can automatically adjust to viewers&#39; connection speeds, but an mp4 can be useful for some legacy devices or downloading for offline playback. See the [Download your videos guide](https://docs.mux.com/guides/enable-static-mp4-renditions) for more information..</param>
         /// <param name="normalizeAudio">Normalize the audio track loudness level. This parameter is only applicable to on-demand (not live) assets. (default to false).</param>
-        /// <param name="masterAccess">Specify what level (if any) of support for master access. Master access can be enabled temporarily for your asset to be downloaded. See the [Download your videos guide](/guides/video/download-your-videos) for more information..</param>
+        /// <param name="masterAccess">Specify what level (if any) of support for master access. Master access can be enabled temporarily for your asset to be downloaded. See the [Download your videos guide](https://docs.mux.com/guides/enable-static-mp4-renditions) for more information..</param>
         /// <param name="test">Marks the asset as a test asset when the value is set to true. A Test asset can help evaluate the Mux Video APIs without incurring any cost. There is no limit on number of test assets created. Test asset are watermarked with the Mux logo, limited to 10 seconds, deleted after 24 hrs..</param>
         /// <param name="maxResolutionTier">Max resolution tier can be used to control the maximum &#x60;resolution_tier&#x60; your asset is encoded, stored, and streamed at. If not set, this defaults to &#x60;1080p&#x60;..</param>
-        /// <param name="encodingTier">The encoding tier informs the cost, quality, and available platform features for the asset. By default the &#x60;smart&#x60; encoding tier is used. [See the guide for more details.](https://docs.mux.com/guides/video/use-encoding-tiers).</param>
+        /// <param name="encodingTier">The encoding tier informs the cost, quality, and available platform features for the asset. By default the &#x60;smart&#x60; encoding tier is used. [See the guide for more details.](https://docs.mux.com/guides/use-encoding-tiers).</param>
         public CreateAssetRequest(List<InputSettings> input = default(List<InputSettings>), List<PlaybackPolicy> playbackPolicy = default(List<PlaybackPolicy>), bool perTitleEncode = default(bool), string passthrough = default(string), Mp4SupportEnum? mp4Support = default(Mp4SupportEnum?), bool normalizeAudio = false, MasterAccessEnum? masterAccess = default(MasterAccessEnum?), bool test = default(bool), MaxResolutionTierEnum? maxResolutionTier = default(MaxResolutionTierEnum?), EncodingTierEnum? encodingTier = default(EncodingTierEnum?))
         {
             this.Input = input;

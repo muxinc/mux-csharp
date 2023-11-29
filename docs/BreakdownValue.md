@@ -6,7 +6,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Views** | **long** |  | [optional] 
 **Value** | **double** |  | [optional] 
-**TotalWatchTime** | **long** |  | [optional] 
+**TotalWatchTime** | **long?** |  | [optional] 
+**TotalPlayingTime** | **long?** |  | [optional] 
 **NegativeImpact** | **int** |  | [optional] 
 **Field** | **string** |  | [optional] 
 

@@ -36,14 +36,16 @@ namespace Mux.Csharp.Sdk.Model
         /// Initializes a new instance of the <see cref="Insight" /> class.
         /// </summary>
         /// <param name="totalWatchTime">totalWatchTime.</param>
+        /// <param name="totalPlayingTime">totalPlayingTime.</param>
         /// <param name="totalViews">totalViews.</param>
         /// <param name="negativeImpactScore">negativeImpactScore.</param>
         /// <param name="metric">metric.</param>
         /// <param name="filterValue">filterValue.</param>
         /// <param name="filterColumn">filterColumn.</param>
-        public Insight(long totalWatchTime = default(long), long totalViews = default(long), float negativeImpactScore = default(float), double metric = default(double), string filterValue = default(string), string filterColumn = default(string))
+        public Insight(long? totalWatchTime = default(long?), long? totalPlayingTime = default(long?), long totalViews = default(long), float negativeImpactScore = default(float), double metric = default(double), string filterValue = default(string), string filterColumn = default(string))
         {
             this.TotalWatchTime = totalWatchTime;
+            this.TotalPlayingTime = totalPlayingTime;
             this.TotalViews = totalViews;
             this.NegativeImpactScore = negativeImpactScore;
             this.Metric = metric;
@@ -55,8 +57,14 @@ namespace Mux.Csharp.Sdk.Model
         /// <summary>
         /// Gets or Sets TotalWatchTime
         /// </summary>
-        [DataMember(Name = "total_watch_time", EmitDefaultValue = false)]
-        public long TotalWatchTime { get; set; }
+        [DataMember(Name = "total_watch_time", EmitDefaultValue = true)]
+        public long? TotalWatchTime { get; set; }
+
+        /// <summary>
+        /// Gets or Sets TotalPlayingTime
+        /// </summary>
+        [DataMember(Name = "total_playing_time", EmitDefaultValue = true)]
+        public long? TotalPlayingTime { get; set; }
 
         /// <summary>
         /// Gets or Sets TotalViews
@@ -79,7 +87,7 @@ namespace Mux.Csharp.Sdk.Model
         /// <summary>
         /// Gets or Sets FilterValue
         /// </summary>
-        [DataMember(Name = "filter_value", EmitDefaultValue = false)]
+        [DataMember(Name = "filter_value", EmitDefaultValue = true)]
         public string FilterValue { get; set; }
 
         /// <summary>
@@ -103,6 +111,7 @@ namespace Mux.Csharp.Sdk.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class Insight {\n");
             sb.Append("  TotalWatchTime: ").Append(TotalWatchTime).Append("\n");
+            sb.Append("  TotalPlayingTime: ").Append(TotalPlayingTime).Append("\n");
             sb.Append("  TotalViews: ").Append(TotalViews).Append("\n");
             sb.Append("  NegativeImpactScore: ").Append(NegativeImpactScore).Append("\n");
             sb.Append("  Metric: ").Append(Metric).Append("\n");
@@ -146,7 +155,13 @@ namespace Mux.Csharp.Sdk.Model
             return 
                 (
                     this.TotalWatchTime == input.TotalWatchTime ||
-                    this.TotalWatchTime.Equals(input.TotalWatchTime)
+                    (this.TotalWatchTime != null &&
+                    this.TotalWatchTime.Equals(input.TotalWatchTime))
+                ) && 
+                (
+                    this.TotalPlayingTime == input.TotalPlayingTime ||
+                    (this.TotalPlayingTime != null &&
+                    this.TotalPlayingTime.Equals(input.TotalPlayingTime))
                 ) && 
                 (
                     this.TotalViews == input.TotalViews ||
@@ -182,7 +197,14 @@ namespace Mux.Csharp.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = (hashCode * 59) + this.TotalWatchTime.GetHashCode();
+                if (this.TotalWatchTime != null)
+                {
+                    hashCode = (hashCode * 59) + this.TotalWatchTime.GetHashCode();
+                }
+                if (this.TotalPlayingTime != null)
+                {
+                    hashCode = (hashCode * 59) + this.TotalPlayingTime.GetHashCode();
+                }
                 hashCode = (hashCode * 59) + this.TotalViews.GetHashCode();
                 hashCode = (hashCode * 59) + this.NegativeImpactScore.GetHashCode();
                 hashCode = (hashCode * 59) + this.Metric.GetHashCode();

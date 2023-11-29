@@ -4,10 +4,15 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**WatchTime** | **long** |  | [optional] 
+**WatchTime** | **long?** |  | [optional] 
 **ViewCount** | **long** |  | [optional] 
+**UniqueViewers** | **long** |  | [optional] 
+**StartedViews** | **long** |  | [optional] 
+**TotalPlayingTime** | **long?** |  | [optional] 
 **Name** | **string** |  | [optional] 
+**EndedViews** | **long** |  | [optional] 
 **Value** | **double** |  | [optional] 
+**Type** | **string** |  | [optional] 
 **Metric** | **string** |  | [optional] 
 **Items** | [**List&lt;Metric&gt;**](Metric.md) |  | [optional] 
 

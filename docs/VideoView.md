@@ -145,6 +145,8 @@ Name | Type | Description | Notes
 **ViewDroppedFrameCount** | **long?** |  | [optional] 
 **ViewHasAd** | **bool** |  | [optional] 
 **VideoStartupFailure** | **bool** |  | [optional] 
+**LongResume** | **bool** |  | [optional] 
+**LongRebuffering** | **bool** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -35,26 +35,14 @@ namespace Mux.Csharp.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CreateSimulcastTargetRequest" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected CreateSimulcastTargetRequest()
-        {
-            this.AdditionalProperties = new Dictionary<string, object>();
-        }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="CreateSimulcastTargetRequest" /> class.
-        /// </summary>
         /// <param name="passthrough">Arbitrary user-supplied metadata set by you when creating a simulcast target..</param>
         /// <param name="streamKey">Stream Key represents a stream identifier on the third party live streaming service to send the parent live stream to..</param>
-        /// <param name="url">RTMP hostname including application name for the third party live streaming service. Example: &#x60;rtmp://live.example.com/app&#x60;. (required).</param>
+        /// <param name="url">RTMP hostname including application name for the third party live streaming service. Example: &#x60;rtmp://live.example.com/app&#x60;..</param>
         public CreateSimulcastTargetRequest(string passthrough = default(string), string streamKey = default(string), string url = default(string))
         {
-            // to ensure "url" is required (not null)
-            if (url == null) {
-                throw new ArgumentNullException("url is a required property for CreateSimulcastTargetRequest and cannot be null");
-            }
-            this.Url = url;
             this.Passthrough = passthrough;
             this.StreamKey = streamKey;
+            this.Url = url;
             this.AdditionalProperties = new Dictionary<string, object>();
         }
 
@@ -76,7 +64,7 @@ namespace Mux.Csharp.Sdk.Model
         /// RTMP hostname including application name for the third party live streaming service. Example: &#x60;rtmp://live.example.com/app&#x60;.
         /// </summary>
         /// <value>RTMP hostname including application name for the third party live streaming service. Example: &#x60;rtmp://live.example.com/app&#x60;.</value>
-        [DataMember(Name = "url", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "url", EmitDefaultValue = false)]
         public string Url { get; set; }
 
         /// <summary>

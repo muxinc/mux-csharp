@@ -36,10 +36,12 @@ namespace Mux.Csharp.Sdk.Model
         /// Initializes a new instance of the <see cref="IncidentResponse" /> class.
         /// </summary>
         /// <param name="data">data.</param>
+        /// <param name="totalRowCount">totalRowCount.</param>
         /// <param name="timeframe">timeframe.</param>
-        public IncidentResponse(Incident data = default(Incident), List<long> timeframe = default(List<long>))
+        public IncidentResponse(Incident data = default(Incident), long? totalRowCount = default(long?), List<long> timeframe = default(List<long>))
         {
             this.Data = data;
+            this.TotalRowCount = totalRowCount;
             this.Timeframe = timeframe;
             this.AdditionalProperties = new Dictionary<string, object>();
         }
@@ -49,6 +51,12 @@ namespace Mux.Csharp.Sdk.Model
         /// </summary>
         [DataMember(Name = "data", EmitDefaultValue = false)]
         public Incident Data { get; set; }
+
+        /// <summary>
+        /// Gets or Sets TotalRowCount
+        /// </summary>
+        [DataMember(Name = "total_row_count", EmitDefaultValue = true)]
+        public long? TotalRowCount { get; set; }
 
         /// <summary>
         /// Gets or Sets Timeframe
@@ -71,6 +79,7 @@ namespace Mux.Csharp.Sdk.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class IncidentResponse {\n");
             sb.Append("  Data: ").Append(Data).Append("\n");
+            sb.Append("  TotalRowCount: ").Append(TotalRowCount).Append("\n");
             sb.Append("  Timeframe: ").Append(Timeframe).Append("\n");
             sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
@@ -114,6 +123,11 @@ namespace Mux.Csharp.Sdk.Model
                     this.Data.Equals(input.Data))
                 ) && 
                 (
+                    this.TotalRowCount == input.TotalRowCount ||
+                    (this.TotalRowCount != null &&
+                    this.TotalRowCount.Equals(input.TotalRowCount))
+                ) && 
+                (
                     this.Timeframe == input.Timeframe ||
                     this.Timeframe != null &&
                     input.Timeframe != null &&
@@ -134,6 +148,10 @@ namespace Mux.Csharp.Sdk.Model
                 if (this.Data != null)
                 {
                     hashCode = (hashCode * 59) + this.Data.GetHashCode();
+                }
+                if (this.TotalRowCount != null)
+                {
+                    hashCode = (hashCode * 59) + this.TotalRowCount.GetHashCode();
                 }
                 if (this.Timeframe != null)
                 {
