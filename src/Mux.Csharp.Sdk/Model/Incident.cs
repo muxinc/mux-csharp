@@ -56,7 +56,7 @@ namespace Mux.Csharp.Sdk.Model
         /// <param name="affectedViewsPerHourOnOpen">affectedViewsPerHourOnOpen.</param>
         /// <param name="affectedViewsPerHour">affectedViewsPerHour.</param>
         /// <param name="affectedViews">affectedViews.</param>
-        public Incident(double threshold = default(double), string status = default(string), string startedAt = default(string), string severity = default(string), string sampleSizeUnit = default(string), long sampleSize = default(long), string resolvedAt = default(string), List<IncidentNotification> notifications = default(List<IncidentNotification>), List<IncidentNotificationRule> notificationRules = default(List<IncidentNotificationRule>), string measurement = default(string), double measuredValueOnClose = default(double), double measuredValue = default(double), string incidentKey = default(string), string impact = default(string), string id = default(string), string errorDescription = default(string), string description = default(string), List<IncidentBreakdown> breakdowns = default(List<IncidentBreakdown>), long affectedViewsPerHourOnOpen = default(long), long affectedViewsPerHour = default(long), long affectedViews = default(long))
+        public Incident(double threshold = default(double), string status = default(string), string startedAt = default(string), string severity = default(string), string sampleSizeUnit = default(string), long sampleSize = default(long), string resolvedAt = default(string), List<IncidentNotification> notifications = default(List<IncidentNotification>), List<IncidentNotificationRule> notificationRules = default(List<IncidentNotificationRule>), string measurement = default(string), double? measuredValueOnClose = default(double?), double? measuredValue = default(double?), string incidentKey = default(string), string impact = default(string), string id = default(string), string errorDescription = default(string), string description = default(string), List<IncidentBreakdown> breakdowns = default(List<IncidentBreakdown>), long affectedViewsPerHourOnOpen = default(long), long affectedViewsPerHour = default(long), long affectedViews = default(long))
         {
             this.Threshold = threshold;
             this.Status = status;
@@ -121,7 +121,7 @@ namespace Mux.Csharp.Sdk.Model
         /// <summary>
         /// Gets or Sets ResolvedAt
         /// </summary>
-        [DataMember(Name = "resolved_at", EmitDefaultValue = false)]
+        [DataMember(Name = "resolved_at", EmitDefaultValue = true)]
         public string ResolvedAt { get; set; }
 
         /// <summary>
@@ -145,14 +145,14 @@ namespace Mux.Csharp.Sdk.Model
         /// <summary>
         /// Gets or Sets MeasuredValueOnClose
         /// </summary>
-        [DataMember(Name = "measured_value_on_close", EmitDefaultValue = false)]
-        public double MeasuredValueOnClose { get; set; }
+        [DataMember(Name = "measured_value_on_close", EmitDefaultValue = true)]
+        public double? MeasuredValueOnClose { get; set; }
 
         /// <summary>
         /// Gets or Sets MeasuredValue
         /// </summary>
-        [DataMember(Name = "measured_value", EmitDefaultValue = false)]
-        public double MeasuredValue { get; set; }
+        [DataMember(Name = "measured_value", EmitDefaultValue = true)]
+        public double? MeasuredValue { get; set; }
 
         /// <summary>
         /// Gets or Sets IncidentKey
@@ -331,11 +331,13 @@ namespace Mux.Csharp.Sdk.Model
                 ) && 
                 (
                     this.MeasuredValueOnClose == input.MeasuredValueOnClose ||
-                    this.MeasuredValueOnClose.Equals(input.MeasuredValueOnClose)
+                    (this.MeasuredValueOnClose != null &&
+                    this.MeasuredValueOnClose.Equals(input.MeasuredValueOnClose))
                 ) && 
                 (
                     this.MeasuredValue == input.MeasuredValue ||
-                    this.MeasuredValue.Equals(input.MeasuredValue)
+                    (this.MeasuredValue != null &&
+                    this.MeasuredValue.Equals(input.MeasuredValue))
                 ) && 
                 (
                     this.IncidentKey == input.IncidentKey ||
@@ -426,8 +428,14 @@ namespace Mux.Csharp.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Measurement.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.MeasuredValueOnClose.GetHashCode();
-                hashCode = (hashCode * 59) + this.MeasuredValue.GetHashCode();
+                if (this.MeasuredValueOnClose != null)
+                {
+                    hashCode = (hashCode * 59) + this.MeasuredValueOnClose.GetHashCode();
+                }
+                if (this.MeasuredValue != null)
+                {
+                    hashCode = (hashCode * 59) + this.MeasuredValue.GetHashCode();
+                }
                 if (this.IncidentKey != null)
                 {
                     hashCode = (hashCode * 59) + this.IncidentKey.GetHashCode();

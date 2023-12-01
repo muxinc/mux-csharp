@@ -37,10 +37,12 @@ namespace Mux.Csharp.Sdk.Model
         /// </summary>
         /// <param name="data">data.</param>
         /// <param name="timeframe">timeframe.</param>
-        public VideoViewResponse(VideoView data = default(VideoView), List<long> timeframe = default(List<long>))
+        /// <param name="totalRowCount">totalRowCount.</param>
+        public VideoViewResponse(VideoView data = default(VideoView), List<long> timeframe = default(List<long>), long? totalRowCount = default(long?))
         {
             this.Data = data;
             this.Timeframe = timeframe;
+            this.TotalRowCount = totalRowCount;
             this.AdditionalProperties = new Dictionary<string, object>();
         }
 
@@ -55,6 +57,12 @@ namespace Mux.Csharp.Sdk.Model
         /// </summary>
         [DataMember(Name = "timeframe", EmitDefaultValue = false)]
         public List<long> Timeframe { get; set; }
+
+        /// <summary>
+        /// Gets or Sets TotalRowCount
+        /// </summary>
+        [DataMember(Name = "total_row_count", EmitDefaultValue = true)]
+        public long? TotalRowCount { get; set; }
 
         /// <summary>
         /// Gets or Sets additional properties
@@ -72,6 +80,7 @@ namespace Mux.Csharp.Sdk.Model
             sb.Append("class VideoViewResponse {\n");
             sb.Append("  Data: ").Append(Data).Append("\n");
             sb.Append("  Timeframe: ").Append(Timeframe).Append("\n");
+            sb.Append("  TotalRowCount: ").Append(TotalRowCount).Append("\n");
             sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -118,6 +127,11 @@ namespace Mux.Csharp.Sdk.Model
                     this.Timeframe != null &&
                     input.Timeframe != null &&
                     this.Timeframe.SequenceEqual(input.Timeframe)
+                ) && 
+                (
+                    this.TotalRowCount == input.TotalRowCount ||
+                    (this.TotalRowCount != null &&
+                    this.TotalRowCount.Equals(input.TotalRowCount))
                 )
                 && (this.AdditionalProperties.Count == input.AdditionalProperties.Count && !this.AdditionalProperties.Except(input.AdditionalProperties).Any());
         }
@@ -138,6 +152,10 @@ namespace Mux.Csharp.Sdk.Model
                 if (this.Timeframe != null)
                 {
                     hashCode = (hashCode * 59) + this.Timeframe.GetHashCode();
+                }
+                if (this.TotalRowCount != null)
+                {
+                    hashCode = (hashCode * 59) + this.TotalRowCount.GetHashCode();
                 }
                 if (this.AdditionalProperties != null)
                 {

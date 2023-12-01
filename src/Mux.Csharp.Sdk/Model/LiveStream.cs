@@ -39,9 +39,9 @@ namespace Mux.Csharp.Sdk.Model
         [DataMember(Name = "status", EmitDefaultValue = false)]
         public LiveStreamStatus? Status { get; set; }
         /// <summary>
-        /// Latency is the time from when the streamer transmits a frame of video to when you see it in the player. Set this as an alternative to setting low latency or reduced latency flags. The Low Latency value is a beta feature. Read more here: https://mux.com/blog/introducing-low-latency-live-streaming/
+        /// Latency is the time from when the streamer transmits a frame of video to when you see it in the player. Set this as an alternative to setting low latency or reduced latency flags.
         /// </summary>
-        /// <value>Latency is the time from when the streamer transmits a frame of video to when you see it in the player. Set this as an alternative to setting low latency or reduced latency flags. The Low Latency value is a beta feature. Read more here: https://mux.com/blog/introducing-low-latency-live-streaming/</value>
+        /// <value>Latency is the time from when the streamer transmits a frame of video to when you see it in the player. Set this as an alternative to setting low latency or reduced latency flags.</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum LatencyModeEnum
         {
@@ -67,9 +67,9 @@ namespace Mux.Csharp.Sdk.Model
 
 
         /// <summary>
-        /// Latency is the time from when the streamer transmits a frame of video to when you see it in the player. Set this as an alternative to setting low latency or reduced latency flags. The Low Latency value is a beta feature. Read more here: https://mux.com/blog/introducing-low-latency-live-streaming/
+        /// Latency is the time from when the streamer transmits a frame of video to when you see it in the player. Set this as an alternative to setting low latency or reduced latency flags.
         /// </summary>
-        /// <value>Latency is the time from when the streamer transmits a frame of video to when you see it in the player. Set this as an alternative to setting low latency or reduced latency flags. The Low Latency value is a beta feature. Read more here: https://mux.com/blog/introducing-low-latency-live-streaming/</value>
+        /// <value>Latency is the time from when the streamer transmits a frame of video to when you see it in the player. Set this as an alternative to setting low latency or reduced latency flags.</value>
         [DataMember(Name = "latency_mode", EmitDefaultValue = false)]
         public LatencyModeEnum? LatencyMode { get; set; }
         /// <summary>
@@ -81,7 +81,7 @@ namespace Mux.Csharp.Sdk.Model
         /// <param name="activeAssetId">The Asset that is currently being created if there is an active broadcast..</param>
         /// <param name="recentAssetIds">An array of strings with the most recent Asset IDs that were created from this Live Stream. The most recently generated Asset ID is the last entry in the list..</param>
         /// <param name="status">status.</param>
-        /// <param name="playbackIds">An array of Playback ID objects. Use these to create HLS playback URLs. See [Play your videos](https://docs.mux.com/guides/video/play-your-videos) for more details..</param>
+        /// <param name="playbackIds">An array of Playback ID objects. Use these to create HLS playback URLs. See [Play your videos](https://docs.mux.com/guides/play-your-videos) for more details..</param>
         /// <param name="newAssetSettings">newAssetSettings.</param>
         /// <param name="passthrough">Arbitrary user-supplied metadata set for the asset. Max 255 characters..</param>
         /// <param name="audioOnly">The live stream only processes the audio track if the value is set to true. Mux drops the video track if broadcasted..</param>
@@ -90,10 +90,10 @@ namespace Mux.Csharp.Sdk.Model
         /// <param name="reconnectWindow">When live streaming software disconnects from Mux, either intentionally or due to a drop in the network, the Reconnect Window is the time in seconds that Mux should wait for the streaming software to reconnect before considering the live stream finished and completing the recorded asset. **Max**: 1800s (30 minutes).  If not specified directly, Standard Latency streams have a Reconnect Window of 60 seconds; Reduced and Low Latency streams have a default of 0 seconds, or no Reconnect Window. For that reason, we suggest specifying a value other than zero for Reduced and Low Latency streams.  Reduced and Low Latency streams with a Reconnect Window greater than zero will insert slate media into the recorded asset while waiting for the streaming software to reconnect or when there are brief interruptions in the live stream media. When using a Reconnect Window setting higher than 60 seconds with a Standard Latency stream, we highly recommend enabling slate with the &#x60;use_slate_for_standard_latency&#x60; option.  (default to 60F).</param>
         /// <param name="useSlateForStandardLatency">By default, Standard Latency live streams do not have slate media inserted while waiting for live streaming software to reconnect to Mux. Setting this to true enables slate insertion on a Standard Latency stream. (default to false).</param>
         /// <param name="reconnectSlateUrl">The URL of the image file that Mux should download and use as slate media during interruptions of the live stream media. This file will be downloaded each time a new recorded asset is created from the live stream. If this is not set, the default slate media will be used..</param>
-        /// <param name="reducedLatency">This field is deprecated. Please use &#x60;latency_mode&#x60; instead. Latency is the time from when the streamer transmits a frame of video to when you see it in the player. Set this if you want lower latency for your live stream. See the [Reduce live stream latency guide](https://docs.mux.com/guides/video/reduce-live-stream-latency) to understand the tradeoffs..</param>
+        /// <param name="reducedLatency">This field is deprecated. Please use &#x60;latency_mode&#x60; instead. Latency is the time from when the streamer transmits a frame of video to when you see it in the player. Set this if you want lower latency for your live stream. See the [Reduce live stream latency guide](https://docs.mux.com/guides/reduce-live-stream-latency) to understand the tradeoffs..</param>
         /// <param name="lowLatency">This field is deprecated. Please use &#x60;latency_mode&#x60; instead. Latency is the time from when the streamer transmits a frame of video to when you see it in the player. Setting this option will enable compatibility with the LL-HLS specification for low-latency streaming. This typically has lower latency than Reduced Latency streams, and cannot be combined with Reduced Latency..</param>
-        /// <param name="simulcastTargets">Each Simulcast Target contains configuration details to broadcast (or \&quot;restream\&quot;) a live stream to a third-party streaming service. [See the Stream live to 3rd party platforms guide](https://docs.mux.com/guides/video/stream-live-to-3rd-party-platforms)..</param>
-        /// <param name="latencyMode">Latency is the time from when the streamer transmits a frame of video to when you see it in the player. Set this as an alternative to setting low latency or reduced latency flags. The Low Latency value is a beta feature. Read more here: https://mux.com/blog/introducing-low-latency-live-streaming/.</param>
+        /// <param name="simulcastTargets">Each Simulcast Target contains configuration details to broadcast (or \&quot;restream\&quot;) a live stream to a third-party streaming service. [See the Stream live to 3rd party platforms guide](https://docs.mux.com/guides/stream-live-to-3rd-party-platforms)..</param>
+        /// <param name="latencyMode">Latency is the time from when the streamer transmits a frame of video to when you see it in the player. Set this as an alternative to setting low latency or reduced latency flags..</param>
         /// <param name="test">True means this live stream is a test live stream. Test live streams can be used to help evaluate the Mux Video APIs for free. There is no limit on the number of test live streams, but they are watermarked with the Mux logo, and limited to 5 minutes. The test live stream is disabled after the stream is active for 5 mins and the recorded asset also deleted after 24 hours..</param>
         /// <param name="maxContinuousDuration">The time in seconds a live stream may be continuously active before being disconnected. Defaults to 12 hours. (default to 43200).</param>
         public LiveStream(string id = default(string), string createdAt = default(string), string streamKey = default(string), string activeAssetId = default(string), List<string> recentAssetIds = default(List<string>), LiveStreamStatus? status = default(LiveStreamStatus?), List<PlaybackID> playbackIds = default(List<PlaybackID>), CreateAssetRequest newAssetSettings = default(CreateAssetRequest), string passthrough = default(string), bool audioOnly = default(bool), List<LiveStreamEmbeddedSubtitleSettings> embeddedSubtitles = default(List<LiveStreamEmbeddedSubtitleSettings>), List<LiveStreamGeneratedSubtitleSettings> generatedSubtitles = default(List<LiveStreamGeneratedSubtitleSettings>), float reconnectWindow = 60F, bool useSlateForStandardLatency = false, string reconnectSlateUrl = default(string), bool reducedLatency = default(bool), bool lowLatency = default(bool), List<SimulcastTarget> simulcastTargets = default(List<SimulcastTarget>), LatencyModeEnum? latencyMode = default(LatencyModeEnum?), bool test = default(bool), int maxContinuousDuration = 43200)
@@ -158,9 +158,9 @@ namespace Mux.Csharp.Sdk.Model
         public List<string> RecentAssetIds { get; set; }
 
         /// <summary>
-        /// An array of Playback ID objects. Use these to create HLS playback URLs. See [Play your videos](https://docs.mux.com/guides/video/play-your-videos) for more details.
+        /// An array of Playback ID objects. Use these to create HLS playback URLs. See [Play your videos](https://docs.mux.com/guides/play-your-videos) for more details.
         /// </summary>
-        /// <value>An array of Playback ID objects. Use these to create HLS playback URLs. See [Play your videos](https://docs.mux.com/guides/video/play-your-videos) for more details.</value>
+        /// <value>An array of Playback ID objects. Use these to create HLS playback URLs. See [Play your videos](https://docs.mux.com/guides/play-your-videos) for more details.</value>
         [DataMember(Name = "playback_ids", EmitDefaultValue = false)]
         public List<PlaybackID> PlaybackIds { get; set; }
 
@@ -220,9 +220,9 @@ namespace Mux.Csharp.Sdk.Model
         public string ReconnectSlateUrl { get; set; }
 
         /// <summary>
-        /// This field is deprecated. Please use &#x60;latency_mode&#x60; instead. Latency is the time from when the streamer transmits a frame of video to when you see it in the player. Set this if you want lower latency for your live stream. See the [Reduce live stream latency guide](https://docs.mux.com/guides/video/reduce-live-stream-latency) to understand the tradeoffs.
+        /// This field is deprecated. Please use &#x60;latency_mode&#x60; instead. Latency is the time from when the streamer transmits a frame of video to when you see it in the player. Set this if you want lower latency for your live stream. See the [Reduce live stream latency guide](https://docs.mux.com/guides/reduce-live-stream-latency) to understand the tradeoffs.
         /// </summary>
-        /// <value>This field is deprecated. Please use &#x60;latency_mode&#x60; instead. Latency is the time from when the streamer transmits a frame of video to when you see it in the player. Set this if you want lower latency for your live stream. See the [Reduce live stream latency guide](https://docs.mux.com/guides/video/reduce-live-stream-latency) to understand the tradeoffs.</value>
+        /// <value>This field is deprecated. Please use &#x60;latency_mode&#x60; instead. Latency is the time from when the streamer transmits a frame of video to when you see it in the player. Set this if you want lower latency for your live stream. See the [Reduce live stream latency guide](https://docs.mux.com/guides/reduce-live-stream-latency) to understand the tradeoffs.</value>
         [DataMember(Name = "reduced_latency", EmitDefaultValue = true)]
         [Obsolete]
         public bool ReducedLatency { get; set; }
@@ -236,9 +236,9 @@ namespace Mux.Csharp.Sdk.Model
         public bool LowLatency { get; set; }
 
         /// <summary>
-        /// Each Simulcast Target contains configuration details to broadcast (or \&quot;restream\&quot;) a live stream to a third-party streaming service. [See the Stream live to 3rd party platforms guide](https://docs.mux.com/guides/video/stream-live-to-3rd-party-platforms).
+        /// Each Simulcast Target contains configuration details to broadcast (or \&quot;restream\&quot;) a live stream to a third-party streaming service. [See the Stream live to 3rd party platforms guide](https://docs.mux.com/guides/stream-live-to-3rd-party-platforms).
         /// </summary>
-        /// <value>Each Simulcast Target contains configuration details to broadcast (or \&quot;restream\&quot;) a live stream to a third-party streaming service. [See the Stream live to 3rd party platforms guide](https://docs.mux.com/guides/video/stream-live-to-3rd-party-platforms).</value>
+        /// <value>Each Simulcast Target contains configuration details to broadcast (or \&quot;restream\&quot;) a live stream to a third-party streaming service. [See the Stream live to 3rd party platforms guide](https://docs.mux.com/guides/stream-live-to-3rd-party-platforms).</value>
         [DataMember(Name = "simulcast_targets", EmitDefaultValue = false)]
         public List<SimulcastTarget> SimulcastTargets { get; set; }
 

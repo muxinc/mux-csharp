@@ -194,9 +194,9 @@ namespace Mux.Csharp.Sdk.Model
         [DataMember(Name = "max_resolution_tier", EmitDefaultValue = false)]
         public MaxResolutionTierEnum? MaxResolutionTier { get; set; }
         /// <summary>
-        /// The encoding tier informs the cost, quality, and available platform features for the asset. By default the &#x60;smart&#x60; encoding tier is used. [See the guide for more details.](https://docs.mux.com/guides/video/use-encoding-tiers)
+        /// The encoding tier informs the cost, quality, and available platform features for the asset. By default the &#x60;smart&#x60; encoding tier is used. [See the guide for more details.](https://docs.mux.com/guides/use-encoding-tiers)
         /// </summary>
-        /// <value>The encoding tier informs the cost, quality, and available platform features for the asset. By default the &#x60;smart&#x60; encoding tier is used. [See the guide for more details.](https://docs.mux.com/guides/video/use-encoding-tiers)</value>
+        /// <value>The encoding tier informs the cost, quality, and available platform features for the asset. By default the &#x60;smart&#x60; encoding tier is used. [See the guide for more details.](https://docs.mux.com/guides/use-encoding-tiers)</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum EncodingTierEnum
         {
@@ -216,9 +216,9 @@ namespace Mux.Csharp.Sdk.Model
 
 
         /// <summary>
-        /// The encoding tier informs the cost, quality, and available platform features for the asset. By default the &#x60;smart&#x60; encoding tier is used. [See the guide for more details.](https://docs.mux.com/guides/video/use-encoding-tiers)
+        /// The encoding tier informs the cost, quality, and available platform features for the asset. By default the &#x60;smart&#x60; encoding tier is used. [See the guide for more details.](https://docs.mux.com/guides/use-encoding-tiers)
         /// </summary>
-        /// <value>The encoding tier informs the cost, quality, and available platform features for the asset. By default the &#x60;smart&#x60; encoding tier is used. [See the guide for more details.](https://docs.mux.com/guides/video/use-encoding-tiers)</value>
+        /// <value>The encoding tier informs the cost, quality, and available platform features for the asset. By default the &#x60;smart&#x60; encoding tier is used. [See the guide for more details.](https://docs.mux.com/guides/use-encoding-tiers)</value>
         [DataMember(Name = "encoding_tier", EmitDefaultValue = false)]
         public EncodingTierEnum? EncodingTier { get; set; }
         /// <summary>
@@ -283,10 +283,10 @@ namespace Mux.Csharp.Sdk.Model
         /// <param name="maxStoredResolution">This field is deprecated. Please use &#x60;resolution_tier&#x60; instead. The maximum resolution that has been stored for the asset. The asset may be delivered at lower resolutions depending on the device and bandwidth, however it cannot be delivered at a higher value than is stored..</param>
         /// <param name="resolutionTier">The resolution tier that the asset was ingested at, affecting billing for ingest &amp; storage. This field also represents the highest resolution tier that the content can be delivered at, however the actual resolution may be lower depending on the device, bandwidth, and exact resolution of the uploaded asset..</param>
         /// <param name="maxResolutionTier">Max resolution tier can be used to control the maximum &#x60;resolution_tier&#x60; your asset is encoded, stored, and streamed at. If not set, this defaults to &#x60;1080p&#x60;..</param>
-        /// <param name="encodingTier">The encoding tier informs the cost, quality, and available platform features for the asset. By default the &#x60;smart&#x60; encoding tier is used. [See the guide for more details.](https://docs.mux.com/guides/video/use-encoding-tiers).</param>
+        /// <param name="encodingTier">The encoding tier informs the cost, quality, and available platform features for the asset. By default the &#x60;smart&#x60; encoding tier is used. [See the guide for more details.](https://docs.mux.com/guides/use-encoding-tiers).</param>
         /// <param name="maxStoredFrameRate">The maximum frame rate that has been stored for the asset. The asset may be delivered at lower frame rates depending on the device and bandwidth, however it cannot be delivered at a higher value than is stored. This field may return -1 if the frame rate of the input cannot be reliably determined..</param>
         /// <param name="aspectRatio">The aspect ratio of the asset in the form of &#x60;width:height&#x60;, for example &#x60;16:9&#x60;..</param>
-        /// <param name="playbackIds">An array of Playback ID objects. Use these to create HLS playback URLs. See [Play your videos](https://docs.mux.com/guides/video/play-your-videos) for more details..</param>
+        /// <param name="playbackIds">An array of Playback ID objects. Use these to create HLS playback URLs. See [Play your videos](https://docs.mux.com/guides/play-your-videos) for more details..</param>
         /// <param name="tracks">The individual media tracks that make up an asset..</param>
         /// <param name="errors">errors.</param>
         /// <param name="perTitleEncode">perTitleEncode.</param>
@@ -371,9 +371,9 @@ namespace Mux.Csharp.Sdk.Model
         public string AspectRatio { get; set; }
 
         /// <summary>
-        /// An array of Playback ID objects. Use these to create HLS playback URLs. See [Play your videos](https://docs.mux.com/guides/video/play-your-videos) for more details.
+        /// An array of Playback ID objects. Use these to create HLS playback URLs. See [Play your videos](https://docs.mux.com/guides/play-your-videos) for more details.
         /// </summary>
-        /// <value>An array of Playback ID objects. Use these to create HLS playback URLs. See [Play your videos](https://docs.mux.com/guides/video/play-your-videos) for more details.</value>
+        /// <value>An array of Playback ID objects. Use these to create HLS playback URLs. See [Play your videos](https://docs.mux.com/guides/play-your-videos) for more details.</value>
         [DataMember(Name = "playback_ids", EmitDefaultValue = false)]
         public List<PlaybackID> PlaybackIds { get; set; }
 

@@ -38,7 +38,7 @@ namespace Mux.Csharp.Sdk.Model
         /// <param name="value">value.</param>
         /// <param name="metricValue">metricValue.</param>
         /// <param name="concurrentViewers">concurrentViewers.</param>
-        public MonitoringBreakdownTimeseriesDatapoint(string value = default(string), double metricValue = default(double), long concurrentViewers = default(long))
+        public MonitoringBreakdownTimeseriesDatapoint(string value = default(string), double? metricValue = default(double?), long concurrentViewers = default(long))
         {
             this.Value = value;
             this.MetricValue = metricValue;
@@ -49,14 +49,14 @@ namespace Mux.Csharp.Sdk.Model
         /// <summary>
         /// Gets or Sets Value
         /// </summary>
-        [DataMember(Name = "value", EmitDefaultValue = false)]
+        [DataMember(Name = "value", EmitDefaultValue = true)]
         public string Value { get; set; }
 
         /// <summary>
         /// Gets or Sets MetricValue
         /// </summary>
-        [DataMember(Name = "metric_value", EmitDefaultValue = false)]
-        public double MetricValue { get; set; }
+        [DataMember(Name = "metric_value", EmitDefaultValue = true)]
+        public double? MetricValue { get; set; }
 
         /// <summary>
         /// Gets or Sets ConcurrentViewers
@@ -124,7 +124,8 @@ namespace Mux.Csharp.Sdk.Model
                 ) && 
                 (
                     this.MetricValue == input.MetricValue ||
-                    this.MetricValue.Equals(input.MetricValue)
+                    (this.MetricValue != null &&
+                    this.MetricValue.Equals(input.MetricValue))
                 ) && 
                 (
                     this.ConcurrentViewers == input.ConcurrentViewers ||
@@ -146,7 +147,10 @@ namespace Mux.Csharp.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Value.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.MetricValue.GetHashCode();
+                if (this.MetricValue != null)
+                {
+                    hashCode = (hashCode * 59) + this.MetricValue.GetHashCode();
+                }
                 hashCode = (hashCode * 59) + this.ConcurrentViewers.GetHashCode();
                 if (this.AdditionalProperties != null)
                 {

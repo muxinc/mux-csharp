@@ -38,13 +38,15 @@ namespace Mux.Csharp.Sdk.Model
         /// <param name="views">views.</param>
         /// <param name="value">value.</param>
         /// <param name="totalWatchTime">totalWatchTime.</param>
+        /// <param name="totalPlayingTime">totalPlayingTime.</param>
         /// <param name="negativeImpact">negativeImpact.</param>
         /// <param name="field">field.</param>
-        public BreakdownValue(long views = default(long), double value = default(double), long totalWatchTime = default(long), int negativeImpact = default(int), string field = default(string))
+        public BreakdownValue(long views = default(long), double value = default(double), long? totalWatchTime = default(long?), long? totalPlayingTime = default(long?), int negativeImpact = default(int), string field = default(string))
         {
             this.Views = views;
             this.Value = value;
             this.TotalWatchTime = totalWatchTime;
+            this.TotalPlayingTime = totalPlayingTime;
             this.NegativeImpact = negativeImpact;
             this.Field = field;
             this.AdditionalProperties = new Dictionary<string, object>();
@@ -65,8 +67,14 @@ namespace Mux.Csharp.Sdk.Model
         /// <summary>
         /// Gets or Sets TotalWatchTime
         /// </summary>
-        [DataMember(Name = "total_watch_time", EmitDefaultValue = false)]
-        public long TotalWatchTime { get; set; }
+        [DataMember(Name = "total_watch_time", EmitDefaultValue = true)]
+        public long? TotalWatchTime { get; set; }
+
+        /// <summary>
+        /// Gets or Sets TotalPlayingTime
+        /// </summary>
+        [DataMember(Name = "total_playing_time", EmitDefaultValue = true)]
+        public long? TotalPlayingTime { get; set; }
 
         /// <summary>
         /// Gets or Sets NegativeImpact
@@ -77,7 +85,7 @@ namespace Mux.Csharp.Sdk.Model
         /// <summary>
         /// Gets or Sets Field
         /// </summary>
-        [DataMember(Name = "field", EmitDefaultValue = false)]
+        [DataMember(Name = "field", EmitDefaultValue = true)]
         public string Field { get; set; }
 
         /// <summary>
@@ -97,6 +105,7 @@ namespace Mux.Csharp.Sdk.Model
             sb.Append("  Views: ").Append(Views).Append("\n");
             sb.Append("  Value: ").Append(Value).Append("\n");
             sb.Append("  TotalWatchTime: ").Append(TotalWatchTime).Append("\n");
+            sb.Append("  TotalPlayingTime: ").Append(TotalPlayingTime).Append("\n");
             sb.Append("  NegativeImpact: ").Append(NegativeImpact).Append("\n");
             sb.Append("  Field: ").Append(Field).Append("\n");
             sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
@@ -145,7 +154,13 @@ namespace Mux.Csharp.Sdk.Model
                 ) && 
                 (
                     this.TotalWatchTime == input.TotalWatchTime ||
-                    this.TotalWatchTime.Equals(input.TotalWatchTime)
+                    (this.TotalWatchTime != null &&
+                    this.TotalWatchTime.Equals(input.TotalWatchTime))
+                ) && 
+                (
+                    this.TotalPlayingTime == input.TotalPlayingTime ||
+                    (this.TotalPlayingTime != null &&
+                    this.TotalPlayingTime.Equals(input.TotalPlayingTime))
                 ) && 
                 (
                     this.NegativeImpact == input.NegativeImpact ||
@@ -170,7 +185,14 @@ namespace Mux.Csharp.Sdk.Model
                 int hashCode = 41;
                 hashCode = (hashCode * 59) + this.Views.GetHashCode();
                 hashCode = (hashCode * 59) + this.Value.GetHashCode();
-                hashCode = (hashCode * 59) + this.TotalWatchTime.GetHashCode();
+                if (this.TotalWatchTime != null)
+                {
+                    hashCode = (hashCode * 59) + this.TotalWatchTime.GetHashCode();
+                }
+                if (this.TotalPlayingTime != null)
+                {
+                    hashCode = (hashCode * 59) + this.TotalPlayingTime.GetHashCode();
+                }
                 hashCode = (hashCode * 59) + this.NegativeImpact.GetHashCode();
                 if (this.Field != null)
                 {

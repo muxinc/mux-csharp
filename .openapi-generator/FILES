@@ -30,6 +30,7 @@ docs/CreateTrackRequest.md
 docs/CreateTrackResponse.md
 docs/CreateTranscriptionVocabularyRequest.md
 docs/CreateUploadRequest.md
+docs/CreateWebInputRequest.md
 docs/DeliveryReport.md
 docs/DeliveryReportDeliveredSecondsByResolution.md
 docs/DeliveryUsageApi.md
@@ -74,9 +75,11 @@ docs/InputSettings.md
 docs/InputSettingsOverlaySettings.md
 docs/InputTrack.md
 docs/Insight.md
+docs/LaunchWebInputResponse.md
 docs/ListAllMetricValuesResponse.md
 docs/ListAssetsResponse.md
 docs/ListBreakdownValuesResponse.md
+docs/ListBreakdownValuesResponseMeta.md
 docs/ListDeliveryUsageResponse.md
 docs/ListDimensionValuesResponse.md
 docs/ListDimensionsResponse.md
@@ -101,6 +104,7 @@ docs/ListTranscriptionVocabulariesResponse.md
 docs/ListUploadsResponse.md
 docs/ListVideoViewExportsResponse.md
 docs/ListVideoViewsResponse.md
+docs/ListWebInputsResponse.md
 docs/LiveStream.md
 docs/LiveStreamEmbeddedSubtitleSettings.md
 docs/LiveStreamGeneratedSubtitleSettings.md
@@ -132,7 +136,9 @@ docs/RealTimeHistogramTimeseriesBucketValues.md
 docs/RealTimeHistogramTimeseriesDatapoint.md
 docs/RealTimeTimeseriesDatapoint.md
 docs/ReferrerDomainRestriction.md
+docs/ReloadWebInputResponse.md
 docs/Score.md
+docs/ShutdownWebInputResponse.md
 docs/SignalLiveStreamCompleteResponse.md
 docs/SigningKey.md
 docs/SigningKeyResponse.md
@@ -159,6 +165,7 @@ docs/UpdateLiveStreamGeneratedSubtitlesRequest.md
 docs/UpdateLiveStreamRequest.md
 docs/UpdateReferrerDomainRestrictionRequest.md
 docs/UpdateTranscriptionVocabularyRequest.md
+docs/UpdateWebInputUrlRequest.md
 docs/Upload.md
 docs/UploadError.md
 docs/UploadResponse.md
@@ -166,6 +173,9 @@ docs/VideoView.md
 docs/VideoViewEvent.md
 docs/VideoViewResponse.md
 docs/VideoViewsApi.md
+docs/WebInput.md
+docs/WebInputResponse.md
+docs/WebInputsApi.md
 src/Mux.Csharp.Sdk.Test/Mux.Csharp.Sdk.Test.csproj
 src/Mux.Csharp.Sdk/Api/AssetsApi.cs
 src/Mux.Csharp.Sdk/Api/DeliveryUsageApi.cs
@@ -186,6 +196,7 @@ src/Mux.Csharp.Sdk/Api/SpacesApi.cs
 src/Mux.Csharp.Sdk/Api/TranscriptionVocabulariesApi.cs
 src/Mux.Csharp.Sdk/Api/URLSigningKeysApi.cs
 src/Mux.Csharp.Sdk/Api/VideoViewsApi.cs
+src/Mux.Csharp.Sdk/Api/WebInputsApi.cs
 src/Mux.Csharp.Sdk/Client/ApiClient.cs
 src/Mux.Csharp.Sdk/Client/ApiException.cs
 src/Mux.Csharp.Sdk/Client/ApiResponse.cs
@@ -231,6 +242,7 @@ src/Mux.Csharp.Sdk/Model/CreateTrackRequest.cs
 src/Mux.Csharp.Sdk/Model/CreateTrackResponse.cs
 src/Mux.Csharp.Sdk/Model/CreateTranscriptionVocabularyRequest.cs
 src/Mux.Csharp.Sdk/Model/CreateUploadRequest.cs
+src/Mux.Csharp.Sdk/Model/CreateWebInputRequest.cs
 src/Mux.Csharp.Sdk/Model/DeliveryReport.cs
 src/Mux.Csharp.Sdk/Model/DeliveryReportDeliveredSecondsByResolution.cs
 src/Mux.Csharp.Sdk/Model/DimensionValue.cs
@@ -268,9 +280,11 @@ src/Mux.Csharp.Sdk/Model/InputSettings.cs
 src/Mux.Csharp.Sdk/Model/InputSettingsOverlaySettings.cs
 src/Mux.Csharp.Sdk/Model/InputTrack.cs
 src/Mux.Csharp.Sdk/Model/Insight.cs
+src/Mux.Csharp.Sdk/Model/LaunchWebInputResponse.cs
 src/Mux.Csharp.Sdk/Model/ListAllMetricValuesResponse.cs
 src/Mux.Csharp.Sdk/Model/ListAssetsResponse.cs
 src/Mux.Csharp.Sdk/Model/ListBreakdownValuesResponse.cs
+src/Mux.Csharp.Sdk/Model/ListBreakdownValuesResponseMeta.cs
 src/Mux.Csharp.Sdk/Model/ListDeliveryUsageResponse.cs
 src/Mux.Csharp.Sdk/Model/ListDimensionValuesResponse.cs
 src/Mux.Csharp.Sdk/Model/ListDimensionsResponse.cs
@@ -295,6 +309,7 @@ src/Mux.Csharp.Sdk/Model/ListTranscriptionVocabulariesResponse.cs
 src/Mux.Csharp.Sdk/Model/ListUploadsResponse.cs
 src/Mux.Csharp.Sdk/Model/ListVideoViewExportsResponse.cs
 src/Mux.Csharp.Sdk/Model/ListVideoViewsResponse.cs
+src/Mux.Csharp.Sdk/Model/ListWebInputsResponse.cs
 src/Mux.Csharp.Sdk/Model/LiveStream.cs
 src/Mux.Csharp.Sdk/Model/LiveStreamEmbeddedSubtitleSettings.cs
 src/Mux.Csharp.Sdk/Model/LiveStreamGeneratedSubtitleSettings.cs
@@ -320,7 +335,9 @@ src/Mux.Csharp.Sdk/Model/RealTimeHistogramTimeseriesBucketValues.cs
 src/Mux.Csharp.Sdk/Model/RealTimeHistogramTimeseriesDatapoint.cs
 src/Mux.Csharp.Sdk/Model/RealTimeTimeseriesDatapoint.cs
 src/Mux.Csharp.Sdk/Model/ReferrerDomainRestriction.cs
+src/Mux.Csharp.Sdk/Model/ReloadWebInputResponse.cs
 src/Mux.Csharp.Sdk/Model/Score.cs
+src/Mux.Csharp.Sdk/Model/ShutdownWebInputResponse.cs
 src/Mux.Csharp.Sdk/Model/SignalLiveStreamCompleteResponse.cs
 src/Mux.Csharp.Sdk/Model/SigningKey.cs
 src/Mux.Csharp.Sdk/Model/SigningKeyResponse.cs
@@ -343,10 +360,13 @@ src/Mux.Csharp.Sdk/Model/UpdateLiveStreamGeneratedSubtitlesRequest.cs
 src/Mux.Csharp.Sdk/Model/UpdateLiveStreamRequest.cs
 src/Mux.Csharp.Sdk/Model/UpdateReferrerDomainRestrictionRequest.cs
 src/Mux.Csharp.Sdk/Model/UpdateTranscriptionVocabularyRequest.cs
+src/Mux.Csharp.Sdk/Model/UpdateWebInputUrlRequest.cs
 src/Mux.Csharp.Sdk/Model/Upload.cs
 src/Mux.Csharp.Sdk/Model/UploadError.cs
 src/Mux.Csharp.Sdk/Model/UploadResponse.cs
 src/Mux.Csharp.Sdk/Model/VideoView.cs
 src/Mux.Csharp.Sdk/Model/VideoViewEvent.cs
 src/Mux.Csharp.Sdk/Model/VideoViewResponse.cs
+src/Mux.Csharp.Sdk/Model/WebInput.cs
+src/Mux.Csharp.Sdk/Model/WebInputResponse.cs
 src/Mux.Csharp.Sdk/Mux.Csharp.Sdk.csproj

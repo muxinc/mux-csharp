@@ -42,7 +42,7 @@ namespace Mux.Csharp.Sdk.Model
         /// <param name="maxPercentage">maxPercentage.</param>
         /// <param name="bucketValues">bucketValues.</param>
         /// <param name="average">average.</param>
-        public MonitoringHistogramTimeseriesDatapoint(string timestamp = default(string), long sum = default(long), double p95 = default(double), double median = default(double), double maxPercentage = default(double), List<MonitoringHistogramTimeseriesBucketValues> bucketValues = default(List<MonitoringHistogramTimeseriesBucketValues>), double average = default(double))
+        public MonitoringHistogramTimeseriesDatapoint(string timestamp = default(string), long sum = default(long), double? p95 = default(double?), double? median = default(double?), double maxPercentage = default(double), List<MonitoringHistogramTimeseriesBucketValues> bucketValues = default(List<MonitoringHistogramTimeseriesBucketValues>), double? average = default(double?))
         {
             this.Timestamp = timestamp;
             this.Sum = sum;
@@ -69,14 +69,14 @@ namespace Mux.Csharp.Sdk.Model
         /// <summary>
         /// Gets or Sets P95
         /// </summary>
-        [DataMember(Name = "p95", EmitDefaultValue = false)]
-        public double P95 { get; set; }
+        [DataMember(Name = "p95", EmitDefaultValue = true)]
+        public double? P95 { get; set; }
 
         /// <summary>
         /// Gets or Sets Median
         /// </summary>
-        [DataMember(Name = "median", EmitDefaultValue = false)]
-        public double Median { get; set; }
+        [DataMember(Name = "median", EmitDefaultValue = true)]
+        public double? Median { get; set; }
 
         /// <summary>
         /// Gets or Sets MaxPercentage
@@ -93,8 +93,8 @@ namespace Mux.Csharp.Sdk.Model
         /// <summary>
         /// Gets or Sets Average
         /// </summary>
-        [DataMember(Name = "average", EmitDefaultValue = false)]
-        public double Average { get; set; }
+        [DataMember(Name = "average", EmitDefaultValue = true)]
+        public double? Average { get; set; }
 
         /// <summary>
         /// Gets or Sets additional properties
@@ -164,11 +164,13 @@ namespace Mux.Csharp.Sdk.Model
                 ) && 
                 (
                     this.P95 == input.P95 ||
-                    this.P95.Equals(input.P95)
+                    (this.P95 != null &&
+                    this.P95.Equals(input.P95))
                 ) && 
                 (
                     this.Median == input.Median ||
-                    this.Median.Equals(input.Median)
+                    (this.Median != null &&
+                    this.Median.Equals(input.Median))
                 ) && 
                 (
                     this.MaxPercentage == input.MaxPercentage ||
@@ -182,7 +184,8 @@ namespace Mux.Csharp.Sdk.Model
                 ) && 
                 (
                     this.Average == input.Average ||
-                    this.Average.Equals(input.Average)
+                    (this.Average != null &&
+                    this.Average.Equals(input.Average))
                 )
                 && (this.AdditionalProperties.Count == input.AdditionalProperties.Count && !this.AdditionalProperties.Except(input.AdditionalProperties).Any());
         }
@@ -201,14 +204,23 @@ namespace Mux.Csharp.Sdk.Model
                     hashCode = (hashCode * 59) + this.Timestamp.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.Sum.GetHashCode();
-                hashCode = (hashCode * 59) + this.P95.GetHashCode();
-                hashCode = (hashCode * 59) + this.Median.GetHashCode();
+                if (this.P95 != null)
+                {
+                    hashCode = (hashCode * 59) + this.P95.GetHashCode();
+                }
+                if (this.Median != null)
+                {
+                    hashCode = (hashCode * 59) + this.Median.GetHashCode();
+                }
                 hashCode = (hashCode * 59) + this.MaxPercentage.GetHashCode();
                 if (this.BucketValues != null)
                 {
                     hashCode = (hashCode * 59) + this.BucketValues.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.Average.GetHashCode();
+                if (this.Average != null)
+                {
+                    hashCode = (hashCode * 59) + this.Average.GetHashCode();
+                }
                 if (this.AdditionalProperties != null)
                 {
                     hashCode = (hashCode * 59) + this.AdditionalProperties.GetHashCode();

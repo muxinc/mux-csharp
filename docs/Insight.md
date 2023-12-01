@@ -4,7 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**TotalWatchTime** | **long** |  | [optional] 
+**TotalWatchTime** | **long?** |  | [optional] 
+**TotalPlayingTime** | **long?** |  | [optional] 
 **TotalViews** | **long** |  | [optional] 
 **NegativeImpactScore** | **float** |  | [optional] 
 **Metric** | **double** |  | [optional] 

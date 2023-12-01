@@ -175,7 +175,7 @@ namespace Mux.Csharp.Sdk.Api
         /// List spaces
         /// </summary>
         /// <remarks>
-        /// List all spaces in the current enviroment.
+        /// List all spaces in the current environment.
         /// </remarks>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Number of items to include in the response (optional, default to 25)</param>
@@ -188,7 +188,7 @@ namespace Mux.Csharp.Sdk.Api
         /// List spaces
         /// </summary>
         /// <remarks>
-        /// List all spaces in the current enviroment.
+        /// List all spaces in the current environment.
         /// </remarks>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Number of items to include in the response (optional, default to 25)</param>
@@ -415,7 +415,7 @@ namespace Mux.Csharp.Sdk.Api
         /// List spaces
         /// </summary>
         /// <remarks>
-        /// List all spaces in the current enviroment.
+        /// List all spaces in the current environment.
         /// </remarks>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Number of items to include in the response (optional, default to 25)</param>
@@ -429,7 +429,7 @@ namespace Mux.Csharp.Sdk.Api
         /// List spaces
         /// </summary>
         /// <remarks>
-        /// List all spaces in the current enviroment.
+        /// List all spaces in the current environment.
         /// </remarks>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Number of items to include in the response (optional, default to 25)</param>
@@ -1563,7 +1563,7 @@ namespace Mux.Csharp.Sdk.Api
         }
 
         /// <summary>
-        /// List spaces List all spaces in the current enviroment.
+        /// List spaces List all spaces in the current environment.
         /// </summary>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Number of items to include in the response (optional, default to 25)</param>
@@ -1577,7 +1577,7 @@ namespace Mux.Csharp.Sdk.Api
         }
 
         /// <summary>
-        /// List spaces List all spaces in the current enviroment.
+        /// List spaces List all spaces in the current environment.
         /// </summary>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Number of items to include in the response (optional, default to 25)</param>
@@ -1639,7 +1639,7 @@ namespace Mux.Csharp.Sdk.Api
         }
 
         /// <summary>
-        /// List spaces List all spaces in the current enviroment.
+        /// List spaces List all spaces in the current environment.
         /// </summary>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Number of items to include in the response (optional, default to 25)</param>
@@ -1654,7 +1654,7 @@ namespace Mux.Csharp.Sdk.Api
         }
 
         /// <summary>
-        /// List spaces List all spaces in the current enviroment.
+        /// List spaces List all spaces in the current environment.
         /// </summary>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Number of items to include in the response (optional, default to 25)</param>

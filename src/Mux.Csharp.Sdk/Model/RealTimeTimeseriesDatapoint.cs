@@ -38,7 +38,7 @@ namespace Mux.Csharp.Sdk.Model
         /// <param name="value">value.</param>
         /// <param name="date">date.</param>
         /// <param name="concurrentViewers">concurrentViewers.</param>
-        public RealTimeTimeseriesDatapoint(double value = default(double), string date = default(string), long concurrentViewers = default(long))
+        public RealTimeTimeseriesDatapoint(double? value = default(double?), string date = default(string), long concurrentViewers = default(long))
         {
             this.Value = value;
             this.Date = date;
@@ -49,8 +49,8 @@ namespace Mux.Csharp.Sdk.Model
         /// <summary>
         /// Gets or Sets Value
         /// </summary>
-        [DataMember(Name = "value", EmitDefaultValue = false)]
-        public double Value { get; set; }
+        [DataMember(Name = "value", EmitDefaultValue = true)]
+        public double? Value { get; set; }
 
         /// <summary>
         /// Gets or Sets Date
@@ -119,7 +119,8 @@ namespace Mux.Csharp.Sdk.Model
             return 
                 (
                     this.Value == input.Value ||
-                    this.Value.Equals(input.Value)
+                    (this.Value != null &&
+                    this.Value.Equals(input.Value))
                 ) && 
                 (
                     this.Date == input.Date ||
@@ -142,7 +143,10 @@ namespace Mux.Csharp.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = (hashCode * 59) + this.Value.GetHashCode();
+                if (this.Value != null)
+                {
+                    hashCode = (hashCode * 59) + this.Value.GetHashCode();
+                }
                 if (this.Date != null)
                 {
                     hashCode = (hashCode * 59) + this.Date.GetHashCode();

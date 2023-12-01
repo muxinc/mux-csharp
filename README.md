@@ -16,7 +16,7 @@ Mux is how developers build online video. This API encompasses both Mux Video an
 **PLEASE NOTE:** This is an early build of the Mux C# SDK, as evidenced by its pre-1.0 status, but we're reasonably certain of its stability and usability against the Mux API.. Documentation is currently best-effort, but it'll improve over time! Instead of contacting Mux Support, please file an issue on this repository or email [Mux DevEx](devex@mux.com) for assistance.
 
 - API version: v1
-- SDK version: 0.7.1
+- SDK version: 0.8.0
     [https://docs.mux.com](https://docs.mux.com)
 
 <a name="frameworks-supported"></a>
@@ -206,6 +206,14 @@ Class | Method | HTTP request | Description
 *URLSigningKeysApi* | [**ListUrlSigningKeys**](docs/URLSigningKeysApi.md#listurlsigningkeys) | **GET** /video/v1/signing-keys | List URL signing keys
 *VideoViewsApi* | [**GetVideoView**](docs/VideoViewsApi.md#getvideoview) | **GET** /data/v1/video-views/{VIDEO_VIEW_ID} | Get a Video View
 *VideoViewsApi* | [**ListVideoViews**](docs/VideoViewsApi.md#listvideoviews) | **GET** /data/v1/video-views | List Video Views
+*WebInputsApi* | [**CreateWebInput**](docs/WebInputsApi.md#createwebinput) | **POST** /video/v1/web-inputs | Create a new Web Input
+*WebInputsApi* | [**DeleteWebInput**](docs/WebInputsApi.md#deletewebinput) | **DELETE** /video/v1/web-inputs/{WEB_INPUT_ID} | Delete a Web Input
+*WebInputsApi* | [**GetWebInput**](docs/WebInputsApi.md#getwebinput) | **GET** /video/v1/web-inputs/{WEB_INPUT_ID} | Retrieve a Web Input
+*WebInputsApi* | [**LaunchWebInput**](docs/WebInputsApi.md#launchwebinput) | **PUT** /video/v1/web-inputs/{WEB_INPUT_ID}/launch | Launch a Web Input
+*WebInputsApi* | [**ListWebInputs**](docs/WebInputsApi.md#listwebinputs) | **GET** /video/v1/web-inputs | List Web Inputs
+*WebInputsApi* | [**ReloadWebInput**](docs/WebInputsApi.md#reloadwebinput) | **PUT** /video/v1/web-inputs/{WEB_INPUT_ID}/reload | Reload a Web Input
+*WebInputsApi* | [**ShutdownWebInput**](docs/WebInputsApi.md#shutdownwebinput) | **PUT** /video/v1/web-inputs/{WEB_INPUT_ID}/shutdown | Shut down a Web Input
+*WebInputsApi* | [**UpdateWebInputUrl**](docs/WebInputsApi.md#updatewebinputurl) | **PUT** /video/v1/web-inputs/{WEB_INPUT_ID}/url | Update Web Input URL
 
 
 <a name="documentation-for-models"></a>
@@ -239,6 +247,7 @@ Class | Method | HTTP request | Description
  - [Model.CreateTrackResponse](docs/CreateTrackResponse.md)
  - [Model.CreateTranscriptionVocabularyRequest](docs/CreateTranscriptionVocabularyRequest.md)
  - [Model.CreateUploadRequest](docs/CreateUploadRequest.md)
+ - [Model.CreateWebInputRequest](docs/CreateWebInputRequest.md)
  - [Model.DeliveryReport](docs/DeliveryReport.md)
  - [Model.DeliveryReportDeliveredSecondsByResolution](docs/DeliveryReportDeliveredSecondsByResolution.md)
  - [Model.DimensionValue](docs/DimensionValue.md)
@@ -276,9 +285,11 @@ Class | Method | HTTP request | Description
  - [Model.InputSettingsOverlaySettings](docs/InputSettingsOverlaySettings.md)
  - [Model.InputTrack](docs/InputTrack.md)
  - [Model.Insight](docs/Insight.md)
+ - [Model.LaunchWebInputResponse](docs/LaunchWebInputResponse.md)
  - [Model.ListAllMetricValuesResponse](docs/ListAllMetricValuesResponse.md)
  - [Model.ListAssetsResponse](docs/ListAssetsResponse.md)
  - [Model.ListBreakdownValuesResponse](docs/ListBreakdownValuesResponse.md)
+ - [Model.ListBreakdownValuesResponseMeta](docs/ListBreakdownValuesResponseMeta.md)
  - [Model.ListDeliveryUsageResponse](docs/ListDeliveryUsageResponse.md)
  - [Model.ListDimensionValuesResponse](docs/ListDimensionValuesResponse.md)
  - [Model.ListDimensionsResponse](docs/ListDimensionsResponse.md)
@@ -303,6 +314,7 @@ Class | Method | HTTP request | Description
  - [Model.ListUploadsResponse](docs/ListUploadsResponse.md)
  - [Model.ListVideoViewExportsResponse](docs/ListVideoViewExportsResponse.md)
  - [Model.ListVideoViewsResponse](docs/ListVideoViewsResponse.md)
+ - [Model.ListWebInputsResponse](docs/ListWebInputsResponse.md)
  - [Model.LiveStream](docs/LiveStream.md)
  - [Model.LiveStreamEmbeddedSubtitleSettings](docs/LiveStreamEmbeddedSubtitleSettings.md)
  - [Model.LiveStreamGeneratedSubtitleSettings](docs/LiveStreamGeneratedSubtitleSettings.md)
@@ -328,7 +340,9 @@ Class | Method | HTTP request | Description
  - [Model.RealTimeHistogramTimeseriesDatapoint](docs/RealTimeHistogramTimeseriesDatapoint.md)
  - [Model.RealTimeTimeseriesDatapoint](docs/RealTimeTimeseriesDatapoint.md)
  - [Model.ReferrerDomainRestriction](docs/ReferrerDomainRestriction.md)
+ - [Model.ReloadWebInputResponse](docs/ReloadWebInputResponse.md)
  - [Model.Score](docs/Score.md)
+ - [Model.ShutdownWebInputResponse](docs/ShutdownWebInputResponse.md)
  - [Model.SignalLiveStreamCompleteResponse](docs/SignalLiveStreamCompleteResponse.md)
  - [Model.SigningKey](docs/SigningKey.md)
  - [Model.SigningKeyResponse](docs/SigningKeyResponse.md)
@@ -351,12 +365,15 @@ Class | Method | HTTP request | Description
  - [Model.UpdateLiveStreamRequest](docs/UpdateLiveStreamRequest.md)
  - [Model.UpdateReferrerDomainRestrictionRequest](docs/UpdateReferrerDomainRestrictionRequest.md)
  - [Model.UpdateTranscriptionVocabularyRequest](docs/UpdateTranscriptionVocabularyRequest.md)
+ - [Model.UpdateWebInputUrlRequest](docs/UpdateWebInputUrlRequest.md)
  - [Model.Upload](docs/Upload.md)
  - [Model.UploadError](docs/UploadError.md)
  - [Model.UploadResponse](docs/UploadResponse.md)
  - [Model.VideoView](docs/VideoView.md)
  - [Model.VideoViewEvent](docs/VideoViewEvent.md)
  - [Model.VideoViewResponse](docs/VideoViewResponse.md)
+ - [Model.WebInput](docs/WebInput.md)
+ - [Model.WebInputResponse](docs/WebInputResponse.md)
 
 
 <a name="documentation-for-authorization"></a>

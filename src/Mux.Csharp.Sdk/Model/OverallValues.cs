@@ -38,12 +38,14 @@ namespace Mux.Csharp.Sdk.Model
         /// <param name="value">value.</param>
         /// <param name="totalWatchTime">totalWatchTime.</param>
         /// <param name="totalViews">totalViews.</param>
+        /// <param name="totalPlayingTime">totalPlayingTime.</param>
         /// <param name="globalValue">globalValue.</param>
-        public OverallValues(double value = default(double), long totalWatchTime = default(long), long totalViews = default(long), double globalValue = default(double))
+        public OverallValues(double value = default(double), long? totalWatchTime = default(long?), long totalViews = default(long), long? totalPlayingTime = default(long?), double? globalValue = default(double?))
         {
             this.Value = value;
             this.TotalWatchTime = totalWatchTime;
             this.TotalViews = totalViews;
+            this.TotalPlayingTime = totalPlayingTime;
             this.GlobalValue = globalValue;
             this.AdditionalProperties = new Dictionary<string, object>();
         }
@@ -57,8 +59,8 @@ namespace Mux.Csharp.Sdk.Model
         /// <summary>
         /// Gets or Sets TotalWatchTime
         /// </summary>
-        [DataMember(Name = "total_watch_time", EmitDefaultValue = false)]
-        public long TotalWatchTime { get; set; }
+        [DataMember(Name = "total_watch_time", EmitDefaultValue = true)]
+        public long? TotalWatchTime { get; set; }
 
         /// <summary>
         /// Gets or Sets TotalViews
@@ -67,10 +69,16 @@ namespace Mux.Csharp.Sdk.Model
         public long TotalViews { get; set; }
 
         /// <summary>
+        /// Gets or Sets TotalPlayingTime
+        /// </summary>
+        [DataMember(Name = "total_playing_time", EmitDefaultValue = true)]
+        public long? TotalPlayingTime { get; set; }
+
+        /// <summary>
         /// Gets or Sets GlobalValue
         /// </summary>
-        [DataMember(Name = "global_value", EmitDefaultValue = false)]
-        public double GlobalValue { get; set; }
+        [DataMember(Name = "global_value", EmitDefaultValue = true)]
+        public double? GlobalValue { get; set; }
 
         /// <summary>
         /// Gets or Sets additional properties
@@ -89,6 +97,7 @@ namespace Mux.Csharp.Sdk.Model
             sb.Append("  Value: ").Append(Value).Append("\n");
             sb.Append("  TotalWatchTime: ").Append(TotalWatchTime).Append("\n");
             sb.Append("  TotalViews: ").Append(TotalViews).Append("\n");
+            sb.Append("  TotalPlayingTime: ").Append(TotalPlayingTime).Append("\n");
             sb.Append("  GlobalValue: ").Append(GlobalValue).Append("\n");
             sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
@@ -132,15 +141,22 @@ namespace Mux.Csharp.Sdk.Model
                 ) && 
                 (
                     this.TotalWatchTime == input.TotalWatchTime ||
-                    this.TotalWatchTime.Equals(input.TotalWatchTime)
+                    (this.TotalWatchTime != null &&
+                    this.TotalWatchTime.Equals(input.TotalWatchTime))
                 ) && 
                 (
                     this.TotalViews == input.TotalViews ||
                     this.TotalViews.Equals(input.TotalViews)
                 ) && 
                 (
+                    this.TotalPlayingTime == input.TotalPlayingTime ||
+                    (this.TotalPlayingTime != null &&
+                    this.TotalPlayingTime.Equals(input.TotalPlayingTime))
+                ) && 
+                (
                     this.GlobalValue == input.GlobalValue ||
-                    this.GlobalValue.Equals(input.GlobalValue)
+                    (this.GlobalValue != null &&
+                    this.GlobalValue.Equals(input.GlobalValue))
                 )
                 && (this.AdditionalProperties.Count == input.AdditionalProperties.Count && !this.AdditionalProperties.Except(input.AdditionalProperties).Any());
         }
@@ -155,9 +171,19 @@ namespace Mux.Csharp.Sdk.Model
             {
                 int hashCode = 41;
                 hashCode = (hashCode * 59) + this.Value.GetHashCode();
-                hashCode = (hashCode * 59) + this.TotalWatchTime.GetHashCode();
+                if (this.TotalWatchTime != null)
+                {
+                    hashCode = (hashCode * 59) + this.TotalWatchTime.GetHashCode();
+                }
                 hashCode = (hashCode * 59) + this.TotalViews.GetHashCode();
-                hashCode = (hashCode * 59) + this.GlobalValue.GetHashCode();
+                if (this.TotalPlayingTime != null)
+                {
+                    hashCode = (hashCode * 59) + this.TotalPlayingTime.GetHashCode();
+                }
+                if (this.GlobalValue != null)
+                {
+                    hashCode = (hashCode * 59) + this.GlobalValue.GetHashCode();
+                }
                 if (this.AdditionalProperties != null)
                 {
                     hashCode = (hashCode * 59) + this.AdditionalProperties.GetHashCode();

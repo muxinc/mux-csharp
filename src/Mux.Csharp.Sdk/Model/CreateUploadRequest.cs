@@ -35,27 +35,15 @@ namespace Mux.Csharp.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CreateUploadRequest" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected CreateUploadRequest()
-        {
-            this.AdditionalProperties = new Dictionary<string, object>();
-        }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="CreateUploadRequest" /> class.
-        /// </summary>
         /// <param name="timeout">Max time in seconds for the signed upload URL to be valid. If a successful upload has not occurred before the timeout limit, the direct upload is marked &#x60;timed_out&#x60; (default to 3600).</param>
         /// <param name="corsOrigin">If the upload URL will be used in a browser, you must specify the origin in order for the signed URL to have the correct CORS headers..</param>
-        /// <param name="newAssetSettings">newAssetSettings (required).</param>
+        /// <param name="newAssetSettings">newAssetSettings.</param>
         /// <param name="test">test.</param>
         public CreateUploadRequest(int timeout = 3600, string corsOrigin = default(string), CreateAssetRequest newAssetSettings = default(CreateAssetRequest), bool test = default(bool))
         {
-            // to ensure "newAssetSettings" is required (not null)
-            if (newAssetSettings == null) {
-                throw new ArgumentNullException("newAssetSettings is a required property for CreateUploadRequest and cannot be null");
-            }
-            this.NewAssetSettings = newAssetSettings;
             this.Timeout = timeout;
             this.CorsOrigin = corsOrigin;
+            this.NewAssetSettings = newAssetSettings;
             this.Test = test;
             this.AdditionalProperties = new Dictionary<string, object>();
         }
@@ -77,7 +65,7 @@ namespace Mux.Csharp.Sdk.Model
         /// <summary>
         /// Gets or Sets NewAssetSettings
         /// </summary>
-        [DataMember(Name = "new_asset_settings", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "new_asset_settings", EmitDefaultValue = false)]
         public CreateAssetRequest NewAssetSettings { get; set; }
 
         /// <summary>

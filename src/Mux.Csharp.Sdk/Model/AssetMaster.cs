@@ -27,7 +27,7 @@ using OpenAPIDateConverter = Mux.Csharp.Sdk.Client.OpenAPIDateConverter;
 namespace Mux.Csharp.Sdk.Model
 {
     /// <summary>
-    /// An object containing the current status of Master Access and the link to the Master MP4 file when ready. This object does not exist if &#x60;master_acess&#x60; is set to &#x60;none&#x60; and when the temporary URL expires.
+    /// An object containing the current status of Master Access and the link to the Master MP4 file when ready. This object does not exist if &#x60;master_access&#x60; is set to &#x60;none&#x60; and when the temporary URL expires.
     /// </summary>
     [DataContract(Name = "Asset_master")]
     public partial class AssetMaster : IEquatable<AssetMaster>, IValidatableObject

@@ -35,12 +35,20 @@ namespace Mux.Csharp.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="GetMonitoringHistogramTimeseriesResponseMeta" /> class.
         /// </summary>
+        /// <param name="bucketUnit">bucketUnit.</param>
         /// <param name="buckets">buckets.</param>
-        public GetMonitoringHistogramTimeseriesResponseMeta(List<MonitoringHistogramTimeseriesBucket> buckets = default(List<MonitoringHistogramTimeseriesBucket>))
+        public GetMonitoringHistogramTimeseriesResponseMeta(string bucketUnit = default(string), List<MonitoringHistogramTimeseriesBucket> buckets = default(List<MonitoringHistogramTimeseriesBucket>))
         {
+            this.BucketUnit = bucketUnit;
             this.Buckets = buckets;
             this.AdditionalProperties = new Dictionary<string, object>();
         }
+
+        /// <summary>
+        /// Gets or Sets BucketUnit
+        /// </summary>
+        [DataMember(Name = "bucket_unit", EmitDefaultValue = false)]
+        public string BucketUnit { get; set; }
 
         /// <summary>
         /// Gets or Sets Buckets
@@ -62,6 +70,7 @@ namespace Mux.Csharp.Sdk.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class GetMonitoringHistogramTimeseriesResponseMeta {\n");
+            sb.Append("  BucketUnit: ").Append(BucketUnit).Append("\n");
             sb.Append("  Buckets: ").Append(Buckets).Append("\n");
             sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
@@ -100,6 +109,11 @@ namespace Mux.Csharp.Sdk.Model
             }
             return 
                 (
+                    this.BucketUnit == input.BucketUnit ||
+                    (this.BucketUnit != null &&
+                    this.BucketUnit.Equals(input.BucketUnit))
+                ) && 
+                (
                     this.Buckets == input.Buckets ||
                     this.Buckets != null &&
                     input.Buckets != null &&
@@ -117,6 +131,10 @@ namespace Mux.Csharp.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.BucketUnit != null)
+                {
+                    hashCode = (hashCode * 59) + this.BucketUnit.GetHashCode();
+                }
                 if (this.Buckets != null)
                 {
                     hashCode = (hashCode * 59) + this.Buckets.GetHashCode();

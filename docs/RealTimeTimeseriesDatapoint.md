@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Value** | **double** |  | [optional] 
+**Value** | **double?** |  | [optional] 
 **Date** | **string** |  | [optional] 
 **ConcurrentViewers** | **long** |  | [optional] 
 

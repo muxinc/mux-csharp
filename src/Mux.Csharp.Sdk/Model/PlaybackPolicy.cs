@@ -27,9 +27,9 @@ using OpenAPIDateConverter = Mux.Csharp.Sdk.Client.OpenAPIDateConverter;
 namespace Mux.Csharp.Sdk.Model
 {
     /// <summary>
-    /// * &#x60;public&#x60; playback IDs are accessible by constructing an HLS URL like &#x60;https://stream.mux.com/${PLAYBACK_ID}&#x60;  * &#x60;signed&#x60; playback IDs should be used with tokens &#x60;https://stream.mux.com/${PLAYBACK_ID}?token&#x3D;{TOKEN}&#x60;. See [Secure video playback](https://docs.mux.com/guides/video/secure-video-playback) for details about creating tokens. 
+    /// * &#x60;public&#x60; playback IDs are accessible by constructing an HLS URL like &#x60;https://stream.mux.com/${PLAYBACK_ID}&#x60;  * &#x60;signed&#x60; playback IDs should be used with tokens &#x60;https://stream.mux.com/${PLAYBACK_ID}?token&#x3D;{TOKEN}&#x60;. See [Secure video playback](https://docs.mux.com/guides/secure-video-playback) for details about creating tokens. 
     /// </summary>
-    /// <value>* &#x60;public&#x60; playback IDs are accessible by constructing an HLS URL like &#x60;https://stream.mux.com/${PLAYBACK_ID}&#x60;  * &#x60;signed&#x60; playback IDs should be used with tokens &#x60;https://stream.mux.com/${PLAYBACK_ID}?token&#x3D;{TOKEN}&#x60;. See [Secure video playback](https://docs.mux.com/guides/video/secure-video-playback) for details about creating tokens. </value>
+    /// <value>* &#x60;public&#x60; playback IDs are accessible by constructing an HLS URL like &#x60;https://stream.mux.com/${PLAYBACK_ID}&#x60;  * &#x60;signed&#x60; playback IDs should be used with tokens &#x60;https://stream.mux.com/${PLAYBACK_ID}?token&#x3D;{TOKEN}&#x60;. See [Secure video playback](https://docs.mux.com/guides/secure-video-playback) for details about creating tokens. </value>
     [JsonConverter(typeof(StringEnumConverter))]
     public enum PlaybackPolicy
     {

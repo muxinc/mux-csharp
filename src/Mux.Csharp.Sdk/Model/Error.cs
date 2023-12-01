@@ -41,9 +41,9 @@ namespace Mux.Csharp.Sdk.Model
         /// <param name="message">The error message..</param>
         /// <param name="lastSeen">The last time this error was seen (ISO 8601 timestamp)..</param>
         /// <param name="description">Description of the error..</param>
-        /// <param name="count">The total number of views that experiend this error..</param>
+        /// <param name="count">The total number of views that experienced this error..</param>
         /// <param name="code">The error code.</param>
-        public Error(long id = default(long), double percentage = default(double), string notes = default(string), string message = default(string), string lastSeen = default(string), string description = default(string), long count = default(long), long code = default(long))
+        public Error(long id = default(long), double percentage = default(double), string notes = default(string), string message = default(string), string lastSeen = default(string), string description = default(string), long count = default(long), long? code = default(long?))
         {
             this.Id = id;
             this.Percentage = percentage;
@@ -74,14 +74,14 @@ namespace Mux.Csharp.Sdk.Model
         /// Notes that are attached to this error.
         /// </summary>
         /// <value>Notes that are attached to this error.</value>
-        [DataMember(Name = "notes", EmitDefaultValue = false)]
+        [DataMember(Name = "notes", EmitDefaultValue = true)]
         public string Notes { get; set; }
 
         /// <summary>
         /// The error message.
         /// </summary>
         /// <value>The error message.</value>
-        [DataMember(Name = "message", EmitDefaultValue = false)]
+        [DataMember(Name = "message", EmitDefaultValue = true)]
         public string Message { get; set; }
 
         /// <summary>
@@ -95,13 +95,13 @@ namespace Mux.Csharp.Sdk.Model
         /// Description of the error.
         /// </summary>
         /// <value>Description of the error.</value>
-        [DataMember(Name = "description", EmitDefaultValue = false)]
+        [DataMember(Name = "description", EmitDefaultValue = true)]
         public string Description { get; set; }
 
         /// <summary>
-        /// The total number of views that experiend this error.
+        /// The total number of views that experienced this error.
         /// </summary>
-        /// <value>The total number of views that experiend this error.</value>
+        /// <value>The total number of views that experienced this error.</value>
         [DataMember(Name = "count", EmitDefaultValue = false)]
         public long Count { get; set; }
 
@@ -109,8 +109,8 @@ namespace Mux.Csharp.Sdk.Model
         /// The error code
         /// </summary>
         /// <value>The error code</value>
-        [DataMember(Name = "code", EmitDefaultValue = false)]
-        public long Code { get; set; }
+        [DataMember(Name = "code", EmitDefaultValue = true)]
+        public long? Code { get; set; }
 
         /// <summary>
         /// Gets or Sets additional properties
@@ -204,7 +204,8 @@ namespace Mux.Csharp.Sdk.Model
                 ) && 
                 (
                     this.Code == input.Code ||
-                    this.Code.Equals(input.Code)
+                    (this.Code != null &&
+                    this.Code.Equals(input.Code))
                 )
                 && (this.AdditionalProperties.Count == input.AdditionalProperties.Count && !this.AdditionalProperties.Except(input.AdditionalProperties).Any());
         }
@@ -237,7 +238,10 @@ namespace Mux.Csharp.Sdk.Model
                     hashCode = (hashCode * 59) + this.Description.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.Count.GetHashCode();
-                hashCode = (hashCode * 59) + this.Code.GetHashCode();
+                if (this.Code != null)
+                {
+                    hashCode = (hashCode * 59) + this.Code.GetHashCode();
+                }
                 if (this.AdditionalProperties != null)
                 {
                     hashCode = (hashCode * 59) + this.AdditionalProperties.GetHashCode();

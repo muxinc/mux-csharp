@@ -39,12 +39,14 @@ namespace Mux.Csharp.Sdk.Model
         /// <param name="playbackTime">playbackTime.</param>
         /// <param name="name">name.</param>
         /// <param name="eventTime">eventTime.</param>
-        public VideoViewEvent(long viewerTime = default(long), long playbackTime = default(long), string name = default(string), long eventTime = default(long))
+        /// <param name="details">details.</param>
+        public VideoViewEvent(long viewerTime = default(long), long playbackTime = default(long), string name = default(string), long eventTime = default(long), Dictionary<string, Object> details = default(Dictionary<string, Object>))
         {
             this.ViewerTime = viewerTime;
             this.PlaybackTime = playbackTime;
             this.Name = name;
             this.EventTime = eventTime;
+            this.Details = details;
             this.AdditionalProperties = new Dictionary<string, object>();
         }
 
@@ -73,6 +75,12 @@ namespace Mux.Csharp.Sdk.Model
         public long EventTime { get; set; }
 
         /// <summary>
+        /// Gets or Sets Details
+        /// </summary>
+        [DataMember(Name = "details", EmitDefaultValue = false)]
+        public Dictionary<string, Object> Details { get; set; }
+
+        /// <summary>
         /// Gets or Sets additional properties
         /// </summary>
         [JsonExtensionData]
@@ -90,6 +98,7 @@ namespace Mux.Csharp.Sdk.Model
             sb.Append("  PlaybackTime: ").Append(PlaybackTime).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  EventTime: ").Append(EventTime).Append("\n");
+            sb.Append("  Details: ").Append(Details).Append("\n");
             sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -142,6 +151,12 @@ namespace Mux.Csharp.Sdk.Model
                 (
                     this.EventTime == input.EventTime ||
                     this.EventTime.Equals(input.EventTime)
+                ) && 
+                (
+                    this.Details == input.Details ||
+                    this.Details != null &&
+                    input.Details != null &&
+                    this.Details.SequenceEqual(input.Details)
                 )
                 && (this.AdditionalProperties.Count == input.AdditionalProperties.Count && !this.AdditionalProperties.Except(input.AdditionalProperties).Any());
         }
@@ -162,6 +177,10 @@ namespace Mux.Csharp.Sdk.Model
                     hashCode = (hashCode * 59) + this.Name.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.EventTime.GetHashCode();
+                if (this.Details != null)
+                {
+                    hashCode = (hashCode * 59) + this.Details.GetHashCode();
+                }
                 if (this.AdditionalProperties != null)
                 {
                     hashCode = (hashCode * 59) + this.AdditionalProperties.GetHashCode();

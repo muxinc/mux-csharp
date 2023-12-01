@@ -37,7 +37,7 @@ namespace Mux.Csharp.Sdk.Model
         /// </summary>
         /// <param name="start">start.</param>
         /// <param name="end">end.</param>
-        public MonitoringHistogramTimeseriesBucket(long start = default(long), long end = default(long))
+        public MonitoringHistogramTimeseriesBucket(long start = default(long), long? end = default(long?))
         {
             this.Start = start;
             this.End = end;
@@ -53,8 +53,8 @@ namespace Mux.Csharp.Sdk.Model
         /// <summary>
         /// Gets or Sets End
         /// </summary>
-        [DataMember(Name = "end", EmitDefaultValue = false)]
-        public long End { get; set; }
+        [DataMember(Name = "end", EmitDefaultValue = true)]
+        public long? End { get; set; }
 
         /// <summary>
         /// Gets or Sets additional properties
@@ -114,7 +114,8 @@ namespace Mux.Csharp.Sdk.Model
                 ) && 
                 (
                     this.End == input.End ||
-                    this.End.Equals(input.End)
+                    (this.End != null &&
+                    this.End.Equals(input.End))
                 )
                 && (this.AdditionalProperties.Count == input.AdditionalProperties.Count && !this.AdditionalProperties.Except(input.AdditionalProperties).Any());
         }
@@ -129,7 +130,10 @@ namespace Mux.Csharp.Sdk.Model
             {
                 int hashCode = 41;
                 hashCode = (hashCode * 59) + this.Start.GetHashCode();
-                hashCode = (hashCode * 59) + this.End.GetHashCode();
+                if (this.End != null)
+                {
+                    hashCode = (hashCode * 59) + this.End.GetHashCode();
+                }
                 if (this.AdditionalProperties != null)
                 {
                     hashCode = (hashCode * 59) + this.AdditionalProperties.GetHashCode();
