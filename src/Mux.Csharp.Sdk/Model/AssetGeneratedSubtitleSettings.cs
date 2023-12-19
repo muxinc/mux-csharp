@@ -46,10 +46,130 @@ namespace Mux.Csharp.Sdk.Model
             En = 1,
 
             /// <summary>
-            /// Enum EnUS for value: en-US
+            /// Enum Es for value: es
             /// </summary>
-            [EnumMember(Value = "en-US")]
-            EnUS = 2
+            [EnumMember(Value = "es")]
+            Es = 2,
+
+            /// <summary>
+            /// Enum It for value: it
+            /// </summary>
+            [EnumMember(Value = "it")]
+            It = 3,
+
+            /// <summary>
+            /// Enum Pt for value: pt
+            /// </summary>
+            [EnumMember(Value = "pt")]
+            Pt = 4,
+
+            /// <summary>
+            /// Enum De for value: de
+            /// </summary>
+            [EnumMember(Value = "de")]
+            De = 5,
+
+            /// <summary>
+            /// Enum Fr for value: fr
+            /// </summary>
+            [EnumMember(Value = "fr")]
+            Fr = 6,
+
+            /// <summary>
+            /// Enum Pl for value: pl
+            /// </summary>
+            [EnumMember(Value = "pl")]
+            Pl = 7,
+
+            /// <summary>
+            /// Enum Ru for value: ru
+            /// </summary>
+            [EnumMember(Value = "ru")]
+            Ru = 8,
+
+            /// <summary>
+            /// Enum Nl for value: nl
+            /// </summary>
+            [EnumMember(Value = "nl")]
+            Nl = 9,
+
+            /// <summary>
+            /// Enum Ca for value: ca
+            /// </summary>
+            [EnumMember(Value = "ca")]
+            Ca = 10,
+
+            /// <summary>
+            /// Enum Tr for value: tr
+            /// </summary>
+            [EnumMember(Value = "tr")]
+            Tr = 11,
+
+            /// <summary>
+            /// Enum Sv for value: sv
+            /// </summary>
+            [EnumMember(Value = "sv")]
+            Sv = 12,
+
+            /// <summary>
+            /// Enum Uk for value: uk
+            /// </summary>
+            [EnumMember(Value = "uk")]
+            Uk = 13,
+
+            /// <summary>
+            /// Enum No for value: no
+            /// </summary>
+            [EnumMember(Value = "no")]
+            No = 14,
+
+            /// <summary>
+            /// Enum Fi for value: fi
+            /// </summary>
+            [EnumMember(Value = "fi")]
+            Fi = 15,
+
+            /// <summary>
+            /// Enum Sk for value: sk
+            /// </summary>
+            [EnumMember(Value = "sk")]
+            Sk = 16,
+
+            /// <summary>
+            /// Enum El for value: el
+            /// </summary>
+            [EnumMember(Value = "el")]
+            El = 17,
+
+            /// <summary>
+            /// Enum Cs for value: cs
+            /// </summary>
+            [EnumMember(Value = "cs")]
+            Cs = 18,
+
+            /// <summary>
+            /// Enum Hr for value: hr
+            /// </summary>
+            [EnumMember(Value = "hr")]
+            Hr = 19,
+
+            /// <summary>
+            /// Enum Da for value: da
+            /// </summary>
+            [EnumMember(Value = "da")]
+            Da = 20,
+
+            /// <summary>
+            /// Enum Ro for value: ro
+            /// </summary>
+            [EnumMember(Value = "ro")]
+            Ro = 21,
+
+            /// <summary>
+            /// Enum Bg for value: bg
+            /// </summary>
+            [EnumMember(Value = "bg")]
+            Bg = 22
 
         }
 

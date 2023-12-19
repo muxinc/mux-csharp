@@ -37,11 +37,12 @@ namespace Mux.Csharp.Sdk.Api
         /// <param name="METRIC_ID">ID of the Metric</param>
         /// <param name="timeframe">Timeframe window to limit results by. Must be provided as an array query string parameter (e.g. timeframe[]&#x3D;).  Accepted formats are...    * array of epoch timestamps e.g. &#x60;timeframe[]&#x3D;1498867200&amp;timeframe[]&#x3D;1498953600&#x60;   * duration string e.g. &#x60;timeframe[]&#x3D;24:hours or timeframe[]&#x3D;7:days&#x60;  (optional)</param>
         /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Filters endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
+        /// <param name="metricFilters">Limit the results to rows that match inequality conditions from provided metric comparison clauses. Must be provided as an array query string parameter.  Possible filterable metrics are the same as the set of metric ids, with the exceptions of &#x60;exits_before_video_start&#x60;, &#x60;unique_viewers&#x60;, &#x60;video_startup_failure_percentage&#x60;, and &#x60;views&#x60;.  Example:    * &#x60;metric_filters[]&#x3D;aggregate_startup_time&gt;&#x3D;1000&#x60;  (optional)</param>
         /// <param name="measurement">Measurement for the provided metric. If omitted, the default for the metric will be used. (optional)</param>
         /// <param name="orderDirection">Sort order. (optional)</param>
         /// <param name="groupBy">Time granularity to group results by. If this value is omitted, a default granularity is chosen based on the timeframe.  For timeframes of less than 90 minutes, the default granularity is &#x60;minute&#x60;. Between 90 minutes and 6 hours, the default granularity is &#x60;ten_minutes&#x60;. Between 6 hours and 15 days inclusive, the default granularity is &#x60;hour&#x60;. The granularity of timeframes that exceed 15 days is &#x60;day&#x60;. This default behavior is subject to change; it is strongly suggested that you explicitly specify the granularity.  (optional)</param>
         /// <returns>GetMetricTimeseriesDataResponse</returns>
-        GetMetricTimeseriesDataResponse GetMetricTimeseriesData(string METRIC_ID, List<string> timeframe = default(List<string>), List<string> filters = default(List<string>), string measurement = default(string), string orderDirection = default(string), string groupBy = default(string));
+        GetMetricTimeseriesDataResponse GetMetricTimeseriesData(string METRIC_ID, List<string> timeframe = default(List<string>), List<string> filters = default(List<string>), List<string> metricFilters = default(List<string>), string measurement = default(string), string orderDirection = default(string), string groupBy = default(string));
 
         /// <summary>
         /// Get metric timeseries data
@@ -53,11 +54,12 @@ namespace Mux.Csharp.Sdk.Api
         /// <param name="METRIC_ID">ID of the Metric</param>
         /// <param name="timeframe">Timeframe window to limit results by. Must be provided as an array query string parameter (e.g. timeframe[]&#x3D;).  Accepted formats are...    * array of epoch timestamps e.g. &#x60;timeframe[]&#x3D;1498867200&amp;timeframe[]&#x3D;1498953600&#x60;   * duration string e.g. &#x60;timeframe[]&#x3D;24:hours or timeframe[]&#x3D;7:days&#x60;  (optional)</param>
         /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Filters endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
+        /// <param name="metricFilters">Limit the results to rows that match inequality conditions from provided metric comparison clauses. Must be provided as an array query string parameter.  Possible filterable metrics are the same as the set of metric ids, with the exceptions of &#x60;exits_before_video_start&#x60;, &#x60;unique_viewers&#x60;, &#x60;video_startup_failure_percentage&#x60;, and &#x60;views&#x60;.  Example:    * &#x60;metric_filters[]&#x3D;aggregate_startup_time&gt;&#x3D;1000&#x60;  (optional)</param>
         /// <param name="measurement">Measurement for the provided metric. If omitted, the default for the metric will be used. (optional)</param>
         /// <param name="orderDirection">Sort order. (optional)</param>
         /// <param name="groupBy">Time granularity to group results by. If this value is omitted, a default granularity is chosen based on the timeframe.  For timeframes of less than 90 minutes, the default granularity is &#x60;minute&#x60;. Between 90 minutes and 6 hours, the default granularity is &#x60;ten_minutes&#x60;. Between 6 hours and 15 days inclusive, the default granularity is &#x60;hour&#x60;. The granularity of timeframes that exceed 15 days is &#x60;day&#x60;. This default behavior is subject to change; it is strongly suggested that you explicitly specify the granularity.  (optional)</param>
         /// <returns>ApiResponse of GetMetricTimeseriesDataResponse</returns>
-        ApiResponse<GetMetricTimeseriesDataResponse> GetMetricTimeseriesDataWithHttpInfo(string METRIC_ID, List<string> timeframe = default(List<string>), List<string> filters = default(List<string>), string measurement = default(string), string orderDirection = default(string), string groupBy = default(string));
+        ApiResponse<GetMetricTimeseriesDataResponse> GetMetricTimeseriesDataWithHttpInfo(string METRIC_ID, List<string> timeframe = default(List<string>), List<string> filters = default(List<string>), List<string> metricFilters = default(List<string>), string measurement = default(string), string orderDirection = default(string), string groupBy = default(string));
         /// <summary>
         /// Get Overall values
         /// </summary>
@@ -68,9 +70,10 @@ namespace Mux.Csharp.Sdk.Api
         /// <param name="METRIC_ID">ID of the Metric</param>
         /// <param name="timeframe">Timeframe window to limit results by. Must be provided as an array query string parameter (e.g. timeframe[]&#x3D;).  Accepted formats are...    * array of epoch timestamps e.g. &#x60;timeframe[]&#x3D;1498867200&amp;timeframe[]&#x3D;1498953600&#x60;   * duration string e.g. &#x60;timeframe[]&#x3D;24:hours or timeframe[]&#x3D;7:days&#x60;  (optional)</param>
         /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Filters endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
+        /// <param name="metricFilters">Limit the results to rows that match inequality conditions from provided metric comparison clauses. Must be provided as an array query string parameter.  Possible filterable metrics are the same as the set of metric ids, with the exceptions of &#x60;exits_before_video_start&#x60;, &#x60;unique_viewers&#x60;, &#x60;video_startup_failure_percentage&#x60;, and &#x60;views&#x60;.  Example:    * &#x60;metric_filters[]&#x3D;aggregate_startup_time&gt;&#x3D;1000&#x60;  (optional)</param>
         /// <param name="measurement">Measurement for the provided metric. If omitted, the default for the metric will be used. (optional)</param>
         /// <returns>GetOverallValuesResponse</returns>
-        GetOverallValuesResponse GetOverallValues(string METRIC_ID, List<string> timeframe = default(List<string>), List<string> filters = default(List<string>), string measurement = default(string));
+        GetOverallValuesResponse GetOverallValues(string METRIC_ID, List<string> timeframe = default(List<string>), List<string> filters = default(List<string>), List<string> metricFilters = default(List<string>), string measurement = default(string));
 
         /// <summary>
         /// Get Overall values
@@ -82,9 +85,10 @@ namespace Mux.Csharp.Sdk.Api
         /// <param name="METRIC_ID">ID of the Metric</param>
         /// <param name="timeframe">Timeframe window to limit results by. Must be provided as an array query string parameter (e.g. timeframe[]&#x3D;).  Accepted formats are...    * array of epoch timestamps e.g. &#x60;timeframe[]&#x3D;1498867200&amp;timeframe[]&#x3D;1498953600&#x60;   * duration string e.g. &#x60;timeframe[]&#x3D;24:hours or timeframe[]&#x3D;7:days&#x60;  (optional)</param>
         /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Filters endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
+        /// <param name="metricFilters">Limit the results to rows that match inequality conditions from provided metric comparison clauses. Must be provided as an array query string parameter.  Possible filterable metrics are the same as the set of metric ids, with the exceptions of &#x60;exits_before_video_start&#x60;, &#x60;unique_viewers&#x60;, &#x60;video_startup_failure_percentage&#x60;, and &#x60;views&#x60;.  Example:    * &#x60;metric_filters[]&#x3D;aggregate_startup_time&gt;&#x3D;1000&#x60;  (optional)</param>
         /// <param name="measurement">Measurement for the provided metric. If omitted, the default for the metric will be used. (optional)</param>
         /// <returns>ApiResponse of GetOverallValuesResponse</returns>
-        ApiResponse<GetOverallValuesResponse> GetOverallValuesWithHttpInfo(string METRIC_ID, List<string> timeframe = default(List<string>), List<string> filters = default(List<string>), string measurement = default(string));
+        ApiResponse<GetOverallValuesResponse> GetOverallValuesWithHttpInfo(string METRIC_ID, List<string> timeframe = default(List<string>), List<string> filters = default(List<string>), List<string> metricFilters = default(List<string>), string measurement = default(string));
         /// <summary>
         /// List all metric values
         /// </summary>
@@ -94,10 +98,11 @@ namespace Mux.Csharp.Sdk.Api
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="timeframe">Timeframe window to limit results by. Must be provided as an array query string parameter (e.g. timeframe[]&#x3D;).  Accepted formats are...    * array of epoch timestamps e.g. &#x60;timeframe[]&#x3D;1498867200&amp;timeframe[]&#x3D;1498953600&#x60;   * duration string e.g. &#x60;timeframe[]&#x3D;24:hours or timeframe[]&#x3D;7:days&#x60;  (optional)</param>
         /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Filters endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
+        /// <param name="metricFilters">Limit the results to rows that match inequality conditions from provided metric comparison clauses. Must be provided as an array query string parameter.  Possible filterable metrics are the same as the set of metric ids, with the exceptions of &#x60;exits_before_video_start&#x60;, &#x60;unique_viewers&#x60;, &#x60;video_startup_failure_percentage&#x60;, and &#x60;views&#x60;.  Example:    * &#x60;metric_filters[]&#x3D;aggregate_startup_time&gt;&#x3D;1000&#x60;  (optional)</param>
         /// <param name="dimension">Dimension the specified value belongs to (optional)</param>
         /// <param name="value">Value to show all available metrics for (optional)</param>
         /// <returns>ListAllMetricValuesResponse</returns>
-        ListAllMetricValuesResponse ListAllMetricValues(List<string> timeframe = default(List<string>), List<string> filters = default(List<string>), string dimension = default(string), string value = default(string));
+        ListAllMetricValuesResponse ListAllMetricValues(List<string> timeframe = default(List<string>), List<string> filters = default(List<string>), List<string> metricFilters = default(List<string>), string dimension = default(string), string value = default(string));
 
         /// <summary>
         /// List all metric values
@@ -108,10 +113,11 @@ namespace Mux.Csharp.Sdk.Api
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="timeframe">Timeframe window to limit results by. Must be provided as an array query string parameter (e.g. timeframe[]&#x3D;).  Accepted formats are...    * array of epoch timestamps e.g. &#x60;timeframe[]&#x3D;1498867200&amp;timeframe[]&#x3D;1498953600&#x60;   * duration string e.g. &#x60;timeframe[]&#x3D;24:hours or timeframe[]&#x3D;7:days&#x60;  (optional)</param>
         /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Filters endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
+        /// <param name="metricFilters">Limit the results to rows that match inequality conditions from provided metric comparison clauses. Must be provided as an array query string parameter.  Possible filterable metrics are the same as the set of metric ids, with the exceptions of &#x60;exits_before_video_start&#x60;, &#x60;unique_viewers&#x60;, &#x60;video_startup_failure_percentage&#x60;, and &#x60;views&#x60;.  Example:    * &#x60;metric_filters[]&#x3D;aggregate_startup_time&gt;&#x3D;1000&#x60;  (optional)</param>
         /// <param name="dimension">Dimension the specified value belongs to (optional)</param>
         /// <param name="value">Value to show all available metrics for (optional)</param>
         /// <returns>ApiResponse of ListAllMetricValuesResponse</returns>
-        ApiResponse<ListAllMetricValuesResponse> ListAllMetricValuesWithHttpInfo(List<string> timeframe = default(List<string>), List<string> filters = default(List<string>), string dimension = default(string), string value = default(string));
+        ApiResponse<ListAllMetricValuesResponse> ListAllMetricValuesWithHttpInfo(List<string> timeframe = default(List<string>), List<string> filters = default(List<string>), List<string> metricFilters = default(List<string>), string dimension = default(string), string value = default(string));
         /// <summary>
         /// List breakdown values
         /// </summary>
@@ -123,13 +129,14 @@ namespace Mux.Csharp.Sdk.Api
         /// <param name="groupBy">Breakdown value to group the results by (optional)</param>
         /// <param name="measurement">Measurement for the provided metric. If omitted, the default for the metric will be used. (optional)</param>
         /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Filters endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
+        /// <param name="metricFilters">Limit the results to rows that match inequality conditions from provided metric comparison clauses. Must be provided as an array query string parameter.  Possible filterable metrics are the same as the set of metric ids, with the exceptions of &#x60;exits_before_video_start&#x60;, &#x60;unique_viewers&#x60;, &#x60;video_startup_failure_percentage&#x60;, and &#x60;views&#x60;.  Example:    * &#x60;metric_filters[]&#x3D;aggregate_startup_time&gt;&#x3D;1000&#x60;  (optional)</param>
         /// <param name="limit">Number of items to include in the response (optional, default to 25)</param>
         /// <param name="page">Offset by this many pages, of the size of &#x60;limit&#x60; (optional, default to 1)</param>
         /// <param name="orderBy">Value to order the results by (optional)</param>
         /// <param name="orderDirection">Sort order. (optional)</param>
         /// <param name="timeframe">Timeframe window to limit results by. Must be provided as an array query string parameter (e.g. timeframe[]&#x3D;).  Accepted formats are...    * array of epoch timestamps e.g. &#x60;timeframe[]&#x3D;1498867200&amp;timeframe[]&#x3D;1498953600&#x60;   * duration string e.g. &#x60;timeframe[]&#x3D;24:hours or timeframe[]&#x3D;7:days&#x60;  (optional)</param>
         /// <returns>ListBreakdownValuesResponse</returns>
-        ListBreakdownValuesResponse ListBreakdownValues(string METRIC_ID, string groupBy = default(string), string measurement = default(string), List<string> filters = default(List<string>), int? limit = default(int?), int? page = default(int?), string orderBy = default(string), string orderDirection = default(string), List<string> timeframe = default(List<string>));
+        ListBreakdownValuesResponse ListBreakdownValues(string METRIC_ID, string groupBy = default(string), string measurement = default(string), List<string> filters = default(List<string>), List<string> metricFilters = default(List<string>), int? limit = default(int?), int? page = default(int?), string orderBy = default(string), string orderDirection = default(string), List<string> timeframe = default(List<string>));
 
         /// <summary>
         /// List breakdown values
@@ -142,13 +149,14 @@ namespace Mux.Csharp.Sdk.Api
         /// <param name="groupBy">Breakdown value to group the results by (optional)</param>
         /// <param name="measurement">Measurement for the provided metric. If omitted, the default for the metric will be used. (optional)</param>
         /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Filters endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
+        /// <param name="metricFilters">Limit the results to rows that match inequality conditions from provided metric comparison clauses. Must be provided as an array query string parameter.  Possible filterable metrics are the same as the set of metric ids, with the exceptions of &#x60;exits_before_video_start&#x60;, &#x60;unique_viewers&#x60;, &#x60;video_startup_failure_percentage&#x60;, and &#x60;views&#x60;.  Example:    * &#x60;metric_filters[]&#x3D;aggregate_startup_time&gt;&#x3D;1000&#x60;  (optional)</param>
         /// <param name="limit">Number of items to include in the response (optional, default to 25)</param>
         /// <param name="page">Offset by this many pages, of the size of &#x60;limit&#x60; (optional, default to 1)</param>
         /// <param name="orderBy">Value to order the results by (optional)</param>
         /// <param name="orderDirection">Sort order. (optional)</param>
         /// <param name="timeframe">Timeframe window to limit results by. Must be provided as an array query string parameter (e.g. timeframe[]&#x3D;).  Accepted formats are...    * array of epoch timestamps e.g. &#x60;timeframe[]&#x3D;1498867200&amp;timeframe[]&#x3D;1498953600&#x60;   * duration string e.g. &#x60;timeframe[]&#x3D;24:hours or timeframe[]&#x3D;7:days&#x60;  (optional)</param>
         /// <returns>ApiResponse of ListBreakdownValuesResponse</returns>
-        ApiResponse<ListBreakdownValuesResponse> ListBreakdownValuesWithHttpInfo(string METRIC_ID, string groupBy = default(string), string measurement = default(string), List<string> filters = default(List<string>), int? limit = default(int?), int? page = default(int?), string orderBy = default(string), string orderDirection = default(string), List<string> timeframe = default(List<string>));
+        ApiResponse<ListBreakdownValuesResponse> ListBreakdownValuesWithHttpInfo(string METRIC_ID, string groupBy = default(string), string measurement = default(string), List<string> filters = default(List<string>), List<string> metricFilters = default(List<string>), int? limit = default(int?), int? page = default(int?), string orderBy = default(string), string orderDirection = default(string), List<string> timeframe = default(List<string>));
         /// <summary>
         /// List Insights
         /// </summary>
@@ -160,8 +168,10 @@ namespace Mux.Csharp.Sdk.Api
         /// <param name="measurement">Measurement for the provided metric. If omitted, the default for the metric will be used. (optional)</param>
         /// <param name="orderDirection">Sort order. (optional) (deprecated)</param>
         /// <param name="timeframe">Timeframe window to limit results by. Must be provided as an array query string parameter (e.g. timeframe[]&#x3D;).  Accepted formats are...    * array of epoch timestamps e.g. &#x60;timeframe[]&#x3D;1498867200&amp;timeframe[]&#x3D;1498953600&#x60;   * duration string e.g. &#x60;timeframe[]&#x3D;24:hours or timeframe[]&#x3D;7:days&#x60;  (optional)</param>
+        /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Filters endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
+        /// <param name="metricFilters">Limit the results to rows that match inequality conditions from provided metric comparison clauses. Must be provided as an array query string parameter.  Possible filterable metrics are the same as the set of metric ids, with the exceptions of &#x60;exits_before_video_start&#x60;, &#x60;unique_viewers&#x60;, &#x60;video_startup_failure_percentage&#x60;, and &#x60;views&#x60;.  Example:    * &#x60;metric_filters[]&#x3D;aggregate_startup_time&gt;&#x3D;1000&#x60;  (optional)</param>
         /// <returns>ListInsightsResponse</returns>
-        ListInsightsResponse ListInsights(string METRIC_ID, string measurement = default(string), string orderDirection = default(string), List<string> timeframe = default(List<string>));
+        ListInsightsResponse ListInsights(string METRIC_ID, string measurement = default(string), string orderDirection = default(string), List<string> timeframe = default(List<string>), List<string> filters = default(List<string>), List<string> metricFilters = default(List<string>));
 
         /// <summary>
         /// List Insights
@@ -174,8 +184,10 @@ namespace Mux.Csharp.Sdk.Api
         /// <param name="measurement">Measurement for the provided metric. If omitted, the default for the metric will be used. (optional)</param>
         /// <param name="orderDirection">Sort order. (optional) (deprecated)</param>
         /// <param name="timeframe">Timeframe window to limit results by. Must be provided as an array query string parameter (e.g. timeframe[]&#x3D;).  Accepted formats are...    * array of epoch timestamps e.g. &#x60;timeframe[]&#x3D;1498867200&amp;timeframe[]&#x3D;1498953600&#x60;   * duration string e.g. &#x60;timeframe[]&#x3D;24:hours or timeframe[]&#x3D;7:days&#x60;  (optional)</param>
+        /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Filters endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
+        /// <param name="metricFilters">Limit the results to rows that match inequality conditions from provided metric comparison clauses. Must be provided as an array query string parameter.  Possible filterable metrics are the same as the set of metric ids, with the exceptions of &#x60;exits_before_video_start&#x60;, &#x60;unique_viewers&#x60;, &#x60;video_startup_failure_percentage&#x60;, and &#x60;views&#x60;.  Example:    * &#x60;metric_filters[]&#x3D;aggregate_startup_time&gt;&#x3D;1000&#x60;  (optional)</param>
         /// <returns>ApiResponse of ListInsightsResponse</returns>
-        ApiResponse<ListInsightsResponse> ListInsightsWithHttpInfo(string METRIC_ID, string measurement = default(string), string orderDirection = default(string), List<string> timeframe = default(List<string>));
+        ApiResponse<ListInsightsResponse> ListInsightsWithHttpInfo(string METRIC_ID, string measurement = default(string), string orderDirection = default(string), List<string> timeframe = default(List<string>), List<string> filters = default(List<string>), List<string> metricFilters = default(List<string>));
         #endregion Synchronous Operations
     }
 
@@ -195,12 +207,13 @@ namespace Mux.Csharp.Sdk.Api
         /// <param name="METRIC_ID">ID of the Metric</param>
         /// <param name="timeframe">Timeframe window to limit results by. Must be provided as an array query string parameter (e.g. timeframe[]&#x3D;).  Accepted formats are...    * array of epoch timestamps e.g. &#x60;timeframe[]&#x3D;1498867200&amp;timeframe[]&#x3D;1498953600&#x60;   * duration string e.g. &#x60;timeframe[]&#x3D;24:hours or timeframe[]&#x3D;7:days&#x60;  (optional)</param>
         /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Filters endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
+        /// <param name="metricFilters">Limit the results to rows that match inequality conditions from provided metric comparison clauses. Must be provided as an array query string parameter.  Possible filterable metrics are the same as the set of metric ids, with the exceptions of &#x60;exits_before_video_start&#x60;, &#x60;unique_viewers&#x60;, &#x60;video_startup_failure_percentage&#x60;, and &#x60;views&#x60;.  Example:    * &#x60;metric_filters[]&#x3D;aggregate_startup_time&gt;&#x3D;1000&#x60;  (optional)</param>
         /// <param name="measurement">Measurement for the provided metric. If omitted, the default for the metric will be used. (optional)</param>
         /// <param name="orderDirection">Sort order. (optional)</param>
         /// <param name="groupBy">Time granularity to group results by. If this value is omitted, a default granularity is chosen based on the timeframe.  For timeframes of less than 90 minutes, the default granularity is &#x60;minute&#x60;. Between 90 minutes and 6 hours, the default granularity is &#x60;ten_minutes&#x60;. Between 6 hours and 15 days inclusive, the default granularity is &#x60;hour&#x60;. The granularity of timeframes that exceed 15 days is &#x60;day&#x60;. This default behavior is subject to change; it is strongly suggested that you explicitly specify the granularity.  (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of GetMetricTimeseriesDataResponse</returns>
-        System.Threading.Tasks.Task<GetMetricTimeseriesDataResponse> GetMetricTimeseriesDataAsync(string METRIC_ID, List<string> timeframe = default(List<string>), List<string> filters = default(List<string>), string measurement = default(string), string orderDirection = default(string), string groupBy = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<GetMetricTimeseriesDataResponse> GetMetricTimeseriesDataAsync(string METRIC_ID, List<string> timeframe = default(List<string>), List<string> filters = default(List<string>), List<string> metricFilters = default(List<string>), string measurement = default(string), string orderDirection = default(string), string groupBy = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Get metric timeseries data
@@ -212,12 +225,13 @@ namespace Mux.Csharp.Sdk.Api
         /// <param name="METRIC_ID">ID of the Metric</param>
         /// <param name="timeframe">Timeframe window to limit results by. Must be provided as an array query string parameter (e.g. timeframe[]&#x3D;).  Accepted formats are...    * array of epoch timestamps e.g. &#x60;timeframe[]&#x3D;1498867200&amp;timeframe[]&#x3D;1498953600&#x60;   * duration string e.g. &#x60;timeframe[]&#x3D;24:hours or timeframe[]&#x3D;7:days&#x60;  (optional)</param>
         /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Filters endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
+        /// <param name="metricFilters">Limit the results to rows that match inequality conditions from provided metric comparison clauses. Must be provided as an array query string parameter.  Possible filterable metrics are the same as the set of metric ids, with the exceptions of &#x60;exits_before_video_start&#x60;, &#x60;unique_viewers&#x60;, &#x60;video_startup_failure_percentage&#x60;, and &#x60;views&#x60;.  Example:    * &#x60;metric_filters[]&#x3D;aggregate_startup_time&gt;&#x3D;1000&#x60;  (optional)</param>
         /// <param name="measurement">Measurement for the provided metric. If omitted, the default for the metric will be used. (optional)</param>
         /// <param name="orderDirection">Sort order. (optional)</param>
         /// <param name="groupBy">Time granularity to group results by. If this value is omitted, a default granularity is chosen based on the timeframe.  For timeframes of less than 90 minutes, the default granularity is &#x60;minute&#x60;. Between 90 minutes and 6 hours, the default granularity is &#x60;ten_minutes&#x60;. Between 6 hours and 15 days inclusive, the default granularity is &#x60;hour&#x60;. The granularity of timeframes that exceed 15 days is &#x60;day&#x60;. This default behavior is subject to change; it is strongly suggested that you explicitly specify the granularity.  (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (GetMetricTimeseriesDataResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GetMetricTimeseriesDataResponse>> GetMetricTimeseriesDataWithHttpInfoAsync(string METRIC_ID, List<string> timeframe = default(List<string>), List<string> filters = default(List<string>), string measurement = default(string), string orderDirection = default(string), string groupBy = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<GetMetricTimeseriesDataResponse>> GetMetricTimeseriesDataWithHttpInfoAsync(string METRIC_ID, List<string> timeframe = default(List<string>), List<string> filters = default(List<string>), List<string> metricFilters = default(List<string>), string measurement = default(string), string orderDirection = default(string), string groupBy = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Get Overall values
         /// </summary>
@@ -228,10 +242,11 @@ namespace Mux.Csharp.Sdk.Api
         /// <param name="METRIC_ID">ID of the Metric</param>
         /// <param name="timeframe">Timeframe window to limit results by. Must be provided as an array query string parameter (e.g. timeframe[]&#x3D;).  Accepted formats are...    * array of epoch timestamps e.g. &#x60;timeframe[]&#x3D;1498867200&amp;timeframe[]&#x3D;1498953600&#x60;   * duration string e.g. &#x60;timeframe[]&#x3D;24:hours or timeframe[]&#x3D;7:days&#x60;  (optional)</param>
         /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Filters endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
+        /// <param name="metricFilters">Limit the results to rows that match inequality conditions from provided metric comparison clauses. Must be provided as an array query string parameter.  Possible filterable metrics are the same as the set of metric ids, with the exceptions of &#x60;exits_before_video_start&#x60;, &#x60;unique_viewers&#x60;, &#x60;video_startup_failure_percentage&#x60;, and &#x60;views&#x60;.  Example:    * &#x60;metric_filters[]&#x3D;aggregate_startup_time&gt;&#x3D;1000&#x60;  (optional)</param>
         /// <param name="measurement">Measurement for the provided metric. If omitted, the default for the metric will be used. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of GetOverallValuesResponse</returns>
-        System.Threading.Tasks.Task<GetOverallValuesResponse> GetOverallValuesAsync(string METRIC_ID, List<string> timeframe = default(List<string>), List<string> filters = default(List<string>), string measurement = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<GetOverallValuesResponse> GetOverallValuesAsync(string METRIC_ID, List<string> timeframe = default(List<string>), List<string> filters = default(List<string>), List<string> metricFilters = default(List<string>), string measurement = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Get Overall values
@@ -243,10 +258,11 @@ namespace Mux.Csharp.Sdk.Api
         /// <param name="METRIC_ID">ID of the Metric</param>
         /// <param name="timeframe">Timeframe window to limit results by. Must be provided as an array query string parameter (e.g. timeframe[]&#x3D;).  Accepted formats are...    * array of epoch timestamps e.g. &#x60;timeframe[]&#x3D;1498867200&amp;timeframe[]&#x3D;1498953600&#x60;   * duration string e.g. &#x60;timeframe[]&#x3D;24:hours or timeframe[]&#x3D;7:days&#x60;  (optional)</param>
         /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Filters endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
+        /// <param name="metricFilters">Limit the results to rows that match inequality conditions from provided metric comparison clauses. Must be provided as an array query string parameter.  Possible filterable metrics are the same as the set of metric ids, with the exceptions of &#x60;exits_before_video_start&#x60;, &#x60;unique_viewers&#x60;, &#x60;video_startup_failure_percentage&#x60;, and &#x60;views&#x60;.  Example:    * &#x60;metric_filters[]&#x3D;aggregate_startup_time&gt;&#x3D;1000&#x60;  (optional)</param>
         /// <param name="measurement">Measurement for the provided metric. If omitted, the default for the metric will be used. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (GetOverallValuesResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GetOverallValuesResponse>> GetOverallValuesWithHttpInfoAsync(string METRIC_ID, List<string> timeframe = default(List<string>), List<string> filters = default(List<string>), string measurement = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<GetOverallValuesResponse>> GetOverallValuesWithHttpInfoAsync(string METRIC_ID, List<string> timeframe = default(List<string>), List<string> filters = default(List<string>), List<string> metricFilters = default(List<string>), string measurement = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List all metric values
         /// </summary>
@@ -256,11 +272,12 @@ namespace Mux.Csharp.Sdk.Api
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="timeframe">Timeframe window to limit results by. Must be provided as an array query string parameter (e.g. timeframe[]&#x3D;).  Accepted formats are...    * array of epoch timestamps e.g. &#x60;timeframe[]&#x3D;1498867200&amp;timeframe[]&#x3D;1498953600&#x60;   * duration string e.g. &#x60;timeframe[]&#x3D;24:hours or timeframe[]&#x3D;7:days&#x60;  (optional)</param>
         /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Filters endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
+        /// <param name="metricFilters">Limit the results to rows that match inequality conditions from provided metric comparison clauses. Must be provided as an array query string parameter.  Possible filterable metrics are the same as the set of metric ids, with the exceptions of &#x60;exits_before_video_start&#x60;, &#x60;unique_viewers&#x60;, &#x60;video_startup_failure_percentage&#x60;, and &#x60;views&#x60;.  Example:    * &#x60;metric_filters[]&#x3D;aggregate_startup_time&gt;&#x3D;1000&#x60;  (optional)</param>
         /// <param name="dimension">Dimension the specified value belongs to (optional)</param>
         /// <param name="value">Value to show all available metrics for (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ListAllMetricValuesResponse</returns>
-        System.Threading.Tasks.Task<ListAllMetricValuesResponse> ListAllMetricValuesAsync(List<string> timeframe = default(List<string>), List<string> filters = default(List<string>), string dimension = default(string), string value = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ListAllMetricValuesResponse> ListAllMetricValuesAsync(List<string> timeframe = default(List<string>), List<string> filters = default(List<string>), List<string> metricFilters = default(List<string>), string dimension = default(string), string value = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// List all metric values
@@ -271,11 +288,12 @@ namespace Mux.Csharp.Sdk.Api
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="timeframe">Timeframe window to limit results by. Must be provided as an array query string parameter (e.g. timeframe[]&#x3D;).  Accepted formats are...    * array of epoch timestamps e.g. &#x60;timeframe[]&#x3D;1498867200&amp;timeframe[]&#x3D;1498953600&#x60;   * duration string e.g. &#x60;timeframe[]&#x3D;24:hours or timeframe[]&#x3D;7:days&#x60;  (optional)</param>
         /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Filters endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
+        /// <param name="metricFilters">Limit the results to rows that match inequality conditions from provided metric comparison clauses. Must be provided as an array query string parameter.  Possible filterable metrics are the same as the set of metric ids, with the exceptions of &#x60;exits_before_video_start&#x60;, &#x60;unique_viewers&#x60;, &#x60;video_startup_failure_percentage&#x60;, and &#x60;views&#x60;.  Example:    * &#x60;metric_filters[]&#x3D;aggregate_startup_time&gt;&#x3D;1000&#x60;  (optional)</param>
         /// <param name="dimension">Dimension the specified value belongs to (optional)</param>
         /// <param name="value">Value to show all available metrics for (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ListAllMetricValuesResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ListAllMetricValuesResponse>> ListAllMetricValuesWithHttpInfoAsync(List<string> timeframe = default(List<string>), List<string> filters = default(List<string>), string dimension = default(string), string value = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ListAllMetricValuesResponse>> ListAllMetricValuesWithHttpInfoAsync(List<string> timeframe = default(List<string>), List<string> filters = default(List<string>), List<string> metricFilters = default(List<string>), string dimension = default(string), string value = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List breakdown values
         /// </summary>
@@ -287,6 +305,7 @@ namespace Mux.Csharp.Sdk.Api
         /// <param name="groupBy">Breakdown value to group the results by (optional)</param>
         /// <param name="measurement">Measurement for the provided metric. If omitted, the default for the metric will be used. (optional)</param>
         /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Filters endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
+        /// <param name="metricFilters">Limit the results to rows that match inequality conditions from provided metric comparison clauses. Must be provided as an array query string parameter.  Possible filterable metrics are the same as the set of metric ids, with the exceptions of &#x60;exits_before_video_start&#x60;, &#x60;unique_viewers&#x60;, &#x60;video_startup_failure_percentage&#x60;, and &#x60;views&#x60;.  Example:    * &#x60;metric_filters[]&#x3D;aggregate_startup_time&gt;&#x3D;1000&#x60;  (optional)</param>
         /// <param name="limit">Number of items to include in the response (optional, default to 25)</param>
         /// <param name="page">Offset by this many pages, of the size of &#x60;limit&#x60; (optional, default to 1)</param>
         /// <param name="orderBy">Value to order the results by (optional)</param>
@@ -294,7 +313,7 @@ namespace Mux.Csharp.Sdk.Api
         /// <param name="timeframe">Timeframe window to limit results by. Must be provided as an array query string parameter (e.g. timeframe[]&#x3D;).  Accepted formats are...    * array of epoch timestamps e.g. &#x60;timeframe[]&#x3D;1498867200&amp;timeframe[]&#x3D;1498953600&#x60;   * duration string e.g. &#x60;timeframe[]&#x3D;24:hours or timeframe[]&#x3D;7:days&#x60;  (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ListBreakdownValuesResponse</returns>
-        System.Threading.Tasks.Task<ListBreakdownValuesResponse> ListBreakdownValuesAsync(string METRIC_ID, string groupBy = default(string), string measurement = default(string), List<string> filters = default(List<string>), int? limit = default(int?), int? page = default(int?), string orderBy = default(string), string orderDirection = default(string), List<string> timeframe = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ListBreakdownValuesResponse> ListBreakdownValuesAsync(string METRIC_ID, string groupBy = default(string), string measurement = default(string), List<string> filters = default(List<string>), List<string> metricFilters = default(List<string>), int? limit = default(int?), int? page = default(int?), string orderBy = default(string), string orderDirection = default(string), List<string> timeframe = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// List breakdown values
@@ -307,6 +326,7 @@ namespace Mux.Csharp.Sdk.Api
         /// <param name="groupBy">Breakdown value to group the results by (optional)</param>
         /// <param name="measurement">Measurement for the provided metric. If omitted, the default for the metric will be used. (optional)</param>
         /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Filters endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
+        /// <param name="metricFilters">Limit the results to rows that match inequality conditions from provided metric comparison clauses. Must be provided as an array query string parameter.  Possible filterable metrics are the same as the set of metric ids, with the exceptions of &#x60;exits_before_video_start&#x60;, &#x60;unique_viewers&#x60;, &#x60;video_startup_failure_percentage&#x60;, and &#x60;views&#x60;.  Example:    * &#x60;metric_filters[]&#x3D;aggregate_startup_time&gt;&#x3D;1000&#x60;  (optional)</param>
         /// <param name="limit">Number of items to include in the response (optional, default to 25)</param>
         /// <param name="page">Offset by this many pages, of the size of &#x60;limit&#x60; (optional, default to 1)</param>
         /// <param name="orderBy">Value to order the results by (optional)</param>
@@ -314,7 +334,7 @@ namespace Mux.Csharp.Sdk.Api
         /// <param name="timeframe">Timeframe window to limit results by. Must be provided as an array query string parameter (e.g. timeframe[]&#x3D;).  Accepted formats are...    * array of epoch timestamps e.g. &#x60;timeframe[]&#x3D;1498867200&amp;timeframe[]&#x3D;1498953600&#x60;   * duration string e.g. &#x60;timeframe[]&#x3D;24:hours or timeframe[]&#x3D;7:days&#x60;  (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ListBreakdownValuesResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ListBreakdownValuesResponse>> ListBreakdownValuesWithHttpInfoAsync(string METRIC_ID, string groupBy = default(string), string measurement = default(string), List<string> filters = default(List<string>), int? limit = default(int?), int? page = default(int?), string orderBy = default(string), string orderDirection = default(string), List<string> timeframe = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ListBreakdownValuesResponse>> ListBreakdownValuesWithHttpInfoAsync(string METRIC_ID, string groupBy = default(string), string measurement = default(string), List<string> filters = default(List<string>), List<string> metricFilters = default(List<string>), int? limit = default(int?), int? page = default(int?), string orderBy = default(string), string orderDirection = default(string), List<string> timeframe = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List Insights
         /// </summary>
@@ -326,9 +346,11 @@ namespace Mux.Csharp.Sdk.Api
         /// <param name="measurement">Measurement for the provided metric. If omitted, the default for the metric will be used. (optional)</param>
         /// <param name="orderDirection">Sort order. (optional) (deprecated)</param>
         /// <param name="timeframe">Timeframe window to limit results by. Must be provided as an array query string parameter (e.g. timeframe[]&#x3D;).  Accepted formats are...    * array of epoch timestamps e.g. &#x60;timeframe[]&#x3D;1498867200&amp;timeframe[]&#x3D;1498953600&#x60;   * duration string e.g. &#x60;timeframe[]&#x3D;24:hours or timeframe[]&#x3D;7:days&#x60;  (optional)</param>
+        /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Filters endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
+        /// <param name="metricFilters">Limit the results to rows that match inequality conditions from provided metric comparison clauses. Must be provided as an array query string parameter.  Possible filterable metrics are the same as the set of metric ids, with the exceptions of &#x60;exits_before_video_start&#x60;, &#x60;unique_viewers&#x60;, &#x60;video_startup_failure_percentage&#x60;, and &#x60;views&#x60;.  Example:    * &#x60;metric_filters[]&#x3D;aggregate_startup_time&gt;&#x3D;1000&#x60;  (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ListInsightsResponse</returns>
-        System.Threading.Tasks.Task<ListInsightsResponse> ListInsightsAsync(string METRIC_ID, string measurement = default(string), string orderDirection = default(string), List<string> timeframe = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ListInsightsResponse> ListInsightsAsync(string METRIC_ID, string measurement = default(string), string orderDirection = default(string), List<string> timeframe = default(List<string>), List<string> filters = default(List<string>), List<string> metricFilters = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// List Insights
@@ -341,9 +363,11 @@ namespace Mux.Csharp.Sdk.Api
         /// <param name="measurement">Measurement for the provided metric. If omitted, the default for the metric will be used. (optional)</param>
         /// <param name="orderDirection">Sort order. (optional) (deprecated)</param>
         /// <param name="timeframe">Timeframe window to limit results by. Must be provided as an array query string parameter (e.g. timeframe[]&#x3D;).  Accepted formats are...    * array of epoch timestamps e.g. &#x60;timeframe[]&#x3D;1498867200&amp;timeframe[]&#x3D;1498953600&#x60;   * duration string e.g. &#x60;timeframe[]&#x3D;24:hours or timeframe[]&#x3D;7:days&#x60;  (optional)</param>
+        /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Filters endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
+        /// <param name="metricFilters">Limit the results to rows that match inequality conditions from provided metric comparison clauses. Must be provided as an array query string parameter.  Possible filterable metrics are the same as the set of metric ids, with the exceptions of &#x60;exits_before_video_start&#x60;, &#x60;unique_viewers&#x60;, &#x60;video_startup_failure_percentage&#x60;, and &#x60;views&#x60;.  Example:    * &#x60;metric_filters[]&#x3D;aggregate_startup_time&gt;&#x3D;1000&#x60;  (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ListInsightsResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ListInsightsResponse>> ListInsightsWithHttpInfoAsync(string METRIC_ID, string measurement = default(string), string orderDirection = default(string), List<string> timeframe = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ListInsightsResponse>> ListInsightsWithHttpInfoAsync(string METRIC_ID, string measurement = default(string), string orderDirection = default(string), List<string> timeframe = default(List<string>), List<string> filters = default(List<string>), List<string> metricFilters = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -471,13 +495,14 @@ namespace Mux.Csharp.Sdk.Api
         /// <param name="METRIC_ID">ID of the Metric</param>
         /// <param name="timeframe">Timeframe window to limit results by. Must be provided as an array query string parameter (e.g. timeframe[]&#x3D;).  Accepted formats are...    * array of epoch timestamps e.g. &#x60;timeframe[]&#x3D;1498867200&amp;timeframe[]&#x3D;1498953600&#x60;   * duration string e.g. &#x60;timeframe[]&#x3D;24:hours or timeframe[]&#x3D;7:days&#x60;  (optional)</param>
         /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Filters endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
+        /// <param name="metricFilters">Limit the results to rows that match inequality conditions from provided metric comparison clauses. Must be provided as an array query string parameter.  Possible filterable metrics are the same as the set of metric ids, with the exceptions of &#x60;exits_before_video_start&#x60;, &#x60;unique_viewers&#x60;, &#x60;video_startup_failure_percentage&#x60;, and &#x60;views&#x60;.  Example:    * &#x60;metric_filters[]&#x3D;aggregate_startup_time&gt;&#x3D;1000&#x60;  (optional)</param>
         /// <param name="measurement">Measurement for the provided metric. If omitted, the default for the metric will be used. (optional)</param>
         /// <param name="orderDirection">Sort order. (optional)</param>
         /// <param name="groupBy">Time granularity to group results by. If this value is omitted, a default granularity is chosen based on the timeframe.  For timeframes of less than 90 minutes, the default granularity is &#x60;minute&#x60;. Between 90 minutes and 6 hours, the default granularity is &#x60;ten_minutes&#x60;. Between 6 hours and 15 days inclusive, the default granularity is &#x60;hour&#x60;. The granularity of timeframes that exceed 15 days is &#x60;day&#x60;. This default behavior is subject to change; it is strongly suggested that you explicitly specify the granularity.  (optional)</param>
         /// <returns>GetMetricTimeseriesDataResponse</returns>
-        public GetMetricTimeseriesDataResponse GetMetricTimeseriesData(string METRIC_ID, List<string> timeframe = default(List<string>), List<string> filters = default(List<string>), string measurement = default(string), string orderDirection = default(string), string groupBy = default(string))
+        public GetMetricTimeseriesDataResponse GetMetricTimeseriesData(string METRIC_ID, List<string> timeframe = default(List<string>), List<string> filters = default(List<string>), List<string> metricFilters = default(List<string>), string measurement = default(string), string orderDirection = default(string), string groupBy = default(string))
         {
-            Mux.Csharp.Sdk.Client.ApiResponse<GetMetricTimeseriesDataResponse> localVarResponse = GetMetricTimeseriesDataWithHttpInfo(METRIC_ID, timeframe, filters, measurement, orderDirection, groupBy);
+            Mux.Csharp.Sdk.Client.ApiResponse<GetMetricTimeseriesDataResponse> localVarResponse = GetMetricTimeseriesDataWithHttpInfo(METRIC_ID, timeframe, filters, metricFilters, measurement, orderDirection, groupBy);
             return localVarResponse.Data;
         }
 
@@ -488,11 +513,12 @@ namespace Mux.Csharp.Sdk.Api
         /// <param name="METRIC_ID">ID of the Metric</param>
         /// <param name="timeframe">Timeframe window to limit results by. Must be provided as an array query string parameter (e.g. timeframe[]&#x3D;).  Accepted formats are...    * array of epoch timestamps e.g. &#x60;timeframe[]&#x3D;1498867200&amp;timeframe[]&#x3D;1498953600&#x60;   * duration string e.g. &#x60;timeframe[]&#x3D;24:hours or timeframe[]&#x3D;7:days&#x60;  (optional)</param>
         /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Filters endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
+        /// <param name="metricFilters">Limit the results to rows that match inequality conditions from provided metric comparison clauses. Must be provided as an array query string parameter.  Possible filterable metrics are the same as the set of metric ids, with the exceptions of &#x60;exits_before_video_start&#x60;, &#x60;unique_viewers&#x60;, &#x60;video_startup_failure_percentage&#x60;, and &#x60;views&#x60;.  Example:    * &#x60;metric_filters[]&#x3D;aggregate_startup_time&gt;&#x3D;1000&#x60;  (optional)</param>
         /// <param name="measurement">Measurement for the provided metric. If omitted, the default for the metric will be used. (optional)</param>
         /// <param name="orderDirection">Sort order. (optional)</param>
         /// <param name="groupBy">Time granularity to group results by. If this value is omitted, a default granularity is chosen based on the timeframe.  For timeframes of less than 90 minutes, the default granularity is &#x60;minute&#x60;. Between 90 minutes and 6 hours, the default granularity is &#x60;ten_minutes&#x60;. Between 6 hours and 15 days inclusive, the default granularity is &#x60;hour&#x60;. The granularity of timeframes that exceed 15 days is &#x60;day&#x60;. This default behavior is subject to change; it is strongly suggested that you explicitly specify the granularity.  (optional)</param>
         /// <returns>ApiResponse of GetMetricTimeseriesDataResponse</returns>
-        public Mux.Csharp.Sdk.Client.ApiResponse<GetMetricTimeseriesDataResponse> GetMetricTimeseriesDataWithHttpInfo(string METRIC_ID, List<string> timeframe = default(List<string>), List<string> filters = default(List<string>), string measurement = default(string), string orderDirection = default(string), string groupBy = default(string))
+        public Mux.Csharp.Sdk.Client.ApiResponse<GetMetricTimeseriesDataResponse> GetMetricTimeseriesDataWithHttpInfo(string METRIC_ID, List<string> timeframe = default(List<string>), List<string> filters = default(List<string>), List<string> metricFilters = default(List<string>), string measurement = default(string), string orderDirection = default(string), string groupBy = default(string))
         {
             // verify the required parameter 'METRIC_ID' is set
             if (METRIC_ID == null)
@@ -530,6 +556,10 @@ namespace Mux.Csharp.Sdk.Api
             if (filters != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Mux.Csharp.Sdk.Client.ClientUtils.ParameterToMultiMap("multi", "filters[]", filters));
+            }
+            if (metricFilters != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Mux.Csharp.Sdk.Client.ClientUtils.ParameterToMultiMap("multi", "metric_filters[]", metricFilters));
             }
             if (measurement != null)
             {
@@ -572,14 +602,15 @@ namespace Mux.Csharp.Sdk.Api
         /// <param name="METRIC_ID">ID of the Metric</param>
         /// <param name="timeframe">Timeframe window to limit results by. Must be provided as an array query string parameter (e.g. timeframe[]&#x3D;).  Accepted formats are...    * array of epoch timestamps e.g. &#x60;timeframe[]&#x3D;1498867200&amp;timeframe[]&#x3D;1498953600&#x60;   * duration string e.g. &#x60;timeframe[]&#x3D;24:hours or timeframe[]&#x3D;7:days&#x60;  (optional)</param>
         /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Filters endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
+        /// <param name="metricFilters">Limit the results to rows that match inequality conditions from provided metric comparison clauses. Must be provided as an array query string parameter.  Possible filterable metrics are the same as the set of metric ids, with the exceptions of &#x60;exits_before_video_start&#x60;, &#x60;unique_viewers&#x60;, &#x60;video_startup_failure_percentage&#x60;, and &#x60;views&#x60;.  Example:    * &#x60;metric_filters[]&#x3D;aggregate_startup_time&gt;&#x3D;1000&#x60;  (optional)</param>
         /// <param name="measurement">Measurement for the provided metric. If omitted, the default for the metric will be used. (optional)</param>
         /// <param name="orderDirection">Sort order. (optional)</param>
         /// <param name="groupBy">Time granularity to group results by. If this value is omitted, a default granularity is chosen based on the timeframe.  For timeframes of less than 90 minutes, the default granularity is &#x60;minute&#x60;. Between 90 minutes and 6 hours, the default granularity is &#x60;ten_minutes&#x60;. Between 6 hours and 15 days inclusive, the default granularity is &#x60;hour&#x60;. The granularity of timeframes that exceed 15 days is &#x60;day&#x60;. This default behavior is subject to change; it is strongly suggested that you explicitly specify the granularity.  (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of GetMetricTimeseriesDataResponse</returns>
-        public async System.Threading.Tasks.Task<GetMetricTimeseriesDataResponse> GetMetricTimeseriesDataAsync(string METRIC_ID, List<string> timeframe = default(List<string>), List<string> filters = default(List<string>), string measurement = default(string), string orderDirection = default(string), string groupBy = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<GetMetricTimeseriesDataResponse> GetMetricTimeseriesDataAsync(string METRIC_ID, List<string> timeframe = default(List<string>), List<string> filters = default(List<string>), List<string> metricFilters = default(List<string>), string measurement = default(string), string orderDirection = default(string), string groupBy = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Mux.Csharp.Sdk.Client.ApiResponse<GetMetricTimeseriesDataResponse> localVarResponse = await GetMetricTimeseriesDataWithHttpInfoAsync(METRIC_ID, timeframe, filters, measurement, orderDirection, groupBy, cancellationToken).ConfigureAwait(false);
+            Mux.Csharp.Sdk.Client.ApiResponse<GetMetricTimeseriesDataResponse> localVarResponse = await GetMetricTimeseriesDataWithHttpInfoAsync(METRIC_ID, timeframe, filters, metricFilters, measurement, orderDirection, groupBy, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -590,12 +621,13 @@ namespace Mux.Csharp.Sdk.Api
         /// <param name="METRIC_ID">ID of the Metric</param>
         /// <param name="timeframe">Timeframe window to limit results by. Must be provided as an array query string parameter (e.g. timeframe[]&#x3D;).  Accepted formats are...    * array of epoch timestamps e.g. &#x60;timeframe[]&#x3D;1498867200&amp;timeframe[]&#x3D;1498953600&#x60;   * duration string e.g. &#x60;timeframe[]&#x3D;24:hours or timeframe[]&#x3D;7:days&#x60;  (optional)</param>
         /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Filters endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
+        /// <param name="metricFilters">Limit the results to rows that match inequality conditions from provided metric comparison clauses. Must be provided as an array query string parameter.  Possible filterable metrics are the same as the set of metric ids, with the exceptions of &#x60;exits_before_video_start&#x60;, &#x60;unique_viewers&#x60;, &#x60;video_startup_failure_percentage&#x60;, and &#x60;views&#x60;.  Example:    * &#x60;metric_filters[]&#x3D;aggregate_startup_time&gt;&#x3D;1000&#x60;  (optional)</param>
         /// <param name="measurement">Measurement for the provided metric. If omitted, the default for the metric will be used. (optional)</param>
         /// <param name="orderDirection">Sort order. (optional)</param>
         /// <param name="groupBy">Time granularity to group results by. If this value is omitted, a default granularity is chosen based on the timeframe.  For timeframes of less than 90 minutes, the default granularity is &#x60;minute&#x60;. Between 90 minutes and 6 hours, the default granularity is &#x60;ten_minutes&#x60;. Between 6 hours and 15 days inclusive, the default granularity is &#x60;hour&#x60;. The granularity of timeframes that exceed 15 days is &#x60;day&#x60;. This default behavior is subject to change; it is strongly suggested that you explicitly specify the granularity.  (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (GetMetricTimeseriesDataResponse)</returns>
-        public async System.Threading.Tasks.Task<Mux.Csharp.Sdk.Client.ApiResponse<GetMetricTimeseriesDataResponse>> GetMetricTimeseriesDataWithHttpInfoAsync(string METRIC_ID, List<string> timeframe = default(List<string>), List<string> filters = default(List<string>), string measurement = default(string), string orderDirection = default(string), string groupBy = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Mux.Csharp.Sdk.Client.ApiResponse<GetMetricTimeseriesDataResponse>> GetMetricTimeseriesDataWithHttpInfoAsync(string METRIC_ID, List<string> timeframe = default(List<string>), List<string> filters = default(List<string>), List<string> metricFilters = default(List<string>), string measurement = default(string), string orderDirection = default(string), string groupBy = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'METRIC_ID' is set
             if (METRIC_ID == null)
@@ -634,6 +666,10 @@ namespace Mux.Csharp.Sdk.Api
             if (filters != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Mux.Csharp.Sdk.Client.ClientUtils.ParameterToMultiMap("multi", "filters[]", filters));
+            }
+            if (metricFilters != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Mux.Csharp.Sdk.Client.ClientUtils.ParameterToMultiMap("multi", "metric_filters[]", metricFilters));
             }
             if (measurement != null)
             {
@@ -677,11 +713,12 @@ namespace Mux.Csharp.Sdk.Api
         /// <param name="METRIC_ID">ID of the Metric</param>
         /// <param name="timeframe">Timeframe window to limit results by. Must be provided as an array query string parameter (e.g. timeframe[]&#x3D;).  Accepted formats are...    * array of epoch timestamps e.g. &#x60;timeframe[]&#x3D;1498867200&amp;timeframe[]&#x3D;1498953600&#x60;   * duration string e.g. &#x60;timeframe[]&#x3D;24:hours or timeframe[]&#x3D;7:days&#x60;  (optional)</param>
         /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Filters endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
+        /// <param name="metricFilters">Limit the results to rows that match inequality conditions from provided metric comparison clauses. Must be provided as an array query string parameter.  Possible filterable metrics are the same as the set of metric ids, with the exceptions of &#x60;exits_before_video_start&#x60;, &#x60;unique_viewers&#x60;, &#x60;video_startup_failure_percentage&#x60;, and &#x60;views&#x60;.  Example:    * &#x60;metric_filters[]&#x3D;aggregate_startup_time&gt;&#x3D;1000&#x60;  (optional)</param>
         /// <param name="measurement">Measurement for the provided metric. If omitted, the default for the metric will be used. (optional)</param>
         /// <returns>GetOverallValuesResponse</returns>
-        public GetOverallValuesResponse GetOverallValues(string METRIC_ID, List<string> timeframe = default(List<string>), List<string> filters = default(List<string>), string measurement = default(string))
+        public GetOverallValuesResponse GetOverallValues(string METRIC_ID, List<string> timeframe = default(List<string>), List<string> filters = default(List<string>), List<string> metricFilters = default(List<string>), string measurement = default(string))
         {
-            Mux.Csharp.Sdk.Client.ApiResponse<GetOverallValuesResponse> localVarResponse = GetOverallValuesWithHttpInfo(METRIC_ID, timeframe, filters, measurement);
+            Mux.Csharp.Sdk.Client.ApiResponse<GetOverallValuesResponse> localVarResponse = GetOverallValuesWithHttpInfo(METRIC_ID, timeframe, filters, metricFilters, measurement);
             return localVarResponse.Data;
         }
 
@@ -692,9 +729,10 @@ namespace Mux.Csharp.Sdk.Api
         /// <param name="METRIC_ID">ID of the Metric</param>
         /// <param name="timeframe">Timeframe window to limit results by. Must be provided as an array query string parameter (e.g. timeframe[]&#x3D;).  Accepted formats are...    * array of epoch timestamps e.g. &#x60;timeframe[]&#x3D;1498867200&amp;timeframe[]&#x3D;1498953600&#x60;   * duration string e.g. &#x60;timeframe[]&#x3D;24:hours or timeframe[]&#x3D;7:days&#x60;  (optional)</param>
         /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Filters endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
+        /// <param name="metricFilters">Limit the results to rows that match inequality conditions from provided metric comparison clauses. Must be provided as an array query string parameter.  Possible filterable metrics are the same as the set of metric ids, with the exceptions of &#x60;exits_before_video_start&#x60;, &#x60;unique_viewers&#x60;, &#x60;video_startup_failure_percentage&#x60;, and &#x60;views&#x60;.  Example:    * &#x60;metric_filters[]&#x3D;aggregate_startup_time&gt;&#x3D;1000&#x60;  (optional)</param>
         /// <param name="measurement">Measurement for the provided metric. If omitted, the default for the metric will be used. (optional)</param>
         /// <returns>ApiResponse of GetOverallValuesResponse</returns>
-        public Mux.Csharp.Sdk.Client.ApiResponse<GetOverallValuesResponse> GetOverallValuesWithHttpInfo(string METRIC_ID, List<string> timeframe = default(List<string>), List<string> filters = default(List<string>), string measurement = default(string))
+        public Mux.Csharp.Sdk.Client.ApiResponse<GetOverallValuesResponse> GetOverallValuesWithHttpInfo(string METRIC_ID, List<string> timeframe = default(List<string>), List<string> filters = default(List<string>), List<string> metricFilters = default(List<string>), string measurement = default(string))
         {
             // verify the required parameter 'METRIC_ID' is set
             if (METRIC_ID == null)
@@ -732,6 +770,10 @@ namespace Mux.Csharp.Sdk.Api
             if (filters != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Mux.Csharp.Sdk.Client.ClientUtils.ParameterToMultiMap("multi", "filters[]", filters));
+            }
+            if (metricFilters != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Mux.Csharp.Sdk.Client.ClientUtils.ParameterToMultiMap("multi", "metric_filters[]", metricFilters));
             }
             if (measurement != null)
             {
@@ -766,12 +808,13 @@ namespace Mux.Csharp.Sdk.Api
         /// <param name="METRIC_ID">ID of the Metric</param>
         /// <param name="timeframe">Timeframe window to limit results by. Must be provided as an array query string parameter (e.g. timeframe[]&#x3D;).  Accepted formats are...    * array of epoch timestamps e.g. &#x60;timeframe[]&#x3D;1498867200&amp;timeframe[]&#x3D;1498953600&#x60;   * duration string e.g. &#x60;timeframe[]&#x3D;24:hours or timeframe[]&#x3D;7:days&#x60;  (optional)</param>
         /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Filters endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
+        /// <param name="metricFilters">Limit the results to rows that match inequality conditions from provided metric comparison clauses. Must be provided as an array query string parameter.  Possible filterable metrics are the same as the set of metric ids, with the exceptions of &#x60;exits_before_video_start&#x60;, &#x60;unique_viewers&#x60;, &#x60;video_startup_failure_percentage&#x60;, and &#x60;views&#x60;.  Example:    * &#x60;metric_filters[]&#x3D;aggregate_startup_time&gt;&#x3D;1000&#x60;  (optional)</param>
         /// <param name="measurement">Measurement for the provided metric. If omitted, the default for the metric will be used. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of GetOverallValuesResponse</returns>
-        public async System.Threading.Tasks.Task<GetOverallValuesResponse> GetOverallValuesAsync(string METRIC_ID, List<string> timeframe = default(List<string>), List<string> filters = default(List<string>), string measurement = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<GetOverallValuesResponse> GetOverallValuesAsync(string METRIC_ID, List<string> timeframe = default(List<string>), List<string> filters = default(List<string>), List<string> metricFilters = default(List<string>), string measurement = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Mux.Csharp.Sdk.Client.ApiResponse<GetOverallValuesResponse> localVarResponse = await GetOverallValuesWithHttpInfoAsync(METRIC_ID, timeframe, filters, measurement, cancellationToken).ConfigureAwait(false);
+            Mux.Csharp.Sdk.Client.ApiResponse<GetOverallValuesResponse> localVarResponse = await GetOverallValuesWithHttpInfoAsync(METRIC_ID, timeframe, filters, metricFilters, measurement, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -782,10 +825,11 @@ namespace Mux.Csharp.Sdk.Api
         /// <param name="METRIC_ID">ID of the Metric</param>
         /// <param name="timeframe">Timeframe window to limit results by. Must be provided as an array query string parameter (e.g. timeframe[]&#x3D;).  Accepted formats are...    * array of epoch timestamps e.g. &#x60;timeframe[]&#x3D;1498867200&amp;timeframe[]&#x3D;1498953600&#x60;   * duration string e.g. &#x60;timeframe[]&#x3D;24:hours or timeframe[]&#x3D;7:days&#x60;  (optional)</param>
         /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Filters endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
+        /// <param name="metricFilters">Limit the results to rows that match inequality conditions from provided metric comparison clauses. Must be provided as an array query string parameter.  Possible filterable metrics are the same as the set of metric ids, with the exceptions of &#x60;exits_before_video_start&#x60;, &#x60;unique_viewers&#x60;, &#x60;video_startup_failure_percentage&#x60;, and &#x60;views&#x60;.  Example:    * &#x60;metric_filters[]&#x3D;aggregate_startup_time&gt;&#x3D;1000&#x60;  (optional)</param>
         /// <param name="measurement">Measurement for the provided metric. If omitted, the default for the metric will be used. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (GetOverallValuesResponse)</returns>
-        public async System.Threading.Tasks.Task<Mux.Csharp.Sdk.Client.ApiResponse<GetOverallValuesResponse>> GetOverallValuesWithHttpInfoAsync(string METRIC_ID, List<string> timeframe = default(List<string>), List<string> filters = default(List<string>), string measurement = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Mux.Csharp.Sdk.Client.ApiResponse<GetOverallValuesResponse>> GetOverallValuesWithHttpInfoAsync(string METRIC_ID, List<string> timeframe = default(List<string>), List<string> filters = default(List<string>), List<string> metricFilters = default(List<string>), string measurement = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'METRIC_ID' is set
             if (METRIC_ID == null)
@@ -825,6 +869,10 @@ namespace Mux.Csharp.Sdk.Api
             {
                 localVarRequestOptions.QueryParameters.Add(Mux.Csharp.Sdk.Client.ClientUtils.ParameterToMultiMap("multi", "filters[]", filters));
             }
+            if (metricFilters != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Mux.Csharp.Sdk.Client.ClientUtils.ParameterToMultiMap("multi", "metric_filters[]", metricFilters));
+            }
             if (measurement != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Mux.Csharp.Sdk.Client.ClientUtils.ParameterToMultiMap("", "measurement", measurement));
@@ -858,12 +906,13 @@ namespace Mux.Csharp.Sdk.Api
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="timeframe">Timeframe window to limit results by. Must be provided as an array query string parameter (e.g. timeframe[]&#x3D;).  Accepted formats are...    * array of epoch timestamps e.g. &#x60;timeframe[]&#x3D;1498867200&amp;timeframe[]&#x3D;1498953600&#x60;   * duration string e.g. &#x60;timeframe[]&#x3D;24:hours or timeframe[]&#x3D;7:days&#x60;  (optional)</param>
         /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Filters endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
+        /// <param name="metricFilters">Limit the results to rows that match inequality conditions from provided metric comparison clauses. Must be provided as an array query string parameter.  Possible filterable metrics are the same as the set of metric ids, with the exceptions of &#x60;exits_before_video_start&#x60;, &#x60;unique_viewers&#x60;, &#x60;video_startup_failure_percentage&#x60;, and &#x60;views&#x60;.  Example:    * &#x60;metric_filters[]&#x3D;aggregate_startup_time&gt;&#x3D;1000&#x60;  (optional)</param>
         /// <param name="dimension">Dimension the specified value belongs to (optional)</param>
         /// <param name="value">Value to show all available metrics for (optional)</param>
         /// <returns>ListAllMetricValuesResponse</returns>
-        public ListAllMetricValuesResponse ListAllMetricValues(List<string> timeframe = default(List<string>), List<string> filters = default(List<string>), string dimension = default(string), string value = default(string))
+        public ListAllMetricValuesResponse ListAllMetricValues(List<string> timeframe = default(List<string>), List<string> filters = default(List<string>), List<string> metricFilters = default(List<string>), string dimension = default(string), string value = default(string))
         {
-            Mux.Csharp.Sdk.Client.ApiResponse<ListAllMetricValuesResponse> localVarResponse = ListAllMetricValuesWithHttpInfo(timeframe, filters, dimension, value);
+            Mux.Csharp.Sdk.Client.ApiResponse<ListAllMetricValuesResponse> localVarResponse = ListAllMetricValuesWithHttpInfo(timeframe, filters, metricFilters, dimension, value);
             return localVarResponse.Data;
         }
 
@@ -873,10 +922,11 @@ namespace Mux.Csharp.Sdk.Api
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="timeframe">Timeframe window to limit results by. Must be provided as an array query string parameter (e.g. timeframe[]&#x3D;).  Accepted formats are...    * array of epoch timestamps e.g. &#x60;timeframe[]&#x3D;1498867200&amp;timeframe[]&#x3D;1498953600&#x60;   * duration string e.g. &#x60;timeframe[]&#x3D;24:hours or timeframe[]&#x3D;7:days&#x60;  (optional)</param>
         /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Filters endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
+        /// <param name="metricFilters">Limit the results to rows that match inequality conditions from provided metric comparison clauses. Must be provided as an array query string parameter.  Possible filterable metrics are the same as the set of metric ids, with the exceptions of &#x60;exits_before_video_start&#x60;, &#x60;unique_viewers&#x60;, &#x60;video_startup_failure_percentage&#x60;, and &#x60;views&#x60;.  Example:    * &#x60;metric_filters[]&#x3D;aggregate_startup_time&gt;&#x3D;1000&#x60;  (optional)</param>
         /// <param name="dimension">Dimension the specified value belongs to (optional)</param>
         /// <param name="value">Value to show all available metrics for (optional)</param>
         /// <returns>ApiResponse of ListAllMetricValuesResponse</returns>
-        public Mux.Csharp.Sdk.Client.ApiResponse<ListAllMetricValuesResponse> ListAllMetricValuesWithHttpInfo(List<string> timeframe = default(List<string>), List<string> filters = default(List<string>), string dimension = default(string), string value = default(string))
+        public Mux.Csharp.Sdk.Client.ApiResponse<ListAllMetricValuesResponse> ListAllMetricValuesWithHttpInfo(List<string> timeframe = default(List<string>), List<string> filters = default(List<string>), List<string> metricFilters = default(List<string>), string dimension = default(string), string value = default(string))
         {
             Mux.Csharp.Sdk.Client.RequestOptions localVarRequestOptions = new Mux.Csharp.Sdk.Client.RequestOptions();
 
@@ -907,6 +957,10 @@ namespace Mux.Csharp.Sdk.Api
             if (filters != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Mux.Csharp.Sdk.Client.ClientUtils.ParameterToMultiMap("multi", "filters[]", filters));
+            }
+            if (metricFilters != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Mux.Csharp.Sdk.Client.ClientUtils.ParameterToMultiMap("multi", "metric_filters[]", metricFilters));
             }
             if (dimension != null)
             {
@@ -944,13 +998,14 @@ namespace Mux.Csharp.Sdk.Api
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="timeframe">Timeframe window to limit results by. Must be provided as an array query string parameter (e.g. timeframe[]&#x3D;).  Accepted formats are...    * array of epoch timestamps e.g. &#x60;timeframe[]&#x3D;1498867200&amp;timeframe[]&#x3D;1498953600&#x60;   * duration string e.g. &#x60;timeframe[]&#x3D;24:hours or timeframe[]&#x3D;7:days&#x60;  (optional)</param>
         /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Filters endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
+        /// <param name="metricFilters">Limit the results to rows that match inequality conditions from provided metric comparison clauses. Must be provided as an array query string parameter.  Possible filterable metrics are the same as the set of metric ids, with the exceptions of &#x60;exits_before_video_start&#x60;, &#x60;unique_viewers&#x60;, &#x60;video_startup_failure_percentage&#x60;, and &#x60;views&#x60;.  Example:    * &#x60;metric_filters[]&#x3D;aggregate_startup_time&gt;&#x3D;1000&#x60;  (optional)</param>
         /// <param name="dimension">Dimension the specified value belongs to (optional)</param>
         /// <param name="value">Value to show all available metrics for (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ListAllMetricValuesResponse</returns>
-        public async System.Threading.Tasks.Task<ListAllMetricValuesResponse> ListAllMetricValuesAsync(List<string> timeframe = default(List<string>), List<string> filters = default(List<string>), string dimension = default(string), string value = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ListAllMetricValuesResponse> ListAllMetricValuesAsync(List<string> timeframe = default(List<string>), List<string> filters = default(List<string>), List<string> metricFilters = default(List<string>), string dimension = default(string), string value = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Mux.Csharp.Sdk.Client.ApiResponse<ListAllMetricValuesResponse> localVarResponse = await ListAllMetricValuesWithHttpInfoAsync(timeframe, filters, dimension, value, cancellationToken).ConfigureAwait(false);
+            Mux.Csharp.Sdk.Client.ApiResponse<ListAllMetricValuesResponse> localVarResponse = await ListAllMetricValuesWithHttpInfoAsync(timeframe, filters, metricFilters, dimension, value, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -960,11 +1015,12 @@ namespace Mux.Csharp.Sdk.Api
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="timeframe">Timeframe window to limit results by. Must be provided as an array query string parameter (e.g. timeframe[]&#x3D;).  Accepted formats are...    * array of epoch timestamps e.g. &#x60;timeframe[]&#x3D;1498867200&amp;timeframe[]&#x3D;1498953600&#x60;   * duration string e.g. &#x60;timeframe[]&#x3D;24:hours or timeframe[]&#x3D;7:days&#x60;  (optional)</param>
         /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Filters endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
+        /// <param name="metricFilters">Limit the results to rows that match inequality conditions from provided metric comparison clauses. Must be provided as an array query string parameter.  Possible filterable metrics are the same as the set of metric ids, with the exceptions of &#x60;exits_before_video_start&#x60;, &#x60;unique_viewers&#x60;, &#x60;video_startup_failure_percentage&#x60;, and &#x60;views&#x60;.  Example:    * &#x60;metric_filters[]&#x3D;aggregate_startup_time&gt;&#x3D;1000&#x60;  (optional)</param>
         /// <param name="dimension">Dimension the specified value belongs to (optional)</param>
         /// <param name="value">Value to show all available metrics for (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ListAllMetricValuesResponse)</returns>
-        public async System.Threading.Tasks.Task<Mux.Csharp.Sdk.Client.ApiResponse<ListAllMetricValuesResponse>> ListAllMetricValuesWithHttpInfoAsync(List<string> timeframe = default(List<string>), List<string> filters = default(List<string>), string dimension = default(string), string value = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Mux.Csharp.Sdk.Client.ApiResponse<ListAllMetricValuesResponse>> ListAllMetricValuesWithHttpInfoAsync(List<string> timeframe = default(List<string>), List<string> filters = default(List<string>), List<string> metricFilters = default(List<string>), string dimension = default(string), string value = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             Mux.Csharp.Sdk.Client.RequestOptions localVarRequestOptions = new Mux.Csharp.Sdk.Client.RequestOptions();
@@ -996,6 +1052,10 @@ namespace Mux.Csharp.Sdk.Api
             if (filters != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Mux.Csharp.Sdk.Client.ClientUtils.ParameterToMultiMap("multi", "filters[]", filters));
+            }
+            if (metricFilters != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Mux.Csharp.Sdk.Client.ClientUtils.ParameterToMultiMap("multi", "metric_filters[]", metricFilters));
             }
             if (dimension != null)
             {
@@ -1036,15 +1096,16 @@ namespace Mux.Csharp.Sdk.Api
         /// <param name="groupBy">Breakdown value to group the results by (optional)</param>
         /// <param name="measurement">Measurement for the provided metric. If omitted, the default for the metric will be used. (optional)</param>
         /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Filters endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
+        /// <param name="metricFilters">Limit the results to rows that match inequality conditions from provided metric comparison clauses. Must be provided as an array query string parameter.  Possible filterable metrics are the same as the set of metric ids, with the exceptions of &#x60;exits_before_video_start&#x60;, &#x60;unique_viewers&#x60;, &#x60;video_startup_failure_percentage&#x60;, and &#x60;views&#x60;.  Example:    * &#x60;metric_filters[]&#x3D;aggregate_startup_time&gt;&#x3D;1000&#x60;  (optional)</param>
         /// <param name="limit">Number of items to include in the response (optional, default to 25)</param>
         /// <param name="page">Offset by this many pages, of the size of &#x60;limit&#x60; (optional, default to 1)</param>
         /// <param name="orderBy">Value to order the results by (optional)</param>
         /// <param name="orderDirection">Sort order. (optional)</param>
         /// <param name="timeframe">Timeframe window to limit results by. Must be provided as an array query string parameter (e.g. timeframe[]&#x3D;).  Accepted formats are...    * array of epoch timestamps e.g. &#x60;timeframe[]&#x3D;1498867200&amp;timeframe[]&#x3D;1498953600&#x60;   * duration string e.g. &#x60;timeframe[]&#x3D;24:hours or timeframe[]&#x3D;7:days&#x60;  (optional)</param>
         /// <returns>ListBreakdownValuesResponse</returns>
-        public ListBreakdownValuesResponse ListBreakdownValues(string METRIC_ID, string groupBy = default(string), string measurement = default(string), List<string> filters = default(List<string>), int? limit = default(int?), int? page = default(int?), string orderBy = default(string), string orderDirection = default(string), List<string> timeframe = default(List<string>))
+        public ListBreakdownValuesResponse ListBreakdownValues(string METRIC_ID, string groupBy = default(string), string measurement = default(string), List<string> filters = default(List<string>), List<string> metricFilters = default(List<string>), int? limit = default(int?), int? page = default(int?), string orderBy = default(string), string orderDirection = default(string), List<string> timeframe = default(List<string>))
         {
-            Mux.Csharp.Sdk.Client.ApiResponse<ListBreakdownValuesResponse> localVarResponse = ListBreakdownValuesWithHttpInfo(METRIC_ID, groupBy, measurement, filters, limit, page, orderBy, orderDirection, timeframe);
+            Mux.Csharp.Sdk.Client.ApiResponse<ListBreakdownValuesResponse> localVarResponse = ListBreakdownValuesWithHttpInfo(METRIC_ID, groupBy, measurement, filters, metricFilters, limit, page, orderBy, orderDirection, timeframe);
             return localVarResponse.Data;
         }
 
@@ -1056,13 +1117,14 @@ namespace Mux.Csharp.Sdk.Api
         /// <param name="groupBy">Breakdown value to group the results by (optional)</param>
         /// <param name="measurement">Measurement for the provided metric. If omitted, the default for the metric will be used. (optional)</param>
         /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Filters endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
+        /// <param name="metricFilters">Limit the results to rows that match inequality conditions from provided metric comparison clauses. Must be provided as an array query string parameter.  Possible filterable metrics are the same as the set of metric ids, with the exceptions of &#x60;exits_before_video_start&#x60;, &#x60;unique_viewers&#x60;, &#x60;video_startup_failure_percentage&#x60;, and &#x60;views&#x60;.  Example:    * &#x60;metric_filters[]&#x3D;aggregate_startup_time&gt;&#x3D;1000&#x60;  (optional)</param>
         /// <param name="limit">Number of items to include in the response (optional, default to 25)</param>
         /// <param name="page">Offset by this many pages, of the size of &#x60;limit&#x60; (optional, default to 1)</param>
         /// <param name="orderBy">Value to order the results by (optional)</param>
         /// <param name="orderDirection">Sort order. (optional)</param>
         /// <param name="timeframe">Timeframe window to limit results by. Must be provided as an array query string parameter (e.g. timeframe[]&#x3D;).  Accepted formats are...    * array of epoch timestamps e.g. &#x60;timeframe[]&#x3D;1498867200&amp;timeframe[]&#x3D;1498953600&#x60;   * duration string e.g. &#x60;timeframe[]&#x3D;24:hours or timeframe[]&#x3D;7:days&#x60;  (optional)</param>
         /// <returns>ApiResponse of ListBreakdownValuesResponse</returns>
-        public Mux.Csharp.Sdk.Client.ApiResponse<ListBreakdownValuesResponse> ListBreakdownValuesWithHttpInfo(string METRIC_ID, string groupBy = default(string), string measurement = default(string), List<string> filters = default(List<string>), int? limit = default(int?), int? page = default(int?), string orderBy = default(string), string orderDirection = default(string), List<string> timeframe = default(List<string>))
+        public Mux.Csharp.Sdk.Client.ApiResponse<ListBreakdownValuesResponse> ListBreakdownValuesWithHttpInfo(string METRIC_ID, string groupBy = default(string), string measurement = default(string), List<string> filters = default(List<string>), List<string> metricFilters = default(List<string>), int? limit = default(int?), int? page = default(int?), string orderBy = default(string), string orderDirection = default(string), List<string> timeframe = default(List<string>))
         {
             // verify the required parameter 'METRIC_ID' is set
             if (METRIC_ID == null)
@@ -1104,6 +1166,10 @@ namespace Mux.Csharp.Sdk.Api
             if (filters != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Mux.Csharp.Sdk.Client.ClientUtils.ParameterToMultiMap("multi", "filters[]", filters));
+            }
+            if (metricFilters != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Mux.Csharp.Sdk.Client.ClientUtils.ParameterToMultiMap("multi", "metric_filters[]", metricFilters));
             }
             if (limit != null)
             {
@@ -1155,6 +1221,7 @@ namespace Mux.Csharp.Sdk.Api
         /// <param name="groupBy">Breakdown value to group the results by (optional)</param>
         /// <param name="measurement">Measurement for the provided metric. If omitted, the default for the metric will be used. (optional)</param>
         /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Filters endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
+        /// <param name="metricFilters">Limit the results to rows that match inequality conditions from provided metric comparison clauses. Must be provided as an array query string parameter.  Possible filterable metrics are the same as the set of metric ids, with the exceptions of &#x60;exits_before_video_start&#x60;, &#x60;unique_viewers&#x60;, &#x60;video_startup_failure_percentage&#x60;, and &#x60;views&#x60;.  Example:    * &#x60;metric_filters[]&#x3D;aggregate_startup_time&gt;&#x3D;1000&#x60;  (optional)</param>
         /// <param name="limit">Number of items to include in the response (optional, default to 25)</param>
         /// <param name="page">Offset by this many pages, of the size of &#x60;limit&#x60; (optional, default to 1)</param>
         /// <param name="orderBy">Value to order the results by (optional)</param>
@@ -1162,9 +1229,9 @@ namespace Mux.Csharp.Sdk.Api
         /// <param name="timeframe">Timeframe window to limit results by. Must be provided as an array query string parameter (e.g. timeframe[]&#x3D;).  Accepted formats are...    * array of epoch timestamps e.g. &#x60;timeframe[]&#x3D;1498867200&amp;timeframe[]&#x3D;1498953600&#x60;   * duration string e.g. &#x60;timeframe[]&#x3D;24:hours or timeframe[]&#x3D;7:days&#x60;  (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ListBreakdownValuesResponse</returns>
-        public async System.Threading.Tasks.Task<ListBreakdownValuesResponse> ListBreakdownValuesAsync(string METRIC_ID, string groupBy = default(string), string measurement = default(string), List<string> filters = default(List<string>), int? limit = default(int?), int? page = default(int?), string orderBy = default(string), string orderDirection = default(string), List<string> timeframe = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ListBreakdownValuesResponse> ListBreakdownValuesAsync(string METRIC_ID, string groupBy = default(string), string measurement = default(string), List<string> filters = default(List<string>), List<string> metricFilters = default(List<string>), int? limit = default(int?), int? page = default(int?), string orderBy = default(string), string orderDirection = default(string), List<string> timeframe = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Mux.Csharp.Sdk.Client.ApiResponse<ListBreakdownValuesResponse> localVarResponse = await ListBreakdownValuesWithHttpInfoAsync(METRIC_ID, groupBy, measurement, filters, limit, page, orderBy, orderDirection, timeframe, cancellationToken).ConfigureAwait(false);
+            Mux.Csharp.Sdk.Client.ApiResponse<ListBreakdownValuesResponse> localVarResponse = await ListBreakdownValuesWithHttpInfoAsync(METRIC_ID, groupBy, measurement, filters, metricFilters, limit, page, orderBy, orderDirection, timeframe, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1176,6 +1243,7 @@ namespace Mux.Csharp.Sdk.Api
         /// <param name="groupBy">Breakdown value to group the results by (optional)</param>
         /// <param name="measurement">Measurement for the provided metric. If omitted, the default for the metric will be used. (optional)</param>
         /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Filters endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
+        /// <param name="metricFilters">Limit the results to rows that match inequality conditions from provided metric comparison clauses. Must be provided as an array query string parameter.  Possible filterable metrics are the same as the set of metric ids, with the exceptions of &#x60;exits_before_video_start&#x60;, &#x60;unique_viewers&#x60;, &#x60;video_startup_failure_percentage&#x60;, and &#x60;views&#x60;.  Example:    * &#x60;metric_filters[]&#x3D;aggregate_startup_time&gt;&#x3D;1000&#x60;  (optional)</param>
         /// <param name="limit">Number of items to include in the response (optional, default to 25)</param>
         /// <param name="page">Offset by this many pages, of the size of &#x60;limit&#x60; (optional, default to 1)</param>
         /// <param name="orderBy">Value to order the results by (optional)</param>
@@ -1183,7 +1251,7 @@ namespace Mux.Csharp.Sdk.Api
         /// <param name="timeframe">Timeframe window to limit results by. Must be provided as an array query string parameter (e.g. timeframe[]&#x3D;).  Accepted formats are...    * array of epoch timestamps e.g. &#x60;timeframe[]&#x3D;1498867200&amp;timeframe[]&#x3D;1498953600&#x60;   * duration string e.g. &#x60;timeframe[]&#x3D;24:hours or timeframe[]&#x3D;7:days&#x60;  (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ListBreakdownValuesResponse)</returns>
-        public async System.Threading.Tasks.Task<Mux.Csharp.Sdk.Client.ApiResponse<ListBreakdownValuesResponse>> ListBreakdownValuesWithHttpInfoAsync(string METRIC_ID, string groupBy = default(string), string measurement = default(string), List<string> filters = default(List<string>), int? limit = default(int?), int? page = default(int?), string orderBy = default(string), string orderDirection = default(string), List<string> timeframe = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Mux.Csharp.Sdk.Client.ApiResponse<ListBreakdownValuesResponse>> ListBreakdownValuesWithHttpInfoAsync(string METRIC_ID, string groupBy = default(string), string measurement = default(string), List<string> filters = default(List<string>), List<string> metricFilters = default(List<string>), int? limit = default(int?), int? page = default(int?), string orderBy = default(string), string orderDirection = default(string), List<string> timeframe = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'METRIC_ID' is set
             if (METRIC_ID == null)
@@ -1226,6 +1294,10 @@ namespace Mux.Csharp.Sdk.Api
             if (filters != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Mux.Csharp.Sdk.Client.ClientUtils.ParameterToMultiMap("multi", "filters[]", filters));
+            }
+            if (metricFilters != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Mux.Csharp.Sdk.Client.ClientUtils.ParameterToMultiMap("multi", "metric_filters[]", metricFilters));
             }
             if (limit != null)
             {
@@ -1278,10 +1350,12 @@ namespace Mux.Csharp.Sdk.Api
         /// <param name="measurement">Measurement for the provided metric. If omitted, the default for the metric will be used. (optional)</param>
         /// <param name="orderDirection">Sort order. (optional) (deprecated)</param>
         /// <param name="timeframe">Timeframe window to limit results by. Must be provided as an array query string parameter (e.g. timeframe[]&#x3D;).  Accepted formats are...    * array of epoch timestamps e.g. &#x60;timeframe[]&#x3D;1498867200&amp;timeframe[]&#x3D;1498953600&#x60;   * duration string e.g. &#x60;timeframe[]&#x3D;24:hours or timeframe[]&#x3D;7:days&#x60;  (optional)</param>
+        /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Filters endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
+        /// <param name="metricFilters">Limit the results to rows that match inequality conditions from provided metric comparison clauses. Must be provided as an array query string parameter.  Possible filterable metrics are the same as the set of metric ids, with the exceptions of &#x60;exits_before_video_start&#x60;, &#x60;unique_viewers&#x60;, &#x60;video_startup_failure_percentage&#x60;, and &#x60;views&#x60;.  Example:    * &#x60;metric_filters[]&#x3D;aggregate_startup_time&gt;&#x3D;1000&#x60;  (optional)</param>
         /// <returns>ListInsightsResponse</returns>
-        public ListInsightsResponse ListInsights(string METRIC_ID, string measurement = default(string), string orderDirection = default(string), List<string> timeframe = default(List<string>))
+        public ListInsightsResponse ListInsights(string METRIC_ID, string measurement = default(string), string orderDirection = default(string), List<string> timeframe = default(List<string>), List<string> filters = default(List<string>), List<string> metricFilters = default(List<string>))
         {
-            Mux.Csharp.Sdk.Client.ApiResponse<ListInsightsResponse> localVarResponse = ListInsightsWithHttpInfo(METRIC_ID, measurement, orderDirection, timeframe);
+            Mux.Csharp.Sdk.Client.ApiResponse<ListInsightsResponse> localVarResponse = ListInsightsWithHttpInfo(METRIC_ID, measurement, orderDirection, timeframe, filters, metricFilters);
             return localVarResponse.Data;
         }
 
@@ -1293,8 +1367,10 @@ namespace Mux.Csharp.Sdk.Api
         /// <param name="measurement">Measurement for the provided metric. If omitted, the default for the metric will be used. (optional)</param>
         /// <param name="orderDirection">Sort order. (optional) (deprecated)</param>
         /// <param name="timeframe">Timeframe window to limit results by. Must be provided as an array query string parameter (e.g. timeframe[]&#x3D;).  Accepted formats are...    * array of epoch timestamps e.g. &#x60;timeframe[]&#x3D;1498867200&amp;timeframe[]&#x3D;1498953600&#x60;   * duration string e.g. &#x60;timeframe[]&#x3D;24:hours or timeframe[]&#x3D;7:days&#x60;  (optional)</param>
+        /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Filters endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
+        /// <param name="metricFilters">Limit the results to rows that match inequality conditions from provided metric comparison clauses. Must be provided as an array query string parameter.  Possible filterable metrics are the same as the set of metric ids, with the exceptions of &#x60;exits_before_video_start&#x60;, &#x60;unique_viewers&#x60;, &#x60;video_startup_failure_percentage&#x60;, and &#x60;views&#x60;.  Example:    * &#x60;metric_filters[]&#x3D;aggregate_startup_time&gt;&#x3D;1000&#x60;  (optional)</param>
         /// <returns>ApiResponse of ListInsightsResponse</returns>
-        public Mux.Csharp.Sdk.Client.ApiResponse<ListInsightsResponse> ListInsightsWithHttpInfo(string METRIC_ID, string measurement = default(string), string orderDirection = default(string), List<string> timeframe = default(List<string>))
+        public Mux.Csharp.Sdk.Client.ApiResponse<ListInsightsResponse> ListInsightsWithHttpInfo(string METRIC_ID, string measurement = default(string), string orderDirection = default(string), List<string> timeframe = default(List<string>), List<string> filters = default(List<string>), List<string> metricFilters = default(List<string>))
         {
             // verify the required parameter 'METRIC_ID' is set
             if (METRIC_ID == null)
@@ -1336,6 +1412,14 @@ namespace Mux.Csharp.Sdk.Api
             if (timeframe != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Mux.Csharp.Sdk.Client.ClientUtils.ParameterToMultiMap("multi", "timeframe[]", timeframe));
+            }
+            if (filters != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Mux.Csharp.Sdk.Client.ClientUtils.ParameterToMultiMap("multi", "filters[]", filters));
+            }
+            if (metricFilters != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Mux.Csharp.Sdk.Client.ClientUtils.ParameterToMultiMap("multi", "metric_filters[]", metricFilters));
             }
 
             // authentication (accessToken) required
@@ -1367,11 +1451,13 @@ namespace Mux.Csharp.Sdk.Api
         /// <param name="measurement">Measurement for the provided metric. If omitted, the default for the metric will be used. (optional)</param>
         /// <param name="orderDirection">Sort order. (optional) (deprecated)</param>
         /// <param name="timeframe">Timeframe window to limit results by. Must be provided as an array query string parameter (e.g. timeframe[]&#x3D;).  Accepted formats are...    * array of epoch timestamps e.g. &#x60;timeframe[]&#x3D;1498867200&amp;timeframe[]&#x3D;1498953600&#x60;   * duration string e.g. &#x60;timeframe[]&#x3D;24:hours or timeframe[]&#x3D;7:days&#x60;  (optional)</param>
+        /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Filters endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
+        /// <param name="metricFilters">Limit the results to rows that match inequality conditions from provided metric comparison clauses. Must be provided as an array query string parameter.  Possible filterable metrics are the same as the set of metric ids, with the exceptions of &#x60;exits_before_video_start&#x60;, &#x60;unique_viewers&#x60;, &#x60;video_startup_failure_percentage&#x60;, and &#x60;views&#x60;.  Example:    * &#x60;metric_filters[]&#x3D;aggregate_startup_time&gt;&#x3D;1000&#x60;  (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ListInsightsResponse</returns>
-        public async System.Threading.Tasks.Task<ListInsightsResponse> ListInsightsAsync(string METRIC_ID, string measurement = default(string), string orderDirection = default(string), List<string> timeframe = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ListInsightsResponse> ListInsightsAsync(string METRIC_ID, string measurement = default(string), string orderDirection = default(string), List<string> timeframe = default(List<string>), List<string> filters = default(List<string>), List<string> metricFilters = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Mux.Csharp.Sdk.Client.ApiResponse<ListInsightsResponse> localVarResponse = await ListInsightsWithHttpInfoAsync(METRIC_ID, measurement, orderDirection, timeframe, cancellationToken).ConfigureAwait(false);
+            Mux.Csharp.Sdk.Client.ApiResponse<ListInsightsResponse> localVarResponse = await ListInsightsWithHttpInfoAsync(METRIC_ID, measurement, orderDirection, timeframe, filters, metricFilters, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1383,9 +1469,11 @@ namespace Mux.Csharp.Sdk.Api
         /// <param name="measurement">Measurement for the provided metric. If omitted, the default for the metric will be used. (optional)</param>
         /// <param name="orderDirection">Sort order. (optional) (deprecated)</param>
         /// <param name="timeframe">Timeframe window to limit results by. Must be provided as an array query string parameter (e.g. timeframe[]&#x3D;).  Accepted formats are...    * array of epoch timestamps e.g. &#x60;timeframe[]&#x3D;1498867200&amp;timeframe[]&#x3D;1498953600&#x60;   * duration string e.g. &#x60;timeframe[]&#x3D;24:hours or timeframe[]&#x3D;7:days&#x60;  (optional)</param>
+        /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Filters endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
+        /// <param name="metricFilters">Limit the results to rows that match inequality conditions from provided metric comparison clauses. Must be provided as an array query string parameter.  Possible filterable metrics are the same as the set of metric ids, with the exceptions of &#x60;exits_before_video_start&#x60;, &#x60;unique_viewers&#x60;, &#x60;video_startup_failure_percentage&#x60;, and &#x60;views&#x60;.  Example:    * &#x60;metric_filters[]&#x3D;aggregate_startup_time&gt;&#x3D;1000&#x60;  (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ListInsightsResponse)</returns>
-        public async System.Threading.Tasks.Task<Mux.Csharp.Sdk.Client.ApiResponse<ListInsightsResponse>> ListInsightsWithHttpInfoAsync(string METRIC_ID, string measurement = default(string), string orderDirection = default(string), List<string> timeframe = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Mux.Csharp.Sdk.Client.ApiResponse<ListInsightsResponse>> ListInsightsWithHttpInfoAsync(string METRIC_ID, string measurement = default(string), string orderDirection = default(string), List<string> timeframe = default(List<string>), List<string> filters = default(List<string>), List<string> metricFilters = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'METRIC_ID' is set
             if (METRIC_ID == null)
@@ -1428,6 +1516,14 @@ namespace Mux.Csharp.Sdk.Api
             if (timeframe != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Mux.Csharp.Sdk.Client.ClientUtils.ParameterToMultiMap("multi", "timeframe[]", timeframe));
+            }
+            if (filters != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Mux.Csharp.Sdk.Client.ClientUtils.ParameterToMultiMap("multi", "filters[]", filters));
+            }
+            if (metricFilters != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Mux.Csharp.Sdk.Client.ClientUtils.ParameterToMultiMap("multi", "metric_filters[]", metricFilters));
             }
 
             // authentication (accessToken) required

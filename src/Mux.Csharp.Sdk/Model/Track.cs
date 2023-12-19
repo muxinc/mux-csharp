@@ -192,7 +192,8 @@ namespace Mux.Csharp.Sdk.Model
         /// <param name="closedCaptions">Indicates the track provides Subtitles for the Deaf or Hard-of-hearing (SDH). This parameter is only set tracks where &#x60;type&#x60; is &#x60;text&#x60; and &#x60;text_type&#x60; is &#x60;subtitles&#x60;..</param>
         /// <param name="passthrough">Arbitrary user-supplied metadata set for the track either when creating the asset or track. This parameter is only set for &#x60;text&#x60; type tracks. Max 255 characters..</param>
         /// <param name="status">The status of the track. This parameter is only set for &#x60;text&#x60; type tracks..</param>
-        public Track(string id = default(string), TypeEnum? type = default(TypeEnum?), double duration = default(double), long maxWidth = default(long), long maxHeight = default(long), double maxFrameRate = default(double), long maxChannels = default(long), string maxChannelLayout = default(string), TextTypeEnum? textType = default(TextTypeEnum?), TextSourceEnum? textSource = default(TextSourceEnum?), string languageCode = default(string), string name = default(string), bool closedCaptions = default(bool), string passthrough = default(string), StatusEnum? status = default(StatusEnum?))
+        /// <param name="primary">For an audio track, indicates that this is the primary audio track, ingested from the main input for this asset. The primary audio track cannot be deleted..</param>
+        public Track(string id = default(string), TypeEnum? type = default(TypeEnum?), double duration = default(double), long maxWidth = default(long), long maxHeight = default(long), double maxFrameRate = default(double), long maxChannels = default(long), string maxChannelLayout = default(string), TextTypeEnum? textType = default(TextTypeEnum?), TextSourceEnum? textSource = default(TextSourceEnum?), string languageCode = default(string), string name = default(string), bool closedCaptions = default(bool), string passthrough = default(string), StatusEnum? status = default(StatusEnum?), bool primary = default(bool))
         {
             this.Id = id;
             this.Type = type;
@@ -209,6 +210,7 @@ namespace Mux.Csharp.Sdk.Model
             this.ClosedCaptions = closedCaptions;
             this.Passthrough = passthrough;
             this.Status = status;
+            this.Primary = primary;
             this.AdditionalProperties = new Dictionary<string, object>();
         }
 
@@ -291,6 +293,13 @@ namespace Mux.Csharp.Sdk.Model
         public string Passthrough { get; set; }
 
         /// <summary>
+        /// For an audio track, indicates that this is the primary audio track, ingested from the main input for this asset. The primary audio track cannot be deleted.
+        /// </summary>
+        /// <value>For an audio track, indicates that this is the primary audio track, ingested from the main input for this asset. The primary audio track cannot be deleted.</value>
+        [DataMember(Name = "primary", EmitDefaultValue = true)]
+        public bool Primary { get; set; }
+
+        /// <summary>
         /// Gets or Sets additional properties
         /// </summary>
         [JsonExtensionData]
@@ -319,6 +328,7 @@ namespace Mux.Csharp.Sdk.Model
             sb.Append("  ClosedCaptions: ").Append(ClosedCaptions).Append("\n");
             sb.Append("  Passthrough: ").Append(Passthrough).Append("\n");
             sb.Append("  Status: ").Append(Status).Append("\n");
+            sb.Append("  Primary: ").Append(Primary).Append("\n");
             sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -419,6 +429,10 @@ namespace Mux.Csharp.Sdk.Model
                 (
                     this.Status == input.Status ||
                     this.Status.Equals(input.Status)
+                ) && 
+                (
+                    this.Primary == input.Primary ||
+                    this.Primary.Equals(input.Primary)
                 )
                 && (this.AdditionalProperties.Count == input.AdditionalProperties.Count && !this.AdditionalProperties.Except(input.AdditionalProperties).Any());
         }
@@ -462,6 +476,7 @@ namespace Mux.Csharp.Sdk.Model
                     hashCode = (hashCode * 59) + this.Passthrough.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.Status.GetHashCode();
+                hashCode = (hashCode * 59) + this.Primary.GetHashCode();
                 if (this.AdditionalProperties != null)
                 {
                     hashCode = (hashCode * 59) + this.AdditionalProperties.GetHashCode();
