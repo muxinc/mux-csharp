@@ -35,9 +35,10 @@ namespace Mux.Csharp.Sdk.Api
         /// </remarks>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Filters endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
+        /// <param name="metricFilters">Limit the results to rows that match inequality conditions from provided metric comparison clauses. Must be provided as an array query string parameter.  Possible filterable metrics are the same as the set of metric ids, with the exceptions of &#x60;exits_before_video_start&#x60;, &#x60;unique_viewers&#x60;, &#x60;video_startup_failure_percentage&#x60;, and &#x60;views&#x60;.  Example:    * &#x60;metric_filters[]&#x3D;aggregate_startup_time&gt;&#x3D;1000&#x60;  (optional)</param>
         /// <param name="timeframe">Timeframe window to limit results by. Must be provided as an array query string parameter (e.g. timeframe[]&#x3D;).  Accepted formats are...    * array of epoch timestamps e.g. &#x60;timeframe[]&#x3D;1498867200&amp;timeframe[]&#x3D;1498953600&#x60;   * duration string e.g. &#x60;timeframe[]&#x3D;24:hours or timeframe[]&#x3D;7:days&#x60;  (optional)</param>
         /// <returns>ListErrorsResponse</returns>
-        ListErrorsResponse ListErrors(List<string> filters = default(List<string>), List<string> timeframe = default(List<string>));
+        ListErrorsResponse ListErrors(List<string> filters = default(List<string>), List<string> metricFilters = default(List<string>), List<string> timeframe = default(List<string>));
 
         /// <summary>
         /// List Errors
@@ -47,9 +48,10 @@ namespace Mux.Csharp.Sdk.Api
         /// </remarks>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Filters endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
+        /// <param name="metricFilters">Limit the results to rows that match inequality conditions from provided metric comparison clauses. Must be provided as an array query string parameter.  Possible filterable metrics are the same as the set of metric ids, with the exceptions of &#x60;exits_before_video_start&#x60;, &#x60;unique_viewers&#x60;, &#x60;video_startup_failure_percentage&#x60;, and &#x60;views&#x60;.  Example:    * &#x60;metric_filters[]&#x3D;aggregate_startup_time&gt;&#x3D;1000&#x60;  (optional)</param>
         /// <param name="timeframe">Timeframe window to limit results by. Must be provided as an array query string parameter (e.g. timeframe[]&#x3D;).  Accepted formats are...    * array of epoch timestamps e.g. &#x60;timeframe[]&#x3D;1498867200&amp;timeframe[]&#x3D;1498953600&#x60;   * duration string e.g. &#x60;timeframe[]&#x3D;24:hours or timeframe[]&#x3D;7:days&#x60;  (optional)</param>
         /// <returns>ApiResponse of ListErrorsResponse</returns>
-        ApiResponse<ListErrorsResponse> ListErrorsWithHttpInfo(List<string> filters = default(List<string>), List<string> timeframe = default(List<string>));
+        ApiResponse<ListErrorsResponse> ListErrorsWithHttpInfo(List<string> filters = default(List<string>), List<string> metricFilters = default(List<string>), List<string> timeframe = default(List<string>));
         #endregion Synchronous Operations
     }
 
@@ -67,10 +69,11 @@ namespace Mux.Csharp.Sdk.Api
         /// </remarks>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Filters endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
+        /// <param name="metricFilters">Limit the results to rows that match inequality conditions from provided metric comparison clauses. Must be provided as an array query string parameter.  Possible filterable metrics are the same as the set of metric ids, with the exceptions of &#x60;exits_before_video_start&#x60;, &#x60;unique_viewers&#x60;, &#x60;video_startup_failure_percentage&#x60;, and &#x60;views&#x60;.  Example:    * &#x60;metric_filters[]&#x3D;aggregate_startup_time&gt;&#x3D;1000&#x60;  (optional)</param>
         /// <param name="timeframe">Timeframe window to limit results by. Must be provided as an array query string parameter (e.g. timeframe[]&#x3D;).  Accepted formats are...    * array of epoch timestamps e.g. &#x60;timeframe[]&#x3D;1498867200&amp;timeframe[]&#x3D;1498953600&#x60;   * duration string e.g. &#x60;timeframe[]&#x3D;24:hours or timeframe[]&#x3D;7:days&#x60;  (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ListErrorsResponse</returns>
-        System.Threading.Tasks.Task<ListErrorsResponse> ListErrorsAsync(List<string> filters = default(List<string>), List<string> timeframe = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ListErrorsResponse> ListErrorsAsync(List<string> filters = default(List<string>), List<string> metricFilters = default(List<string>), List<string> timeframe = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// List Errors
@@ -80,10 +83,11 @@ namespace Mux.Csharp.Sdk.Api
         /// </remarks>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Filters endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
+        /// <param name="metricFilters">Limit the results to rows that match inequality conditions from provided metric comparison clauses. Must be provided as an array query string parameter.  Possible filterable metrics are the same as the set of metric ids, with the exceptions of &#x60;exits_before_video_start&#x60;, &#x60;unique_viewers&#x60;, &#x60;video_startup_failure_percentage&#x60;, and &#x60;views&#x60;.  Example:    * &#x60;metric_filters[]&#x3D;aggregate_startup_time&gt;&#x3D;1000&#x60;  (optional)</param>
         /// <param name="timeframe">Timeframe window to limit results by. Must be provided as an array query string parameter (e.g. timeframe[]&#x3D;).  Accepted formats are...    * array of epoch timestamps e.g. &#x60;timeframe[]&#x3D;1498867200&amp;timeframe[]&#x3D;1498953600&#x60;   * duration string e.g. &#x60;timeframe[]&#x3D;24:hours or timeframe[]&#x3D;7:days&#x60;  (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ListErrorsResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ListErrorsResponse>> ListErrorsWithHttpInfoAsync(List<string> filters = default(List<string>), List<string> timeframe = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ListErrorsResponse>> ListErrorsWithHttpInfoAsync(List<string> filters = default(List<string>), List<string> metricFilters = default(List<string>), List<string> timeframe = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -209,11 +213,12 @@ namespace Mux.Csharp.Sdk.Api
         /// </summary>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Filters endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
+        /// <param name="metricFilters">Limit the results to rows that match inequality conditions from provided metric comparison clauses. Must be provided as an array query string parameter.  Possible filterable metrics are the same as the set of metric ids, with the exceptions of &#x60;exits_before_video_start&#x60;, &#x60;unique_viewers&#x60;, &#x60;video_startup_failure_percentage&#x60;, and &#x60;views&#x60;.  Example:    * &#x60;metric_filters[]&#x3D;aggregate_startup_time&gt;&#x3D;1000&#x60;  (optional)</param>
         /// <param name="timeframe">Timeframe window to limit results by. Must be provided as an array query string parameter (e.g. timeframe[]&#x3D;).  Accepted formats are...    * array of epoch timestamps e.g. &#x60;timeframe[]&#x3D;1498867200&amp;timeframe[]&#x3D;1498953600&#x60;   * duration string e.g. &#x60;timeframe[]&#x3D;24:hours or timeframe[]&#x3D;7:days&#x60;  (optional)</param>
         /// <returns>ListErrorsResponse</returns>
-        public ListErrorsResponse ListErrors(List<string> filters = default(List<string>), List<string> timeframe = default(List<string>))
+        public ListErrorsResponse ListErrors(List<string> filters = default(List<string>), List<string> metricFilters = default(List<string>), List<string> timeframe = default(List<string>))
         {
-            Mux.Csharp.Sdk.Client.ApiResponse<ListErrorsResponse> localVarResponse = ListErrorsWithHttpInfo(filters, timeframe);
+            Mux.Csharp.Sdk.Client.ApiResponse<ListErrorsResponse> localVarResponse = ListErrorsWithHttpInfo(filters, metricFilters, timeframe);
             return localVarResponse.Data;
         }
 
@@ -222,9 +227,10 @@ namespace Mux.Csharp.Sdk.Api
         /// </summary>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Filters endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
+        /// <param name="metricFilters">Limit the results to rows that match inequality conditions from provided metric comparison clauses. Must be provided as an array query string parameter.  Possible filterable metrics are the same as the set of metric ids, with the exceptions of &#x60;exits_before_video_start&#x60;, &#x60;unique_viewers&#x60;, &#x60;video_startup_failure_percentage&#x60;, and &#x60;views&#x60;.  Example:    * &#x60;metric_filters[]&#x3D;aggregate_startup_time&gt;&#x3D;1000&#x60;  (optional)</param>
         /// <param name="timeframe">Timeframe window to limit results by. Must be provided as an array query string parameter (e.g. timeframe[]&#x3D;).  Accepted formats are...    * array of epoch timestamps e.g. &#x60;timeframe[]&#x3D;1498867200&amp;timeframe[]&#x3D;1498953600&#x60;   * duration string e.g. &#x60;timeframe[]&#x3D;24:hours or timeframe[]&#x3D;7:days&#x60;  (optional)</param>
         /// <returns>ApiResponse of ListErrorsResponse</returns>
-        public Mux.Csharp.Sdk.Client.ApiResponse<ListErrorsResponse> ListErrorsWithHttpInfo(List<string> filters = default(List<string>), List<string> timeframe = default(List<string>))
+        public Mux.Csharp.Sdk.Client.ApiResponse<ListErrorsResponse> ListErrorsWithHttpInfo(List<string> filters = default(List<string>), List<string> metricFilters = default(List<string>), List<string> timeframe = default(List<string>))
         {
             Mux.Csharp.Sdk.Client.RequestOptions localVarRequestOptions = new Mux.Csharp.Sdk.Client.RequestOptions();
 
@@ -251,6 +257,10 @@ namespace Mux.Csharp.Sdk.Api
             if (filters != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Mux.Csharp.Sdk.Client.ClientUtils.ParameterToMultiMap("multi", "filters[]", filters));
+            }
+            if (metricFilters != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Mux.Csharp.Sdk.Client.ClientUtils.ParameterToMultiMap("multi", "metric_filters[]", metricFilters));
             }
             if (timeframe != null)
             {
@@ -283,12 +293,13 @@ namespace Mux.Csharp.Sdk.Api
         /// </summary>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Filters endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
+        /// <param name="metricFilters">Limit the results to rows that match inequality conditions from provided metric comparison clauses. Must be provided as an array query string parameter.  Possible filterable metrics are the same as the set of metric ids, with the exceptions of &#x60;exits_before_video_start&#x60;, &#x60;unique_viewers&#x60;, &#x60;video_startup_failure_percentage&#x60;, and &#x60;views&#x60;.  Example:    * &#x60;metric_filters[]&#x3D;aggregate_startup_time&gt;&#x3D;1000&#x60;  (optional)</param>
         /// <param name="timeframe">Timeframe window to limit results by. Must be provided as an array query string parameter (e.g. timeframe[]&#x3D;).  Accepted formats are...    * array of epoch timestamps e.g. &#x60;timeframe[]&#x3D;1498867200&amp;timeframe[]&#x3D;1498953600&#x60;   * duration string e.g. &#x60;timeframe[]&#x3D;24:hours or timeframe[]&#x3D;7:days&#x60;  (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ListErrorsResponse</returns>
-        public async System.Threading.Tasks.Task<ListErrorsResponse> ListErrorsAsync(List<string> filters = default(List<string>), List<string> timeframe = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ListErrorsResponse> ListErrorsAsync(List<string> filters = default(List<string>), List<string> metricFilters = default(List<string>), List<string> timeframe = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Mux.Csharp.Sdk.Client.ApiResponse<ListErrorsResponse> localVarResponse = await ListErrorsWithHttpInfoAsync(filters, timeframe, cancellationToken).ConfigureAwait(false);
+            Mux.Csharp.Sdk.Client.ApiResponse<ListErrorsResponse> localVarResponse = await ListErrorsWithHttpInfoAsync(filters, metricFilters, timeframe, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -297,10 +308,11 @@ namespace Mux.Csharp.Sdk.Api
         /// </summary>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Filters endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
+        /// <param name="metricFilters">Limit the results to rows that match inequality conditions from provided metric comparison clauses. Must be provided as an array query string parameter.  Possible filterable metrics are the same as the set of metric ids, with the exceptions of &#x60;exits_before_video_start&#x60;, &#x60;unique_viewers&#x60;, &#x60;video_startup_failure_percentage&#x60;, and &#x60;views&#x60;.  Example:    * &#x60;metric_filters[]&#x3D;aggregate_startup_time&gt;&#x3D;1000&#x60;  (optional)</param>
         /// <param name="timeframe">Timeframe window to limit results by. Must be provided as an array query string parameter (e.g. timeframe[]&#x3D;).  Accepted formats are...    * array of epoch timestamps e.g. &#x60;timeframe[]&#x3D;1498867200&amp;timeframe[]&#x3D;1498953600&#x60;   * duration string e.g. &#x60;timeframe[]&#x3D;24:hours or timeframe[]&#x3D;7:days&#x60;  (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ListErrorsResponse)</returns>
-        public async System.Threading.Tasks.Task<Mux.Csharp.Sdk.Client.ApiResponse<ListErrorsResponse>> ListErrorsWithHttpInfoAsync(List<string> filters = default(List<string>), List<string> timeframe = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Mux.Csharp.Sdk.Client.ApiResponse<ListErrorsResponse>> ListErrorsWithHttpInfoAsync(List<string> filters = default(List<string>), List<string> metricFilters = default(List<string>), List<string> timeframe = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             Mux.Csharp.Sdk.Client.RequestOptions localVarRequestOptions = new Mux.Csharp.Sdk.Client.RequestOptions();
@@ -328,6 +340,10 @@ namespace Mux.Csharp.Sdk.Api
             if (filters != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Mux.Csharp.Sdk.Client.ClientUtils.ParameterToMultiMap("multi", "filters[]", filters));
+            }
+            if (metricFilters != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Mux.Csharp.Sdk.Client.ClientUtils.ParameterToMultiMap("multi", "metric_filters[]", metricFilters));
             }
             if (timeframe != null)
             {

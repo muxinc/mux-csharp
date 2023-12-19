@@ -46,7 +46,9 @@ namespace Mux.Csharp.Sdk.Model
         /// <param name="countryCode">countryCode.</param>
         /// <param name="viewStart">viewStart.</param>
         /// <param name="viewEnd">viewEnd.</param>
-        public AbridgedVideoView(string id = default(string), string viewerOsFamily = default(string), string viewerApplicationName = default(string), string videoTitle = default(string), long totalRowCount = default(long), string playerErrorMessage = default(string), string playerErrorCode = default(string), int? errorTypeId = default(int?), string countryCode = default(string), string viewStart = default(string), string viewEnd = default(string))
+        /// <param name="viewerExperienceScore">viewerExperienceScore.</param>
+        /// <param name="watchTime">watchTime.</param>
+        public AbridgedVideoView(string id = default(string), string viewerOsFamily = default(string), string viewerApplicationName = default(string), string videoTitle = default(string), long totalRowCount = default(long), string playerErrorMessage = default(string), string playerErrorCode = default(string), int? errorTypeId = default(int?), string countryCode = default(string), string viewStart = default(string), string viewEnd = default(string), float? viewerExperienceScore = default(float?), int? watchTime = default(int?))
         {
             this.Id = id;
             this.ViewerOsFamily = viewerOsFamily;
@@ -59,6 +61,8 @@ namespace Mux.Csharp.Sdk.Model
             this.CountryCode = countryCode;
             this.ViewStart = viewStart;
             this.ViewEnd = viewEnd;
+            this.ViewerExperienceScore = viewerExperienceScore;
+            this.WatchTime = watchTime;
             this.AdditionalProperties = new Dictionary<string, object>();
         }
 
@@ -129,6 +133,18 @@ namespace Mux.Csharp.Sdk.Model
         public string ViewEnd { get; set; }
 
         /// <summary>
+        /// Gets or Sets ViewerExperienceScore
+        /// </summary>
+        [DataMember(Name = "viewer_experience_score", EmitDefaultValue = true)]
+        public float? ViewerExperienceScore { get; set; }
+
+        /// <summary>
+        /// Gets or Sets WatchTime
+        /// </summary>
+        [DataMember(Name = "watch_time", EmitDefaultValue = true)]
+        public int? WatchTime { get; set; }
+
+        /// <summary>
         /// Gets or Sets additional properties
         /// </summary>
         [JsonExtensionData]
@@ -153,6 +169,8 @@ namespace Mux.Csharp.Sdk.Model
             sb.Append("  CountryCode: ").Append(CountryCode).Append("\n");
             sb.Append("  ViewStart: ").Append(ViewStart).Append("\n");
             sb.Append("  ViewEnd: ").Append(ViewEnd).Append("\n");
+            sb.Append("  ViewerExperienceScore: ").Append(ViewerExperienceScore).Append("\n");
+            sb.Append("  WatchTime: ").Append(WatchTime).Append("\n");
             sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -242,6 +260,16 @@ namespace Mux.Csharp.Sdk.Model
                     this.ViewEnd == input.ViewEnd ||
                     (this.ViewEnd != null &&
                     this.ViewEnd.Equals(input.ViewEnd))
+                ) && 
+                (
+                    this.ViewerExperienceScore == input.ViewerExperienceScore ||
+                    (this.ViewerExperienceScore != null &&
+                    this.ViewerExperienceScore.Equals(input.ViewerExperienceScore))
+                ) && 
+                (
+                    this.WatchTime == input.WatchTime ||
+                    (this.WatchTime != null &&
+                    this.WatchTime.Equals(input.WatchTime))
                 )
                 && (this.AdditionalProperties.Count == input.AdditionalProperties.Count && !this.AdditionalProperties.Except(input.AdditionalProperties).Any());
         }
@@ -295,6 +323,14 @@ namespace Mux.Csharp.Sdk.Model
                 if (this.ViewEnd != null)
                 {
                     hashCode = (hashCode * 59) + this.ViewEnd.GetHashCode();
+                }
+                if (this.ViewerExperienceScore != null)
+                {
+                    hashCode = (hashCode * 59) + this.ViewerExperienceScore.GetHashCode();
+                }
+                if (this.WatchTime != null)
+                {
+                    hashCode = (hashCode * 59) + this.WatchTime.GetHashCode();
                 }
                 if (this.AdditionalProperties != null)
                 {

@@ -15,6 +15,8 @@ Name | Type | Description | Notes
 **CountryCode** | **string** |  | [optional] 
 **ViewStart** | **string** |  | [optional] 
 **ViewEnd** | **string** |  | [optional] 
+**ViewerExperienceScore** | **float?** |  | [optional] 
+**WatchTime** | **int?** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -38,9 +38,10 @@ namespace Mux.Csharp.Sdk.Api
         /// <param name="limit">Number of items to include in the response (optional, default to 25)</param>
         /// <param name="page">Offset by this many pages, of the size of &#x60;limit&#x60; (optional, default to 1)</param>
         /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Filters endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
+        /// <param name="metricFilters">Limit the results to rows that match inequality conditions from provided metric comparison clauses. Must be provided as an array query string parameter.  Possible filterable metrics are the same as the set of metric ids, with the exceptions of &#x60;exits_before_video_start&#x60;, &#x60;unique_viewers&#x60;, &#x60;video_startup_failure_percentage&#x60;, and &#x60;views&#x60;.  Example:    * &#x60;metric_filters[]&#x3D;aggregate_startup_time&gt;&#x3D;1000&#x60;  (optional)</param>
         /// <param name="timeframe">Timeframe window to limit results by. Must be provided as an array query string parameter (e.g. timeframe[]&#x3D;).  Accepted formats are...    * array of epoch timestamps e.g. &#x60;timeframe[]&#x3D;1498867200&amp;timeframe[]&#x3D;1498953600&#x60;   * duration string e.g. &#x60;timeframe[]&#x3D;24:hours or timeframe[]&#x3D;7:days&#x60;  (optional)</param>
         /// <returns>ListDimensionValuesResponse</returns>
-        ListDimensionValuesResponse ListDimensionValues(string DIMENSION_ID, int? limit = default(int?), int? page = default(int?), List<string> filters = default(List<string>), List<string> timeframe = default(List<string>));
+        ListDimensionValuesResponse ListDimensionValues(string DIMENSION_ID, int? limit = default(int?), int? page = default(int?), List<string> filters = default(List<string>), List<string> metricFilters = default(List<string>), List<string> timeframe = default(List<string>));
 
         /// <summary>
         /// Lists the values for a specific dimension
@@ -53,9 +54,10 @@ namespace Mux.Csharp.Sdk.Api
         /// <param name="limit">Number of items to include in the response (optional, default to 25)</param>
         /// <param name="page">Offset by this many pages, of the size of &#x60;limit&#x60; (optional, default to 1)</param>
         /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Filters endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
+        /// <param name="metricFilters">Limit the results to rows that match inequality conditions from provided metric comparison clauses. Must be provided as an array query string parameter.  Possible filterable metrics are the same as the set of metric ids, with the exceptions of &#x60;exits_before_video_start&#x60;, &#x60;unique_viewers&#x60;, &#x60;video_startup_failure_percentage&#x60;, and &#x60;views&#x60;.  Example:    * &#x60;metric_filters[]&#x3D;aggregate_startup_time&gt;&#x3D;1000&#x60;  (optional)</param>
         /// <param name="timeframe">Timeframe window to limit results by. Must be provided as an array query string parameter (e.g. timeframe[]&#x3D;).  Accepted formats are...    * array of epoch timestamps e.g. &#x60;timeframe[]&#x3D;1498867200&amp;timeframe[]&#x3D;1498953600&#x60;   * duration string e.g. &#x60;timeframe[]&#x3D;24:hours or timeframe[]&#x3D;7:days&#x60;  (optional)</param>
         /// <returns>ApiResponse of ListDimensionValuesResponse</returns>
-        ApiResponse<ListDimensionValuesResponse> ListDimensionValuesWithHttpInfo(string DIMENSION_ID, int? limit = default(int?), int? page = default(int?), List<string> filters = default(List<string>), List<string> timeframe = default(List<string>));
+        ApiResponse<ListDimensionValuesResponse> ListDimensionValuesWithHttpInfo(string DIMENSION_ID, int? limit = default(int?), int? page = default(int?), List<string> filters = default(List<string>), List<string> metricFilters = default(List<string>), List<string> timeframe = default(List<string>));
         /// <summary>
         /// List Dimensions
         /// </summary>
@@ -95,10 +97,11 @@ namespace Mux.Csharp.Sdk.Api
         /// <param name="limit">Number of items to include in the response (optional, default to 25)</param>
         /// <param name="page">Offset by this many pages, of the size of &#x60;limit&#x60; (optional, default to 1)</param>
         /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Filters endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
+        /// <param name="metricFilters">Limit the results to rows that match inequality conditions from provided metric comparison clauses. Must be provided as an array query string parameter.  Possible filterable metrics are the same as the set of metric ids, with the exceptions of &#x60;exits_before_video_start&#x60;, &#x60;unique_viewers&#x60;, &#x60;video_startup_failure_percentage&#x60;, and &#x60;views&#x60;.  Example:    * &#x60;metric_filters[]&#x3D;aggregate_startup_time&gt;&#x3D;1000&#x60;  (optional)</param>
         /// <param name="timeframe">Timeframe window to limit results by. Must be provided as an array query string parameter (e.g. timeframe[]&#x3D;).  Accepted formats are...    * array of epoch timestamps e.g. &#x60;timeframe[]&#x3D;1498867200&amp;timeframe[]&#x3D;1498953600&#x60;   * duration string e.g. &#x60;timeframe[]&#x3D;24:hours or timeframe[]&#x3D;7:days&#x60;  (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ListDimensionValuesResponse</returns>
-        System.Threading.Tasks.Task<ListDimensionValuesResponse> ListDimensionValuesAsync(string DIMENSION_ID, int? limit = default(int?), int? page = default(int?), List<string> filters = default(List<string>), List<string> timeframe = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ListDimensionValuesResponse> ListDimensionValuesAsync(string DIMENSION_ID, int? limit = default(int?), int? page = default(int?), List<string> filters = default(List<string>), List<string> metricFilters = default(List<string>), List<string> timeframe = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Lists the values for a specific dimension
@@ -111,10 +114,11 @@ namespace Mux.Csharp.Sdk.Api
         /// <param name="limit">Number of items to include in the response (optional, default to 25)</param>
         /// <param name="page">Offset by this many pages, of the size of &#x60;limit&#x60; (optional, default to 1)</param>
         /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Filters endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
+        /// <param name="metricFilters">Limit the results to rows that match inequality conditions from provided metric comparison clauses. Must be provided as an array query string parameter.  Possible filterable metrics are the same as the set of metric ids, with the exceptions of &#x60;exits_before_video_start&#x60;, &#x60;unique_viewers&#x60;, &#x60;video_startup_failure_percentage&#x60;, and &#x60;views&#x60;.  Example:    * &#x60;metric_filters[]&#x3D;aggregate_startup_time&gt;&#x3D;1000&#x60;  (optional)</param>
         /// <param name="timeframe">Timeframe window to limit results by. Must be provided as an array query string parameter (e.g. timeframe[]&#x3D;).  Accepted formats are...    * array of epoch timestamps e.g. &#x60;timeframe[]&#x3D;1498867200&amp;timeframe[]&#x3D;1498953600&#x60;   * duration string e.g. &#x60;timeframe[]&#x3D;24:hours or timeframe[]&#x3D;7:days&#x60;  (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ListDimensionValuesResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ListDimensionValuesResponse>> ListDimensionValuesWithHttpInfoAsync(string DIMENSION_ID, int? limit = default(int?), int? page = default(int?), List<string> filters = default(List<string>), List<string> timeframe = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ListDimensionValuesResponse>> ListDimensionValuesWithHttpInfoAsync(string DIMENSION_ID, int? limit = default(int?), int? page = default(int?), List<string> filters = default(List<string>), List<string> metricFilters = default(List<string>), List<string> timeframe = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List Dimensions
         /// </summary>
@@ -264,11 +268,12 @@ namespace Mux.Csharp.Sdk.Api
         /// <param name="limit">Number of items to include in the response (optional, default to 25)</param>
         /// <param name="page">Offset by this many pages, of the size of &#x60;limit&#x60; (optional, default to 1)</param>
         /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Filters endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
+        /// <param name="metricFilters">Limit the results to rows that match inequality conditions from provided metric comparison clauses. Must be provided as an array query string parameter.  Possible filterable metrics are the same as the set of metric ids, with the exceptions of &#x60;exits_before_video_start&#x60;, &#x60;unique_viewers&#x60;, &#x60;video_startup_failure_percentage&#x60;, and &#x60;views&#x60;.  Example:    * &#x60;metric_filters[]&#x3D;aggregate_startup_time&gt;&#x3D;1000&#x60;  (optional)</param>
         /// <param name="timeframe">Timeframe window to limit results by. Must be provided as an array query string parameter (e.g. timeframe[]&#x3D;).  Accepted formats are...    * array of epoch timestamps e.g. &#x60;timeframe[]&#x3D;1498867200&amp;timeframe[]&#x3D;1498953600&#x60;   * duration string e.g. &#x60;timeframe[]&#x3D;24:hours or timeframe[]&#x3D;7:days&#x60;  (optional)</param>
         /// <returns>ListDimensionValuesResponse</returns>
-        public ListDimensionValuesResponse ListDimensionValues(string DIMENSION_ID, int? limit = default(int?), int? page = default(int?), List<string> filters = default(List<string>), List<string> timeframe = default(List<string>))
+        public ListDimensionValuesResponse ListDimensionValues(string DIMENSION_ID, int? limit = default(int?), int? page = default(int?), List<string> filters = default(List<string>), List<string> metricFilters = default(List<string>), List<string> timeframe = default(List<string>))
         {
-            Mux.Csharp.Sdk.Client.ApiResponse<ListDimensionValuesResponse> localVarResponse = ListDimensionValuesWithHttpInfo(DIMENSION_ID, limit, page, filters, timeframe);
+            Mux.Csharp.Sdk.Client.ApiResponse<ListDimensionValuesResponse> localVarResponse = ListDimensionValuesWithHttpInfo(DIMENSION_ID, limit, page, filters, metricFilters, timeframe);
             return localVarResponse.Data;
         }
 
@@ -280,9 +285,10 @@ namespace Mux.Csharp.Sdk.Api
         /// <param name="limit">Number of items to include in the response (optional, default to 25)</param>
         /// <param name="page">Offset by this many pages, of the size of &#x60;limit&#x60; (optional, default to 1)</param>
         /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Filters endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
+        /// <param name="metricFilters">Limit the results to rows that match inequality conditions from provided metric comparison clauses. Must be provided as an array query string parameter.  Possible filterable metrics are the same as the set of metric ids, with the exceptions of &#x60;exits_before_video_start&#x60;, &#x60;unique_viewers&#x60;, &#x60;video_startup_failure_percentage&#x60;, and &#x60;views&#x60;.  Example:    * &#x60;metric_filters[]&#x3D;aggregate_startup_time&gt;&#x3D;1000&#x60;  (optional)</param>
         /// <param name="timeframe">Timeframe window to limit results by. Must be provided as an array query string parameter (e.g. timeframe[]&#x3D;).  Accepted formats are...    * array of epoch timestamps e.g. &#x60;timeframe[]&#x3D;1498867200&amp;timeframe[]&#x3D;1498953600&#x60;   * duration string e.g. &#x60;timeframe[]&#x3D;24:hours or timeframe[]&#x3D;7:days&#x60;  (optional)</param>
         /// <returns>ApiResponse of ListDimensionValuesResponse</returns>
-        public Mux.Csharp.Sdk.Client.ApiResponse<ListDimensionValuesResponse> ListDimensionValuesWithHttpInfo(string DIMENSION_ID, int? limit = default(int?), int? page = default(int?), List<string> filters = default(List<string>), List<string> timeframe = default(List<string>))
+        public Mux.Csharp.Sdk.Client.ApiResponse<ListDimensionValuesResponse> ListDimensionValuesWithHttpInfo(string DIMENSION_ID, int? limit = default(int?), int? page = default(int?), List<string> filters = default(List<string>), List<string> metricFilters = default(List<string>), List<string> timeframe = default(List<string>))
         {
             // verify the required parameter 'DIMENSION_ID' is set
             if (DIMENSION_ID == null)
@@ -324,6 +330,10 @@ namespace Mux.Csharp.Sdk.Api
             if (filters != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Mux.Csharp.Sdk.Client.ClientUtils.ParameterToMultiMap("multi", "filters[]", filters));
+            }
+            if (metricFilters != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Mux.Csharp.Sdk.Client.ClientUtils.ParameterToMultiMap("multi", "metric_filters[]", metricFilters));
             }
             if (timeframe != null)
             {
@@ -359,12 +369,13 @@ namespace Mux.Csharp.Sdk.Api
         /// <param name="limit">Number of items to include in the response (optional, default to 25)</param>
         /// <param name="page">Offset by this many pages, of the size of &#x60;limit&#x60; (optional, default to 1)</param>
         /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Filters endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
+        /// <param name="metricFilters">Limit the results to rows that match inequality conditions from provided metric comparison clauses. Must be provided as an array query string parameter.  Possible filterable metrics are the same as the set of metric ids, with the exceptions of &#x60;exits_before_video_start&#x60;, &#x60;unique_viewers&#x60;, &#x60;video_startup_failure_percentage&#x60;, and &#x60;views&#x60;.  Example:    * &#x60;metric_filters[]&#x3D;aggregate_startup_time&gt;&#x3D;1000&#x60;  (optional)</param>
         /// <param name="timeframe">Timeframe window to limit results by. Must be provided as an array query string parameter (e.g. timeframe[]&#x3D;).  Accepted formats are...    * array of epoch timestamps e.g. &#x60;timeframe[]&#x3D;1498867200&amp;timeframe[]&#x3D;1498953600&#x60;   * duration string e.g. &#x60;timeframe[]&#x3D;24:hours or timeframe[]&#x3D;7:days&#x60;  (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ListDimensionValuesResponse</returns>
-        public async System.Threading.Tasks.Task<ListDimensionValuesResponse> ListDimensionValuesAsync(string DIMENSION_ID, int? limit = default(int?), int? page = default(int?), List<string> filters = default(List<string>), List<string> timeframe = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ListDimensionValuesResponse> ListDimensionValuesAsync(string DIMENSION_ID, int? limit = default(int?), int? page = default(int?), List<string> filters = default(List<string>), List<string> metricFilters = default(List<string>), List<string> timeframe = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Mux.Csharp.Sdk.Client.ApiResponse<ListDimensionValuesResponse> localVarResponse = await ListDimensionValuesWithHttpInfoAsync(DIMENSION_ID, limit, page, filters, timeframe, cancellationToken).ConfigureAwait(false);
+            Mux.Csharp.Sdk.Client.ApiResponse<ListDimensionValuesResponse> localVarResponse = await ListDimensionValuesWithHttpInfoAsync(DIMENSION_ID, limit, page, filters, metricFilters, timeframe, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -376,10 +387,11 @@ namespace Mux.Csharp.Sdk.Api
         /// <param name="limit">Number of items to include in the response (optional, default to 25)</param>
         /// <param name="page">Offset by this many pages, of the size of &#x60;limit&#x60; (optional, default to 1)</param>
         /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Filters endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
+        /// <param name="metricFilters">Limit the results to rows that match inequality conditions from provided metric comparison clauses. Must be provided as an array query string parameter.  Possible filterable metrics are the same as the set of metric ids, with the exceptions of &#x60;exits_before_video_start&#x60;, &#x60;unique_viewers&#x60;, &#x60;video_startup_failure_percentage&#x60;, and &#x60;views&#x60;.  Example:    * &#x60;metric_filters[]&#x3D;aggregate_startup_time&gt;&#x3D;1000&#x60;  (optional)</param>
         /// <param name="timeframe">Timeframe window to limit results by. Must be provided as an array query string parameter (e.g. timeframe[]&#x3D;).  Accepted formats are...    * array of epoch timestamps e.g. &#x60;timeframe[]&#x3D;1498867200&amp;timeframe[]&#x3D;1498953600&#x60;   * duration string e.g. &#x60;timeframe[]&#x3D;24:hours or timeframe[]&#x3D;7:days&#x60;  (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ListDimensionValuesResponse)</returns>
-        public async System.Threading.Tasks.Task<Mux.Csharp.Sdk.Client.ApiResponse<ListDimensionValuesResponse>> ListDimensionValuesWithHttpInfoAsync(string DIMENSION_ID, int? limit = default(int?), int? page = default(int?), List<string> filters = default(List<string>), List<string> timeframe = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Mux.Csharp.Sdk.Client.ApiResponse<ListDimensionValuesResponse>> ListDimensionValuesWithHttpInfoAsync(string DIMENSION_ID, int? limit = default(int?), int? page = default(int?), List<string> filters = default(List<string>), List<string> metricFilters = default(List<string>), List<string> timeframe = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'DIMENSION_ID' is set
             if (DIMENSION_ID == null)
@@ -422,6 +434,10 @@ namespace Mux.Csharp.Sdk.Api
             if (filters != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Mux.Csharp.Sdk.Client.ClientUtils.ParameterToMultiMap("multi", "filters[]", filters));
+            }
+            if (metricFilters != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Mux.Csharp.Sdk.Client.ClientUtils.ParameterToMultiMap("multi", "metric_filters[]", metricFilters));
             }
             if (timeframe != null)
             {

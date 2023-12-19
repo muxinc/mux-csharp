@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 <a name="getmetrictimeseriesdata"></a>
 # **GetMetricTimeseriesData**
-> GetMetricTimeseriesDataResponse GetMetricTimeseriesData (string METRIC_ID, List<string> timeframe = null, List<string> filters = null, string measurement = null, string orderDirection = null, string groupBy = null)
+> GetMetricTimeseriesDataResponse GetMetricTimeseriesData (string METRIC_ID, List<string> timeframe = null, List<string> filters = null, List<string> metricFilters = null, string measurement = null, string orderDirection = null, string groupBy = null)
 
 Get metric timeseries data
 
@@ -43,6 +43,7 @@ namespace Example
             var METRIC_ID = video_startup_time;  // string | ID of the Metric
             var timeframe = new List<string>(); // List<string> | Timeframe window to limit results by. Must be provided as an array query string parameter (e.g. timeframe[]=).  Accepted formats are...    * array of epoch timestamps e.g. `timeframe[]=1498867200&timeframe[]=1498953600`   * duration string e.g. `timeframe[]=24:hours or timeframe[]=7:days`  (optional) 
             var filters = new List<string>(); // List<string> | Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a `!` character to the dimension.  Possible filter names are the same as returned by the List Filters endpoint.  Example:    * `filters[]=operating_system:windows&filters[]=!country:US`  (optional) 
+            var metricFilters = new List<string>(); // List<string> | Limit the results to rows that match inequality conditions from provided metric comparison clauses. Must be provided as an array query string parameter.  Possible filterable metrics are the same as the set of metric ids, with the exceptions of `exits_before_video_start`, `unique_viewers`, `video_startup_failure_percentage`, and `views`.  Example:    * `metric_filters[]=aggregate_startup_time>=1000`  (optional) 
             var measurement = "95th";  // string | Measurement for the provided metric. If omitted, the default for the metric will be used. (optional) 
             var orderDirection = "asc";  // string | Sort order. (optional) 
             var groupBy = "minute";  // string | Time granularity to group results by. If this value is omitted, a default granularity is chosen based on the timeframe.  For timeframes of less than 90 minutes, the default granularity is `minute`. Between 90 minutes and 6 hours, the default granularity is `ten_minutes`. Between 6 hours and 15 days inclusive, the default granularity is `hour`. The granularity of timeframes that exceed 15 days is `day`. This default behavior is subject to change; it is strongly suggested that you explicitly specify the granularity.  (optional) 
@@ -50,7 +51,7 @@ namespace Example
             try
             {
                 // Get metric timeseries data
-                GetMetricTimeseriesDataResponse result = apiInstance.GetMetricTimeseriesData(METRIC_ID, timeframe, filters, measurement, orderDirection, groupBy);
+                GetMetricTimeseriesDataResponse result = apiInstance.GetMetricTimeseriesData(METRIC_ID, timeframe, filters, metricFilters, measurement, orderDirection, groupBy);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -71,6 +72,7 @@ Name | Type | Description  | Notes
  **METRIC_ID** | **string**| ID of the Metric | 
  **timeframe** | [**List&lt;string&gt;**](string.md)| Timeframe window to limit results by. Must be provided as an array query string parameter (e.g. timeframe[]&#x3D;).  Accepted formats are...    * array of epoch timestamps e.g. &#x60;timeframe[]&#x3D;1498867200&amp;timeframe[]&#x3D;1498953600&#x60;   * duration string e.g. &#x60;timeframe[]&#x3D;24:hours or timeframe[]&#x3D;7:days&#x60;  | [optional] 
  **filters** | [**List&lt;string&gt;**](string.md)| Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Filters endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  | [optional] 
+ **metricFilters** | [**List&lt;string&gt;**](string.md)| Limit the results to rows that match inequality conditions from provided metric comparison clauses. Must be provided as an array query string parameter.  Possible filterable metrics are the same as the set of metric ids, with the exceptions of &#x60;exits_before_video_start&#x60;, &#x60;unique_viewers&#x60;, &#x60;video_startup_failure_percentage&#x60;, and &#x60;views&#x60;.  Example:    * &#x60;metric_filters[]&#x3D;aggregate_startup_time&gt;&#x3D;1000&#x60;  | [optional] 
  **measurement** | **string**| Measurement for the provided metric. If omitted, the default for the metric will be used. | [optional] 
  **orderDirection** | **string**| Sort order. | [optional] 
  **groupBy** | **string**| Time granularity to group results by. If this value is omitted, a default granularity is chosen based on the timeframe.  For timeframes of less than 90 minutes, the default granularity is &#x60;minute&#x60;. Between 90 minutes and 6 hours, the default granularity is &#x60;ten_minutes&#x60;. Between 6 hours and 15 days inclusive, the default granularity is &#x60;hour&#x60;. The granularity of timeframes that exceed 15 days is &#x60;day&#x60;. This default behavior is subject to change; it is strongly suggested that you explicitly specify the granularity.  | [optional] 
@@ -98,7 +100,7 @@ Name | Type | Description  | Notes
 
 <a name="getoverallvalues"></a>
 # **GetOverallValues**
-> GetOverallValuesResponse GetOverallValues (string METRIC_ID, List<string> timeframe = null, List<string> filters = null, string measurement = null)
+> GetOverallValuesResponse GetOverallValues (string METRIC_ID, List<string> timeframe = null, List<string> filters = null, List<string> metricFilters = null, string measurement = null)
 
 Get Overall values
 
@@ -128,12 +130,13 @@ namespace Example
             var METRIC_ID = video_startup_time;  // string | ID of the Metric
             var timeframe = new List<string>(); // List<string> | Timeframe window to limit results by. Must be provided as an array query string parameter (e.g. timeframe[]=).  Accepted formats are...    * array of epoch timestamps e.g. `timeframe[]=1498867200&timeframe[]=1498953600`   * duration string e.g. `timeframe[]=24:hours or timeframe[]=7:days`  (optional) 
             var filters = new List<string>(); // List<string> | Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a `!` character to the dimension.  Possible filter names are the same as returned by the List Filters endpoint.  Example:    * `filters[]=operating_system:windows&filters[]=!country:US`  (optional) 
+            var metricFilters = new List<string>(); // List<string> | Limit the results to rows that match inequality conditions from provided metric comparison clauses. Must be provided as an array query string parameter.  Possible filterable metrics are the same as the set of metric ids, with the exceptions of `exits_before_video_start`, `unique_viewers`, `video_startup_failure_percentage`, and `views`.  Example:    * `metric_filters[]=aggregate_startup_time>=1000`  (optional) 
             var measurement = "95th";  // string | Measurement for the provided metric. If omitted, the default for the metric will be used. (optional) 
 
             try
             {
                 // Get Overall values
-                GetOverallValuesResponse result = apiInstance.GetOverallValues(METRIC_ID, timeframe, filters, measurement);
+                GetOverallValuesResponse result = apiInstance.GetOverallValues(METRIC_ID, timeframe, filters, metricFilters, measurement);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -154,6 +157,7 @@ Name | Type | Description  | Notes
  **METRIC_ID** | **string**| ID of the Metric | 
  **timeframe** | [**List&lt;string&gt;**](string.md)| Timeframe window to limit results by. Must be provided as an array query string parameter (e.g. timeframe[]&#x3D;).  Accepted formats are...    * array of epoch timestamps e.g. &#x60;timeframe[]&#x3D;1498867200&amp;timeframe[]&#x3D;1498953600&#x60;   * duration string e.g. &#x60;timeframe[]&#x3D;24:hours or timeframe[]&#x3D;7:days&#x60;  | [optional] 
  **filters** | [**List&lt;string&gt;**](string.md)| Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Filters endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  | [optional] 
+ **metricFilters** | [**List&lt;string&gt;**](string.md)| Limit the results to rows that match inequality conditions from provided metric comparison clauses. Must be provided as an array query string parameter.  Possible filterable metrics are the same as the set of metric ids, with the exceptions of &#x60;exits_before_video_start&#x60;, &#x60;unique_viewers&#x60;, &#x60;video_startup_failure_percentage&#x60;, and &#x60;views&#x60;.  Example:    * &#x60;metric_filters[]&#x3D;aggregate_startup_time&gt;&#x3D;1000&#x60;  | [optional] 
  **measurement** | **string**| Measurement for the provided metric. If omitted, the default for the metric will be used. | [optional] 
 
 ### Return type
@@ -179,7 +183,7 @@ Name | Type | Description  | Notes
 
 <a name="listallmetricvalues"></a>
 # **ListAllMetricValues**
-> ListAllMetricValuesResponse ListAllMetricValues (List<string> timeframe = null, List<string> filters = null, string dimension = null, string value = null)
+> ListAllMetricValuesResponse ListAllMetricValues (List<string> timeframe = null, List<string> filters = null, List<string> metricFilters = null, string dimension = null, string value = null)
 
 List all metric values
 
@@ -208,13 +212,14 @@ namespace Example
             var apiInstance = new MetricsApi(config);
             var timeframe = new List<string>(); // List<string> | Timeframe window to limit results by. Must be provided as an array query string parameter (e.g. timeframe[]=).  Accepted formats are...    * array of epoch timestamps e.g. `timeframe[]=1498867200&timeframe[]=1498953600`   * duration string e.g. `timeframe[]=24:hours or timeframe[]=7:days`  (optional) 
             var filters = new List<string>(); // List<string> | Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a `!` character to the dimension.  Possible filter names are the same as returned by the List Filters endpoint.  Example:    * `filters[]=operating_system:windows&filters[]=!country:US`  (optional) 
+            var metricFilters = new List<string>(); // List<string> | Limit the results to rows that match inequality conditions from provided metric comparison clauses. Must be provided as an array query string parameter.  Possible filterable metrics are the same as the set of metric ids, with the exceptions of `exits_before_video_start`, `unique_viewers`, `video_startup_failure_percentage`, and `views`.  Example:    * `metric_filters[]=aggregate_startup_time>=1000`  (optional) 
             var dimension = "asn";  // string | Dimension the specified value belongs to (optional) 
             var value = "value_example";  // string | Value to show all available metrics for (optional) 
 
             try
             {
                 // List all metric values
-                ListAllMetricValuesResponse result = apiInstance.ListAllMetricValues(timeframe, filters, dimension, value);
+                ListAllMetricValuesResponse result = apiInstance.ListAllMetricValues(timeframe, filters, metricFilters, dimension, value);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -234,6 +239,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **timeframe** | [**List&lt;string&gt;**](string.md)| Timeframe window to limit results by. Must be provided as an array query string parameter (e.g. timeframe[]&#x3D;).  Accepted formats are...    * array of epoch timestamps e.g. &#x60;timeframe[]&#x3D;1498867200&amp;timeframe[]&#x3D;1498953600&#x60;   * duration string e.g. &#x60;timeframe[]&#x3D;24:hours or timeframe[]&#x3D;7:days&#x60;  | [optional] 
  **filters** | [**List&lt;string&gt;**](string.md)| Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Filters endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  | [optional] 
+ **metricFilters** | [**List&lt;string&gt;**](string.md)| Limit the results to rows that match inequality conditions from provided metric comparison clauses. Must be provided as an array query string parameter.  Possible filterable metrics are the same as the set of metric ids, with the exceptions of &#x60;exits_before_video_start&#x60;, &#x60;unique_viewers&#x60;, &#x60;video_startup_failure_percentage&#x60;, and &#x60;views&#x60;.  Example:    * &#x60;metric_filters[]&#x3D;aggregate_startup_time&gt;&#x3D;1000&#x60;  | [optional] 
  **dimension** | **string**| Dimension the specified value belongs to | [optional] 
  **value** | **string**| Value to show all available metrics for | [optional] 
 
@@ -260,7 +266,7 @@ Name | Type | Description  | Notes
 
 <a name="listbreakdownvalues"></a>
 # **ListBreakdownValues**
-> ListBreakdownValuesResponse ListBreakdownValues (string METRIC_ID, string groupBy = null, string measurement = null, List<string> filters = null, int? limit = null, int? page = null, string orderBy = null, string orderDirection = null, List<string> timeframe = null)
+> ListBreakdownValuesResponse ListBreakdownValues (string METRIC_ID, string groupBy = null, string measurement = null, List<string> filters = null, List<string> metricFilters = null, int? limit = null, int? page = null, string orderBy = null, string orderDirection = null, List<string> timeframe = null)
 
 List breakdown values
 
@@ -291,6 +297,7 @@ namespace Example
             var groupBy = "asn";  // string | Breakdown value to group the results by (optional) 
             var measurement = "95th";  // string | Measurement for the provided metric. If omitted, the default for the metric will be used. (optional) 
             var filters = new List<string>(); // List<string> | Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a `!` character to the dimension.  Possible filter names are the same as returned by the List Filters endpoint.  Example:    * `filters[]=operating_system:windows&filters[]=!country:US`  (optional) 
+            var metricFilters = new List<string>(); // List<string> | Limit the results to rows that match inequality conditions from provided metric comparison clauses. Must be provided as an array query string parameter.  Possible filterable metrics are the same as the set of metric ids, with the exceptions of `exits_before_video_start`, `unique_viewers`, `video_startup_failure_percentage`, and `views`.  Example:    * `metric_filters[]=aggregate_startup_time>=1000`  (optional) 
             var limit = 25;  // int? | Number of items to include in the response (optional)  (default to 25)
             var page = 1;  // int? | Offset by this many pages, of the size of `limit` (optional)  (default to 1)
             var orderBy = "negative_impact";  // string | Value to order the results by (optional) 
@@ -300,7 +307,7 @@ namespace Example
             try
             {
                 // List breakdown values
-                ListBreakdownValuesResponse result = apiInstance.ListBreakdownValues(METRIC_ID, groupBy, measurement, filters, limit, page, orderBy, orderDirection, timeframe);
+                ListBreakdownValuesResponse result = apiInstance.ListBreakdownValues(METRIC_ID, groupBy, measurement, filters, metricFilters, limit, page, orderBy, orderDirection, timeframe);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -322,6 +329,7 @@ Name | Type | Description  | Notes
  **groupBy** | **string**| Breakdown value to group the results by | [optional] 
  **measurement** | **string**| Measurement for the provided metric. If omitted, the default for the metric will be used. | [optional] 
  **filters** | [**List&lt;string&gt;**](string.md)| Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Filters endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  | [optional] 
+ **metricFilters** | [**List&lt;string&gt;**](string.md)| Limit the results to rows that match inequality conditions from provided metric comparison clauses. Must be provided as an array query string parameter.  Possible filterable metrics are the same as the set of metric ids, with the exceptions of &#x60;exits_before_video_start&#x60;, &#x60;unique_viewers&#x60;, &#x60;video_startup_failure_percentage&#x60;, and &#x60;views&#x60;.  Example:    * &#x60;metric_filters[]&#x3D;aggregate_startup_time&gt;&#x3D;1000&#x60;  | [optional] 
  **limit** | **int?**| Number of items to include in the response | [optional] [default to 25]
  **page** | **int?**| Offset by this many pages, of the size of &#x60;limit&#x60; | [optional] [default to 1]
  **orderBy** | **string**| Value to order the results by | [optional] 
@@ -351,7 +359,7 @@ Name | Type | Description  | Notes
 
 <a name="listinsights"></a>
 # **ListInsights**
-> ListInsightsResponse ListInsights (string METRIC_ID, string measurement = null, string orderDirection = null, List<string> timeframe = null)
+> ListInsightsResponse ListInsights (string METRIC_ID, string measurement = null, string orderDirection = null, List<string> timeframe = null, List<string> filters = null, List<string> metricFilters = null)
 
 List Insights
 
@@ -382,11 +390,13 @@ namespace Example
             var measurement = "95th";  // string | Measurement for the provided metric. If omitted, the default for the metric will be used. (optional) 
             var orderDirection = "asc";  // string | Sort order. (optional) 
             var timeframe = new List<string>(); // List<string> | Timeframe window to limit results by. Must be provided as an array query string parameter (e.g. timeframe[]=).  Accepted formats are...    * array of epoch timestamps e.g. `timeframe[]=1498867200&timeframe[]=1498953600`   * duration string e.g. `timeframe[]=24:hours or timeframe[]=7:days`  (optional) 
+            var filters = new List<string>(); // List<string> | Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a `!` character to the dimension.  Possible filter names are the same as returned by the List Filters endpoint.  Example:    * `filters[]=operating_system:windows&filters[]=!country:US`  (optional) 
+            var metricFilters = new List<string>(); // List<string> | Limit the results to rows that match inequality conditions from provided metric comparison clauses. Must be provided as an array query string parameter.  Possible filterable metrics are the same as the set of metric ids, with the exceptions of `exits_before_video_start`, `unique_viewers`, `video_startup_failure_percentage`, and `views`.  Example:    * `metric_filters[]=aggregate_startup_time>=1000`  (optional) 
 
             try
             {
                 // List Insights
-                ListInsightsResponse result = apiInstance.ListInsights(METRIC_ID, measurement, orderDirection, timeframe);
+                ListInsightsResponse result = apiInstance.ListInsights(METRIC_ID, measurement, orderDirection, timeframe, filters, metricFilters);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -408,6 +418,8 @@ Name | Type | Description  | Notes
  **measurement** | **string**| Measurement for the provided metric. If omitted, the default for the metric will be used. | [optional] 
  **orderDirection** | **string**| Sort order. | [optional] 
  **timeframe** | [**List&lt;string&gt;**](string.md)| Timeframe window to limit results by. Must be provided as an array query string parameter (e.g. timeframe[]&#x3D;).  Accepted formats are...    * array of epoch timestamps e.g. &#x60;timeframe[]&#x3D;1498867200&amp;timeframe[]&#x3D;1498953600&#x60;   * duration string e.g. &#x60;timeframe[]&#x3D;24:hours or timeframe[]&#x3D;7:days&#x60;  | [optional] 
+ **filters** | [**List&lt;string&gt;**](string.md)| Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Filters endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  | [optional] 
+ **metricFilters** | [**List&lt;string&gt;**](string.md)| Limit the results to rows that match inequality conditions from provided metric comparison clauses. Must be provided as an array query string parameter.  Possible filterable metrics are the same as the set of metric ids, with the exceptions of &#x60;exits_before_video_start&#x60;, &#x60;unique_viewers&#x60;, &#x60;video_startup_failure_percentage&#x60;, and &#x60;views&#x60;.  Example:    * &#x60;metric_filters[]&#x3D;aggregate_startup_time&gt;&#x3D;1000&#x60;  | [optional] 
 
 ### Return type
 
