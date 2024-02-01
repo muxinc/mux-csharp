@@ -48,7 +48,7 @@ jobs:
       run: cp README.md icon.png src/Mux.Csharp.Sdk && dotnet pack --configuration ${{ matrix.dotnet-configuration }} /p:Version=${VERSION} --no-build --property:PackageOutputPath=/tmp/output
 
     - name: Uploading artifact for ${{ matrix.dotnet-configuration }}
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v4
       with:
         name: Mux.Csharp.Sdk-${{ matrix.dotnet-configuration }}
         path: /tmp/output/*
