@@ -43,7 +43,8 @@ namespace Mux.Csharp.Sdk.Model
         /// <param name="description">Description of the error..</param>
         /// <param name="count">The total number of views that experienced this error..</param>
         /// <param name="code">The error code.</param>
-        public Error(long id = default(long), double percentage = default(double), string notes = default(string), string message = default(string), string lastSeen = default(string), string description = default(string), long count = default(long), long? code = default(long?))
+        /// <param name="playerErrorCode">The string version of the error code.</param>
+        public Error(long id = default(long), double percentage = default(double), string notes = default(string), string message = default(string), string lastSeen = default(string), string description = default(string), long count = default(long), long? code = default(long?), string playerErrorCode = default(string))
         {
             this.Id = id;
             this.Percentage = percentage;
@@ -53,6 +54,7 @@ namespace Mux.Csharp.Sdk.Model
             this.Description = description;
             this.Count = count;
             this.Code = code;
+            this.PlayerErrorCode = playerErrorCode;
             this.AdditionalProperties = new Dictionary<string, object>();
         }
 
@@ -113,6 +115,13 @@ namespace Mux.Csharp.Sdk.Model
         public long? Code { get; set; }
 
         /// <summary>
+        /// The string version of the error code
+        /// </summary>
+        /// <value>The string version of the error code</value>
+        [DataMember(Name = "player_error_code", EmitDefaultValue = true)]
+        public string PlayerErrorCode { get; set; }
+
+        /// <summary>
         /// Gets or Sets additional properties
         /// </summary>
         [JsonExtensionData]
@@ -134,6 +143,7 @@ namespace Mux.Csharp.Sdk.Model
             sb.Append("  Description: ").Append(Description).Append("\n");
             sb.Append("  Count: ").Append(Count).Append("\n");
             sb.Append("  Code: ").Append(Code).Append("\n");
+            sb.Append("  PlayerErrorCode: ").Append(PlayerErrorCode).Append("\n");
             sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -206,6 +216,11 @@ namespace Mux.Csharp.Sdk.Model
                     this.Code == input.Code ||
                     (this.Code != null &&
                     this.Code.Equals(input.Code))
+                ) && 
+                (
+                    this.PlayerErrorCode == input.PlayerErrorCode ||
+                    (this.PlayerErrorCode != null &&
+                    this.PlayerErrorCode.Equals(input.PlayerErrorCode))
                 )
                 && (this.AdditionalProperties.Count == input.AdditionalProperties.Count && !this.AdditionalProperties.Except(input.AdditionalProperties).Any());
         }
@@ -241,6 +256,10 @@ namespace Mux.Csharp.Sdk.Model
                 if (this.Code != null)
                 {
                     hashCode = (hashCode * 59) + this.Code.GetHashCode();
+                }
+                if (this.PlayerErrorCode != null)
+                {
+                    hashCode = (hashCode * 59) + this.PlayerErrorCode.GetHashCode();
                 }
                 if (this.AdditionalProperties != null)
                 {

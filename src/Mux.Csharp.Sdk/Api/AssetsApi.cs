@@ -162,6 +162,31 @@ namespace Mux.Csharp.Sdk.Api
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> DeleteAssetTrackWithHttpInfo(string ASSET_ID, string TRACK_ID);
         /// <summary>
+        /// Generate track subtitles
+        /// </summary>
+        /// <remarks>
+        /// Generates subtitles (captions) for a given audio track. This API can be used for up to 7 days after an asset is created.
+        /// </remarks>
+        /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="ASSET_ID">The asset ID.</param>
+        /// <param name="TRACK_ID">The track ID.</param>
+        /// <param name="generateTrackSubtitlesRequest"></param>
+        /// <returns>GenerateTrackSubtitlesResponse</returns>
+        GenerateTrackSubtitlesResponse GenerateAssetTrackSubtitles(string ASSET_ID, string TRACK_ID, GenerateTrackSubtitlesRequest generateTrackSubtitlesRequest);
+
+        /// <summary>
+        /// Generate track subtitles
+        /// </summary>
+        /// <remarks>
+        /// Generates subtitles (captions) for a given audio track. This API can be used for up to 7 days after an asset is created.
+        /// </remarks>
+        /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="ASSET_ID">The asset ID.</param>
+        /// <param name="TRACK_ID">The track ID.</param>
+        /// <param name="generateTrackSubtitlesRequest"></param>
+        /// <returns>ApiResponse of GenerateTrackSubtitlesResponse</returns>
+        ApiResponse<GenerateTrackSubtitlesResponse> GenerateAssetTrackSubtitlesWithHttpInfo(string ASSET_ID, string TRACK_ID, GenerateTrackSubtitlesRequest generateTrackSubtitlesRequest);
+        /// <summary>
         /// Retrieve an asset
         /// </summary>
         /// <remarks>
@@ -254,7 +279,7 @@ namespace Mux.Csharp.Sdk.Api
         /// <returns>ApiResponse of ListAssetsResponse</returns>
         ApiResponse<ListAssetsResponse> ListAssetsWithHttpInfo(int? limit = default(int?), int? page = default(int?), string liveStreamId = default(string), string uploadId = default(string));
         /// <summary>
-        /// Update an Asset
+        /// Update an asset
         /// </summary>
         /// <remarks>
         /// Updates the details of an already-created Asset with the provided Asset ID. This currently supports only the &#x60;passthrough&#x60; field.
@@ -266,7 +291,7 @@ namespace Mux.Csharp.Sdk.Api
         AssetResponse UpdateAsset(string ASSET_ID, UpdateAssetRequest updateAssetRequest);
 
         /// <summary>
-        /// Update an Asset
+        /// Update an asset
         /// </summary>
         /// <remarks>
         /// Updates the details of an already-created Asset with the provided Asset ID. This currently supports only the &#x60;passthrough&#x60; field.
@@ -478,6 +503,33 @@ namespace Mux.Csharp.Sdk.Api
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> DeleteAssetTrackWithHttpInfoAsync(string ASSET_ID, string TRACK_ID, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
+        /// Generate track subtitles
+        /// </summary>
+        /// <remarks>
+        /// Generates subtitles (captions) for a given audio track. This API can be used for up to 7 days after an asset is created.
+        /// </remarks>
+        /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="ASSET_ID">The asset ID.</param>
+        /// <param name="TRACK_ID">The track ID.</param>
+        /// <param name="generateTrackSubtitlesRequest"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of GenerateTrackSubtitlesResponse</returns>
+        System.Threading.Tasks.Task<GenerateTrackSubtitlesResponse> GenerateAssetTrackSubtitlesAsync(string ASSET_ID, string TRACK_ID, GenerateTrackSubtitlesRequest generateTrackSubtitlesRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Generate track subtitles
+        /// </summary>
+        /// <remarks>
+        /// Generates subtitles (captions) for a given audio track. This API can be used for up to 7 days after an asset is created.
+        /// </remarks>
+        /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="ASSET_ID">The asset ID.</param>
+        /// <param name="TRACK_ID">The track ID.</param>
+        /// <param name="generateTrackSubtitlesRequest"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (GenerateTrackSubtitlesResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<GenerateTrackSubtitlesResponse>> GenerateAssetTrackSubtitlesWithHttpInfoAsync(string ASSET_ID, string TRACK_ID, GenerateTrackSubtitlesRequest generateTrackSubtitlesRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
         /// Retrieve an asset
         /// </summary>
         /// <remarks>
@@ -578,7 +630,7 @@ namespace Mux.Csharp.Sdk.Api
         /// <returns>Task of ApiResponse (ListAssetsResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ListAssetsResponse>> ListAssetsWithHttpInfoAsync(int? limit = default(int?), int? page = default(int?), string liveStreamId = default(string), string uploadId = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Update an Asset
+        /// Update an asset
         /// </summary>
         /// <remarks>
         /// Updates the details of an already-created Asset with the provided Asset ID. This currently supports only the &#x60;passthrough&#x60; field.
@@ -591,7 +643,7 @@ namespace Mux.Csharp.Sdk.Api
         System.Threading.Tasks.Task<AssetResponse> UpdateAssetAsync(string ASSET_ID, UpdateAssetRequest updateAssetRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Update an Asset
+        /// Update an asset
         /// </summary>
         /// <remarks>
         /// Updates the details of an already-created Asset with the provided Asset ID. This currently supports only the &#x60;passthrough&#x60; field.
@@ -1715,6 +1767,190 @@ namespace Mux.Csharp.Sdk.Api
         }
 
         /// <summary>
+        /// Generate track subtitles Generates subtitles (captions) for a given audio track. This API can be used for up to 7 days after an asset is created.
+        /// </summary>
+        /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="ASSET_ID">The asset ID.</param>
+        /// <param name="TRACK_ID">The track ID.</param>
+        /// <param name="generateTrackSubtitlesRequest"></param>
+        /// <returns>GenerateTrackSubtitlesResponse</returns>
+        public GenerateTrackSubtitlesResponse GenerateAssetTrackSubtitles(string ASSET_ID, string TRACK_ID, GenerateTrackSubtitlesRequest generateTrackSubtitlesRequest)
+        {
+            Mux.Csharp.Sdk.Client.ApiResponse<GenerateTrackSubtitlesResponse> localVarResponse = GenerateAssetTrackSubtitlesWithHttpInfo(ASSET_ID, TRACK_ID, generateTrackSubtitlesRequest);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Generate track subtitles Generates subtitles (captions) for a given audio track. This API can be used for up to 7 days after an asset is created.
+        /// </summary>
+        /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="ASSET_ID">The asset ID.</param>
+        /// <param name="TRACK_ID">The track ID.</param>
+        /// <param name="generateTrackSubtitlesRequest"></param>
+        /// <returns>ApiResponse of GenerateTrackSubtitlesResponse</returns>
+        public Mux.Csharp.Sdk.Client.ApiResponse<GenerateTrackSubtitlesResponse> GenerateAssetTrackSubtitlesWithHttpInfo(string ASSET_ID, string TRACK_ID, GenerateTrackSubtitlesRequest generateTrackSubtitlesRequest)
+        {
+            // verify the required parameter 'ASSET_ID' is set
+            if (ASSET_ID == null)
+            {
+                throw new Mux.Csharp.Sdk.Client.ApiException(400, "Missing required parameter 'ASSET_ID' when calling AssetsApi->GenerateAssetTrackSubtitles");
+            }
+
+            // verify the required parameter 'TRACK_ID' is set
+            if (TRACK_ID == null)
+            {
+                throw new Mux.Csharp.Sdk.Client.ApiException(400, "Missing required parameter 'TRACK_ID' when calling AssetsApi->GenerateAssetTrackSubtitles");
+            }
+
+            // verify the required parameter 'generateTrackSubtitlesRequest' is set
+            if (generateTrackSubtitlesRequest == null)
+            {
+                throw new Mux.Csharp.Sdk.Client.ApiException(400, "Missing required parameter 'generateTrackSubtitlesRequest' when calling AssetsApi->GenerateAssetTrackSubtitles");
+            }
+
+            Mux.Csharp.Sdk.Client.RequestOptions localVarRequestOptions = new Mux.Csharp.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = Mux.Csharp.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Mux.Csharp.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("ASSET_ID", Mux.Csharp.Sdk.Client.ClientUtils.ParameterToString(ASSET_ID)); // path parameter
+            localVarRequestOptions.PathParameters.Add("TRACK_ID", Mux.Csharp.Sdk.Client.ClientUtils.ParameterToString(TRACK_ID)); // path parameter
+            localVarRequestOptions.Data = generateTrackSubtitlesRequest;
+
+            // authentication (accessToken) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Mux.Csharp.Sdk.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<GenerateTrackSubtitlesResponse>("/video/v1/assets/{ASSET_ID}/tracks/{TRACK_ID}/generate-subtitles", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GenerateAssetTrackSubtitles", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Generate track subtitles Generates subtitles (captions) for a given audio track. This API can be used for up to 7 days after an asset is created.
+        /// </summary>
+        /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="ASSET_ID">The asset ID.</param>
+        /// <param name="TRACK_ID">The track ID.</param>
+        /// <param name="generateTrackSubtitlesRequest"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of GenerateTrackSubtitlesResponse</returns>
+        public async System.Threading.Tasks.Task<GenerateTrackSubtitlesResponse> GenerateAssetTrackSubtitlesAsync(string ASSET_ID, string TRACK_ID, GenerateTrackSubtitlesRequest generateTrackSubtitlesRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            Mux.Csharp.Sdk.Client.ApiResponse<GenerateTrackSubtitlesResponse> localVarResponse = await GenerateAssetTrackSubtitlesWithHttpInfoAsync(ASSET_ID, TRACK_ID, generateTrackSubtitlesRequest, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Generate track subtitles Generates subtitles (captions) for a given audio track. This API can be used for up to 7 days after an asset is created.
+        /// </summary>
+        /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="ASSET_ID">The asset ID.</param>
+        /// <param name="TRACK_ID">The track ID.</param>
+        /// <param name="generateTrackSubtitlesRequest"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (GenerateTrackSubtitlesResponse)</returns>
+        public async System.Threading.Tasks.Task<Mux.Csharp.Sdk.Client.ApiResponse<GenerateTrackSubtitlesResponse>> GenerateAssetTrackSubtitlesWithHttpInfoAsync(string ASSET_ID, string TRACK_ID, GenerateTrackSubtitlesRequest generateTrackSubtitlesRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'ASSET_ID' is set
+            if (ASSET_ID == null)
+            {
+                throw new Mux.Csharp.Sdk.Client.ApiException(400, "Missing required parameter 'ASSET_ID' when calling AssetsApi->GenerateAssetTrackSubtitles");
+            }
+
+            // verify the required parameter 'TRACK_ID' is set
+            if (TRACK_ID == null)
+            {
+                throw new Mux.Csharp.Sdk.Client.ApiException(400, "Missing required parameter 'TRACK_ID' when calling AssetsApi->GenerateAssetTrackSubtitles");
+            }
+
+            // verify the required parameter 'generateTrackSubtitlesRequest' is set
+            if (generateTrackSubtitlesRequest == null)
+            {
+                throw new Mux.Csharp.Sdk.Client.ApiException(400, "Missing required parameter 'generateTrackSubtitlesRequest' when calling AssetsApi->GenerateAssetTrackSubtitles");
+            }
+
+
+            Mux.Csharp.Sdk.Client.RequestOptions localVarRequestOptions = new Mux.Csharp.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = Mux.Csharp.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Mux.Csharp.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("ASSET_ID", Mux.Csharp.Sdk.Client.ClientUtils.ParameterToString(ASSET_ID)); // path parameter
+            localVarRequestOptions.PathParameters.Add("TRACK_ID", Mux.Csharp.Sdk.Client.ClientUtils.ParameterToString(TRACK_ID)); // path parameter
+            localVarRequestOptions.Data = generateTrackSubtitlesRequest;
+
+            // authentication (accessToken) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Mux.Csharp.Sdk.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.PostAsync<GenerateTrackSubtitlesResponse>("/video/v1/assets/{ASSET_ID}/tracks/{TRACK_ID}/generate-subtitles", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GenerateAssetTrackSubtitles", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
         /// Retrieve an asset Retrieves the details of an asset that has previously been created. Supply the unique asset ID that was returned from your previous request, and Mux will return the corresponding asset information. The same information is returned when creating an asset.
         /// </summary>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
@@ -2347,7 +2583,7 @@ namespace Mux.Csharp.Sdk.Api
         }
 
         /// <summary>
-        /// Update an Asset Updates the details of an already-created Asset with the provided Asset ID. This currently supports only the &#x60;passthrough&#x60; field.
+        /// Update an asset Updates the details of an already-created Asset with the provided Asset ID. This currently supports only the &#x60;passthrough&#x60; field.
         /// </summary>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ASSET_ID">The asset ID.</param>
@@ -2360,7 +2596,7 @@ namespace Mux.Csharp.Sdk.Api
         }
 
         /// <summary>
-        /// Update an Asset Updates the details of an already-created Asset with the provided Asset ID. This currently supports only the &#x60;passthrough&#x60; field.
+        /// Update an asset Updates the details of an already-created Asset with the provided Asset ID. This currently supports only the &#x60;passthrough&#x60; field.
         /// </summary>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ASSET_ID">The asset ID.</param>
@@ -2428,7 +2664,7 @@ namespace Mux.Csharp.Sdk.Api
         }
 
         /// <summary>
-        /// Update an Asset Updates the details of an already-created Asset with the provided Asset ID. This currently supports only the &#x60;passthrough&#x60; field.
+        /// Update an asset Updates the details of an already-created Asset with the provided Asset ID. This currently supports only the &#x60;passthrough&#x60; field.
         /// </summary>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ASSET_ID">The asset ID.</param>
@@ -2442,7 +2678,7 @@ namespace Mux.Csharp.Sdk.Api
         }
 
         /// <summary>
-        /// Update an Asset Updates the details of an already-created Asset with the provided Asset ID. This currently supports only the &#x60;passthrough&#x60; field.
+        /// Update an asset Updates the details of an already-created Asset with the provided Asset ID. This currently supports only the &#x60;passthrough&#x60; field.
         /// </summary>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ASSET_ID">The asset ID.</param>

@@ -139,7 +139,7 @@ namespace Mux.Csharp.Sdk.Api
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> DeleteLiveStreamPlaybackIdWithHttpInfo(string LIVE_STREAM_ID, string PLAYBACK_ID);
         /// <summary>
-        /// Delete a Live Stream Simulcast Target
+        /// Delete a live stream simulcast target
         /// </summary>
         /// <remarks>
         /// Delete the simulcast target using the simulcast target ID returned when creating the simulcast target. Simulcast Target can only be deleted when the parent live stream is in idle state.
@@ -151,7 +151,7 @@ namespace Mux.Csharp.Sdk.Api
         void DeleteLiveStreamSimulcastTarget(string LIVE_STREAM_ID, string SIMULCAST_TARGET_ID);
 
         /// <summary>
-        /// Delete a Live Stream Simulcast Target
+        /// Delete a live stream simulcast target
         /// </summary>
         /// <remarks>
         /// Delete the simulcast target using the simulcast target ID returned when creating the simulcast target. Simulcast Target can only be deleted when the parent live stream is in idle state.
@@ -248,7 +248,7 @@ namespace Mux.Csharp.Sdk.Api
         /// <returns>ApiResponse of GetLiveStreamPlaybackIDResponse</returns>
         ApiResponse<GetLiveStreamPlaybackIDResponse> GetLiveStreamPlaybackIdWithHttpInfo(string LIVE_STREAM_ID, string PLAYBACK_ID);
         /// <summary>
-        /// Retrieve a Live Stream Simulcast Target
+        /// Retrieve a live stream simulcast target
         /// </summary>
         /// <remarks>
         /// Retrieves the details of the simulcast target created for the parent live stream. Supply the unique live stream ID and simulcast target ID that was returned in the response of create simulcast target request, and Mux will return the corresponding information.
@@ -260,7 +260,7 @@ namespace Mux.Csharp.Sdk.Api
         SimulcastTargetResponse GetLiveStreamSimulcastTarget(string LIVE_STREAM_ID, string SIMULCAST_TARGET_ID);
 
         /// <summary>
-        /// Retrieve a Live Stream Simulcast Target
+        /// Retrieve a live stream simulcast target
         /// </summary>
         /// <remarks>
         /// Retrieves the details of the simulcast target created for the parent live stream. Supply the unique live stream ID and simulcast target ID that was returned in the response of create simulcast target request, and Mux will return the corresponding information.
@@ -539,7 +539,7 @@ namespace Mux.Csharp.Sdk.Api
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> DeleteLiveStreamPlaybackIdWithHttpInfoAsync(string LIVE_STREAM_ID, string PLAYBACK_ID, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Delete a Live Stream Simulcast Target
+        /// Delete a live stream simulcast target
         /// </summary>
         /// <remarks>
         /// Delete the simulcast target using the simulcast target ID returned when creating the simulcast target. Simulcast Target can only be deleted when the parent live stream is in idle state.
@@ -552,7 +552,7 @@ namespace Mux.Csharp.Sdk.Api
         System.Threading.Tasks.Task DeleteLiveStreamSimulcastTargetAsync(string LIVE_STREAM_ID, string SIMULCAST_TARGET_ID, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Delete a Live Stream Simulcast Target
+        /// Delete a live stream simulcast target
         /// </summary>
         /// <remarks>
         /// Delete the simulcast target using the simulcast target ID returned when creating the simulcast target. Simulcast Target can only be deleted when the parent live stream is in idle state.
@@ -658,7 +658,7 @@ namespace Mux.Csharp.Sdk.Api
         /// <returns>Task of ApiResponse (GetLiveStreamPlaybackIDResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<GetLiveStreamPlaybackIDResponse>> GetLiveStreamPlaybackIdWithHttpInfoAsync(string LIVE_STREAM_ID, string PLAYBACK_ID, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Retrieve a Live Stream Simulcast Target
+        /// Retrieve a live stream simulcast target
         /// </summary>
         /// <remarks>
         /// Retrieves the details of the simulcast target created for the parent live stream. Supply the unique live stream ID and simulcast target ID that was returned in the response of create simulcast target request, and Mux will return the corresponding information.
@@ -671,7 +671,7 @@ namespace Mux.Csharp.Sdk.Api
         System.Threading.Tasks.Task<SimulcastTargetResponse> GetLiveStreamSimulcastTargetAsync(string LIVE_STREAM_ID, string SIMULCAST_TARGET_ID, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Retrieve a Live Stream Simulcast Target
+        /// Retrieve a live stream simulcast target
         /// </summary>
         /// <remarks>
         /// Retrieves the details of the simulcast target created for the parent live stream. Supply the unique live stream ID and simulcast target ID that was returned in the response of create simulcast target request, and Mux will return the corresponding information.
@@ -1735,7 +1735,7 @@ namespace Mux.Csharp.Sdk.Api
         }
 
         /// <summary>
-        /// Delete a Live Stream Simulcast Target Delete the simulcast target using the simulcast target ID returned when creating the simulcast target. Simulcast Target can only be deleted when the parent live stream is in idle state.
+        /// Delete a live stream simulcast target Delete the simulcast target using the simulcast target ID returned when creating the simulcast target. Simulcast Target can only be deleted when the parent live stream is in idle state.
         /// </summary>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="LIVE_STREAM_ID">The live stream ID</param>
@@ -1747,7 +1747,7 @@ namespace Mux.Csharp.Sdk.Api
         }
 
         /// <summary>
-        /// Delete a Live Stream Simulcast Target Delete the simulcast target using the simulcast target ID returned when creating the simulcast target. Simulcast Target can only be deleted when the parent live stream is in idle state.
+        /// Delete a live stream simulcast target Delete the simulcast target using the simulcast target ID returned when creating the simulcast target. Simulcast Target can only be deleted when the parent live stream is in idle state.
         /// </summary>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="LIVE_STREAM_ID">The live stream ID</param>
@@ -1813,7 +1813,7 @@ namespace Mux.Csharp.Sdk.Api
         }
 
         /// <summary>
-        /// Delete a Live Stream Simulcast Target Delete the simulcast target using the simulcast target ID returned when creating the simulcast target. Simulcast Target can only be deleted when the parent live stream is in idle state.
+        /// Delete a live stream simulcast target Delete the simulcast target using the simulcast target ID returned when creating the simulcast target. Simulcast Target can only be deleted when the parent live stream is in idle state.
         /// </summary>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="LIVE_STREAM_ID">The live stream ID</param>
@@ -1826,7 +1826,7 @@ namespace Mux.Csharp.Sdk.Api
         }
 
         /// <summary>
-        /// Delete a Live Stream Simulcast Target Delete the simulcast target using the simulcast target ID returned when creating the simulcast target. Simulcast Target can only be deleted when the parent live stream is in idle state.
+        /// Delete a live stream simulcast target Delete the simulcast target using the simulcast target ID returned when creating the simulcast target. Simulcast Target can only be deleted when the parent live stream is in idle state.
         /// </summary>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="LIVE_STREAM_ID">The live stream ID</param>
@@ -2497,7 +2497,7 @@ namespace Mux.Csharp.Sdk.Api
         }
 
         /// <summary>
-        /// Retrieve a Live Stream Simulcast Target Retrieves the details of the simulcast target created for the parent live stream. Supply the unique live stream ID and simulcast target ID that was returned in the response of create simulcast target request, and Mux will return the corresponding information.
+        /// Retrieve a live stream simulcast target Retrieves the details of the simulcast target created for the parent live stream. Supply the unique live stream ID and simulcast target ID that was returned in the response of create simulcast target request, and Mux will return the corresponding information.
         /// </summary>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="LIVE_STREAM_ID">The live stream ID</param>
@@ -2510,7 +2510,7 @@ namespace Mux.Csharp.Sdk.Api
         }
 
         /// <summary>
-        /// Retrieve a Live Stream Simulcast Target Retrieves the details of the simulcast target created for the parent live stream. Supply the unique live stream ID and simulcast target ID that was returned in the response of create simulcast target request, and Mux will return the corresponding information.
+        /// Retrieve a live stream simulcast target Retrieves the details of the simulcast target created for the parent live stream. Supply the unique live stream ID and simulcast target ID that was returned in the response of create simulcast target request, and Mux will return the corresponding information.
         /// </summary>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="LIVE_STREAM_ID">The live stream ID</param>
@@ -2577,7 +2577,7 @@ namespace Mux.Csharp.Sdk.Api
         }
 
         /// <summary>
-        /// Retrieve a Live Stream Simulcast Target Retrieves the details of the simulcast target created for the parent live stream. Supply the unique live stream ID and simulcast target ID that was returned in the response of create simulcast target request, and Mux will return the corresponding information.
+        /// Retrieve a live stream simulcast target Retrieves the details of the simulcast target created for the parent live stream. Supply the unique live stream ID and simulcast target ID that was returned in the response of create simulcast target request, and Mux will return the corresponding information.
         /// </summary>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="LIVE_STREAM_ID">The live stream ID</param>
@@ -2591,7 +2591,7 @@ namespace Mux.Csharp.Sdk.Api
         }
 
         /// <summary>
-        /// Retrieve a Live Stream Simulcast Target Retrieves the details of the simulcast target created for the parent live stream. Supply the unique live stream ID and simulcast target ID that was returned in the response of create simulcast target request, and Mux will return the corresponding information.
+        /// Retrieve a live stream simulcast target Retrieves the details of the simulcast target created for the parent live stream. Supply the unique live stream ID and simulcast target ID that was returned in the response of create simulcast target request, and Mux will return the corresponding information.
         /// </summary>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="LIVE_STREAM_ID">The live stream ID</param>

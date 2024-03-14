@@ -274,6 +274,52 @@ namespace Mux.Csharp.Sdk.Model
         [DataMember(Name = "mp4_support", EmitDefaultValue = false)]
         public Mp4SupportEnum? Mp4Support { get; set; }
         /// <summary>
+        /// The type of ingest used to create the asset.
+        /// </summary>
+        /// <value>The type of ingest used to create the asset.</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum IngestTypeEnum
+        {
+            /// <summary>
+            /// Enum OnDemandUrl for value: on_demand_url
+            /// </summary>
+            [EnumMember(Value = "on_demand_url")]
+            OnDemandUrl = 1,
+
+            /// <summary>
+            /// Enum OnDemandDirectUpload for value: on_demand_direct_upload
+            /// </summary>
+            [EnumMember(Value = "on_demand_direct_upload")]
+            OnDemandDirectUpload = 2,
+
+            /// <summary>
+            /// Enum OnDemandClip for value: on_demand_clip
+            /// </summary>
+            [EnumMember(Value = "on_demand_clip")]
+            OnDemandClip = 3,
+
+            /// <summary>
+            /// Enum LiveRtmp for value: live_rtmp
+            /// </summary>
+            [EnumMember(Value = "live_rtmp")]
+            LiveRtmp = 4,
+
+            /// <summary>
+            /// Enum LiveSrt for value: live_srt
+            /// </summary>
+            [EnumMember(Value = "live_srt")]
+            LiveSrt = 5
+
+        }
+
+
+        /// <summary>
+        /// The type of ingest used to create the asset.
+        /// </summary>
+        /// <value>The type of ingest used to create the asset.</value>
+        [DataMember(Name = "ingest_type", EmitDefaultValue = false)]
+        public IngestTypeEnum? IngestType { get; set; }
+        /// <summary>
         /// Initializes a new instance of the <see cref="Asset" /> class.
         /// </summary>
         /// <param name="id">Unique identifier for the Asset. Max 255 characters..</param>
@@ -303,7 +349,8 @@ namespace Mux.Csharp.Sdk.Model
         /// <param name="recordingTimes">An array of individual live stream recording sessions. A recording session is created on each encoder connection during the live stream. Additionally any time slate media is inserted during brief interruptions in the live stream media or times when the live streaming software disconnects, a recording session representing the slate media will be added with a \&quot;slate\&quot; type..</param>
         /// <param name="nonStandardInputReasons">nonStandardInputReasons.</param>
         /// <param name="test">True means this live stream is a test asset. A test asset can help evaluate the Mux Video APIs without incurring any cost. There is no limit on number of test assets created. Test assets are watermarked with the Mux logo, limited to 10 seconds, and deleted after 24 hrs..</param>
-        public Asset(string id = default(string), string createdAt = default(string), StatusEnum? status = default(StatusEnum?), double duration = default(double), MaxStoredResolutionEnum? maxStoredResolution = default(MaxStoredResolutionEnum?), ResolutionTierEnum? resolutionTier = default(ResolutionTierEnum?), MaxResolutionTierEnum? maxResolutionTier = default(MaxResolutionTierEnum?), EncodingTierEnum? encodingTier = default(EncodingTierEnum?), double maxStoredFrameRate = default(double), string aspectRatio = default(string), List<PlaybackID> playbackIds = default(List<PlaybackID>), List<Track> tracks = default(List<Track>), AssetErrors errors = default(AssetErrors), bool perTitleEncode = default(bool), string uploadId = default(string), bool isLive = default(bool), string passthrough = default(string), string liveStreamId = default(string), AssetMaster master = default(AssetMaster), MasterAccessEnum? masterAccess = MasterAccessEnum.None, Mp4SupportEnum? mp4Support = Mp4SupportEnum.None, string sourceAssetId = default(string), bool normalizeAudio = false, AssetStaticRenditions staticRenditions = default(AssetStaticRenditions), List<AssetRecordingTimes> recordingTimes = default(List<AssetRecordingTimes>), AssetNonStandardInputReasons nonStandardInputReasons = default(AssetNonStandardInputReasons), bool test = default(bool))
+        /// <param name="ingestType">The type of ingest used to create the asset..</param>
+        public Asset(string id = default(string), string createdAt = default(string), StatusEnum? status = default(StatusEnum?), double duration = default(double), MaxStoredResolutionEnum? maxStoredResolution = default(MaxStoredResolutionEnum?), ResolutionTierEnum? resolutionTier = default(ResolutionTierEnum?), MaxResolutionTierEnum? maxResolutionTier = default(MaxResolutionTierEnum?), EncodingTierEnum? encodingTier = default(EncodingTierEnum?), double maxStoredFrameRate = default(double), string aspectRatio = default(string), List<PlaybackID> playbackIds = default(List<PlaybackID>), List<Track> tracks = default(List<Track>), AssetErrors errors = default(AssetErrors), bool perTitleEncode = default(bool), string uploadId = default(string), bool isLive = default(bool), string passthrough = default(string), string liveStreamId = default(string), AssetMaster master = default(AssetMaster), MasterAccessEnum? masterAccess = MasterAccessEnum.None, Mp4SupportEnum? mp4Support = Mp4SupportEnum.None, string sourceAssetId = default(string), bool normalizeAudio = false, AssetStaticRenditions staticRenditions = default(AssetStaticRenditions), List<AssetRecordingTimes> recordingTimes = default(List<AssetRecordingTimes>), AssetNonStandardInputReasons nonStandardInputReasons = default(AssetNonStandardInputReasons), bool test = default(bool), IngestTypeEnum? ingestType = default(IngestTypeEnum?))
         {
             this.Id = id;
             this.CreatedAt = createdAt;
@@ -332,6 +379,7 @@ namespace Mux.Csharp.Sdk.Model
             this.RecordingTimes = recordingTimes;
             this.NonStandardInputReasons = nonStandardInputReasons;
             this.Test = test;
+            this.IngestType = ingestType;
             this.AdditionalProperties = new Dictionary<string, object>();
         }
 
@@ -512,6 +560,7 @@ namespace Mux.Csharp.Sdk.Model
             sb.Append("  RecordingTimes: ").Append(RecordingTimes).Append("\n");
             sb.Append("  NonStandardInputReasons: ").Append(NonStandardInputReasons).Append("\n");
             sb.Append("  Test: ").Append(Test).Append("\n");
+            sb.Append("  IngestType: ").Append(IngestType).Append("\n");
             sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -672,6 +721,10 @@ namespace Mux.Csharp.Sdk.Model
                 (
                     this.Test == input.Test ||
                     this.Test.Equals(input.Test)
+                ) && 
+                (
+                    this.IngestType == input.IngestType ||
+                    this.IngestType.Equals(input.IngestType)
                 )
                 && (this.AdditionalProperties.Count == input.AdditionalProperties.Count && !this.AdditionalProperties.Except(input.AdditionalProperties).Any());
         }
@@ -754,6 +807,7 @@ namespace Mux.Csharp.Sdk.Model
                     hashCode = (hashCode * 59) + this.NonStandardInputReasons.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.Test.GetHashCode();
+                hashCode = (hashCode * 59) + this.IngestType.GetHashCode();
                 if (this.AdditionalProperties != null)
                 {
                     hashCode = (hashCode * 59) + this.AdditionalProperties.GetHashCode();

@@ -46,6 +46,8 @@ docs/ExportFile.md
 docs/ExportsApi.md
 docs/FilterValue.md
 docs/FiltersApi.md
+docs/GenerateTrackSubtitlesRequest.md
+docs/GenerateTrackSubtitlesResponse.md
 docs/GetAssetInputInfoResponse.md
 docs/GetAssetOrLiveStreamIdResponse.md
 docs/GetAssetOrLiveStreamIdResponseData.md
@@ -252,6 +254,8 @@ src/Mux.Csharp.Sdk/Model/Error.cs
 src/Mux.Csharp.Sdk/Model/ExportDate.cs
 src/Mux.Csharp.Sdk/Model/ExportFile.cs
 src/Mux.Csharp.Sdk/Model/FilterValue.cs
+src/Mux.Csharp.Sdk/Model/GenerateTrackSubtitlesRequest.cs
+src/Mux.Csharp.Sdk/Model/GenerateTrackSubtitlesResponse.cs
 src/Mux.Csharp.Sdk/Model/GetAssetInputInfoResponse.cs
 src/Mux.Csharp.Sdk/Model/GetAssetOrLiveStreamIdResponse.cs
 src/Mux.Csharp.Sdk/Model/GetAssetOrLiveStreamIdResponseData.cs

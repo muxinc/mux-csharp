@@ -9,12 +9,12 @@ Method | HTTP request | Description
 [**CreateLiveStreamSimulcastTarget**](LiveStreamsApi.md#createlivestreamsimulcasttarget) | **POST** /video/v1/live-streams/{LIVE_STREAM_ID}/simulcast-targets | Create a live stream simulcast target
 [**DeleteLiveStream**](LiveStreamsApi.md#deletelivestream) | **DELETE** /video/v1/live-streams/{LIVE_STREAM_ID} | Delete a live stream
 [**DeleteLiveStreamPlaybackId**](LiveStreamsApi.md#deletelivestreamplaybackid) | **DELETE** /video/v1/live-streams/{LIVE_STREAM_ID}/playback-ids/{PLAYBACK_ID} | Delete a live stream playback ID
-[**DeleteLiveStreamSimulcastTarget**](LiveStreamsApi.md#deletelivestreamsimulcasttarget) | **DELETE** /video/v1/live-streams/{LIVE_STREAM_ID}/simulcast-targets/{SIMULCAST_TARGET_ID} | Delete a Live Stream Simulcast Target
+[**DeleteLiveStreamSimulcastTarget**](LiveStreamsApi.md#deletelivestreamsimulcasttarget) | **DELETE** /video/v1/live-streams/{LIVE_STREAM_ID}/simulcast-targets/{SIMULCAST_TARGET_ID} | Delete a live stream simulcast target
 [**DisableLiveStream**](LiveStreamsApi.md#disablelivestream) | **PUT** /video/v1/live-streams/{LIVE_STREAM_ID}/disable | Disable a live stream
 [**EnableLiveStream**](LiveStreamsApi.md#enablelivestream) | **PUT** /video/v1/live-streams/{LIVE_STREAM_ID}/enable | Enable a live stream
 [**GetLiveStream**](LiveStreamsApi.md#getlivestream) | **GET** /video/v1/live-streams/{LIVE_STREAM_ID} | Retrieve a live stream
 [**GetLiveStreamPlaybackId**](LiveStreamsApi.md#getlivestreamplaybackid) | **GET** /video/v1/live-streams/{LIVE_STREAM_ID}/playback-ids/{PLAYBACK_ID} | Retrieve a live stream playback ID
-[**GetLiveStreamSimulcastTarget**](LiveStreamsApi.md#getlivestreamsimulcasttarget) | **GET** /video/v1/live-streams/{LIVE_STREAM_ID}/simulcast-targets/{SIMULCAST_TARGET_ID} | Retrieve a Live Stream Simulcast Target
+[**GetLiveStreamSimulcastTarget**](LiveStreamsApi.md#getlivestreamsimulcasttarget) | **GET** /video/v1/live-streams/{LIVE_STREAM_ID}/simulcast-targets/{SIMULCAST_TARGET_ID} | Retrieve a live stream simulcast target
 [**ListLiveStreams**](LiveStreamsApi.md#listlivestreams) | **GET** /video/v1/live-streams | List live streams
 [**ResetStreamKey**](LiveStreamsApi.md#resetstreamkey) | **POST** /video/v1/live-streams/{LIVE_STREAM_ID}/reset-stream-key | Reset a live stream&#39;s stream key
 [**SignalLiveStreamComplete**](LiveStreamsApi.md#signallivestreamcomplete) | **PUT** /video/v1/live-streams/{LIVE_STREAM_ID}/complete | Signal a live stream is finished
@@ -406,7 +406,7 @@ void (empty response body)
 # **DeleteLiveStreamSimulcastTarget**
 > void DeleteLiveStreamSimulcastTarget (string LIVE_STREAM_ID, string SIMULCAST_TARGET_ID)
 
-Delete a Live Stream Simulcast Target
+Delete a live stream simulcast target
 
 Delete the simulcast target using the simulcast target ID returned when creating the simulcast target. Simulcast Target can only be deleted when the parent live stream is in idle state.
 
@@ -436,7 +436,7 @@ namespace Example
 
             try
             {
-                // Delete a Live Stream Simulcast Target
+                // Delete a live stream simulcast target
                 apiInstance.DeleteLiveStreamSimulcastTarget(LIVE_STREAM_ID, SIMULCAST_TARGET_ID);
             }
             catch (ApiException  e)
@@ -784,7 +784,7 @@ Name | Type | Description  | Notes
 # **GetLiveStreamSimulcastTarget**
 > SimulcastTargetResponse GetLiveStreamSimulcastTarget (string LIVE_STREAM_ID, string SIMULCAST_TARGET_ID)
 
-Retrieve a Live Stream Simulcast Target
+Retrieve a live stream simulcast target
 
 Retrieves the details of the simulcast target created for the parent live stream. Supply the unique live stream ID and simulcast target ID that was returned in the response of create simulcast target request, and Mux will return the corresponding information.
 
@@ -814,7 +814,7 @@ namespace Example
 
             try
             {
-                // Retrieve a Live Stream Simulcast Target
+                // Retrieve a live stream simulcast target
                 SimulcastTargetResponse result = apiInstance.GetLiveStreamSimulcastTarget(LIVE_STREAM_ID, SIMULCAST_TARGET_ID);
                 Debug.WriteLine(result);
             }

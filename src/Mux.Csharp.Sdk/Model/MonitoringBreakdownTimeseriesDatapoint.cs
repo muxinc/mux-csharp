@@ -38,11 +38,13 @@ namespace Mux.Csharp.Sdk.Model
         /// <param name="value">value.</param>
         /// <param name="metricValue">metricValue.</param>
         /// <param name="concurrentViewers">concurrentViewers.</param>
-        public MonitoringBreakdownTimeseriesDatapoint(string value = default(string), double? metricValue = default(double?), long concurrentViewers = default(long))
+        /// <param name="startingUpViewers">startingUpViewers.</param>
+        public MonitoringBreakdownTimeseriesDatapoint(string value = default(string), double? metricValue = default(double?), long concurrentViewers = default(long), long startingUpViewers = default(long))
         {
             this.Value = value;
             this.MetricValue = metricValue;
             this.ConcurrentViewers = concurrentViewers;
+            this.StartingUpViewers = startingUpViewers;
             this.AdditionalProperties = new Dictionary<string, object>();
         }
 
@@ -65,6 +67,12 @@ namespace Mux.Csharp.Sdk.Model
         public long ConcurrentViewers { get; set; }
 
         /// <summary>
+        /// Gets or Sets StartingUpViewers
+        /// </summary>
+        [DataMember(Name = "starting_up_viewers", EmitDefaultValue = false)]
+        public long StartingUpViewers { get; set; }
+
+        /// <summary>
         /// Gets or Sets additional properties
         /// </summary>
         [JsonExtensionData]
@@ -81,6 +89,7 @@ namespace Mux.Csharp.Sdk.Model
             sb.Append("  Value: ").Append(Value).Append("\n");
             sb.Append("  MetricValue: ").Append(MetricValue).Append("\n");
             sb.Append("  ConcurrentViewers: ").Append(ConcurrentViewers).Append("\n");
+            sb.Append("  StartingUpViewers: ").Append(StartingUpViewers).Append("\n");
             sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -130,6 +139,10 @@ namespace Mux.Csharp.Sdk.Model
                 (
                     this.ConcurrentViewers == input.ConcurrentViewers ||
                     this.ConcurrentViewers.Equals(input.ConcurrentViewers)
+                ) && 
+                (
+                    this.StartingUpViewers == input.StartingUpViewers ||
+                    this.StartingUpViewers.Equals(input.StartingUpViewers)
                 )
                 && (this.AdditionalProperties.Count == input.AdditionalProperties.Count && !this.AdditionalProperties.Except(input.AdditionalProperties).Any());
         }
@@ -152,6 +165,7 @@ namespace Mux.Csharp.Sdk.Model
                     hashCode = (hashCode * 59) + this.MetricValue.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.ConcurrentViewers.GetHashCode();
+                hashCode = (hashCode * 59) + this.StartingUpViewers.GetHashCode();
                 if (this.AdditionalProperties != null)
                 {
                     hashCode = (hashCode * 59) + this.AdditionalProperties.GetHashCode();

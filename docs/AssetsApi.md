@@ -10,11 +10,12 @@ Method | HTTP request | Description
 [**DeleteAsset**](AssetsApi.md#deleteasset) | **DELETE** /video/v1/assets/{ASSET_ID} | Delete an asset
 [**DeleteAssetPlaybackId**](AssetsApi.md#deleteassetplaybackid) | **DELETE** /video/v1/assets/{ASSET_ID}/playback-ids/{PLAYBACK_ID} | Delete a playback ID
 [**DeleteAssetTrack**](AssetsApi.md#deleteassettrack) | **DELETE** /video/v1/assets/{ASSET_ID}/tracks/{TRACK_ID} | Delete an asset track
+[**GenerateAssetTrackSubtitles**](AssetsApi.md#generateassettracksubtitles) | **POST** /video/v1/assets/{ASSET_ID}/tracks/{TRACK_ID}/generate-subtitles | Generate track subtitles
 [**GetAsset**](AssetsApi.md#getasset) | **GET** /video/v1/assets/{ASSET_ID} | Retrieve an asset
 [**GetAssetInputInfo**](AssetsApi.md#getassetinputinfo) | **GET** /video/v1/assets/{ASSET_ID}/input-info | Retrieve asset input info
 [**GetAssetPlaybackId**](AssetsApi.md#getassetplaybackid) | **GET** /video/v1/assets/{ASSET_ID}/playback-ids/{PLAYBACK_ID} | Retrieve a playback ID
 [**ListAssets**](AssetsApi.md#listassets) | **GET** /video/v1/assets | List assets
-[**UpdateAsset**](AssetsApi.md#updateasset) | **PATCH** /video/v1/assets/{ASSET_ID} | Update an Asset
+[**UpdateAsset**](AssetsApi.md#updateasset) | **PATCH** /video/v1/assets/{ASSET_ID} | Update an asset
 [**UpdateAssetMasterAccess**](AssetsApi.md#updateassetmasteraccess) | **PUT** /video/v1/assets/{ASSET_ID}/master-access | Update master access
 [**UpdateAssetMp4Support**](AssetsApi.md#updateassetmp4support) | **PUT** /video/v1/assets/{ASSET_ID}/mp4-support | Update MP4 support
 
@@ -474,6 +475,85 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a name="generateassettracksubtitles"></a>
+# **GenerateAssetTrackSubtitles**
+> GenerateTrackSubtitlesResponse GenerateAssetTrackSubtitles (string ASSET_ID, string TRACK_ID, GenerateTrackSubtitlesRequest generateTrackSubtitlesRequest)
+
+Generate track subtitles
+
+Generates subtitles (captions) for a given audio track. This API can be used for up to 7 days after an asset is created.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Mux.Csharp.Sdk.Api;
+using Mux.Csharp.Sdk.Client;
+using Mux.Csharp.Sdk.Model;
+
+namespace Example
+{
+    public class GenerateAssetTrackSubtitlesExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.mux.com";
+            // Configure HTTP basic authorization: accessToken
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+
+            var apiInstance = new AssetsApi(config);
+            var ASSET_ID = "ASSET_ID_example";  // string | The asset ID.
+            var TRACK_ID = "TRACK_ID_example";  // string | The track ID.
+            var generateTrackSubtitlesRequest = new GenerateTrackSubtitlesRequest(); // GenerateTrackSubtitlesRequest | 
+
+            try
+            {
+                // Generate track subtitles
+                GenerateTrackSubtitlesResponse result = apiInstance.GenerateAssetTrackSubtitles(ASSET_ID, TRACK_ID, generateTrackSubtitlesRequest);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling AssetsApi.GenerateAssetTrackSubtitles: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ASSET_ID** | **string**| The asset ID. | 
+ **TRACK_ID** | **string**| The track ID. | 
+ **generateTrackSubtitlesRequest** | [**GenerateTrackSubtitlesRequest**](GenerateTrackSubtitlesRequest.md)|  | 
+
+### Return type
+
+[**GenerateTrackSubtitlesResponse**](GenerateTrackSubtitlesResponse.md)
+
+### Authorization
+
+[accessToken](../README.md#accessToken)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **201** | Created |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a name="getasset"></a>
 # **GetAsset**
 > AssetResponse GetAsset (string ASSET_ID)
@@ -786,7 +866,7 @@ Name | Type | Description  | Notes
 # **UpdateAsset**
 > AssetResponse UpdateAsset (string ASSET_ID, UpdateAssetRequest updateAssetRequest)
 
-Update an Asset
+Update an asset
 
 Updates the details of an already-created Asset with the provided Asset ID. This currently supports only the `passthrough` field.
 
@@ -816,7 +896,7 @@ namespace Example
 
             try
             {
-                // Update an Asset
+                // Update an asset
                 AssetResponse result = apiInstance.UpdateAsset(ASSET_ID, updateAssetRequest);
                 Debug.WriteLine(result);
             }
