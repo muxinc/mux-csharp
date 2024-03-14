@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **Description** | **string** | Description of the error. | [optional] 
 **Count** | **long** | The total number of views that experienced this error. | [optional] 
 **Code** | **long?** | The error code | [optional] 
+**PlayerErrorCode** | **string** | The string version of the error code | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

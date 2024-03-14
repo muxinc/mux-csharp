@@ -16,7 +16,7 @@ Mux is how developers build online video. This API encompasses both Mux Video an
 **PLEASE NOTE:** This is an early build of the Mux C# SDK, as evidenced by its pre-1.0 status, but we're reasonably certain of its stability and usability against the Mux API.. Documentation is currently best-effort, but it'll improve over time! Instead of contacting Mux Support, please file an issue on this repository or email [Mux DevEx](devex@mux.com) for assistance.
 
 - API version: v1
-- SDK version: 0.9.0
+- SDK version: 0.10.0
     [https://docs.mux.com](https://docs.mux.com)
 
 <a name="frameworks-supported"></a>
@@ -121,11 +121,12 @@ Class | Method | HTTP request | Description
 *AssetsApi* | [**DeleteAsset**](docs/AssetsApi.md#deleteasset) | **DELETE** /video/v1/assets/{ASSET_ID} | Delete an asset
 *AssetsApi* | [**DeleteAssetPlaybackId**](docs/AssetsApi.md#deleteassetplaybackid) | **DELETE** /video/v1/assets/{ASSET_ID}/playback-ids/{PLAYBACK_ID} | Delete a playback ID
 *AssetsApi* | [**DeleteAssetTrack**](docs/AssetsApi.md#deleteassettrack) | **DELETE** /video/v1/assets/{ASSET_ID}/tracks/{TRACK_ID} | Delete an asset track
+*AssetsApi* | [**GenerateAssetTrackSubtitles**](docs/AssetsApi.md#generateassettracksubtitles) | **POST** /video/v1/assets/{ASSET_ID}/tracks/{TRACK_ID}/generate-subtitles | Generate track subtitles
 *AssetsApi* | [**GetAsset**](docs/AssetsApi.md#getasset) | **GET** /video/v1/assets/{ASSET_ID} | Retrieve an asset
 *AssetsApi* | [**GetAssetInputInfo**](docs/AssetsApi.md#getassetinputinfo) | **GET** /video/v1/assets/{ASSET_ID}/input-info | Retrieve asset input info
 *AssetsApi* | [**GetAssetPlaybackId**](docs/AssetsApi.md#getassetplaybackid) | **GET** /video/v1/assets/{ASSET_ID}/playback-ids/{PLAYBACK_ID} | Retrieve a playback ID
 *AssetsApi* | [**ListAssets**](docs/AssetsApi.md#listassets) | **GET** /video/v1/assets | List assets
-*AssetsApi* | [**UpdateAsset**](docs/AssetsApi.md#updateasset) | **PATCH** /video/v1/assets/{ASSET_ID} | Update an Asset
+*AssetsApi* | [**UpdateAsset**](docs/AssetsApi.md#updateasset) | **PATCH** /video/v1/assets/{ASSET_ID} | Update an asset
 *AssetsApi* | [**UpdateAssetMasterAccess**](docs/AssetsApi.md#updateassetmasteraccess) | **PUT** /video/v1/assets/{ASSET_ID}/master-access | Update master access
 *AssetsApi* | [**UpdateAssetMp4Support**](docs/AssetsApi.md#updateassetmp4support) | **PUT** /video/v1/assets/{ASSET_ID}/mp4-support | Update MP4 support
 *DeliveryUsageApi* | [**ListDeliveryUsage**](docs/DeliveryUsageApi.md#listdeliveryusage) | **GET** /video/v1/delivery-usage | List Usage
@@ -148,12 +149,12 @@ Class | Method | HTTP request | Description
 *LiveStreamsApi* | [**CreateLiveStreamSimulcastTarget**](docs/LiveStreamsApi.md#createlivestreamsimulcasttarget) | **POST** /video/v1/live-streams/{LIVE_STREAM_ID}/simulcast-targets | Create a live stream simulcast target
 *LiveStreamsApi* | [**DeleteLiveStream**](docs/LiveStreamsApi.md#deletelivestream) | **DELETE** /video/v1/live-streams/{LIVE_STREAM_ID} | Delete a live stream
 *LiveStreamsApi* | [**DeleteLiveStreamPlaybackId**](docs/LiveStreamsApi.md#deletelivestreamplaybackid) | **DELETE** /video/v1/live-streams/{LIVE_STREAM_ID}/playback-ids/{PLAYBACK_ID} | Delete a live stream playback ID
-*LiveStreamsApi* | [**DeleteLiveStreamSimulcastTarget**](docs/LiveStreamsApi.md#deletelivestreamsimulcasttarget) | **DELETE** /video/v1/live-streams/{LIVE_STREAM_ID}/simulcast-targets/{SIMULCAST_TARGET_ID} | Delete a Live Stream Simulcast Target
+*LiveStreamsApi* | [**DeleteLiveStreamSimulcastTarget**](docs/LiveStreamsApi.md#deletelivestreamsimulcasttarget) | **DELETE** /video/v1/live-streams/{LIVE_STREAM_ID}/simulcast-targets/{SIMULCAST_TARGET_ID} | Delete a live stream simulcast target
 *LiveStreamsApi* | [**DisableLiveStream**](docs/LiveStreamsApi.md#disablelivestream) | **PUT** /video/v1/live-streams/{LIVE_STREAM_ID}/disable | Disable a live stream
 *LiveStreamsApi* | [**EnableLiveStream**](docs/LiveStreamsApi.md#enablelivestream) | **PUT** /video/v1/live-streams/{LIVE_STREAM_ID}/enable | Enable a live stream
 *LiveStreamsApi* | [**GetLiveStream**](docs/LiveStreamsApi.md#getlivestream) | **GET** /video/v1/live-streams/{LIVE_STREAM_ID} | Retrieve a live stream
 *LiveStreamsApi* | [**GetLiveStreamPlaybackId**](docs/LiveStreamsApi.md#getlivestreamplaybackid) | **GET** /video/v1/live-streams/{LIVE_STREAM_ID}/playback-ids/{PLAYBACK_ID} | Retrieve a live stream playback ID
-*LiveStreamsApi* | [**GetLiveStreamSimulcastTarget**](docs/LiveStreamsApi.md#getlivestreamsimulcasttarget) | **GET** /video/v1/live-streams/{LIVE_STREAM_ID}/simulcast-targets/{SIMULCAST_TARGET_ID} | Retrieve a Live Stream Simulcast Target
+*LiveStreamsApi* | [**GetLiveStreamSimulcastTarget**](docs/LiveStreamsApi.md#getlivestreamsimulcasttarget) | **GET** /video/v1/live-streams/{LIVE_STREAM_ID}/simulcast-targets/{SIMULCAST_TARGET_ID} | Retrieve a live stream simulcast target
 *LiveStreamsApi* | [**ListLiveStreams**](docs/LiveStreamsApi.md#listlivestreams) | **GET** /video/v1/live-streams | List live streams
 *LiveStreamsApi* | [**ResetStreamKey**](docs/LiveStreamsApi.md#resetstreamkey) | **POST** /video/v1/live-streams/{LIVE_STREAM_ID}/reset-stream-key | Reset a live stream's stream key
 *LiveStreamsApi* | [**SignalLiveStreamComplete**](docs/LiveStreamsApi.md#signallivestreamcomplete) | **PUT** /video/v1/live-streams/{LIVE_STREAM_ID}/complete | Signal a live stream is finished
@@ -171,7 +172,7 @@ Class | Method | HTTP request | Description
 *MonitoringApi* | [**GetMonitoringTimeseries**](docs/MonitoringApi.md#getmonitoringtimeseries) | **GET** /data/v1/monitoring/metrics/{MONITORING_METRIC_ID}/timeseries | Get Monitoring Timeseries
 *MonitoringApi* | [**ListMonitoringDimensions**](docs/MonitoringApi.md#listmonitoringdimensions) | **GET** /data/v1/monitoring/dimensions | List Monitoring Dimensions
 *MonitoringApi* | [**ListMonitoringMetrics**](docs/MonitoringApi.md#listmonitoringmetrics) | **GET** /data/v1/monitoring/metrics | List Monitoring Metrics
-*PlaybackIDApi* | [**GetAssetOrLivestreamId**](docs/PlaybackIDApi.md#getassetorlivestreamid) | **GET** /video/v1/playback-ids/{PLAYBACK_ID} | Retrieve an Asset or Live Stream ID
+*PlaybackIDApi* | [**GetAssetOrLivestreamId**](docs/PlaybackIDApi.md#getassetorlivestreamid) | **GET** /video/v1/playback-ids/{PLAYBACK_ID} | Retrieve an asset or live stream ID
 *PlaybackRestrictionsApi* | [**CreatePlaybackRestriction**](docs/PlaybackRestrictionsApi.md#createplaybackrestriction) | **POST** /video/v1/playback-restrictions | Create a Playback Restriction
 *PlaybackRestrictionsApi* | [**DeletePlaybackRestriction**](docs/PlaybackRestrictionsApi.md#deleteplaybackrestriction) | **DELETE** /video/v1/playback-restrictions/{PLAYBACK_RESTRICTION_ID} | Delete a Playback Restriction
 *PlaybackRestrictionsApi* | [**GetPlaybackRestriction**](docs/PlaybackRestrictionsApi.md#getplaybackrestriction) | **GET** /video/v1/playback-restrictions/{PLAYBACK_RESTRICTION_ID} | Retrieve a Playback Restriction
@@ -257,6 +258,8 @@ Class | Method | HTTP request | Description
  - [Model.ExportDate](docs/ExportDate.md)
  - [Model.ExportFile](docs/ExportFile.md)
  - [Model.FilterValue](docs/FilterValue.md)
+ - [Model.GenerateTrackSubtitlesRequest](docs/GenerateTrackSubtitlesRequest.md)
+ - [Model.GenerateTrackSubtitlesResponse](docs/GenerateTrackSubtitlesResponse.md)
  - [Model.GetAssetInputInfoResponse](docs/GetAssetInputInfoResponse.md)
  - [Model.GetAssetOrLiveStreamIdResponse](docs/GetAssetOrLiveStreamIdResponse.md)
  - [Model.GetAssetOrLiveStreamIdResponseData](docs/GetAssetOrLiveStreamIdResponseData.md)

@@ -28,7 +28,7 @@ namespace Mux.Csharp.Sdk.Api
     {
         #region Synchronous Operations
         /// <summary>
-        /// Retrieve an Asset or Live Stream ID
+        /// Retrieve an asset or live stream ID
         /// </summary>
         /// <remarks>
         /// Retrieves the Identifier of the Asset or Live Stream associated with the Playback ID.
@@ -39,7 +39,7 @@ namespace Mux.Csharp.Sdk.Api
         GetAssetOrLiveStreamIdResponse GetAssetOrLivestreamId(string PLAYBACK_ID);
 
         /// <summary>
-        /// Retrieve an Asset or Live Stream ID
+        /// Retrieve an asset or live stream ID
         /// </summary>
         /// <remarks>
         /// Retrieves the Identifier of the Asset or Live Stream associated with the Playback ID.
@@ -58,7 +58,7 @@ namespace Mux.Csharp.Sdk.Api
     {
         #region Asynchronous Operations
         /// <summary>
-        /// Retrieve an Asset or Live Stream ID
+        /// Retrieve an asset or live stream ID
         /// </summary>
         /// <remarks>
         /// Retrieves the Identifier of the Asset or Live Stream associated with the Playback ID.
@@ -70,7 +70,7 @@ namespace Mux.Csharp.Sdk.Api
         System.Threading.Tasks.Task<GetAssetOrLiveStreamIdResponse> GetAssetOrLivestreamIdAsync(string PLAYBACK_ID, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Retrieve an Asset or Live Stream ID
+        /// Retrieve an asset or live stream ID
         /// </summary>
         /// <remarks>
         /// Retrieves the Identifier of the Asset or Live Stream associated with the Playback ID.
@@ -201,7 +201,7 @@ namespace Mux.Csharp.Sdk.Api
         }
 
         /// <summary>
-        /// Retrieve an Asset or Live Stream ID Retrieves the Identifier of the Asset or Live Stream associated with the Playback ID.
+        /// Retrieve an asset or live stream ID Retrieves the Identifier of the Asset or Live Stream associated with the Playback ID.
         /// </summary>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="PLAYBACK_ID">The live stream&#39;s playback ID.</param>
@@ -213,7 +213,7 @@ namespace Mux.Csharp.Sdk.Api
         }
 
         /// <summary>
-        /// Retrieve an Asset or Live Stream ID Retrieves the Identifier of the Asset or Live Stream associated with the Playback ID.
+        /// Retrieve an asset or live stream ID Retrieves the Identifier of the Asset or Live Stream associated with the Playback ID.
         /// </summary>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="PLAYBACK_ID">The live stream&#39;s playback ID.</param>
@@ -272,7 +272,7 @@ namespace Mux.Csharp.Sdk.Api
         }
 
         /// <summary>
-        /// Retrieve an Asset or Live Stream ID Retrieves the Identifier of the Asset or Live Stream associated with the Playback ID.
+        /// Retrieve an asset or live stream ID Retrieves the Identifier of the Asset or Live Stream associated with the Playback ID.
         /// </summary>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="PLAYBACK_ID">The live stream&#39;s playback ID.</param>
@@ -285,7 +285,7 @@ namespace Mux.Csharp.Sdk.Api
         }
 
         /// <summary>
-        /// Retrieve an Asset or Live Stream ID Retrieves the Identifier of the Asset or Live Stream associated with the Playback ID.
+        /// Retrieve an asset or live stream ID Retrieves the Identifier of the Asset or Live Stream associated with the Playback ID.
         /// </summary>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="PLAYBACK_ID">The live stream&#39;s playback ID.</param>

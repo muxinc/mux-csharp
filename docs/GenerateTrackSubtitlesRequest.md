@@ -1,13 +1,10 @@
-# Mux.Csharp.Sdk.Model.MonitoringBreakdownTimeseriesDatapoint
+# Mux.Csharp.Sdk.Model.GenerateTrackSubtitlesRequest
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Value** | **string** |  | [optional] 
-**MetricValue** | **double?** |  | [optional] 
-**ConcurrentViewers** | **long** |  | [optional] 
-**StartingUpViewers** | **long** |  | [optional] 
+**GeneratedSubtitles** | [**List&lt;AssetGeneratedSubtitleSettings&gt;**](AssetGeneratedSubtitleSettings.md) | Generate subtitle tracks using automatic speech recognition with this configuration. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

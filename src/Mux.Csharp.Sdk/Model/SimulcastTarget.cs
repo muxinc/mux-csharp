@@ -33,9 +33,9 @@ namespace Mux.Csharp.Sdk.Model
     public partial class SimulcastTarget : IEquatable<SimulcastTarget>, IValidatableObject
     {
         /// <summary>
-        /// The current status of the simulcast target. See Statuses below for detailed description.   * &#x60;idle&#x60;: Default status. When the parent live stream is in disconnected status, simulcast targets will be idle state.   * &#x60;starting&#x60;: The simulcast target transitions into this state when the parent live stream transition into connected state.   * &#x60;broadcasting&#x60;: The simulcast target has successfully connected to the third party live streaming service and is pushing video to that service.   * &#x60;errored&#x60;: The simulcast target encountered an error either while attempting to connect to the third party live streaming service, or mid-broadcasting. Compared to other errored statuses in the Mux Video API, a simulcast may transition back into the broadcasting state if a connection with the service can be re-established. 
+        /// The current status of the simulcast target. See Statuses below for detailed description.   * &#x60;idle&#x60;: Default status. When the parent live stream is in disconnected status, simulcast targets will be idle state.   * &#x60;starting&#x60;: The simulcast target transitions into this state when the parent live stream transition into connected state.   * &#x60;broadcasting&#x60;: The simulcast target has successfully connected to the third party live streaming service and is pushing video to that service.   * &#x60;errored&#x60;: The simulcast target encountered an error either while attempting to connect to the third party live streaming service, or mid-broadcasting. When a simulcast target has this status it will have an &#x60;error_severity&#x60; field with more details about the error. 
         /// </summary>
-        /// <value>The current status of the simulcast target. See Statuses below for detailed description.   * &#x60;idle&#x60;: Default status. When the parent live stream is in disconnected status, simulcast targets will be idle state.   * &#x60;starting&#x60;: The simulcast target transitions into this state when the parent live stream transition into connected state.   * &#x60;broadcasting&#x60;: The simulcast target has successfully connected to the third party live streaming service and is pushing video to that service.   * &#x60;errored&#x60;: The simulcast target encountered an error either while attempting to connect to the third party live streaming service, or mid-broadcasting. Compared to other errored statuses in the Mux Video API, a simulcast may transition back into the broadcasting state if a connection with the service can be re-established. </value>
+        /// <value>The current status of the simulcast target. See Statuses below for detailed description.   * &#x60;idle&#x60;: Default status. When the parent live stream is in disconnected status, simulcast targets will be idle state.   * &#x60;starting&#x60;: The simulcast target transitions into this state when the parent live stream transition into connected state.   * &#x60;broadcasting&#x60;: The simulcast target has successfully connected to the third party live streaming service and is pushing video to that service.   * &#x60;errored&#x60;: The simulcast target encountered an error either while attempting to connect to the third party live streaming service, or mid-broadcasting. When a simulcast target has this status it will have an &#x60;error_severity&#x60; field with more details about the error. </value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum StatusEnum
         {
@@ -67,26 +67,56 @@ namespace Mux.Csharp.Sdk.Model
 
 
         /// <summary>
-        /// The current status of the simulcast target. See Statuses below for detailed description.   * &#x60;idle&#x60;: Default status. When the parent live stream is in disconnected status, simulcast targets will be idle state.   * &#x60;starting&#x60;: The simulcast target transitions into this state when the parent live stream transition into connected state.   * &#x60;broadcasting&#x60;: The simulcast target has successfully connected to the third party live streaming service and is pushing video to that service.   * &#x60;errored&#x60;: The simulcast target encountered an error either while attempting to connect to the third party live streaming service, or mid-broadcasting. Compared to other errored statuses in the Mux Video API, a simulcast may transition back into the broadcasting state if a connection with the service can be re-established. 
+        /// The current status of the simulcast target. See Statuses below for detailed description.   * &#x60;idle&#x60;: Default status. When the parent live stream is in disconnected status, simulcast targets will be idle state.   * &#x60;starting&#x60;: The simulcast target transitions into this state when the parent live stream transition into connected state.   * &#x60;broadcasting&#x60;: The simulcast target has successfully connected to the third party live streaming service and is pushing video to that service.   * &#x60;errored&#x60;: The simulcast target encountered an error either while attempting to connect to the third party live streaming service, or mid-broadcasting. When a simulcast target has this status it will have an &#x60;error_severity&#x60; field with more details about the error. 
         /// </summary>
-        /// <value>The current status of the simulcast target. See Statuses below for detailed description.   * &#x60;idle&#x60;: Default status. When the parent live stream is in disconnected status, simulcast targets will be idle state.   * &#x60;starting&#x60;: The simulcast target transitions into this state when the parent live stream transition into connected state.   * &#x60;broadcasting&#x60;: The simulcast target has successfully connected to the third party live streaming service and is pushing video to that service.   * &#x60;errored&#x60;: The simulcast target encountered an error either while attempting to connect to the third party live streaming service, or mid-broadcasting. Compared to other errored statuses in the Mux Video API, a simulcast may transition back into the broadcasting state if a connection with the service can be re-established. </value>
+        /// <value>The current status of the simulcast target. See Statuses below for detailed description.   * &#x60;idle&#x60;: Default status. When the parent live stream is in disconnected status, simulcast targets will be idle state.   * &#x60;starting&#x60;: The simulcast target transitions into this state when the parent live stream transition into connected state.   * &#x60;broadcasting&#x60;: The simulcast target has successfully connected to the third party live streaming service and is pushing video to that service.   * &#x60;errored&#x60;: The simulcast target encountered an error either while attempting to connect to the third party live streaming service, or mid-broadcasting. When a simulcast target has this status it will have an &#x60;error_severity&#x60; field with more details about the error. </value>
         [DataMember(Name = "status", EmitDefaultValue = false)]
         public StatusEnum? Status { get; set; }
+        /// <summary>
+        /// The severity of the error encountered by the simulcast target. This field is only set when the simulcast target is in the &#x60;errored&#x60; status. See the values of severities below and their descriptions.   * &#x60;normal&#x60;: The simulcast target encountered an error either while attempting to connect to the third party live streaming service, or mid-broadcasting. A simulcast may transition back into the broadcasting state if a connection with the service can be re-established.   * &#x60;fatal&#x60;: The simulcast target is incompatible with the current input to the parent live stream. No further attempts to this simulcast target will be made for the current live stream asset. 
+        /// </summary>
+        /// <value>The severity of the error encountered by the simulcast target. This field is only set when the simulcast target is in the &#x60;errored&#x60; status. See the values of severities below and their descriptions.   * &#x60;normal&#x60;: The simulcast target encountered an error either while attempting to connect to the third party live streaming service, or mid-broadcasting. A simulcast may transition back into the broadcasting state if a connection with the service can be re-established.   * &#x60;fatal&#x60;: The simulcast target is incompatible with the current input to the parent live stream. No further attempts to this simulcast target will be made for the current live stream asset. </value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum ErrorSeverityEnum
+        {
+            /// <summary>
+            /// Enum Normal for value: normal
+            /// </summary>
+            [EnumMember(Value = "normal")]
+            Normal = 1,
+
+            /// <summary>
+            /// Enum Fatal for value: fatal
+            /// </summary>
+            [EnumMember(Value = "fatal")]
+            Fatal = 2
+
+        }
+
+
+        /// <summary>
+        /// The severity of the error encountered by the simulcast target. This field is only set when the simulcast target is in the &#x60;errored&#x60; status. See the values of severities below and their descriptions.   * &#x60;normal&#x60;: The simulcast target encountered an error either while attempting to connect to the third party live streaming service, or mid-broadcasting. A simulcast may transition back into the broadcasting state if a connection with the service can be re-established.   * &#x60;fatal&#x60;: The simulcast target is incompatible with the current input to the parent live stream. No further attempts to this simulcast target will be made for the current live stream asset. 
+        /// </summary>
+        /// <value>The severity of the error encountered by the simulcast target. This field is only set when the simulcast target is in the &#x60;errored&#x60; status. See the values of severities below and their descriptions.   * &#x60;normal&#x60;: The simulcast target encountered an error either while attempting to connect to the third party live streaming service, or mid-broadcasting. A simulcast may transition back into the broadcasting state if a connection with the service can be re-established.   * &#x60;fatal&#x60;: The simulcast target is incompatible with the current input to the parent live stream. No further attempts to this simulcast target will be made for the current live stream asset. </value>
+        [DataMember(Name = "error_severity", EmitDefaultValue = false)]
+        public ErrorSeverityEnum? ErrorSeverity { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="SimulcastTarget" /> class.
         /// </summary>
         /// <param name="id">ID of the Simulcast Target.</param>
         /// <param name="passthrough">Arbitrary user-supplied metadata set when creating a simulcast target..</param>
-        /// <param name="status">The current status of the simulcast target. See Statuses below for detailed description.   * &#x60;idle&#x60;: Default status. When the parent live stream is in disconnected status, simulcast targets will be idle state.   * &#x60;starting&#x60;: The simulcast target transitions into this state when the parent live stream transition into connected state.   * &#x60;broadcasting&#x60;: The simulcast target has successfully connected to the third party live streaming service and is pushing video to that service.   * &#x60;errored&#x60;: The simulcast target encountered an error either while attempting to connect to the third party live streaming service, or mid-broadcasting. Compared to other errored statuses in the Mux Video API, a simulcast may transition back into the broadcasting state if a connection with the service can be re-established. .</param>
-        /// <param name="streamKey">Stream Key represents an stream identifier for the third party live streaming service to simulcast the parent live stream too..</param>
-        /// <param name="url">RTMP hostname including the application name for the third party live streaming service..</param>
-        public SimulcastTarget(string id = default(string), string passthrough = default(string), StatusEnum? status = default(StatusEnum?), string streamKey = default(string), string url = default(string))
+        /// <param name="status">The current status of the simulcast target. See Statuses below for detailed description.   * &#x60;idle&#x60;: Default status. When the parent live stream is in disconnected status, simulcast targets will be idle state.   * &#x60;starting&#x60;: The simulcast target transitions into this state when the parent live stream transition into connected state.   * &#x60;broadcasting&#x60;: The simulcast target has successfully connected to the third party live streaming service and is pushing video to that service.   * &#x60;errored&#x60;: The simulcast target encountered an error either while attempting to connect to the third party live streaming service, or mid-broadcasting. When a simulcast target has this status it will have an &#x60;error_severity&#x60; field with more details about the error. .</param>
+        /// <param name="streamKey">Stream Key represents a stream identifier on the third party live streaming service to send the parent live stream to. Only used for RTMP(s) simulcast destinations..</param>
+        /// <param name="url">The RTMP(s) or SRT endpoint for a simulcast destination. * For RTMP(s) destinations, this should include the application name for the third party live streaming service, for example: &#x60;rtmp://live.example.com/app&#x60;. * For SRT destinations, this should be a fully formed SRT connection string, for example: &#x60;srt://srt-live.example.com:1234?streamid&#x3D;{stream_key}&amp;passphrase&#x3D;{srt_passphrase}&#x60;.  Note: SRT simulcast targets can only be used when an source is connected over SRT. .</param>
+        /// <param name="errorSeverity">The severity of the error encountered by the simulcast target. This field is only set when the simulcast target is in the &#x60;errored&#x60; status. See the values of severities below and their descriptions.   * &#x60;normal&#x60;: The simulcast target encountered an error either while attempting to connect to the third party live streaming service, or mid-broadcasting. A simulcast may transition back into the broadcasting state if a connection with the service can be re-established.   * &#x60;fatal&#x60;: The simulcast target is incompatible with the current input to the parent live stream. No further attempts to this simulcast target will be made for the current live stream asset. .</param>
+        public SimulcastTarget(string id = default(string), string passthrough = default(string), StatusEnum? status = default(StatusEnum?), string streamKey = default(string), string url = default(string), ErrorSeverityEnum? errorSeverity = default(ErrorSeverityEnum?))
         {
             this.Id = id;
             this.Passthrough = passthrough;
             this.Status = status;
             this.StreamKey = streamKey;
             this.Url = url;
+            this.ErrorSeverity = errorSeverity;
             this.AdditionalProperties = new Dictionary<string, object>();
         }
 
@@ -105,16 +135,16 @@ namespace Mux.Csharp.Sdk.Model
         public string Passthrough { get; set; }
 
         /// <summary>
-        /// Stream Key represents an stream identifier for the third party live streaming service to simulcast the parent live stream too.
+        /// Stream Key represents a stream identifier on the third party live streaming service to send the parent live stream to. Only used for RTMP(s) simulcast destinations.
         /// </summary>
-        /// <value>Stream Key represents an stream identifier for the third party live streaming service to simulcast the parent live stream too.</value>
+        /// <value>Stream Key represents a stream identifier on the third party live streaming service to send the parent live stream to. Only used for RTMP(s) simulcast destinations.</value>
         [DataMember(Name = "stream_key", EmitDefaultValue = false)]
         public string StreamKey { get; set; }
 
         /// <summary>
-        /// RTMP hostname including the application name for the third party live streaming service.
+        /// The RTMP(s) or SRT endpoint for a simulcast destination. * For RTMP(s) destinations, this should include the application name for the third party live streaming service, for example: &#x60;rtmp://live.example.com/app&#x60;. * For SRT destinations, this should be a fully formed SRT connection string, for example: &#x60;srt://srt-live.example.com:1234?streamid&#x3D;{stream_key}&amp;passphrase&#x3D;{srt_passphrase}&#x60;.  Note: SRT simulcast targets can only be used when an source is connected over SRT. 
         /// </summary>
-        /// <value>RTMP hostname including the application name for the third party live streaming service.</value>
+        /// <value>The RTMP(s) or SRT endpoint for a simulcast destination. * For RTMP(s) destinations, this should include the application name for the third party live streaming service, for example: &#x60;rtmp://live.example.com/app&#x60;. * For SRT destinations, this should be a fully formed SRT connection string, for example: &#x60;srt://srt-live.example.com:1234?streamid&#x3D;{stream_key}&amp;passphrase&#x3D;{srt_passphrase}&#x60;.  Note: SRT simulcast targets can only be used when an source is connected over SRT. </value>
         [DataMember(Name = "url", EmitDefaultValue = false)]
         public string Url { get; set; }
 
@@ -137,6 +167,7 @@ namespace Mux.Csharp.Sdk.Model
             sb.Append("  Status: ").Append(Status).Append("\n");
             sb.Append("  StreamKey: ").Append(StreamKey).Append("\n");
             sb.Append("  Url: ").Append(Url).Append("\n");
+            sb.Append("  ErrorSeverity: ").Append(ErrorSeverity).Append("\n");
             sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -196,6 +227,10 @@ namespace Mux.Csharp.Sdk.Model
                     this.Url == input.Url ||
                     (this.Url != null &&
                     this.Url.Equals(input.Url))
+                ) && 
+                (
+                    this.ErrorSeverity == input.ErrorSeverity ||
+                    this.ErrorSeverity.Equals(input.ErrorSeverity)
                 )
                 && (this.AdditionalProperties.Count == input.AdditionalProperties.Count && !this.AdditionalProperties.Except(input.AdditionalProperties).Any());
         }
@@ -226,6 +261,7 @@ namespace Mux.Csharp.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Url.GetHashCode();
                 }
+                hashCode = (hashCode * 59) + this.ErrorSeverity.GetHashCode();
                 if (this.AdditionalProperties != null)
                 {
                     hashCode = (hashCode * 59) + this.AdditionalProperties.GetHashCode();
