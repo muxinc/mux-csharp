@@ -33,9 +33,9 @@ namespace Mux.Csharp.Sdk.Model
     public partial class UpdateAssetMP4SupportRequest : IEquatable<UpdateAssetMP4SupportRequest>, IValidatableObject
     {
         /// <summary>
-        /// String value for the level of mp4 support
+        /// Specify what level of support for mp4 playback.  * The &#x60;capped-1080p&#x60; option produces a single MP4 file, called &#x60;capped-1080p.mp4&#x60;, with the video resolution capped at 1080p. This option produces an &#x60;audio.m4a&#x60; file for an audio-only asset. * The &#x60;audio-only&#x60; option produces a single M4A file, called &#x60;audio.m4a&#x60; for a video or an audio-only asset. MP4 generation will error when this option is specified for a video-only asset. * The &#x60;audio-only,capped-1080p&#x60; option produces both the &#x60;audio.m4a&#x60; and &#x60;capped-1080p.mp4&#x60; files. Only the &#x60;capped-1080p.mp4&#x60; file is produced for a video-only asset, while only the &#x60;audio.m4a&#x60; file is produced for an audio-only asset.  The &#x60;standard&#x60;(deprecated) option produces up to three MP4 files with different levels of resolution (&#x60;high.mp4&#x60;, &#x60;medium.mp4&#x60;, &#x60;low.mp4&#x60;, or &#x60;audio.m4a&#x60; for an audio-only asset).  &#x60;none&#x60; will delete the MP4s from the asset in question. 
         /// </summary>
-        /// <value>String value for the level of mp4 support</value>
+        /// <value>Specify what level of support for mp4 playback.  * The &#x60;capped-1080p&#x60; option produces a single MP4 file, called &#x60;capped-1080p.mp4&#x60;, with the video resolution capped at 1080p. This option produces an &#x60;audio.m4a&#x60; file for an audio-only asset. * The &#x60;audio-only&#x60; option produces a single M4A file, called &#x60;audio.m4a&#x60; for a video or an audio-only asset. MP4 generation will error when this option is specified for a video-only asset. * The &#x60;audio-only,capped-1080p&#x60; option produces both the &#x60;audio.m4a&#x60; and &#x60;capped-1080p.mp4&#x60; files. Only the &#x60;capped-1080p.mp4&#x60; file is produced for a video-only asset, while only the &#x60;audio.m4a&#x60; file is produced for an audio-only asset.  The &#x60;standard&#x60;(deprecated) option produces up to three MP4 files with different levels of resolution (&#x60;high.mp4&#x60;, &#x60;medium.mp4&#x60;, &#x60;low.mp4&#x60;, or &#x60;audio.m4a&#x60; for an audio-only asset).  &#x60;none&#x60; will delete the MP4s from the asset in question. </value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum Mp4SupportEnum
         {
@@ -49,21 +49,39 @@ namespace Mux.Csharp.Sdk.Model
             /// Enum None for value: none
             /// </summary>
             [EnumMember(Value = "none")]
-            None = 2
+            None = 2,
+
+            /// <summary>
+            /// Enum Capped1080p for value: capped-1080p
+            /// </summary>
+            [EnumMember(Value = "capped-1080p")]
+            Capped1080p = 3,
+
+            /// <summary>
+            /// Enum AudioOnly for value: audio-only
+            /// </summary>
+            [EnumMember(Value = "audio-only")]
+            AudioOnly = 4,
+
+            /// <summary>
+            /// Enum AudioOnlycapped1080p for value: audio-only,capped-1080p
+            /// </summary>
+            [EnumMember(Value = "audio-only,capped-1080p")]
+            AudioOnlycapped1080p = 5
 
         }
 
 
         /// <summary>
-        /// String value for the level of mp4 support
+        /// Specify what level of support for mp4 playback.  * The &#x60;capped-1080p&#x60; option produces a single MP4 file, called &#x60;capped-1080p.mp4&#x60;, with the video resolution capped at 1080p. This option produces an &#x60;audio.m4a&#x60; file for an audio-only asset. * The &#x60;audio-only&#x60; option produces a single M4A file, called &#x60;audio.m4a&#x60; for a video or an audio-only asset. MP4 generation will error when this option is specified for a video-only asset. * The &#x60;audio-only,capped-1080p&#x60; option produces both the &#x60;audio.m4a&#x60; and &#x60;capped-1080p.mp4&#x60; files. Only the &#x60;capped-1080p.mp4&#x60; file is produced for a video-only asset, while only the &#x60;audio.m4a&#x60; file is produced for an audio-only asset.  The &#x60;standard&#x60;(deprecated) option produces up to three MP4 files with different levels of resolution (&#x60;high.mp4&#x60;, &#x60;medium.mp4&#x60;, &#x60;low.mp4&#x60;, or &#x60;audio.m4a&#x60; for an audio-only asset).  &#x60;none&#x60; will delete the MP4s from the asset in question. 
         /// </summary>
-        /// <value>String value for the level of mp4 support</value>
+        /// <value>Specify what level of support for mp4 playback.  * The &#x60;capped-1080p&#x60; option produces a single MP4 file, called &#x60;capped-1080p.mp4&#x60;, with the video resolution capped at 1080p. This option produces an &#x60;audio.m4a&#x60; file for an audio-only asset. * The &#x60;audio-only&#x60; option produces a single M4A file, called &#x60;audio.m4a&#x60; for a video or an audio-only asset. MP4 generation will error when this option is specified for a video-only asset. * The &#x60;audio-only,capped-1080p&#x60; option produces both the &#x60;audio.m4a&#x60; and &#x60;capped-1080p.mp4&#x60; files. Only the &#x60;capped-1080p.mp4&#x60; file is produced for a video-only asset, while only the &#x60;audio.m4a&#x60; file is produced for an audio-only asset.  The &#x60;standard&#x60;(deprecated) option produces up to three MP4 files with different levels of resolution (&#x60;high.mp4&#x60;, &#x60;medium.mp4&#x60;, &#x60;low.mp4&#x60;, or &#x60;audio.m4a&#x60; for an audio-only asset).  &#x60;none&#x60; will delete the MP4s from the asset in question. </value>
         [DataMember(Name = "mp4_support", EmitDefaultValue = false)]
         public Mp4SupportEnum? Mp4Support { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="UpdateAssetMP4SupportRequest" /> class.
         /// </summary>
-        /// <param name="mp4Support">String value for the level of mp4 support.</param>
+        /// <param name="mp4Support">Specify what level of support for mp4 playback.  * The &#x60;capped-1080p&#x60; option produces a single MP4 file, called &#x60;capped-1080p.mp4&#x60;, with the video resolution capped at 1080p. This option produces an &#x60;audio.m4a&#x60; file for an audio-only asset. * The &#x60;audio-only&#x60; option produces a single M4A file, called &#x60;audio.m4a&#x60; for a video or an audio-only asset. MP4 generation will error when this option is specified for a video-only asset. * The &#x60;audio-only,capped-1080p&#x60; option produces both the &#x60;audio.m4a&#x60; and &#x60;capped-1080p.mp4&#x60; files. Only the &#x60;capped-1080p.mp4&#x60; file is produced for a video-only asset, while only the &#x60;audio.m4a&#x60; file is produced for an audio-only asset.  The &#x60;standard&#x60;(deprecated) option produces up to three MP4 files with different levels of resolution (&#x60;high.mp4&#x60;, &#x60;medium.mp4&#x60;, &#x60;low.mp4&#x60;, or &#x60;audio.m4a&#x60; for an audio-only asset).  &#x60;none&#x60; will delete the MP4s from the asset in question. .</param>
         public UpdateAssetMP4SupportRequest(Mp4SupportEnum? mp4Support = default(Mp4SupportEnum?))
         {
             this.Mp4Support = mp4Support;

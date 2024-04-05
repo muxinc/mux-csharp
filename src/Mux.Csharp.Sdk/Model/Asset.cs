@@ -263,7 +263,25 @@ namespace Mux.Csharp.Sdk.Model
             /// Enum None for value: none
             /// </summary>
             [EnumMember(Value = "none")]
-            None = 2
+            None = 2,
+
+            /// <summary>
+            /// Enum Capped1080p for value: capped-1080p
+            /// </summary>
+            [EnumMember(Value = "capped-1080p")]
+            Capped1080p = 3,
+
+            /// <summary>
+            /// Enum AudioOnly for value: audio-only
+            /// </summary>
+            [EnumMember(Value = "audio-only")]
+            AudioOnly = 4,
+
+            /// <summary>
+            /// Enum AudioOnlycapped1080p for value: audio-only,capped-1080p
+            /// </summary>
+            [EnumMember(Value = "audio-only,capped-1080p")]
+            AudioOnlycapped1080p = 5
 
         }
 
