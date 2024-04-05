@@ -60,7 +60,13 @@ namespace Mux.Csharp.Sdk.Model
             /// Enum AudioM4a for value: audio.m4a
             /// </summary>
             [EnumMember(Value = "audio.m4a")]
-            AudioM4a = 4
+            AudioM4a = 4,
+
+            /// <summary>
+            /// Enum Capped1080pMp4 for value: capped-1080p.mp4
+            /// </summary>
+            [EnumMember(Value = "capped-1080p.mp4")]
+            Capped1080pMp4 = 5
 
         }
 
