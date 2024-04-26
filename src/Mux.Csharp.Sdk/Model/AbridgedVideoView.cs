@@ -48,7 +48,8 @@ namespace Mux.Csharp.Sdk.Model
         /// <param name="viewEnd">viewEnd.</param>
         /// <param name="viewerExperienceScore">viewerExperienceScore.</param>
         /// <param name="watchTime">watchTime.</param>
-        public AbridgedVideoView(string id = default(string), string viewerOsFamily = default(string), string viewerApplicationName = default(string), string videoTitle = default(string), long totalRowCount = default(long), string playerErrorMessage = default(string), string playerErrorCode = default(string), int? errorTypeId = default(int?), string countryCode = default(string), string viewStart = default(string), string viewEnd = default(string), float? viewerExperienceScore = default(float?), int? watchTime = default(int?))
+        /// <param name="playbackFailure">playbackFailure.</param>
+        public AbridgedVideoView(string id = default(string), string viewerOsFamily = default(string), string viewerApplicationName = default(string), string videoTitle = default(string), long totalRowCount = default(long), string playerErrorMessage = default(string), string playerErrorCode = default(string), int? errorTypeId = default(int?), string countryCode = default(string), string viewStart = default(string), string viewEnd = default(string), float? viewerExperienceScore = default(float?), int? watchTime = default(int?), bool playbackFailure = default(bool))
         {
             this.Id = id;
             this.ViewerOsFamily = viewerOsFamily;
@@ -63,6 +64,7 @@ namespace Mux.Csharp.Sdk.Model
             this.ViewEnd = viewEnd;
             this.ViewerExperienceScore = viewerExperienceScore;
             this.WatchTime = watchTime;
+            this.PlaybackFailure = playbackFailure;
             this.AdditionalProperties = new Dictionary<string, object>();
         }
 
@@ -145,6 +147,12 @@ namespace Mux.Csharp.Sdk.Model
         public int? WatchTime { get; set; }
 
         /// <summary>
+        /// Gets or Sets PlaybackFailure
+        /// </summary>
+        [DataMember(Name = "playback_failure", EmitDefaultValue = true)]
+        public bool PlaybackFailure { get; set; }
+
+        /// <summary>
         /// Gets or Sets additional properties
         /// </summary>
         [JsonExtensionData]
@@ -171,6 +179,7 @@ namespace Mux.Csharp.Sdk.Model
             sb.Append("  ViewEnd: ").Append(ViewEnd).Append("\n");
             sb.Append("  ViewerExperienceScore: ").Append(ViewerExperienceScore).Append("\n");
             sb.Append("  WatchTime: ").Append(WatchTime).Append("\n");
+            sb.Append("  PlaybackFailure: ").Append(PlaybackFailure).Append("\n");
             sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -270,6 +279,10 @@ namespace Mux.Csharp.Sdk.Model
                     this.WatchTime == input.WatchTime ||
                     (this.WatchTime != null &&
                     this.WatchTime.Equals(input.WatchTime))
+                ) && 
+                (
+                    this.PlaybackFailure == input.PlaybackFailure ||
+                    this.PlaybackFailure.Equals(input.PlaybackFailure)
                 )
                 && (this.AdditionalProperties.Count == input.AdditionalProperties.Count && !this.AdditionalProperties.Except(input.AdditionalProperties).Any());
         }
@@ -332,6 +345,7 @@ namespace Mux.Csharp.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.WatchTime.GetHashCode();
                 }
+                hashCode = (hashCode * 59) + this.PlaybackFailure.GetHashCode();
                 if (this.AdditionalProperties != null)
                 {
                     hashCode = (hashCode * 59) + this.AdditionalProperties.GetHashCode();

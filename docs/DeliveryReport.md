@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **AssetState** | **string** | The state of the asset. | [optional] 
 **AssetDuration** | **double** | The duration of the asset in seconds. | [optional] 
 **AssetResolutionTier** | **string** | The resolution tier that the asset was ingested at, affecting billing for ingest &amp; storage | [optional] 
+**AssetEncodingTier** | **string** | The encoding tier that the asset was ingested at. [See the encoding tiers guide for more details.](https://docs.mux.com/guides/use-encoding-tiers) | [optional] 
 **DeliveredSeconds** | **double** | Total number of delivered seconds during this time window. | [optional] 
 **DeliveredSecondsByResolution** | [**DeliveryReportDeliveredSecondsByResolution**](DeliveryReportDeliveredSecondsByResolution.md) |  | [optional] 
 

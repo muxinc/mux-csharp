@@ -136,6 +136,29 @@ namespace Mux.Csharp.Sdk.Api
         /// <param name="updateReferrerDomainRestrictionRequest"></param>
         /// <returns>ApiResponse of PlaybackRestrictionResponse</returns>
         ApiResponse<PlaybackRestrictionResponse> UpdateReferrerDomainRestrictionWithHttpInfo(string PLAYBACK_RESTRICTION_ID, UpdateReferrerDomainRestrictionRequest updateReferrerDomainRestrictionRequest);
+        /// <summary>
+        /// Update the User Agent Restriction
+        /// </summary>
+        /// <remarks>
+        /// Allows you to modify how Mux validates playback requests with different user agents.  Please see [Using User-Agent HTTP header for validation](https://docs.mux.com/guides/secure-video-playback#using-user-agent-http-header-for-validation) for more details on this feature.
+        /// </remarks>
+        /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="PLAYBACK_RESTRICTION_ID">ID of the Playback Restriction.</param>
+        /// <param name="updateUserAgentRestrictionRequest"></param>
+        /// <returns>PlaybackRestrictionResponse</returns>
+        PlaybackRestrictionResponse UpdateUserAgentRestriction(string PLAYBACK_RESTRICTION_ID, UpdateUserAgentRestrictionRequest updateUserAgentRestrictionRequest);
+
+        /// <summary>
+        /// Update the User Agent Restriction
+        /// </summary>
+        /// <remarks>
+        /// Allows you to modify how Mux validates playback requests with different user agents.  Please see [Using User-Agent HTTP header for validation](https://docs.mux.com/guides/secure-video-playback#using-user-agent-http-header-for-validation) for more details on this feature.
+        /// </remarks>
+        /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="PLAYBACK_RESTRICTION_ID">ID of the Playback Restriction.</param>
+        /// <param name="updateUserAgentRestrictionRequest"></param>
+        /// <returns>ApiResponse of PlaybackRestrictionResponse</returns>
+        ApiResponse<PlaybackRestrictionResponse> UpdateUserAgentRestrictionWithHttpInfo(string PLAYBACK_RESTRICTION_ID, UpdateUserAgentRestrictionRequest updateUserAgentRestrictionRequest);
         #endregion Synchronous Operations
     }
 
@@ -264,6 +287,31 @@ namespace Mux.Csharp.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (PlaybackRestrictionResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<PlaybackRestrictionResponse>> UpdateReferrerDomainRestrictionWithHttpInfoAsync(string PLAYBACK_RESTRICTION_ID, UpdateReferrerDomainRestrictionRequest updateReferrerDomainRestrictionRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// Update the User Agent Restriction
+        /// </summary>
+        /// <remarks>
+        /// Allows you to modify how Mux validates playback requests with different user agents.  Please see [Using User-Agent HTTP header for validation](https://docs.mux.com/guides/secure-video-playback#using-user-agent-http-header-for-validation) for more details on this feature.
+        /// </remarks>
+        /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="PLAYBACK_RESTRICTION_ID">ID of the Playback Restriction.</param>
+        /// <param name="updateUserAgentRestrictionRequest"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of PlaybackRestrictionResponse</returns>
+        System.Threading.Tasks.Task<PlaybackRestrictionResponse> UpdateUserAgentRestrictionAsync(string PLAYBACK_RESTRICTION_ID, UpdateUserAgentRestrictionRequest updateUserAgentRestrictionRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Update the User Agent Restriction
+        /// </summary>
+        /// <remarks>
+        /// Allows you to modify how Mux validates playback requests with different user agents.  Please see [Using User-Agent HTTP header for validation](https://docs.mux.com/guides/secure-video-playback#using-user-agent-http-header-for-validation) for more details on this feature.
+        /// </remarks>
+        /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="PLAYBACK_RESTRICTION_ID">ID of the Playback Restriction.</param>
+        /// <param name="updateUserAgentRestrictionRequest"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (PlaybackRestrictionResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<PlaybackRestrictionResponse>> UpdateUserAgentRestrictionWithHttpInfoAsync(string PLAYBACK_RESTRICTION_ID, UpdateUserAgentRestrictionRequest updateUserAgentRestrictionRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -1129,6 +1177,172 @@ namespace Mux.Csharp.Sdk.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("UpdateReferrerDomainRestriction", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Update the User Agent Restriction Allows you to modify how Mux validates playback requests with different user agents.  Please see [Using User-Agent HTTP header for validation](https://docs.mux.com/guides/secure-video-playback#using-user-agent-http-header-for-validation) for more details on this feature.
+        /// </summary>
+        /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="PLAYBACK_RESTRICTION_ID">ID of the Playback Restriction.</param>
+        /// <param name="updateUserAgentRestrictionRequest"></param>
+        /// <returns>PlaybackRestrictionResponse</returns>
+        public PlaybackRestrictionResponse UpdateUserAgentRestriction(string PLAYBACK_RESTRICTION_ID, UpdateUserAgentRestrictionRequest updateUserAgentRestrictionRequest)
+        {
+            Mux.Csharp.Sdk.Client.ApiResponse<PlaybackRestrictionResponse> localVarResponse = UpdateUserAgentRestrictionWithHttpInfo(PLAYBACK_RESTRICTION_ID, updateUserAgentRestrictionRequest);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Update the User Agent Restriction Allows you to modify how Mux validates playback requests with different user agents.  Please see [Using User-Agent HTTP header for validation](https://docs.mux.com/guides/secure-video-playback#using-user-agent-http-header-for-validation) for more details on this feature.
+        /// </summary>
+        /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="PLAYBACK_RESTRICTION_ID">ID of the Playback Restriction.</param>
+        /// <param name="updateUserAgentRestrictionRequest"></param>
+        /// <returns>ApiResponse of PlaybackRestrictionResponse</returns>
+        public Mux.Csharp.Sdk.Client.ApiResponse<PlaybackRestrictionResponse> UpdateUserAgentRestrictionWithHttpInfo(string PLAYBACK_RESTRICTION_ID, UpdateUserAgentRestrictionRequest updateUserAgentRestrictionRequest)
+        {
+            // verify the required parameter 'PLAYBACK_RESTRICTION_ID' is set
+            if (PLAYBACK_RESTRICTION_ID == null)
+            {
+                throw new Mux.Csharp.Sdk.Client.ApiException(400, "Missing required parameter 'PLAYBACK_RESTRICTION_ID' when calling PlaybackRestrictionsApi->UpdateUserAgentRestriction");
+            }
+
+            // verify the required parameter 'updateUserAgentRestrictionRequest' is set
+            if (updateUserAgentRestrictionRequest == null)
+            {
+                throw new Mux.Csharp.Sdk.Client.ApiException(400, "Missing required parameter 'updateUserAgentRestrictionRequest' when calling PlaybackRestrictionsApi->UpdateUserAgentRestriction");
+            }
+
+            Mux.Csharp.Sdk.Client.RequestOptions localVarRequestOptions = new Mux.Csharp.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = Mux.Csharp.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Mux.Csharp.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("PLAYBACK_RESTRICTION_ID", Mux.Csharp.Sdk.Client.ClientUtils.ParameterToString(PLAYBACK_RESTRICTION_ID)); // path parameter
+            localVarRequestOptions.Data = updateUserAgentRestrictionRequest;
+
+            // authentication (accessToken) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Mux.Csharp.Sdk.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Put<PlaybackRestrictionResponse>("/video/v1/playback-restrictions/{PLAYBACK_RESTRICTION_ID}/user_agent", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("UpdateUserAgentRestriction", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Update the User Agent Restriction Allows you to modify how Mux validates playback requests with different user agents.  Please see [Using User-Agent HTTP header for validation](https://docs.mux.com/guides/secure-video-playback#using-user-agent-http-header-for-validation) for more details on this feature.
+        /// </summary>
+        /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="PLAYBACK_RESTRICTION_ID">ID of the Playback Restriction.</param>
+        /// <param name="updateUserAgentRestrictionRequest"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of PlaybackRestrictionResponse</returns>
+        public async System.Threading.Tasks.Task<PlaybackRestrictionResponse> UpdateUserAgentRestrictionAsync(string PLAYBACK_RESTRICTION_ID, UpdateUserAgentRestrictionRequest updateUserAgentRestrictionRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            Mux.Csharp.Sdk.Client.ApiResponse<PlaybackRestrictionResponse> localVarResponse = await UpdateUserAgentRestrictionWithHttpInfoAsync(PLAYBACK_RESTRICTION_ID, updateUserAgentRestrictionRequest, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Update the User Agent Restriction Allows you to modify how Mux validates playback requests with different user agents.  Please see [Using User-Agent HTTP header for validation](https://docs.mux.com/guides/secure-video-playback#using-user-agent-http-header-for-validation) for more details on this feature.
+        /// </summary>
+        /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="PLAYBACK_RESTRICTION_ID">ID of the Playback Restriction.</param>
+        /// <param name="updateUserAgentRestrictionRequest"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (PlaybackRestrictionResponse)</returns>
+        public async System.Threading.Tasks.Task<Mux.Csharp.Sdk.Client.ApiResponse<PlaybackRestrictionResponse>> UpdateUserAgentRestrictionWithHttpInfoAsync(string PLAYBACK_RESTRICTION_ID, UpdateUserAgentRestrictionRequest updateUserAgentRestrictionRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'PLAYBACK_RESTRICTION_ID' is set
+            if (PLAYBACK_RESTRICTION_ID == null)
+            {
+                throw new Mux.Csharp.Sdk.Client.ApiException(400, "Missing required parameter 'PLAYBACK_RESTRICTION_ID' when calling PlaybackRestrictionsApi->UpdateUserAgentRestriction");
+            }
+
+            // verify the required parameter 'updateUserAgentRestrictionRequest' is set
+            if (updateUserAgentRestrictionRequest == null)
+            {
+                throw new Mux.Csharp.Sdk.Client.ApiException(400, "Missing required parameter 'updateUserAgentRestrictionRequest' when calling PlaybackRestrictionsApi->UpdateUserAgentRestriction");
+            }
+
+
+            Mux.Csharp.Sdk.Client.RequestOptions localVarRequestOptions = new Mux.Csharp.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = Mux.Csharp.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Mux.Csharp.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("PLAYBACK_RESTRICTION_ID", Mux.Csharp.Sdk.Client.ClientUtils.ParameterToString(PLAYBACK_RESTRICTION_ID)); // path parameter
+            localVarRequestOptions.Data = updateUserAgentRestrictionRequest;
+
+            // authentication (accessToken) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Mux.Csharp.Sdk.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.PutAsync<PlaybackRestrictionResponse>("/video/v1/playback-restrictions/{PLAYBACK_RESTRICTION_ID}/user_agent", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("UpdateUserAgentRestriction", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;

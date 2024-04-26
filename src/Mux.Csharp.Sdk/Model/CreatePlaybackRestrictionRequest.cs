@@ -36,9 +36,11 @@ namespace Mux.Csharp.Sdk.Model
         /// Initializes a new instance of the <see cref="CreatePlaybackRestrictionRequest" /> class.
         /// </summary>
         /// <param name="referrer">referrer.</param>
-        public CreatePlaybackRestrictionRequest(ReferrerDomainRestriction referrer = default(ReferrerDomainRestriction))
+        /// <param name="userAgent">userAgent.</param>
+        public CreatePlaybackRestrictionRequest(ReferrerDomainRestriction referrer = default(ReferrerDomainRestriction), UserAgentRestrictionRequest userAgent = default(UserAgentRestrictionRequest))
         {
             this.Referrer = referrer;
+            this.UserAgent = userAgent;
             this.AdditionalProperties = new Dictionary<string, object>();
         }
 
@@ -47,6 +49,12 @@ namespace Mux.Csharp.Sdk.Model
         /// </summary>
         [DataMember(Name = "referrer", EmitDefaultValue = false)]
         public ReferrerDomainRestriction Referrer { get; set; }
+
+        /// <summary>
+        /// Gets or Sets UserAgent
+        /// </summary>
+        [DataMember(Name = "user_agent", EmitDefaultValue = false)]
+        public UserAgentRestrictionRequest UserAgent { get; set; }
 
         /// <summary>
         /// Gets or Sets additional properties
@@ -63,6 +71,7 @@ namespace Mux.Csharp.Sdk.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class CreatePlaybackRestrictionRequest {\n");
             sb.Append("  Referrer: ").Append(Referrer).Append("\n");
+            sb.Append("  UserAgent: ").Append(UserAgent).Append("\n");
             sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -103,6 +112,11 @@ namespace Mux.Csharp.Sdk.Model
                     this.Referrer == input.Referrer ||
                     (this.Referrer != null &&
                     this.Referrer.Equals(input.Referrer))
+                ) && 
+                (
+                    this.UserAgent == input.UserAgent ||
+                    (this.UserAgent != null &&
+                    this.UserAgent.Equals(input.UserAgent))
                 )
                 && (this.AdditionalProperties.Count == input.AdditionalProperties.Count && !this.AdditionalProperties.Except(input.AdditionalProperties).Any());
         }
@@ -119,6 +133,10 @@ namespace Mux.Csharp.Sdk.Model
                 if (this.Referrer != null)
                 {
                     hashCode = (hashCode * 59) + this.Referrer.GetHashCode();
+                }
+                if (this.UserAgent != null)
+                {
+                    hashCode = (hashCode * 59) + this.UserAgent.GetHashCode();
                 }
                 if (this.AdditionalProperties != null)
                 {

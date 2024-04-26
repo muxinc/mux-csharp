@@ -39,12 +39,14 @@ namespace Mux.Csharp.Sdk.Model
         /// <param name="createdAt">Time the Playback Restriction was created, defined as a Unix timestamp (seconds since epoch)..</param>
         /// <param name="updatedAt">Time the Playback Restriction was last updated, defined as a Unix timestamp (seconds since epoch)..</param>
         /// <param name="referrer">referrer.</param>
-        public PlaybackRestriction(string id = default(string), string createdAt = default(string), string updatedAt = default(string), ReferrerDomainRestriction referrer = default(ReferrerDomainRestriction))
+        /// <param name="userAgent">userAgent.</param>
+        public PlaybackRestriction(string id = default(string), string createdAt = default(string), string updatedAt = default(string), ReferrerDomainRestriction referrer = default(ReferrerDomainRestriction), UserAgentRestrictionSettings userAgent = default(UserAgentRestrictionSettings))
         {
             this.Id = id;
             this.CreatedAt = createdAt;
             this.UpdatedAt = updatedAt;
             this.Referrer = referrer;
+            this.UserAgent = userAgent;
             this.AdditionalProperties = new Dictionary<string, object>();
         }
 
@@ -76,6 +78,12 @@ namespace Mux.Csharp.Sdk.Model
         public ReferrerDomainRestriction Referrer { get; set; }
 
         /// <summary>
+        /// Gets or Sets UserAgent
+        /// </summary>
+        [DataMember(Name = "user_agent", EmitDefaultValue = false)]
+        public UserAgentRestrictionSettings UserAgent { get; set; }
+
+        /// <summary>
         /// Gets or Sets additional properties
         /// </summary>
         [JsonExtensionData]
@@ -93,6 +101,7 @@ namespace Mux.Csharp.Sdk.Model
             sb.Append("  CreatedAt: ").Append(CreatedAt).Append("\n");
             sb.Append("  UpdatedAt: ").Append(UpdatedAt).Append("\n");
             sb.Append("  Referrer: ").Append(Referrer).Append("\n");
+            sb.Append("  UserAgent: ").Append(UserAgent).Append("\n");
             sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -148,6 +157,11 @@ namespace Mux.Csharp.Sdk.Model
                     this.Referrer == input.Referrer ||
                     (this.Referrer != null &&
                     this.Referrer.Equals(input.Referrer))
+                ) && 
+                (
+                    this.UserAgent == input.UserAgent ||
+                    (this.UserAgent != null &&
+                    this.UserAgent.Equals(input.UserAgent))
                 )
                 && (this.AdditionalProperties.Count == input.AdditionalProperties.Count && !this.AdditionalProperties.Except(input.AdditionalProperties).Any());
         }
@@ -176,6 +190,10 @@ namespace Mux.Csharp.Sdk.Model
                 if (this.Referrer != null)
                 {
                     hashCode = (hashCode * 59) + this.Referrer.GetHashCode();
+                }
+                if (this.UserAgent != null)
+                {
+                    hashCode = (hashCode * 59) + this.UserAgent.GetHashCode();
                 }
                 if (this.AdditionalProperties != null)
                 {

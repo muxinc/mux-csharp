@@ -192,7 +192,13 @@ namespace Mux.Csharp.Sdk.Model
         /// <param name="playbackFailureErrorTypeId">playbackFailureErrorTypeId.</param>
         /// <param name="playbackBusinessExceptionErrorTypeId">playbackBusinessExceptionErrorTypeId.</param>
         /// <param name="videoStartupBusinessExceptionErrorTypeId">videoStartupBusinessExceptionErrorTypeId.</param>
-        public VideoView(string viewTotalUpscaling = default(string), string prerollAdAssetHostname = default(string), string playerSourceDomain = default(string), string region = default(string), string viewerUserAgent = default(string), bool? prerollRequested = default(bool?), string pageType = default(string), string startupScore = default(string), long? viewSeekDuration = default(long?), string countryName = default(string), int? playerSourceHeight = default(int?), string longitude = default(string), long? bufferingCount = default(long?), long? videoDuration = default(long?), string playerSourceType = default(string), string city = default(string), string viewId = default(string), string platformDescription = default(string), long? videoStartupPrerollRequestTime = default(long?), string viewerDeviceName = default(string), string videoSeries = default(string), string viewerApplicationName = default(string), string updatedAt = default(string), long? viewTotalContentPlaybackTime = default(long?), string cdn = default(string), string playerInstanceId = default(string), string videoLanguage = default(string), int? playerSourceWidth = default(int?), string playerErrorMessage = default(string), string playerMuxPluginVersion = default(string), bool watched = default(bool), string playbackScore = default(string), string pageUrl = default(string), string metro = default(string), long? viewMaxRequestLatency = default(long?), long? requestsForFirstPreroll = default(long?), string viewTotalDownscaling = default(string), string latitude = default(string), string playerSourceHostName = default(string), string insertedAt = default(string), string viewEnd = default(string), string muxEmbedVersion = default(string), string playerLanguage = default(string), long? pageLoadTime = default(long?), string viewerDeviceCategory = default(string), long? videoStartupPrerollLoadTime = default(long?), string playerVersion = default(string), long? watchTime = default(long?), string playerSourceStreamType = default(string), string prerollAdTagHostname = default(string), string viewerDeviceManufacturer = default(string), string rebufferingScore = default(string), string experimentName = default(string), string viewerOsVersion = default(string), bool playerPreload = default(bool), long? bufferingDuration = default(long?), long? playerViewCount = default(long?), string playerSoftware = default(string), long? playerLoadTime = default(long?), string platformSummary = default(string), string videoEncodingVariant = default(string), int? playerWidth = default(int?), long? viewSeekCount = default(long?), string viewerExperienceScore = default(string), int? viewErrorId = default(int?), string videoVariantName = default(string), bool? prerollPlayed = default(bool?), string viewerApplicationEngine = default(string), string viewerOsArchitecture = default(string), string playerErrorCode = default(string), string bufferingRate = default(string), List<VideoViewEvent> events = default(List<VideoViewEvent>), string playerName = default(string), string viewStart = default(string), long? viewAverageRequestThroughput = default(long?), string videoProducer = default(string), int? errorTypeId = default(int?), string muxViewerId = default(string), string videoId = default(string), string continentCode = default(string), string sessionId = default(string), bool exitBeforeVideoStart = default(bool), string videoContentType = default(string), string viewerOsFamily = default(string), string playerPoster = default(string), long? viewAverageRequestLatency = default(long?), string videoVariantId = default(string), long? playerSourceDuration = default(long?), string playerSourceUrl = default(string), string muxApiVersion = default(string), string videoTitle = default(string), string id = default(string), string shortTime = default(string), string rebufferPercentage = default(string), long? timeToFirstFrame = default(long?), string viewerUserId = default(string), string videoStreamType = default(string), long? playerStartupTime = default(long?), string viewerApplicationVersion = default(string), string viewMaxDownscalePercentage = default(string), string viewMaxUpscalePercentage = default(string), string countryCode = default(string), bool usedFullscreen = default(bool), string isp = default(string), long propertyId = default(long), bool playerAutoplay = default(bool), int? playerHeight = default(int?), long? asn = default(long?), string asnName = default(string), string qualityScore = default(string), string playerSoftwareVersion = default(string), string playerMuxPluginName = default(string), string subPropertyId = default(string), bool? playerRemotePlayed = default(bool?), string viewMaxPlayheadPosition = default(string), string viewPlayingTime = default(string), string viewSessionId = default(string), string viewerConnectionType = default(string), string viewerDeviceModel = default(string), double? weightedAverageBitrate = default(double?), string custom1 = default(string), string custom2 = default(string), string custom3 = default(string), string custom4 = default(string), string custom5 = default(string), string custom6 = default(string), string custom7 = default(string), string custom8 = default(string), string custom9 = default(string), string custom10 = default(string), long? liveStreamLatency = default(long?), string assetId = default(string), string environmentId = default(string), string liveStreamId = default(string), string muxEmbed = default(string), string playbackId = default(string), string playerErrorContext = default(string), string viewDrmType = default(string), long? viewDroppedFrameCount = default(long?), bool viewHasAd = default(bool), bool videoStartupFailure = default(bool), int? adAttemptCount = default(int?), int? adBreakCount = default(int?), int? adBreakErrorCount = default(int?), string adBreakErrorPercentage = default(string), int? adErrorCount = default(int?), string adErrorPercentage = default(string), int? adImpressionCount = default(int?), int? adStartupErrorCount = default(int?), string adStartupErrorPercentage = default(string), int? adExitBeforeStartCount = default(int?), string adExitBeforeStartPercentage = default(string), bool longResume = default(bool), bool longRebuffering = default(bool), int playbackFailureErrorTypeId = default(int), int playbackBusinessExceptionErrorTypeId = default(int), int videoStartupBusinessExceptionErrorTypeId = default(int))
+        /// <param name="playbackFailure">playbackFailure.</param>
+        /// <param name="adPlaybackFailureErrorTypeId">adPlaybackFailureErrorTypeId.</param>
+        /// <param name="viewContentStartupTime">viewContentStartupTime.</param>
+        /// <param name="adPrerollStartupTime">adPrerollStartupTime.</param>
+        /// <param name="adWatchTime">adWatchTime.</param>
+        /// <param name="viewContentWatchTime">viewContentWatchTime.</param>
+        public VideoView(string viewTotalUpscaling = default(string), string prerollAdAssetHostname = default(string), string playerSourceDomain = default(string), string region = default(string), string viewerUserAgent = default(string), bool? prerollRequested = default(bool?), string pageType = default(string), string startupScore = default(string), long? viewSeekDuration = default(long?), string countryName = default(string), int? playerSourceHeight = default(int?), string longitude = default(string), long? bufferingCount = default(long?), long? videoDuration = default(long?), string playerSourceType = default(string), string city = default(string), string viewId = default(string), string platformDescription = default(string), long? videoStartupPrerollRequestTime = default(long?), string viewerDeviceName = default(string), string videoSeries = default(string), string viewerApplicationName = default(string), string updatedAt = default(string), long? viewTotalContentPlaybackTime = default(long?), string cdn = default(string), string playerInstanceId = default(string), string videoLanguage = default(string), int? playerSourceWidth = default(int?), string playerErrorMessage = default(string), string playerMuxPluginVersion = default(string), bool watched = default(bool), string playbackScore = default(string), string pageUrl = default(string), string metro = default(string), long? viewMaxRequestLatency = default(long?), long? requestsForFirstPreroll = default(long?), string viewTotalDownscaling = default(string), string latitude = default(string), string playerSourceHostName = default(string), string insertedAt = default(string), string viewEnd = default(string), string muxEmbedVersion = default(string), string playerLanguage = default(string), long? pageLoadTime = default(long?), string viewerDeviceCategory = default(string), long? videoStartupPrerollLoadTime = default(long?), string playerVersion = default(string), long? watchTime = default(long?), string playerSourceStreamType = default(string), string prerollAdTagHostname = default(string), string viewerDeviceManufacturer = default(string), string rebufferingScore = default(string), string experimentName = default(string), string viewerOsVersion = default(string), bool playerPreload = default(bool), long? bufferingDuration = default(long?), long? playerViewCount = default(long?), string playerSoftware = default(string), long? playerLoadTime = default(long?), string platformSummary = default(string), string videoEncodingVariant = default(string), int? playerWidth = default(int?), long? viewSeekCount = default(long?), string viewerExperienceScore = default(string), int? viewErrorId = default(int?), string videoVariantName = default(string), bool? prerollPlayed = default(bool?), string viewerApplicationEngine = default(string), string viewerOsArchitecture = default(string), string playerErrorCode = default(string), string bufferingRate = default(string), List<VideoViewEvent> events = default(List<VideoViewEvent>), string playerName = default(string), string viewStart = default(string), long? viewAverageRequestThroughput = default(long?), string videoProducer = default(string), int? errorTypeId = default(int?), string muxViewerId = default(string), string videoId = default(string), string continentCode = default(string), string sessionId = default(string), bool exitBeforeVideoStart = default(bool), string videoContentType = default(string), string viewerOsFamily = default(string), string playerPoster = default(string), long? viewAverageRequestLatency = default(long?), string videoVariantId = default(string), long? playerSourceDuration = default(long?), string playerSourceUrl = default(string), string muxApiVersion = default(string), string videoTitle = default(string), string id = default(string), string shortTime = default(string), string rebufferPercentage = default(string), long? timeToFirstFrame = default(long?), string viewerUserId = default(string), string videoStreamType = default(string), long? playerStartupTime = default(long?), string viewerApplicationVersion = default(string), string viewMaxDownscalePercentage = default(string), string viewMaxUpscalePercentage = default(string), string countryCode = default(string), bool usedFullscreen = default(bool), string isp = default(string), long propertyId = default(long), bool playerAutoplay = default(bool), int? playerHeight = default(int?), long? asn = default(long?), string asnName = default(string), string qualityScore = default(string), string playerSoftwareVersion = default(string), string playerMuxPluginName = default(string), string subPropertyId = default(string), bool? playerRemotePlayed = default(bool?), string viewMaxPlayheadPosition = default(string), string viewPlayingTime = default(string), string viewSessionId = default(string), string viewerConnectionType = default(string), string viewerDeviceModel = default(string), double? weightedAverageBitrate = default(double?), string custom1 = default(string), string custom2 = default(string), string custom3 = default(string), string custom4 = default(string), string custom5 = default(string), string custom6 = default(string), string custom7 = default(string), string custom8 = default(string), string custom9 = default(string), string custom10 = default(string), long? liveStreamLatency = default(long?), string assetId = default(string), string environmentId = default(string), string liveStreamId = default(string), string muxEmbed = default(string), string playbackId = default(string), string playerErrorContext = default(string), string viewDrmType = default(string), long? viewDroppedFrameCount = default(long?), bool viewHasAd = default(bool), bool videoStartupFailure = default(bool), int? adAttemptCount = default(int?), int? adBreakCount = default(int?), int? adBreakErrorCount = default(int?), string adBreakErrorPercentage = default(string), int? adErrorCount = default(int?), string adErrorPercentage = default(string), int? adImpressionCount = default(int?), int? adStartupErrorCount = default(int?), string adStartupErrorPercentage = default(string), int? adExitBeforeStartCount = default(int?), string adExitBeforeStartPercentage = default(string), bool longResume = default(bool), bool longRebuffering = default(bool), int? playbackFailureErrorTypeId = default(int?), int? playbackBusinessExceptionErrorTypeId = default(int?), int? videoStartupBusinessExceptionErrorTypeId = default(int?), bool playbackFailure = default(bool), int? adPlaybackFailureErrorTypeId = default(int?), int? viewContentStartupTime = default(int?), int? adPrerollStartupTime = default(int?), int? adWatchTime = default(int?), int? viewContentWatchTime = default(int?))
         {
             this.ViewTotalUpscaling = viewTotalUpscaling;
             this.PrerollAdAssetHostname = prerollAdAssetHostname;
@@ -351,6 +357,12 @@ namespace Mux.Csharp.Sdk.Model
             this.PlaybackFailureErrorTypeId = playbackFailureErrorTypeId;
             this.PlaybackBusinessExceptionErrorTypeId = playbackBusinessExceptionErrorTypeId;
             this.VideoStartupBusinessExceptionErrorTypeId = videoStartupBusinessExceptionErrorTypeId;
+            this.PlaybackFailure = playbackFailure;
+            this.AdPlaybackFailureErrorTypeId = adPlaybackFailureErrorTypeId;
+            this.ViewContentStartupTime = viewContentStartupTime;
+            this.AdPrerollStartupTime = adPrerollStartupTime;
+            this.AdWatchTime = adWatchTime;
+            this.ViewContentWatchTime = viewContentWatchTime;
             this.AdditionalProperties = new Dictionary<string, object>();
         }
 
@@ -1281,20 +1293,56 @@ namespace Mux.Csharp.Sdk.Model
         /// <summary>
         /// Gets or Sets PlaybackFailureErrorTypeId
         /// </summary>
-        [DataMember(Name = "playback_failure_error_type_id", EmitDefaultValue = false)]
-        public int PlaybackFailureErrorTypeId { get; set; }
+        [DataMember(Name = "playback_failure_error_type_id", EmitDefaultValue = true)]
+        public int? PlaybackFailureErrorTypeId { get; set; }
 
         /// <summary>
         /// Gets or Sets PlaybackBusinessExceptionErrorTypeId
         /// </summary>
-        [DataMember(Name = "playback_business_exception_error_type_id", EmitDefaultValue = false)]
-        public int PlaybackBusinessExceptionErrorTypeId { get; set; }
+        [DataMember(Name = "playback_business_exception_error_type_id", EmitDefaultValue = true)]
+        public int? PlaybackBusinessExceptionErrorTypeId { get; set; }
 
         /// <summary>
         /// Gets or Sets VideoStartupBusinessExceptionErrorTypeId
         /// </summary>
-        [DataMember(Name = "video_startup_business_exception_error_type_id", EmitDefaultValue = false)]
-        public int VideoStartupBusinessExceptionErrorTypeId { get; set; }
+        [DataMember(Name = "video_startup_business_exception_error_type_id", EmitDefaultValue = true)]
+        public int? VideoStartupBusinessExceptionErrorTypeId { get; set; }
+
+        /// <summary>
+        /// Gets or Sets PlaybackFailure
+        /// </summary>
+        [DataMember(Name = "playback_failure", EmitDefaultValue = true)]
+        public bool PlaybackFailure { get; set; }
+
+        /// <summary>
+        /// Gets or Sets AdPlaybackFailureErrorTypeId
+        /// </summary>
+        [DataMember(Name = "ad_playback_failure_error_type_id", EmitDefaultValue = true)]
+        public int? AdPlaybackFailureErrorTypeId { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ViewContentStartupTime
+        /// </summary>
+        [DataMember(Name = "view_content_startup_time", EmitDefaultValue = true)]
+        public int? ViewContentStartupTime { get; set; }
+
+        /// <summary>
+        /// Gets or Sets AdPrerollStartupTime
+        /// </summary>
+        [DataMember(Name = "ad_preroll_startup_time", EmitDefaultValue = true)]
+        public int? AdPrerollStartupTime { get; set; }
+
+        /// <summary>
+        /// Gets or Sets AdWatchTime
+        /// </summary>
+        [DataMember(Name = "ad_watch_time", EmitDefaultValue = true)]
+        public int? AdWatchTime { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ViewContentWatchTime
+        /// </summary>
+        [DataMember(Name = "view_content_watch_time", EmitDefaultValue = true)]
+        public int? ViewContentWatchTime { get; set; }
 
         /// <summary>
         /// Gets or Sets additional properties
@@ -1467,6 +1515,12 @@ namespace Mux.Csharp.Sdk.Model
             sb.Append("  PlaybackFailureErrorTypeId: ").Append(PlaybackFailureErrorTypeId).Append("\n");
             sb.Append("  PlaybackBusinessExceptionErrorTypeId: ").Append(PlaybackBusinessExceptionErrorTypeId).Append("\n");
             sb.Append("  VideoStartupBusinessExceptionErrorTypeId: ").Append(VideoStartupBusinessExceptionErrorTypeId).Append("\n");
+            sb.Append("  PlaybackFailure: ").Append(PlaybackFailure).Append("\n");
+            sb.Append("  AdPlaybackFailureErrorTypeId: ").Append(AdPlaybackFailureErrorTypeId).Append("\n");
+            sb.Append("  ViewContentStartupTime: ").Append(ViewContentStartupTime).Append("\n");
+            sb.Append("  AdPrerollStartupTime: ").Append(AdPrerollStartupTime).Append("\n");
+            sb.Append("  AdWatchTime: ").Append(AdWatchTime).Append("\n");
+            sb.Append("  ViewContentWatchTime: ").Append(ViewContentWatchTime).Append("\n");
             sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -2266,15 +2320,47 @@ namespace Mux.Csharp.Sdk.Model
                 ) && 
                 (
                     this.PlaybackFailureErrorTypeId == input.PlaybackFailureErrorTypeId ||
-                    this.PlaybackFailureErrorTypeId.Equals(input.PlaybackFailureErrorTypeId)
+                    (this.PlaybackFailureErrorTypeId != null &&
+                    this.PlaybackFailureErrorTypeId.Equals(input.PlaybackFailureErrorTypeId))
                 ) && 
                 (
                     this.PlaybackBusinessExceptionErrorTypeId == input.PlaybackBusinessExceptionErrorTypeId ||
-                    this.PlaybackBusinessExceptionErrorTypeId.Equals(input.PlaybackBusinessExceptionErrorTypeId)
+                    (this.PlaybackBusinessExceptionErrorTypeId != null &&
+                    this.PlaybackBusinessExceptionErrorTypeId.Equals(input.PlaybackBusinessExceptionErrorTypeId))
                 ) && 
                 (
                     this.VideoStartupBusinessExceptionErrorTypeId == input.VideoStartupBusinessExceptionErrorTypeId ||
-                    this.VideoStartupBusinessExceptionErrorTypeId.Equals(input.VideoStartupBusinessExceptionErrorTypeId)
+                    (this.VideoStartupBusinessExceptionErrorTypeId != null &&
+                    this.VideoStartupBusinessExceptionErrorTypeId.Equals(input.VideoStartupBusinessExceptionErrorTypeId))
+                ) && 
+                (
+                    this.PlaybackFailure == input.PlaybackFailure ||
+                    this.PlaybackFailure.Equals(input.PlaybackFailure)
+                ) && 
+                (
+                    this.AdPlaybackFailureErrorTypeId == input.AdPlaybackFailureErrorTypeId ||
+                    (this.AdPlaybackFailureErrorTypeId != null &&
+                    this.AdPlaybackFailureErrorTypeId.Equals(input.AdPlaybackFailureErrorTypeId))
+                ) && 
+                (
+                    this.ViewContentStartupTime == input.ViewContentStartupTime ||
+                    (this.ViewContentStartupTime != null &&
+                    this.ViewContentStartupTime.Equals(input.ViewContentStartupTime))
+                ) && 
+                (
+                    this.AdPrerollStartupTime == input.AdPrerollStartupTime ||
+                    (this.AdPrerollStartupTime != null &&
+                    this.AdPrerollStartupTime.Equals(input.AdPrerollStartupTime))
+                ) && 
+                (
+                    this.AdWatchTime == input.AdWatchTime ||
+                    (this.AdWatchTime != null &&
+                    this.AdWatchTime.Equals(input.AdWatchTime))
+                ) && 
+                (
+                    this.ViewContentWatchTime == input.ViewContentWatchTime ||
+                    (this.ViewContentWatchTime != null &&
+                    this.ViewContentWatchTime.Equals(input.ViewContentWatchTime))
                 )
                 && (this.AdditionalProperties.Count == input.AdditionalProperties.Count && !this.AdditionalProperties.Except(input.AdditionalProperties).Any());
         }
@@ -2874,9 +2960,39 @@ namespace Mux.Csharp.Sdk.Model
                 }
                 hashCode = (hashCode * 59) + this.LongResume.GetHashCode();
                 hashCode = (hashCode * 59) + this.LongRebuffering.GetHashCode();
-                hashCode = (hashCode * 59) + this.PlaybackFailureErrorTypeId.GetHashCode();
-                hashCode = (hashCode * 59) + this.PlaybackBusinessExceptionErrorTypeId.GetHashCode();
-                hashCode = (hashCode * 59) + this.VideoStartupBusinessExceptionErrorTypeId.GetHashCode();
+                if (this.PlaybackFailureErrorTypeId != null)
+                {
+                    hashCode = (hashCode * 59) + this.PlaybackFailureErrorTypeId.GetHashCode();
+                }
+                if (this.PlaybackBusinessExceptionErrorTypeId != null)
+                {
+                    hashCode = (hashCode * 59) + this.PlaybackBusinessExceptionErrorTypeId.GetHashCode();
+                }
+                if (this.VideoStartupBusinessExceptionErrorTypeId != null)
+                {
+                    hashCode = (hashCode * 59) + this.VideoStartupBusinessExceptionErrorTypeId.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.PlaybackFailure.GetHashCode();
+                if (this.AdPlaybackFailureErrorTypeId != null)
+                {
+                    hashCode = (hashCode * 59) + this.AdPlaybackFailureErrorTypeId.GetHashCode();
+                }
+                if (this.ViewContentStartupTime != null)
+                {
+                    hashCode = (hashCode * 59) + this.ViewContentStartupTime.GetHashCode();
+                }
+                if (this.AdPrerollStartupTime != null)
+                {
+                    hashCode = (hashCode * 59) + this.AdPrerollStartupTime.GetHashCode();
+                }
+                if (this.AdWatchTime != null)
+                {
+                    hashCode = (hashCode * 59) + this.AdWatchTime.GetHashCode();
+                }
+                if (this.ViewContentWatchTime != null)
+                {
+                    hashCode = (hashCode * 59) + this.ViewContentWatchTime.GetHashCode();
+                }
                 if (this.AdditionalProperties != null)
                 {
                     hashCode = (hashCode * 59) + this.AdditionalProperties.GetHashCode();

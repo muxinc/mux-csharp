@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**GetPlaybackRestriction**](PlaybackRestrictionsApi.md#getplaybackrestriction) | **GET** /video/v1/playback-restrictions/{PLAYBACK_RESTRICTION_ID} | Retrieve a Playback Restriction
 [**ListPlaybackRestrictions**](PlaybackRestrictionsApi.md#listplaybackrestrictions) | **GET** /video/v1/playback-restrictions | List Playback Restrictions
 [**UpdateReferrerDomainRestriction**](PlaybackRestrictionsApi.md#updatereferrerdomainrestriction) | **PUT** /video/v1/playback-restrictions/{PLAYBACK_RESTRICTION_ID}/referrer | Update the Referrer Playback Restriction
+[**UpdateUserAgentRestriction**](PlaybackRestrictionsApi.md#updateuseragentrestriction) | **PUT** /video/v1/playback-restrictions/{PLAYBACK_RESTRICTION_ID}/user_agent | Update the User Agent Restriction
 
 
 <a name="createplaybackrestriction"></a>
@@ -367,6 +368,83 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **PLAYBACK_RESTRICTION_ID** | **string**| ID of the Playback Restriction. | 
  **updateReferrerDomainRestrictionRequest** | [**UpdateReferrerDomainRestrictionRequest**](UpdateReferrerDomainRestrictionRequest.md)|  | 
+
+### Return type
+
+[**PlaybackRestrictionResponse**](PlaybackRestrictionResponse.md)
+
+### Authorization
+
+[accessToken](../README.md#accessToken)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="updateuseragentrestriction"></a>
+# **UpdateUserAgentRestriction**
+> PlaybackRestrictionResponse UpdateUserAgentRestriction (string PLAYBACK_RESTRICTION_ID, UpdateUserAgentRestrictionRequest updateUserAgentRestrictionRequest)
+
+Update the User Agent Restriction
+
+Allows you to modify how Mux validates playback requests with different user agents.  Please see [Using User-Agent HTTP header for validation](https://docs.mux.com/guides/secure-video-playback#using-user-agent-http-header-for-validation) for more details on this feature.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Mux.Csharp.Sdk.Api;
+using Mux.Csharp.Sdk.Client;
+using Mux.Csharp.Sdk.Model;
+
+namespace Example
+{
+    public class UpdateUserAgentRestrictionExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.mux.com";
+            // Configure HTTP basic authorization: accessToken
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+
+            var apiInstance = new PlaybackRestrictionsApi(config);
+            var PLAYBACK_RESTRICTION_ID = "PLAYBACK_RESTRICTION_ID_example";  // string | ID of the Playback Restriction.
+            var updateUserAgentRestrictionRequest = new UpdateUserAgentRestrictionRequest(); // UpdateUserAgentRestrictionRequest | 
+
+            try
+            {
+                // Update the User Agent Restriction
+                PlaybackRestrictionResponse result = apiInstance.UpdateUserAgentRestriction(PLAYBACK_RESTRICTION_ID, updateUserAgentRestrictionRequest);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling PlaybackRestrictionsApi.UpdateUserAgentRestriction: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **PLAYBACK_RESTRICTION_ID** | **string**| ID of the Playback Restriction. | 
+ **updateUserAgentRestrictionRequest** | [**UpdateUserAgentRestrictionRequest**](UpdateUserAgentRestrictionRequest.md)|  | 
 
 ### Return type
 
