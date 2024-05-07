@@ -113,6 +113,34 @@ namespace Mux.Csharp.Sdk.Model
         [DataMember(Name = "asset_resolution_tier", EmitDefaultValue = false)]
         public AssetResolutionTierEnum? AssetResolutionTier { get; set; }
         /// <summary>
+        /// The encoding tier that the asset was ingested at. [See the encoding tiers guide for more details.](https://docs.mux.com/guides/use-encoding-tiers)
+        /// </summary>
+        /// <value>The encoding tier that the asset was ingested at. [See the encoding tiers guide for more details.](https://docs.mux.com/guides/use-encoding-tiers)</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum AssetEncodingTierEnum
+        {
+            /// <summary>
+            /// Enum Smart for value: smart
+            /// </summary>
+            [EnumMember(Value = "smart")]
+            Smart = 1,
+
+            /// <summary>
+            /// Enum Baseline for value: baseline
+            /// </summary>
+            [EnumMember(Value = "baseline")]
+            Baseline = 2
+
+        }
+
+
+        /// <summary>
+        /// The encoding tier that the asset was ingested at. [See the encoding tiers guide for more details.](https://docs.mux.com/guides/use-encoding-tiers)
+        /// </summary>
+        /// <value>The encoding tier that the asset was ingested at. [See the encoding tiers guide for more details.](https://docs.mux.com/guides/use-encoding-tiers)</value>
+        [DataMember(Name = "asset_encoding_tier", EmitDefaultValue = false)]
+        public AssetEncodingTierEnum? AssetEncodingTier { get; set; }
+        /// <summary>
         /// Initializes a new instance of the <see cref="DeliveryReport" /> class.
         /// </summary>
         /// <param name="liveStreamId">Unique identifier for the live stream that created the asset..</param>
@@ -123,9 +151,10 @@ namespace Mux.Csharp.Sdk.Model
         /// <param name="assetState">The state of the asset..</param>
         /// <param name="assetDuration">The duration of the asset in seconds..</param>
         /// <param name="assetResolutionTier">The resolution tier that the asset was ingested at, affecting billing for ingest &amp; storage.</param>
+        /// <param name="assetEncodingTier">The encoding tier that the asset was ingested at. [See the encoding tiers guide for more details.](https://docs.mux.com/guides/use-encoding-tiers).</param>
         /// <param name="deliveredSeconds">Total number of delivered seconds during this time window..</param>
         /// <param name="deliveredSecondsByResolution">deliveredSecondsByResolution.</param>
-        public DeliveryReport(string liveStreamId = default(string), string assetId = default(string), string passthrough = default(string), string createdAt = default(string), string deletedAt = default(string), AssetStateEnum? assetState = default(AssetStateEnum?), double assetDuration = default(double), AssetResolutionTierEnum? assetResolutionTier = default(AssetResolutionTierEnum?), double deliveredSeconds = default(double), DeliveryReportDeliveredSecondsByResolution deliveredSecondsByResolution = default(DeliveryReportDeliveredSecondsByResolution))
+        public DeliveryReport(string liveStreamId = default(string), string assetId = default(string), string passthrough = default(string), string createdAt = default(string), string deletedAt = default(string), AssetStateEnum? assetState = default(AssetStateEnum?), double assetDuration = default(double), AssetResolutionTierEnum? assetResolutionTier = default(AssetResolutionTierEnum?), AssetEncodingTierEnum? assetEncodingTier = default(AssetEncodingTierEnum?), double deliveredSeconds = default(double), DeliveryReportDeliveredSecondsByResolution deliveredSecondsByResolution = default(DeliveryReportDeliveredSecondsByResolution))
         {
             this.LiveStreamId = liveStreamId;
             this.AssetId = assetId;
@@ -135,6 +164,7 @@ namespace Mux.Csharp.Sdk.Model
             this.AssetState = assetState;
             this.AssetDuration = assetDuration;
             this.AssetResolutionTier = assetResolutionTier;
+            this.AssetEncodingTier = assetEncodingTier;
             this.DeliveredSeconds = deliveredSeconds;
             this.DeliveredSecondsByResolution = deliveredSecondsByResolution;
             this.AdditionalProperties = new Dictionary<string, object>();
@@ -217,6 +247,7 @@ namespace Mux.Csharp.Sdk.Model
             sb.Append("  AssetState: ").Append(AssetState).Append("\n");
             sb.Append("  AssetDuration: ").Append(AssetDuration).Append("\n");
             sb.Append("  AssetResolutionTier: ").Append(AssetResolutionTier).Append("\n");
+            sb.Append("  AssetEncodingTier: ").Append(AssetEncodingTier).Append("\n");
             sb.Append("  DeliveredSeconds: ").Append(DeliveredSeconds).Append("\n");
             sb.Append("  DeliveredSecondsByResolution: ").Append(DeliveredSecondsByResolution).Append("\n");
             sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
@@ -293,6 +324,10 @@ namespace Mux.Csharp.Sdk.Model
                     this.AssetResolutionTier.Equals(input.AssetResolutionTier)
                 ) && 
                 (
+                    this.AssetEncodingTier == input.AssetEncodingTier ||
+                    this.AssetEncodingTier.Equals(input.AssetEncodingTier)
+                ) && 
+                (
                     this.DeliveredSeconds == input.DeliveredSeconds ||
                     this.DeliveredSeconds.Equals(input.DeliveredSeconds)
                 ) && 
@@ -336,6 +371,7 @@ namespace Mux.Csharp.Sdk.Model
                 hashCode = (hashCode * 59) + this.AssetState.GetHashCode();
                 hashCode = (hashCode * 59) + this.AssetDuration.GetHashCode();
                 hashCode = (hashCode * 59) + this.AssetResolutionTier.GetHashCode();
+                hashCode = (hashCode * 59) + this.AssetEncodingTier.GetHashCode();
                 hashCode = (hashCode * 59) + this.DeliveredSeconds.GetHashCode();
                 if (this.DeliveredSecondsByResolution != null)
                 {

@@ -27,26 +27,36 @@ using OpenAPIDateConverter = Mux.Csharp.Sdk.Client.OpenAPIDateConverter;
 namespace Mux.Csharp.Sdk.Model
 {
     /// <summary>
-    /// GenerateTrackSubtitlesResponse
+    /// UpdateUserAgentRestrictionRequest
     /// </summary>
-    [DataContract(Name = "GenerateTrackSubtitlesResponse")]
-    public partial class GenerateTrackSubtitlesResponse : IEquatable<GenerateTrackSubtitlesResponse>, IValidatableObject
+    [DataContract(Name = "UpdateUserAgentRestrictionRequest")]
+    public partial class UpdateUserAgentRestrictionRequest : IEquatable<UpdateUserAgentRestrictionRequest>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="GenerateTrackSubtitlesResponse" /> class.
+        /// Initializes a new instance of the <see cref="UpdateUserAgentRestrictionRequest" /> class.
         /// </summary>
-        /// <param name="data">data.</param>
-        public GenerateTrackSubtitlesResponse(List<Track> data = default(List<Track>))
+        /// <param name="allowNoUserAgent">Whether or not to allow views without a &#x60;User-Agent&#x60; HTTP request header. (default to true).</param>
+        /// <param name="allowHighRiskUserAgent">Whether or not to allow high risk user agents. The high risk user agents are defined by Mux. (default to true).</param>
+        public UpdateUserAgentRestrictionRequest(bool allowNoUserAgent = true, bool allowHighRiskUserAgent = true)
         {
-            this.Data = data;
+            this.AllowNoUserAgent = allowNoUserAgent;
+            this.AllowHighRiskUserAgent = allowHighRiskUserAgent;
             this.AdditionalProperties = new Dictionary<string, object>();
         }
 
         /// <summary>
-        /// Gets or Sets Data
+        /// Whether or not to allow views without a &#x60;User-Agent&#x60; HTTP request header.
         /// </summary>
-        [DataMember(Name = "data", EmitDefaultValue = false)]
-        public List<Track> Data { get; set; }
+        /// <value>Whether or not to allow views without a &#x60;User-Agent&#x60; HTTP request header.</value>
+        [DataMember(Name = "allow_no_user_agent", EmitDefaultValue = true)]
+        public bool AllowNoUserAgent { get; set; }
+
+        /// <summary>
+        /// Whether or not to allow high risk user agents. The high risk user agents are defined by Mux.
+        /// </summary>
+        /// <value>Whether or not to allow high risk user agents. The high risk user agents are defined by Mux.</value>
+        [DataMember(Name = "allow_high_risk_user_agent", EmitDefaultValue = true)]
+        public bool AllowHighRiskUserAgent { get; set; }
 
         /// <summary>
         /// Gets or Sets additional properties
@@ -61,8 +71,9 @@ namespace Mux.Csharp.Sdk.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class GenerateTrackSubtitlesResponse {\n");
-            sb.Append("  Data: ").Append(Data).Append("\n");
+            sb.Append("class UpdateUserAgentRestrictionRequest {\n");
+            sb.Append("  AllowNoUserAgent: ").Append(AllowNoUserAgent).Append("\n");
+            sb.Append("  AllowHighRiskUserAgent: ").Append(AllowHighRiskUserAgent).Append("\n");
             sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -84,15 +95,15 @@ namespace Mux.Csharp.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as GenerateTrackSubtitlesResponse);
+            return this.Equals(input as UpdateUserAgentRestrictionRequest);
         }
 
         /// <summary>
-        /// Returns true if GenerateTrackSubtitlesResponse instances are equal
+        /// Returns true if UpdateUserAgentRestrictionRequest instances are equal
         /// </summary>
-        /// <param name="input">Instance of GenerateTrackSubtitlesResponse to be compared</param>
+        /// <param name="input">Instance of UpdateUserAgentRestrictionRequest to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(GenerateTrackSubtitlesResponse input)
+        public bool Equals(UpdateUserAgentRestrictionRequest input)
         {
             if (input == null)
             {
@@ -100,10 +111,12 @@ namespace Mux.Csharp.Sdk.Model
             }
             return 
                 (
-                    this.Data == input.Data ||
-                    this.Data != null &&
-                    input.Data != null &&
-                    this.Data.SequenceEqual(input.Data)
+                    this.AllowNoUserAgent == input.AllowNoUserAgent ||
+                    this.AllowNoUserAgent.Equals(input.AllowNoUserAgent)
+                ) && 
+                (
+                    this.AllowHighRiskUserAgent == input.AllowHighRiskUserAgent ||
+                    this.AllowHighRiskUserAgent.Equals(input.AllowHighRiskUserAgent)
                 )
                 && (this.AdditionalProperties.Count == input.AdditionalProperties.Count && !this.AdditionalProperties.Except(input.AdditionalProperties).Any());
         }
@@ -117,10 +130,8 @@ namespace Mux.Csharp.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Data != null)
-                {
-                    hashCode = (hashCode * 59) + this.Data.GetHashCode();
-                }
+                hashCode = (hashCode * 59) + this.AllowNoUserAgent.GetHashCode();
+                hashCode = (hashCode * 59) + this.AllowHighRiskUserAgent.GetHashCode();
                 if (this.AdditionalProperties != null)
                 {
                     hashCode = (hashCode * 59) + this.AdditionalProperties.GetHashCode();

@@ -75,7 +75,8 @@ namespace Mux.Csharp.Sdk.Model
         /// <param name="useSlateForStandardLatency">By default, Standard Latency live streams do not have slate media inserted while waiting for live streaming software to reconnect to Mux. Setting this to true enables slate insertion on a Standard Latency stream. (default to false).</param>
         /// <param name="reconnectSlateUrl">The URL of the image file that Mux should download and use as slate media during interruptions of the live stream media. This file will be downloaded each time a new recorded asset is created from the live stream. Set this to a blank string to clear the value so that the default slate media will be used..</param>
         /// <param name="maxContinuousDuration">The time in seconds a live stream may be continuously active before being disconnected. Defaults to 12 hours. (default to 43200).</param>
-        public UpdateLiveStreamRequest(string passthrough = default(string), LatencyModeEnum? latencyMode = default(LatencyModeEnum?), float reconnectWindow = 60F, bool useSlateForStandardLatency = false, string reconnectSlateUrl = default(string), int maxContinuousDuration = 43200)
+        /// <param name="newAssetSettings">newAssetSettings.</param>
+        public UpdateLiveStreamRequest(string passthrough = default(string), LatencyModeEnum? latencyMode = default(LatencyModeEnum?), float reconnectWindow = 60F, bool useSlateForStandardLatency = false, string reconnectSlateUrl = default(string), int maxContinuousDuration = 43200, UpdateLiveStreamNewAssetSettings newAssetSettings = default(UpdateLiveStreamNewAssetSettings))
         {
             this.Passthrough = passthrough;
             this.LatencyMode = latencyMode;
@@ -83,6 +84,7 @@ namespace Mux.Csharp.Sdk.Model
             this.UseSlateForStandardLatency = useSlateForStandardLatency;
             this.ReconnectSlateUrl = reconnectSlateUrl;
             this.MaxContinuousDuration = maxContinuousDuration;
+            this.NewAssetSettings = newAssetSettings;
             this.AdditionalProperties = new Dictionary<string, object>();
         }
 
@@ -122,6 +124,12 @@ namespace Mux.Csharp.Sdk.Model
         public int MaxContinuousDuration { get; set; }
 
         /// <summary>
+        /// Gets or Sets NewAssetSettings
+        /// </summary>
+        [DataMember(Name = "new_asset_settings", EmitDefaultValue = false)]
+        public UpdateLiveStreamNewAssetSettings NewAssetSettings { get; set; }
+
+        /// <summary>
         /// Gets or Sets additional properties
         /// </summary>
         [JsonExtensionData]
@@ -141,6 +149,7 @@ namespace Mux.Csharp.Sdk.Model
             sb.Append("  UseSlateForStandardLatency: ").Append(UseSlateForStandardLatency).Append("\n");
             sb.Append("  ReconnectSlateUrl: ").Append(ReconnectSlateUrl).Append("\n");
             sb.Append("  MaxContinuousDuration: ").Append(MaxContinuousDuration).Append("\n");
+            sb.Append("  NewAssetSettings: ").Append(NewAssetSettings).Append("\n");
             sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -202,6 +211,11 @@ namespace Mux.Csharp.Sdk.Model
                 (
                     this.MaxContinuousDuration == input.MaxContinuousDuration ||
                     this.MaxContinuousDuration.Equals(input.MaxContinuousDuration)
+                ) && 
+                (
+                    this.NewAssetSettings == input.NewAssetSettings ||
+                    (this.NewAssetSettings != null &&
+                    this.NewAssetSettings.Equals(input.NewAssetSettings))
                 )
                 && (this.AdditionalProperties.Count == input.AdditionalProperties.Count && !this.AdditionalProperties.Except(input.AdditionalProperties).Any());
         }
@@ -227,6 +241,10 @@ namespace Mux.Csharp.Sdk.Model
                     hashCode = (hashCode * 59) + this.ReconnectSlateUrl.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.MaxContinuousDuration.GetHashCode();
+                if (this.NewAssetSettings != null)
+                {
+                    hashCode = (hashCode * 59) + this.NewAssetSettings.GetHashCode();
+                }
                 if (this.AdditionalProperties != null)
                 {
                     hashCode = (hashCode * 59) + this.AdditionalProperties.GetHashCode();
