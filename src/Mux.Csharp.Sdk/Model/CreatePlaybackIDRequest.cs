@@ -42,11 +42,20 @@ namespace Mux.Csharp.Sdk.Model
         /// Initializes a new instance of the <see cref="CreatePlaybackIDRequest" /> class.
         /// </summary>
         /// <param name="policy">policy.</param>
-        public CreatePlaybackIDRequest(PlaybackPolicy? policy = default(PlaybackPolicy?))
+        /// <param name="drmConfigurationId">The DRM configuration used by this playback ID. Must only be set when &#x60;policy&#x60; is set to &#x60;drm&#x60;..</param>
+        public CreatePlaybackIDRequest(PlaybackPolicy? policy = default(PlaybackPolicy?), string drmConfigurationId = default(string))
         {
             this.Policy = policy;
+            this.DrmConfigurationId = drmConfigurationId;
             this.AdditionalProperties = new Dictionary<string, object>();
         }
+
+        /// <summary>
+        /// The DRM configuration used by this playback ID. Must only be set when &#x60;policy&#x60; is set to &#x60;drm&#x60;.
+        /// </summary>
+        /// <value>The DRM configuration used by this playback ID. Must only be set when &#x60;policy&#x60; is set to &#x60;drm&#x60;.</value>
+        [DataMember(Name = "drm_configuration_id", EmitDefaultValue = false)]
+        public string DrmConfigurationId { get; set; }
 
         /// <summary>
         /// Gets or Sets additional properties
@@ -63,6 +72,7 @@ namespace Mux.Csharp.Sdk.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class CreatePlaybackIDRequest {\n");
             sb.Append("  Policy: ").Append(Policy).Append("\n");
+            sb.Append("  DrmConfigurationId: ").Append(DrmConfigurationId).Append("\n");
             sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -102,6 +112,11 @@ namespace Mux.Csharp.Sdk.Model
                 (
                     this.Policy == input.Policy ||
                     this.Policy.Equals(input.Policy)
+                ) && 
+                (
+                    this.DrmConfigurationId == input.DrmConfigurationId ||
+                    (this.DrmConfigurationId != null &&
+                    this.DrmConfigurationId.Equals(input.DrmConfigurationId))
                 )
                 && (this.AdditionalProperties.Count == input.AdditionalProperties.Count && !this.AdditionalProperties.Except(input.AdditionalProperties).Any());
         }
@@ -116,6 +131,10 @@ namespace Mux.Csharp.Sdk.Model
             {
                 int hashCode = 41;
                 hashCode = (hashCode * 59) + this.Policy.GetHashCode();
+                if (this.DrmConfigurationId != null)
+                {
+                    hashCode = (hashCode * 59) + this.DrmConfigurationId.GetHashCode();
+                }
                 if (this.AdditionalProperties != null)
                 {
                     hashCode = (hashCode * 59) + this.AdditionalProperties.GetHashCode();

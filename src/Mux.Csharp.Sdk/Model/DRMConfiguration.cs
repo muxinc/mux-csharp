@@ -27,44 +27,27 @@ using OpenAPIDateConverter = Mux.Csharp.Sdk.Client.OpenAPIDateConverter;
 namespace Mux.Csharp.Sdk.Model
 {
     /// <summary>
-    /// PlaybackID
+    /// DRMConfiguration
     /// </summary>
-    [DataContract(Name = "PlaybackID")]
-    public partial class PlaybackID : IEquatable<PlaybackID>, IValidatableObject
+    [DataContract(Name = "DRMConfiguration")]
+    public partial class DRMConfiguration : IEquatable<DRMConfiguration>, IValidatableObject
     {
-
         /// <summary>
-        /// Gets or Sets Policy
+        /// Initializes a new instance of the <see cref="DRMConfiguration" /> class.
         /// </summary>
-        [DataMember(Name = "policy", EmitDefaultValue = false)]
-        public PlaybackPolicy? Policy { get; set; }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="PlaybackID" /> class.
-        /// </summary>
-        /// <param name="id">Unique identifier for the PlaybackID.</param>
-        /// <param name="policy">policy.</param>
-        /// <param name="drmConfigurationId">The DRM configuration used by this playback ID. Must only be set when &#x60;policy&#x60; is set to &#x60;drm&#x60;..</param>
-        public PlaybackID(string id = default(string), PlaybackPolicy? policy = default(PlaybackPolicy?), string drmConfigurationId = default(string))
+        /// <param name="id">Unique identifier for the DRM Configuration. Max 255 characters..</param>
+        public DRMConfiguration(string id = default(string))
         {
             this.Id = id;
-            this.Policy = policy;
-            this.DrmConfigurationId = drmConfigurationId;
             this.AdditionalProperties = new Dictionary<string, object>();
         }
 
         /// <summary>
-        /// Unique identifier for the PlaybackID
+        /// Unique identifier for the DRM Configuration. Max 255 characters.
         /// </summary>
-        /// <value>Unique identifier for the PlaybackID</value>
+        /// <value>Unique identifier for the DRM Configuration. Max 255 characters.</value>
         [DataMember(Name = "id", EmitDefaultValue = false)]
         public string Id { get; set; }
-
-        /// <summary>
-        /// The DRM configuration used by this playback ID. Must only be set when &#x60;policy&#x60; is set to &#x60;drm&#x60;.
-        /// </summary>
-        /// <value>The DRM configuration used by this playback ID. Must only be set when &#x60;policy&#x60; is set to &#x60;drm&#x60;.</value>
-        [DataMember(Name = "drm_configuration_id", EmitDefaultValue = false)]
-        public string DrmConfigurationId { get; set; }
 
         /// <summary>
         /// Gets or Sets additional properties
@@ -79,10 +62,8 @@ namespace Mux.Csharp.Sdk.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class PlaybackID {\n");
+            sb.Append("class DRMConfiguration {\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
-            sb.Append("  Policy: ").Append(Policy).Append("\n");
-            sb.Append("  DrmConfigurationId: ").Append(DrmConfigurationId).Append("\n");
             sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -104,15 +85,15 @@ namespace Mux.Csharp.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as PlaybackID);
+            return this.Equals(input as DRMConfiguration);
         }
 
         /// <summary>
-        /// Returns true if PlaybackID instances are equal
+        /// Returns true if DRMConfiguration instances are equal
         /// </summary>
-        /// <param name="input">Instance of PlaybackID to be compared</param>
+        /// <param name="input">Instance of DRMConfiguration to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(PlaybackID input)
+        public bool Equals(DRMConfiguration input)
         {
             if (input == null)
             {
@@ -123,15 +104,6 @@ namespace Mux.Csharp.Sdk.Model
                     this.Id == input.Id ||
                     (this.Id != null &&
                     this.Id.Equals(input.Id))
-                ) && 
-                (
-                    this.Policy == input.Policy ||
-                    this.Policy.Equals(input.Policy)
-                ) && 
-                (
-                    this.DrmConfigurationId == input.DrmConfigurationId ||
-                    (this.DrmConfigurationId != null &&
-                    this.DrmConfigurationId.Equals(input.DrmConfigurationId))
                 )
                 && (this.AdditionalProperties.Count == input.AdditionalProperties.Count && !this.AdditionalProperties.Except(input.AdditionalProperties).Any());
         }
@@ -148,11 +120,6 @@ namespace Mux.Csharp.Sdk.Model
                 if (this.Id != null)
                 {
                     hashCode = (hashCode * 59) + this.Id.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.Policy.GetHashCode();
-                if (this.DrmConfigurationId != null)
-                {
-                    hashCode = (hashCode * 59) + this.DrmConfigurationId.GetHashCode();
                 }
                 if (this.AdditionalProperties != null)
                 {

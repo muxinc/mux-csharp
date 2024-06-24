@@ -16,7 +16,7 @@ Mux is how developers build online video. This API encompasses both Mux Video an
 **PLEASE NOTE:** This is an early build of the Mux C# SDK, as evidenced by its pre-1.0 status, but we're reasonably certain of its stability and usability against the Mux API.. Documentation is currently best-effort, but it'll improve over time! Instead of contacting Mux Support, please file an issue on this repository or email [Mux DevEx](devex@mux.com) for assistance.
 
 - API version: v1
-- SDK version: 0.12.0
+- SDK version: 0.13.0
     [https://docs.mux.com](https://docs.mux.com)
 
 <a name="frameworks-supported"></a>
@@ -129,6 +129,8 @@ Class | Method | HTTP request | Description
 *AssetsApi* | [**UpdateAsset**](docs/AssetsApi.md#updateasset) | **PATCH** /video/v1/assets/{ASSET_ID} | Update an asset
 *AssetsApi* | [**UpdateAssetMasterAccess**](docs/AssetsApi.md#updateassetmasteraccess) | **PUT** /video/v1/assets/{ASSET_ID}/master-access | Update master access
 *AssetsApi* | [**UpdateAssetMp4Support**](docs/AssetsApi.md#updateassetmp4support) | **PUT** /video/v1/assets/{ASSET_ID}/mp4-support | Update MP4 support
+*DRMConfigurationsApi* | [**GetDrmConfiguration**](docs/DRMConfigurationsApi.md#getdrmconfiguration) | **GET** /video/v1/drm-configurations/{DRM_CONFIGURATION_ID} | Retrieve a DRM Configuration
+*DRMConfigurationsApi* | [**ListDrmConfigurations**](docs/DRMConfigurationsApi.md#listdrmconfigurations) | **GET** /video/v1/drm-configurations | List DRM Configurations
 *DeliveryUsageApi* | [**ListDeliveryUsage**](docs/DeliveryUsageApi.md#listdeliveryusage) | **GET** /video/v1/delivery-usage | List Usage
 *DimensionsApi* | [**ListDimensionValues**](docs/DimensionsApi.md#listdimensionvalues) | **GET** /data/v1/dimensions/{DIMENSION_ID} | Lists the values for a specific dimension
 *DimensionsApi* | [**ListDimensions**](docs/DimensionsApi.md#listdimensions) | **GET** /data/v1/dimensions | List Dimensions
@@ -250,6 +252,8 @@ Class | Method | HTTP request | Description
  - [Model.CreateTranscriptionVocabularyRequest](docs/CreateTranscriptionVocabularyRequest.md)
  - [Model.CreateUploadRequest](docs/CreateUploadRequest.md)
  - [Model.CreateWebInputRequest](docs/CreateWebInputRequest.md)
+ - [Model.DRMConfiguration](docs/DRMConfiguration.md)
+ - [Model.DRMConfigurationResponse](docs/DRMConfigurationResponse.md)
  - [Model.DeliveryReport](docs/DeliveryReport.md)
  - [Model.DeliveryReportDeliveredSecondsByResolution](docs/DeliveryReportDeliveredSecondsByResolution.md)
  - [Model.DimensionValue](docs/DimensionValue.md)
@@ -294,6 +298,7 @@ Class | Method | HTTP request | Description
  - [Model.ListAssetsResponse](docs/ListAssetsResponse.md)
  - [Model.ListBreakdownValuesResponse](docs/ListBreakdownValuesResponse.md)
  - [Model.ListBreakdownValuesResponseMeta](docs/ListBreakdownValuesResponseMeta.md)
+ - [Model.ListDRMConfigurationsResponse](docs/ListDRMConfigurationsResponse.md)
  - [Model.ListDeliveryUsageResponse](docs/ListDeliveryUsageResponse.md)
  - [Model.ListDimensionValuesResponse](docs/ListDimensionValuesResponse.md)
  - [Model.ListDimensionsResponse](docs/ListDimensionsResponse.md)

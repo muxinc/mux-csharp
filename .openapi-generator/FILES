@@ -31,6 +31,9 @@ docs/CreateTrackResponse.md
 docs/CreateTranscriptionVocabularyRequest.md
 docs/CreateUploadRequest.md
 docs/CreateWebInputRequest.md
+docs/DRMConfiguration.md
+docs/DRMConfigurationResponse.md
+docs/DRMConfigurationsApi.md
 docs/DeliveryReport.md
 docs/DeliveryReportDeliveredSecondsByResolution.md
 docs/DeliveryUsageApi.md
@@ -82,6 +85,7 @@ docs/ListAllMetricValuesResponse.md
 docs/ListAssetsResponse.md
 docs/ListBreakdownValuesResponse.md
 docs/ListBreakdownValuesResponseMeta.md
+docs/ListDRMConfigurationsResponse.md
 docs/ListDeliveryUsageResponse.md
 docs/ListDimensionValuesResponse.md
 docs/ListDimensionsResponse.md
@@ -184,6 +188,7 @@ docs/WebInputResponse.md
 docs/WebInputsApi.md
 src/Mux.Csharp.Sdk.Test/Mux.Csharp.Sdk.Test.csproj
 src/Mux.Csharp.Sdk/Api/AssetsApi.cs
+src/Mux.Csharp.Sdk/Api/DRMConfigurationsApi.cs
 src/Mux.Csharp.Sdk/Api/DeliveryUsageApi.cs
 src/Mux.Csharp.Sdk/Api/DimensionsApi.cs
 src/Mux.Csharp.Sdk/Api/DirectUploadsApi.cs
@@ -249,6 +254,8 @@ src/Mux.Csharp.Sdk/Model/CreateTrackResponse.cs
 src/Mux.Csharp.Sdk/Model/CreateTranscriptionVocabularyRequest.cs
 src/Mux.Csharp.Sdk/Model/CreateUploadRequest.cs
 src/Mux.Csharp.Sdk/Model/CreateWebInputRequest.cs
+src/Mux.Csharp.Sdk/Model/DRMConfiguration.cs
+src/Mux.Csharp.Sdk/Model/DRMConfigurationResponse.cs
 src/Mux.Csharp.Sdk/Model/DeliveryReport.cs
 src/Mux.Csharp.Sdk/Model/DeliveryReportDeliveredSecondsByResolution.cs
 src/Mux.Csharp.Sdk/Model/DimensionValue.cs
@@ -293,6 +300,7 @@ src/Mux.Csharp.Sdk/Model/ListAllMetricValuesResponse.cs
 src/Mux.Csharp.Sdk/Model/ListAssetsResponse.cs
 src/Mux.Csharp.Sdk/Model/ListBreakdownValuesResponse.cs
 src/Mux.Csharp.Sdk/Model/ListBreakdownValuesResponseMeta.cs
+src/Mux.Csharp.Sdk/Model/ListDRMConfigurationsResponse.cs
 src/Mux.Csharp.Sdk/Model/ListDeliveryUsageResponse.cs
 src/Mux.Csharp.Sdk/Model/ListDimensionValuesResponse.cs
 src/Mux.Csharp.Sdk/Model/ListDimensionsResponse.cs
