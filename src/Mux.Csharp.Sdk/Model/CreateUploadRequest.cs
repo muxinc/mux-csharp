@@ -38,7 +38,7 @@ namespace Mux.Csharp.Sdk.Model
         /// <param name="timeout">Max time in seconds for the signed upload URL to be valid. If a successful upload has not occurred before the timeout limit, the direct upload is marked &#x60;timed_out&#x60; (default to 3600).</param>
         /// <param name="corsOrigin">If the upload URL will be used in a browser, you must specify the origin in order for the signed URL to have the correct CORS headers..</param>
         /// <param name="newAssetSettings">newAssetSettings.</param>
-        /// <param name="test">test.</param>
+        /// <param name="test">Indicates if this is a test Direct Upload, in which case the Asset that gets created will be a &#x60;test&#x60; Asset..</param>
         public CreateUploadRequest(int timeout = 3600, string corsOrigin = default(string), CreateAssetRequest newAssetSettings = default(CreateAssetRequest), bool test = default(bool))
         {
             this.Timeout = timeout;
@@ -69,8 +69,9 @@ namespace Mux.Csharp.Sdk.Model
         public CreateAssetRequest NewAssetSettings { get; set; }
 
         /// <summary>
-        /// Gets or Sets Test
+        /// Indicates if this is a test Direct Upload, in which case the Asset that gets created will be a &#x60;test&#x60; Asset.
         /// </summary>
+        /// <value>Indicates if this is a test Direct Upload, in which case the Asset that gets created will be a &#x60;test&#x60; Asset.</value>
         [DataMember(Name = "test", EmitDefaultValue = true)]
         public bool Test { get; set; }
 

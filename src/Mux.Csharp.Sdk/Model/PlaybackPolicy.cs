@@ -43,7 +43,13 @@ namespace Mux.Csharp.Sdk.Model
         /// Enum Signed for value: signed
         /// </summary>
         [EnumMember(Value = "signed")]
-        Signed = 2
+        Signed = 2,
+
+        /// <summary>
+        /// Enum Drm for value: drm
+        /// </summary>
+        [EnumMember(Value = "drm")]
+        Drm = 3
 
     }
 
