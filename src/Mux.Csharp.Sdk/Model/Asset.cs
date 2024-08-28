@@ -194,9 +194,9 @@ namespace Mux.Csharp.Sdk.Model
         [DataMember(Name = "max_resolution_tier", EmitDefaultValue = false)]
         public MaxResolutionTierEnum? MaxResolutionTier { get; set; }
         /// <summary>
-        /// The encoding tier informs the cost, quality, and available platform features for the asset. By default the &#x60;smart&#x60; encoding tier is used. [See the guide for more details.](https://docs.mux.com/guides/use-encoding-tiers)
+        /// This field is deprecated. Please use &#x60;video_quality&#x60; instead. The encoding tier informs the cost, quality, and available platform features for the asset. By default the &#x60;smart&#x60; encoding tier is used. [See the video quality guide for more details.](https://docs.mux.com/guides/use-encoding-tiers)
         /// </summary>
-        /// <value>The encoding tier informs the cost, quality, and available platform features for the asset. By default the &#x60;smart&#x60; encoding tier is used. [See the guide for more details.](https://docs.mux.com/guides/use-encoding-tiers)</value>
+        /// <value>This field is deprecated. Please use &#x60;video_quality&#x60; instead. The encoding tier informs the cost, quality, and available platform features for the asset. By default the &#x60;smart&#x60; encoding tier is used. [See the video quality guide for more details.](https://docs.mux.com/guides/use-encoding-tiers)</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum EncodingTierEnum
         {
@@ -216,11 +216,40 @@ namespace Mux.Csharp.Sdk.Model
 
 
         /// <summary>
-        /// The encoding tier informs the cost, quality, and available platform features for the asset. By default the &#x60;smart&#x60; encoding tier is used. [See the guide for more details.](https://docs.mux.com/guides/use-encoding-tiers)
+        /// This field is deprecated. Please use &#x60;video_quality&#x60; instead. The encoding tier informs the cost, quality, and available platform features for the asset. By default the &#x60;smart&#x60; encoding tier is used. [See the video quality guide for more details.](https://docs.mux.com/guides/use-encoding-tiers)
         /// </summary>
-        /// <value>The encoding tier informs the cost, quality, and available platform features for the asset. By default the &#x60;smart&#x60; encoding tier is used. [See the guide for more details.](https://docs.mux.com/guides/use-encoding-tiers)</value>
+        /// <value>This field is deprecated. Please use &#x60;video_quality&#x60; instead. The encoding tier informs the cost, quality, and available platform features for the asset. By default the &#x60;smart&#x60; encoding tier is used. [See the video quality guide for more details.](https://docs.mux.com/guides/use-encoding-tiers)</value>
         [DataMember(Name = "encoding_tier", EmitDefaultValue = false)]
+        [Obsolete]
         public EncodingTierEnum? EncodingTier { get; set; }
+        /// <summary>
+        /// The video quality controls the cost, quality, and available platform features for the asset. By default the &#x60;plus&#x60; video quality is used. This field replaces the deprecated &#x60;encoding_tier&#x60; value. [See the video quality guide for more details.](https://docs.mux.com/guides/use-encoding-tiers)
+        /// </summary>
+        /// <value>The video quality controls the cost, quality, and available platform features for the asset. By default the &#x60;plus&#x60; video quality is used. This field replaces the deprecated &#x60;encoding_tier&#x60; value. [See the video quality guide for more details.](https://docs.mux.com/guides/use-encoding-tiers)</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum VideoQualityEnum
+        {
+            /// <summary>
+            /// Enum Basic for value: basic
+            /// </summary>
+            [EnumMember(Value = "basic")]
+            Basic = 1,
+
+            /// <summary>
+            /// Enum Plus for value: plus
+            /// </summary>
+            [EnumMember(Value = "plus")]
+            Plus = 2
+
+        }
+
+
+        /// <summary>
+        /// The video quality controls the cost, quality, and available platform features for the asset. By default the &#x60;plus&#x60; video quality is used. This field replaces the deprecated &#x60;encoding_tier&#x60; value. [See the video quality guide for more details.](https://docs.mux.com/guides/use-encoding-tiers)
+        /// </summary>
+        /// <value>The video quality controls the cost, quality, and available platform features for the asset. By default the &#x60;plus&#x60; video quality is used. This field replaces the deprecated &#x60;encoding_tier&#x60; value. [See the video quality guide for more details.](https://docs.mux.com/guides/use-encoding-tiers)</value>
+        [DataMember(Name = "video_quality", EmitDefaultValue = false)]
+        public VideoQualityEnum? VideoQuality { get; set; }
         /// <summary>
         /// Defines MasterAccess
         /// </summary>
@@ -347,7 +376,8 @@ namespace Mux.Csharp.Sdk.Model
         /// <param name="maxStoredResolution">This field is deprecated. Please use &#x60;resolution_tier&#x60; instead. The maximum resolution that has been stored for the asset. The asset may be delivered at lower resolutions depending on the device and bandwidth, however it cannot be delivered at a higher value than is stored..</param>
         /// <param name="resolutionTier">The resolution tier that the asset was ingested at, affecting billing for ingest &amp; storage. This field also represents the highest resolution tier that the content can be delivered at, however the actual resolution may be lower depending on the device, bandwidth, and exact resolution of the uploaded asset..</param>
         /// <param name="maxResolutionTier">Max resolution tier can be used to control the maximum &#x60;resolution_tier&#x60; your asset is encoded, stored, and streamed at. If not set, this defaults to &#x60;1080p&#x60;..</param>
-        /// <param name="encodingTier">The encoding tier informs the cost, quality, and available platform features for the asset. By default the &#x60;smart&#x60; encoding tier is used. [See the guide for more details.](https://docs.mux.com/guides/use-encoding-tiers).</param>
+        /// <param name="encodingTier">This field is deprecated. Please use &#x60;video_quality&#x60; instead. The encoding tier informs the cost, quality, and available platform features for the asset. By default the &#x60;smart&#x60; encoding tier is used. [See the video quality guide for more details.](https://docs.mux.com/guides/use-encoding-tiers).</param>
+        /// <param name="videoQuality">The video quality controls the cost, quality, and available platform features for the asset. By default the &#x60;plus&#x60; video quality is used. This field replaces the deprecated &#x60;encoding_tier&#x60; value. [See the video quality guide for more details.](https://docs.mux.com/guides/use-encoding-tiers).</param>
         /// <param name="maxStoredFrameRate">The maximum frame rate that has been stored for the asset. The asset may be delivered at lower frame rates depending on the device and bandwidth, however it cannot be delivered at a higher value than is stored. This field may return -1 if the frame rate of the input cannot be reliably determined..</param>
         /// <param name="aspectRatio">The aspect ratio of the asset in the form of &#x60;width:height&#x60;, for example &#x60;16:9&#x60;..</param>
         /// <param name="playbackIds">An array of Playback ID objects. Use these to create HLS playback URLs. See [Play your videos](https://docs.mux.com/guides/play-your-videos) for more details..</param>
@@ -368,7 +398,7 @@ namespace Mux.Csharp.Sdk.Model
         /// <param name="nonStandardInputReasons">nonStandardInputReasons.</param>
         /// <param name="test">True means this live stream is a test asset. A test asset can help evaluate the Mux Video APIs without incurring any cost. There is no limit on number of test assets created. Test assets are watermarked with the Mux logo, limited to 10 seconds, and deleted after 24 hrs..</param>
         /// <param name="ingestType">The type of ingest used to create the asset..</param>
-        public Asset(string id = default(string), string createdAt = default(string), StatusEnum? status = default(StatusEnum?), double duration = default(double), MaxStoredResolutionEnum? maxStoredResolution = default(MaxStoredResolutionEnum?), ResolutionTierEnum? resolutionTier = default(ResolutionTierEnum?), MaxResolutionTierEnum? maxResolutionTier = default(MaxResolutionTierEnum?), EncodingTierEnum? encodingTier = default(EncodingTierEnum?), double maxStoredFrameRate = default(double), string aspectRatio = default(string), List<PlaybackID> playbackIds = default(List<PlaybackID>), List<Track> tracks = default(List<Track>), AssetErrors errors = default(AssetErrors), bool perTitleEncode = default(bool), string uploadId = default(string), bool isLive = default(bool), string passthrough = default(string), string liveStreamId = default(string), AssetMaster master = default(AssetMaster), MasterAccessEnum? masterAccess = MasterAccessEnum.None, Mp4SupportEnum? mp4Support = Mp4SupportEnum.None, string sourceAssetId = default(string), bool normalizeAudio = false, AssetStaticRenditions staticRenditions = default(AssetStaticRenditions), List<AssetRecordingTimes> recordingTimes = default(List<AssetRecordingTimes>), AssetNonStandardInputReasons nonStandardInputReasons = default(AssetNonStandardInputReasons), bool test = default(bool), IngestTypeEnum? ingestType = default(IngestTypeEnum?))
+        public Asset(string id = default(string), string createdAt = default(string), StatusEnum? status = default(StatusEnum?), double duration = default(double), MaxStoredResolutionEnum? maxStoredResolution = default(MaxStoredResolutionEnum?), ResolutionTierEnum? resolutionTier = default(ResolutionTierEnum?), MaxResolutionTierEnum? maxResolutionTier = default(MaxResolutionTierEnum?), EncodingTierEnum? encodingTier = default(EncodingTierEnum?), VideoQualityEnum? videoQuality = default(VideoQualityEnum?), double maxStoredFrameRate = default(double), string aspectRatio = default(string), List<PlaybackID> playbackIds = default(List<PlaybackID>), List<Track> tracks = default(List<Track>), AssetErrors errors = default(AssetErrors), bool perTitleEncode = default(bool), string uploadId = default(string), bool isLive = default(bool), string passthrough = default(string), string liveStreamId = default(string), AssetMaster master = default(AssetMaster), MasterAccessEnum? masterAccess = MasterAccessEnum.None, Mp4SupportEnum? mp4Support = Mp4SupportEnum.None, string sourceAssetId = default(string), bool normalizeAudio = false, AssetStaticRenditions staticRenditions = default(AssetStaticRenditions), List<AssetRecordingTimes> recordingTimes = default(List<AssetRecordingTimes>), AssetNonStandardInputReasons nonStandardInputReasons = default(AssetNonStandardInputReasons), bool test = default(bool), IngestTypeEnum? ingestType = default(IngestTypeEnum?))
         {
             this.Id = id;
             this.CreatedAt = createdAt;
@@ -378,6 +408,7 @@ namespace Mux.Csharp.Sdk.Model
             this.ResolutionTier = resolutionTier;
             this.MaxResolutionTier = maxResolutionTier;
             this.EncodingTier = encodingTier;
+            this.VideoQuality = videoQuality;
             this.MaxStoredFrameRate = maxStoredFrameRate;
             this.AspectRatio = aspectRatio;
             this.PlaybackIds = playbackIds;
@@ -559,6 +590,7 @@ namespace Mux.Csharp.Sdk.Model
             sb.Append("  ResolutionTier: ").Append(ResolutionTier).Append("\n");
             sb.Append("  MaxResolutionTier: ").Append(MaxResolutionTier).Append("\n");
             sb.Append("  EncodingTier: ").Append(EncodingTier).Append("\n");
+            sb.Append("  VideoQuality: ").Append(VideoQuality).Append("\n");
             sb.Append("  MaxStoredFrameRate: ").Append(MaxStoredFrameRate).Append("\n");
             sb.Append("  AspectRatio: ").Append(AspectRatio).Append("\n");
             sb.Append("  PlaybackIds: ").Append(PlaybackIds).Append("\n");
@@ -648,6 +680,10 @@ namespace Mux.Csharp.Sdk.Model
                 (
                     this.EncodingTier == input.EncodingTier ||
                     this.EncodingTier.Equals(input.EncodingTier)
+                ) && 
+                (
+                    this.VideoQuality == input.VideoQuality ||
+                    this.VideoQuality.Equals(input.VideoQuality)
                 ) && 
                 (
                     this.MaxStoredFrameRate == input.MaxStoredFrameRate ||
@@ -770,6 +806,7 @@ namespace Mux.Csharp.Sdk.Model
                 hashCode = (hashCode * 59) + this.ResolutionTier.GetHashCode();
                 hashCode = (hashCode * 59) + this.MaxResolutionTier.GetHashCode();
                 hashCode = (hashCode * 59) + this.EncodingTier.GetHashCode();
+                hashCode = (hashCode * 59) + this.VideoQuality.GetHashCode();
                 hashCode = (hashCode * 59) + this.MaxStoredFrameRate.GetHashCode();
                 if (this.AspectRatio != null)
                 {

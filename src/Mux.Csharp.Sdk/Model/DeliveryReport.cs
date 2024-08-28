@@ -113,9 +113,9 @@ namespace Mux.Csharp.Sdk.Model
         [DataMember(Name = "asset_resolution_tier", EmitDefaultValue = false)]
         public AssetResolutionTierEnum? AssetResolutionTier { get; set; }
         /// <summary>
-        /// The encoding tier that the asset was ingested at. [See the encoding tiers guide for more details.](https://docs.mux.com/guides/use-encoding-tiers)
+        /// This field is deprecated. Please use &#x60;asset_video_quality&#x60; instead. The encoding tier that the asset was ingested at. [See the video quality guide for more details.](https://docs.mux.com/guides/use-encoding-tiers)
         /// </summary>
-        /// <value>The encoding tier that the asset was ingested at. [See the encoding tiers guide for more details.](https://docs.mux.com/guides/use-encoding-tiers)</value>
+        /// <value>This field is deprecated. Please use &#x60;asset_video_quality&#x60; instead. The encoding tier that the asset was ingested at. [See the video quality guide for more details.](https://docs.mux.com/guides/use-encoding-tiers)</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum AssetEncodingTierEnum
         {
@@ -135,11 +135,40 @@ namespace Mux.Csharp.Sdk.Model
 
 
         /// <summary>
-        /// The encoding tier that the asset was ingested at. [See the encoding tiers guide for more details.](https://docs.mux.com/guides/use-encoding-tiers)
+        /// This field is deprecated. Please use &#x60;asset_video_quality&#x60; instead. The encoding tier that the asset was ingested at. [See the video quality guide for more details.](https://docs.mux.com/guides/use-encoding-tiers)
         /// </summary>
-        /// <value>The encoding tier that the asset was ingested at. [See the encoding tiers guide for more details.](https://docs.mux.com/guides/use-encoding-tiers)</value>
+        /// <value>This field is deprecated. Please use &#x60;asset_video_quality&#x60; instead. The encoding tier that the asset was ingested at. [See the video quality guide for more details.](https://docs.mux.com/guides/use-encoding-tiers)</value>
         [DataMember(Name = "asset_encoding_tier", EmitDefaultValue = false)]
+        [Obsolete]
         public AssetEncodingTierEnum? AssetEncodingTier { get; set; }
+        /// <summary>
+        /// The video quality that the asset was ingested at. This field replaces &#x60;asset_encoding_tier&#x60;. [See the video quality guide for more details.](https://docs.mux.com/guides/use-encoding-tiers)
+        /// </summary>
+        /// <value>The video quality that the asset was ingested at. This field replaces &#x60;asset_encoding_tier&#x60;. [See the video quality guide for more details.](https://docs.mux.com/guides/use-encoding-tiers)</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum AssetVideoQualityEnum
+        {
+            /// <summary>
+            /// Enum Basic for value: basic
+            /// </summary>
+            [EnumMember(Value = "basic")]
+            Basic = 1,
+
+            /// <summary>
+            /// Enum Plus for value: plus
+            /// </summary>
+            [EnumMember(Value = "plus")]
+            Plus = 2
+
+        }
+
+
+        /// <summary>
+        /// The video quality that the asset was ingested at. This field replaces &#x60;asset_encoding_tier&#x60;. [See the video quality guide for more details.](https://docs.mux.com/guides/use-encoding-tiers)
+        /// </summary>
+        /// <value>The video quality that the asset was ingested at. This field replaces &#x60;asset_encoding_tier&#x60;. [See the video quality guide for more details.](https://docs.mux.com/guides/use-encoding-tiers)</value>
+        [DataMember(Name = "asset_video_quality", EmitDefaultValue = false)]
+        public AssetVideoQualityEnum? AssetVideoQuality { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="DeliveryReport" /> class.
         /// </summary>
@@ -151,10 +180,11 @@ namespace Mux.Csharp.Sdk.Model
         /// <param name="assetState">The state of the asset..</param>
         /// <param name="assetDuration">The duration of the asset in seconds..</param>
         /// <param name="assetResolutionTier">The resolution tier that the asset was ingested at, affecting billing for ingest &amp; storage.</param>
-        /// <param name="assetEncodingTier">The encoding tier that the asset was ingested at. [See the encoding tiers guide for more details.](https://docs.mux.com/guides/use-encoding-tiers).</param>
+        /// <param name="assetEncodingTier">This field is deprecated. Please use &#x60;asset_video_quality&#x60; instead. The encoding tier that the asset was ingested at. [See the video quality guide for more details.](https://docs.mux.com/guides/use-encoding-tiers).</param>
+        /// <param name="assetVideoQuality">The video quality that the asset was ingested at. This field replaces &#x60;asset_encoding_tier&#x60;. [See the video quality guide for more details.](https://docs.mux.com/guides/use-encoding-tiers).</param>
         /// <param name="deliveredSeconds">Total number of delivered seconds during this time window..</param>
         /// <param name="deliveredSecondsByResolution">deliveredSecondsByResolution.</param>
-        public DeliveryReport(string liveStreamId = default(string), string assetId = default(string), string passthrough = default(string), string createdAt = default(string), string deletedAt = default(string), AssetStateEnum? assetState = default(AssetStateEnum?), double assetDuration = default(double), AssetResolutionTierEnum? assetResolutionTier = default(AssetResolutionTierEnum?), AssetEncodingTierEnum? assetEncodingTier = default(AssetEncodingTierEnum?), double deliveredSeconds = default(double), DeliveryReportDeliveredSecondsByResolution deliveredSecondsByResolution = default(DeliveryReportDeliveredSecondsByResolution))
+        public DeliveryReport(string liveStreamId = default(string), string assetId = default(string), string passthrough = default(string), string createdAt = default(string), string deletedAt = default(string), AssetStateEnum? assetState = default(AssetStateEnum?), double assetDuration = default(double), AssetResolutionTierEnum? assetResolutionTier = default(AssetResolutionTierEnum?), AssetEncodingTierEnum? assetEncodingTier = default(AssetEncodingTierEnum?), AssetVideoQualityEnum? assetVideoQuality = default(AssetVideoQualityEnum?), double deliveredSeconds = default(double), DeliveryReportDeliveredSecondsByResolution deliveredSecondsByResolution = default(DeliveryReportDeliveredSecondsByResolution))
         {
             this.LiveStreamId = liveStreamId;
             this.AssetId = assetId;
@@ -165,6 +195,7 @@ namespace Mux.Csharp.Sdk.Model
             this.AssetDuration = assetDuration;
             this.AssetResolutionTier = assetResolutionTier;
             this.AssetEncodingTier = assetEncodingTier;
+            this.AssetVideoQuality = assetVideoQuality;
             this.DeliveredSeconds = deliveredSeconds;
             this.DeliveredSecondsByResolution = deliveredSecondsByResolution;
             this.AdditionalProperties = new Dictionary<string, object>();
@@ -248,6 +279,7 @@ namespace Mux.Csharp.Sdk.Model
             sb.Append("  AssetDuration: ").Append(AssetDuration).Append("\n");
             sb.Append("  AssetResolutionTier: ").Append(AssetResolutionTier).Append("\n");
             sb.Append("  AssetEncodingTier: ").Append(AssetEncodingTier).Append("\n");
+            sb.Append("  AssetVideoQuality: ").Append(AssetVideoQuality).Append("\n");
             sb.Append("  DeliveredSeconds: ").Append(DeliveredSeconds).Append("\n");
             sb.Append("  DeliveredSecondsByResolution: ").Append(DeliveredSecondsByResolution).Append("\n");
             sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
@@ -328,6 +360,10 @@ namespace Mux.Csharp.Sdk.Model
                     this.AssetEncodingTier.Equals(input.AssetEncodingTier)
                 ) && 
                 (
+                    this.AssetVideoQuality == input.AssetVideoQuality ||
+                    this.AssetVideoQuality.Equals(input.AssetVideoQuality)
+                ) && 
+                (
                     this.DeliveredSeconds == input.DeliveredSeconds ||
                     this.DeliveredSeconds.Equals(input.DeliveredSeconds)
                 ) && 
@@ -372,6 +408,7 @@ namespace Mux.Csharp.Sdk.Model
                 hashCode = (hashCode * 59) + this.AssetDuration.GetHashCode();
                 hashCode = (hashCode * 59) + this.AssetResolutionTier.GetHashCode();
                 hashCode = (hashCode * 59) + this.AssetEncodingTier.GetHashCode();
+                hashCode = (hashCode * 59) + this.AssetVideoQuality.GetHashCode();
                 hashCode = (hashCode * 59) + this.DeliveredSeconds.GetHashCode();
                 if (this.DeliveredSecondsByResolution != null)
                 {
