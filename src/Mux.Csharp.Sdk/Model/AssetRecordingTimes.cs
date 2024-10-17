@@ -53,6 +53,25 @@ namespace Mux.Csharp.Sdk.Model
 
         }
 
+        /// <summary>
+        /// Nested class for representing the started_at property
+        /// </summary>
+        [DataContract]
+        public class StartedAtObject
+        {
+            [DataMember(Name = "seconds")]
+            public long Seconds { get; set; }
+
+            [DataMember(Name = "nanos")]
+            public int Nanos { get; set; }
+        }
+
+        /// <summary>
+        /// The time at which the recording for the live stream started.
+        /// </summary>
+        [DataMember(Name = "started_at", EmitDefaultValue = false)]
+        public StartedAtObject StartedAtRaw { get; set; }
+
 
         /// <summary>
         /// The type of media represented by the recording session, either &#x60;content&#x60; for normal stream content or &#x60;slate&#x60; for slate media inserted during stream interruptions.
@@ -66,9 +85,9 @@ namespace Mux.Csharp.Sdk.Model
         /// <param name="startedAt">The time at which the recording for the live stream started. The time value is Unix epoch time represented in ISO 8601 format..</param>
         /// <param name="duration">The duration of the live stream recorded. The time value is in seconds..</param>
         /// <param name="type">The type of media represented by the recording session, either &#x60;content&#x60; for normal stream content or &#x60;slate&#x60; for slate media inserted during stream interruptions..</param>
-        public AssetRecordingTimes(DateTime startedAt = default(DateTime), double duration = default(double), TypeEnum? type = default(TypeEnum?))
+        public AssetRecordingTimes(StartedAtObject startedAtRaw = null, double duration = default(double), TypeEnum? type = default(TypeEnum?))
         {
-            this.StartedAt = startedAt;
+            this.StartedAtRaw = startedAtRaw;
             this.Duration = duration;
             this.Type = type;
             this.AdditionalProperties = new Dictionary<string, object>();
@@ -78,8 +97,16 @@ namespace Mux.Csharp.Sdk.Model
         /// The time at which the recording for the live stream started. The time value is Unix epoch time represented in ISO 8601 format.
         /// </summary>
         /// <value>The time at which the recording for the live stream started. The time value is Unix epoch time represented in ISO 8601 format.</value>
-        [DataMember(Name = "started_at", EmitDefaultValue = false)]
-        public DateTime StartedAt { get; set; }
+        // [DataMember(Name = "started_at", EmitDefaultValue = false)]
+        [JsonIgnore]
+        public DateTime StartedAt {
+            get
+            {
+                return DateTimeOffset.FromUnixTimeSeconds(StartedAtRaw.Seconds)
+                                     .AddTicks(StartedAtRaw.Nanos / 100) // Convert nanos to ticks (1 tick = 100 ns)
+                                     .UtcDateTime;
+            }
+        }
 
         /// <summary>
         /// The duration of the live stream recorded. The time value is in seconds.
@@ -143,8 +170,7 @@ namespace Mux.Csharp.Sdk.Model
             return 
                 (
                     this.StartedAt == input.StartedAt ||
-                    (this.StartedAt != null &&
-                    this.StartedAt.Equals(input.StartedAt))
+                    this.StartedAt.Equals(input.StartedAt)
                 ) && 
                 (
                     this.Duration == input.Duration ||
