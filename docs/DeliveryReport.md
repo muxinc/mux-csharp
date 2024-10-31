@@ -12,8 +12,8 @@ Name | Type | Description | Notes
 **AssetState** | **string** | The state of the asset. | [optional] 
 **AssetDuration** | **double** | The duration of the asset in seconds. | [optional] 
 **AssetResolutionTier** | **string** | The resolution tier that the asset was ingested at, affecting billing for ingest &amp; storage | [optional] 
-**AssetEncodingTier** | **string** | This field is deprecated. Please use &#x60;asset_video_quality&#x60; instead. The encoding tier that the asset was ingested at. [See the video quality guide for more details.](https://docs.mux.com/guides/use-encoding-tiers) | [optional] 
-**AssetVideoQuality** | **string** | The video quality that the asset was ingested at. This field replaces &#x60;asset_encoding_tier&#x60;. [See the video quality guide for more details.](https://docs.mux.com/guides/use-encoding-tiers) | [optional] 
+**AssetEncodingTier** | **string** | This field is deprecated. Please use &#x60;asset_video_quality&#x60; instead. The encoding tier that the asset was ingested at. [See the video quality guide for more details.](https://docs.mux.com/guides/use-video-quality-levels) | [optional] 
+**AssetVideoQuality** | **string** | The video quality that the asset was ingested at. This field replaces &#x60;asset_encoding_tier&#x60;. [See the video quality guide for more details.](https://docs.mux.com/guides/use-video-quality-levels) | [optional] 
 **DeliveredSeconds** | **double** | Total number of delivered seconds during this time window. | [optional] 
 **DeliveredSecondsByResolution** | [**DeliveryReportDeliveredSecondsByResolution**](DeliveryReportDeliveredSecondsByResolution.md) |  | [optional] 
 
