@@ -17,7 +17,7 @@ Mux is how developers build online video. This API encompasses both Mux Video an
 
 ## Usage With Webhooks
 
-At this moment, this SDK is not suitable for verifying webhook payloads, due to some incompatibilities in our API spec and our SDK generation tooling. We are working on resolving these issues, but for now you should only use this SDK for Mux's REST APIs.
+At this moment, this SDK is not suitable for parsing or modeling webhook payloads, due to some incompatibilities in our API spec and our SDK generation tooling. We are working on resolving these issues, but for now you should only use this SDK for Mux's REST APIs.
 
 - API version: v1
 - SDK version: 0.15.0
