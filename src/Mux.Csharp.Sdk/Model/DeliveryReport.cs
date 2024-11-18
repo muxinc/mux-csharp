@@ -113,9 +113,9 @@ namespace Mux.Csharp.Sdk.Model
         [DataMember(Name = "asset_resolution_tier", EmitDefaultValue = false)]
         public AssetResolutionTierEnum? AssetResolutionTier { get; set; }
         /// <summary>
-        /// This field is deprecated. Please use &#x60;asset_video_quality&#x60; instead. The encoding tier that the asset was ingested at. [See the video quality guide for more details.](https://docs.mux.com/guides/use-video-quality-levels)
+        /// This field is deprecated. Please use &#x60;asset_video_quality&#x60; instead. The encoding tier that the asset was ingested at. [See the video quality guide for more details.](https://docs.mux.com/guides/use-encoding-tiers)
         /// </summary>
-        /// <value>This field is deprecated. Please use &#x60;asset_video_quality&#x60; instead. The encoding tier that the asset was ingested at. [See the video quality guide for more details.](https://docs.mux.com/guides/use-video-quality-levels)</value>
+        /// <value>This field is deprecated. Please use &#x60;asset_video_quality&#x60; instead. The encoding tier that the asset was ingested at. [See the video quality guide for more details.](https://docs.mux.com/guides/use-encoding-tiers)</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum AssetEncodingTierEnum
         {
@@ -129,28 +129,22 @@ namespace Mux.Csharp.Sdk.Model
             /// Enum Baseline for value: baseline
             /// </summary>
             [EnumMember(Value = "baseline")]
-            Baseline = 2,
-
-            /// <summary>
-            /// Enum Premium for value: premium
-            /// </summary>
-            [EnumMember(Value = "premium")]
-            Premium = 3
+            Baseline = 2
 
         }
 
 
         /// <summary>
-        /// This field is deprecated. Please use &#x60;asset_video_quality&#x60; instead. The encoding tier that the asset was ingested at. [See the video quality guide for more details.](https://docs.mux.com/guides/use-video-quality-levels)
+        /// This field is deprecated. Please use &#x60;asset_video_quality&#x60; instead. The encoding tier that the asset was ingested at. [See the video quality guide for more details.](https://docs.mux.com/guides/use-encoding-tiers)
         /// </summary>
-        /// <value>This field is deprecated. Please use &#x60;asset_video_quality&#x60; instead. The encoding tier that the asset was ingested at. [See the video quality guide for more details.](https://docs.mux.com/guides/use-video-quality-levels)</value>
+        /// <value>This field is deprecated. Please use &#x60;asset_video_quality&#x60; instead. The encoding tier that the asset was ingested at. [See the video quality guide for more details.](https://docs.mux.com/guides/use-encoding-tiers)</value>
         [DataMember(Name = "asset_encoding_tier", EmitDefaultValue = false)]
         [Obsolete]
         public AssetEncodingTierEnum? AssetEncodingTier { get; set; }
         /// <summary>
-        /// The video quality that the asset was ingested at. This field replaces &#x60;asset_encoding_tier&#x60;. [See the video quality guide for more details.](https://docs.mux.com/guides/use-video-quality-levels)
+        /// The video quality that the asset was ingested at. This field replaces &#x60;asset_encoding_tier&#x60;. [See the video quality guide for more details.](https://docs.mux.com/guides/use-encoding-tiers)
         /// </summary>
-        /// <value>The video quality that the asset was ingested at. This field replaces &#x60;asset_encoding_tier&#x60;. [See the video quality guide for more details.](https://docs.mux.com/guides/use-video-quality-levels)</value>
+        /// <value>The video quality that the asset was ingested at. This field replaces &#x60;asset_encoding_tier&#x60;. [See the video quality guide for more details.](https://docs.mux.com/guides/use-encoding-tiers)</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum AssetVideoQualityEnum
         {
@@ -164,21 +158,15 @@ namespace Mux.Csharp.Sdk.Model
             /// Enum Plus for value: plus
             /// </summary>
             [EnumMember(Value = "plus")]
-            Plus = 2,
-
-            /// <summary>
-            /// Enum Premium for value: premium
-            /// </summary>
-            [EnumMember(Value = "premium")]
-            Premium = 3
+            Plus = 2
 
         }
 
 
         /// <summary>
-        /// The video quality that the asset was ingested at. This field replaces &#x60;asset_encoding_tier&#x60;. [See the video quality guide for more details.](https://docs.mux.com/guides/use-video-quality-levels)
+        /// The video quality that the asset was ingested at. This field replaces &#x60;asset_encoding_tier&#x60;. [See the video quality guide for more details.](https://docs.mux.com/guides/use-encoding-tiers)
         /// </summary>
-        /// <value>The video quality that the asset was ingested at. This field replaces &#x60;asset_encoding_tier&#x60;. [See the video quality guide for more details.](https://docs.mux.com/guides/use-video-quality-levels)</value>
+        /// <value>The video quality that the asset was ingested at. This field replaces &#x60;asset_encoding_tier&#x60;. [See the video quality guide for more details.](https://docs.mux.com/guides/use-encoding-tiers)</value>
         [DataMember(Name = "asset_video_quality", EmitDefaultValue = false)]
         public AssetVideoQualityEnum? AssetVideoQuality { get; set; }
         /// <summary>
@@ -192,8 +180,8 @@ namespace Mux.Csharp.Sdk.Model
         /// <param name="assetState">The state of the asset..</param>
         /// <param name="assetDuration">The duration of the asset in seconds..</param>
         /// <param name="assetResolutionTier">The resolution tier that the asset was ingested at, affecting billing for ingest &amp; storage.</param>
-        /// <param name="assetEncodingTier">This field is deprecated. Please use &#x60;asset_video_quality&#x60; instead. The encoding tier that the asset was ingested at. [See the video quality guide for more details.](https://docs.mux.com/guides/use-video-quality-levels).</param>
-        /// <param name="assetVideoQuality">The video quality that the asset was ingested at. This field replaces &#x60;asset_encoding_tier&#x60;. [See the video quality guide for more details.](https://docs.mux.com/guides/use-video-quality-levels).</param>
+        /// <param name="assetEncodingTier">This field is deprecated. Please use &#x60;asset_video_quality&#x60; instead. The encoding tier that the asset was ingested at. [See the video quality guide for more details.](https://docs.mux.com/guides/use-encoding-tiers).</param>
+        /// <param name="assetVideoQuality">The video quality that the asset was ingested at. This field replaces &#x60;asset_encoding_tier&#x60;. [See the video quality guide for more details.](https://docs.mux.com/guides/use-encoding-tiers).</param>
         /// <param name="deliveredSeconds">Total number of delivered seconds during this time window..</param>
         /// <param name="deliveredSecondsByResolution">deliveredSecondsByResolution.</param>
         public DeliveryReport(string liveStreamId = default(string), string assetId = default(string), string passthrough = default(string), string createdAt = default(string), string deletedAt = default(string), AssetStateEnum? assetState = default(AssetStateEnum?), double assetDuration = default(double), AssetResolutionTierEnum? assetResolutionTier = default(AssetResolutionTierEnum?), AssetEncodingTierEnum? assetEncodingTier = default(AssetEncodingTierEnum?), AssetVideoQualityEnum? assetVideoQuality = default(AssetVideoQualityEnum?), double deliveredSeconds = default(double), DeliveryReportDeliveredSecondsByResolution deliveredSecondsByResolution = default(DeliveryReportDeliveredSecondsByResolution))

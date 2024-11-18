@@ -194,9 +194,9 @@ namespace Mux.Csharp.Sdk.Model
         [DataMember(Name = "max_resolution_tier", EmitDefaultValue = false)]
         public MaxResolutionTierEnum? MaxResolutionTier { get; set; }
         /// <summary>
-        /// This field is deprecated. Please use &#x60;video_quality&#x60; instead. The encoding tier informs the cost, quality, and available platform features for the asset. The default encoding tier for an account can be set in the Mux Dashboard. [See the video quality guide for more details.](https://docs.mux.com/guides/use-video-quality-levels)
+        /// This field is deprecated. Please use &#x60;video_quality&#x60; instead. The encoding tier informs the cost, quality, and available platform features for the asset. By default the &#x60;smart&#x60; encoding tier is used. [See the video quality guide for more details.](https://docs.mux.com/guides/use-encoding-tiers)
         /// </summary>
-        /// <value>This field is deprecated. Please use &#x60;video_quality&#x60; instead. The encoding tier informs the cost, quality, and available platform features for the asset. The default encoding tier for an account can be set in the Mux Dashboard. [See the video quality guide for more details.](https://docs.mux.com/guides/use-video-quality-levels)</value>
+        /// <value>This field is deprecated. Please use &#x60;video_quality&#x60; instead. The encoding tier informs the cost, quality, and available platform features for the asset. By default the &#x60;smart&#x60; encoding tier is used. [See the video quality guide for more details.](https://docs.mux.com/guides/use-encoding-tiers)</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum EncodingTierEnum
         {
@@ -210,28 +210,22 @@ namespace Mux.Csharp.Sdk.Model
             /// Enum Baseline for value: baseline
             /// </summary>
             [EnumMember(Value = "baseline")]
-            Baseline = 2,
-
-            /// <summary>
-            /// Enum Premium for value: premium
-            /// </summary>
-            [EnumMember(Value = "premium")]
-            Premium = 3
+            Baseline = 2
 
         }
 
 
         /// <summary>
-        /// This field is deprecated. Please use &#x60;video_quality&#x60; instead. The encoding tier informs the cost, quality, and available platform features for the asset. The default encoding tier for an account can be set in the Mux Dashboard. [See the video quality guide for more details.](https://docs.mux.com/guides/use-video-quality-levels)
+        /// This field is deprecated. Please use &#x60;video_quality&#x60; instead. The encoding tier informs the cost, quality, and available platform features for the asset. By default the &#x60;smart&#x60; encoding tier is used. [See the video quality guide for more details.](https://docs.mux.com/guides/use-encoding-tiers)
         /// </summary>
-        /// <value>This field is deprecated. Please use &#x60;video_quality&#x60; instead. The encoding tier informs the cost, quality, and available platform features for the asset. The default encoding tier for an account can be set in the Mux Dashboard. [See the video quality guide for more details.](https://docs.mux.com/guides/use-video-quality-levels)</value>
+        /// <value>This field is deprecated. Please use &#x60;video_quality&#x60; instead. The encoding tier informs the cost, quality, and available platform features for the asset. By default the &#x60;smart&#x60; encoding tier is used. [See the video quality guide for more details.](https://docs.mux.com/guides/use-encoding-tiers)</value>
         [DataMember(Name = "encoding_tier", EmitDefaultValue = false)]
         [Obsolete]
         public EncodingTierEnum? EncodingTier { get; set; }
         /// <summary>
-        /// The video quality controls the cost, quality, and available platform features for the asset. The default video quality for an account can be set in the Mux Dashboard. This field replaces the deprecated &#x60;encoding_tier&#x60; value. [See the video quality guide for more details.](https://docs.mux.com/guides/use-video-quality-levels)
+        /// The video quality controls the cost, quality, and available platform features for the asset. By default the &#x60;plus&#x60; video quality is used. This field replaces the deprecated &#x60;encoding_tier&#x60; value. [See the video quality guide for more details.](https://docs.mux.com/guides/use-encoding-tiers)
         /// </summary>
-        /// <value>The video quality controls the cost, quality, and available platform features for the asset. The default video quality for an account can be set in the Mux Dashboard. This field replaces the deprecated &#x60;encoding_tier&#x60; value. [See the video quality guide for more details.](https://docs.mux.com/guides/use-video-quality-levels)</value>
+        /// <value>The video quality controls the cost, quality, and available platform features for the asset. By default the &#x60;plus&#x60; video quality is used. This field replaces the deprecated &#x60;encoding_tier&#x60; value. [See the video quality guide for more details.](https://docs.mux.com/guides/use-encoding-tiers)</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum VideoQualityEnum
         {
@@ -245,21 +239,15 @@ namespace Mux.Csharp.Sdk.Model
             /// Enum Plus for value: plus
             /// </summary>
             [EnumMember(Value = "plus")]
-            Plus = 2,
-
-            /// <summary>
-            /// Enum Premium for value: premium
-            /// </summary>
-            [EnumMember(Value = "premium")]
-            Premium = 3
+            Plus = 2
 
         }
 
 
         /// <summary>
-        /// The video quality controls the cost, quality, and available platform features for the asset. The default video quality for an account can be set in the Mux Dashboard. This field replaces the deprecated &#x60;encoding_tier&#x60; value. [See the video quality guide for more details.](https://docs.mux.com/guides/use-video-quality-levels)
+        /// The video quality controls the cost, quality, and available platform features for the asset. By default the &#x60;plus&#x60; video quality is used. This field replaces the deprecated &#x60;encoding_tier&#x60; value. [See the video quality guide for more details.](https://docs.mux.com/guides/use-encoding-tiers)
         /// </summary>
-        /// <value>The video quality controls the cost, quality, and available platform features for the asset. The default video quality for an account can be set in the Mux Dashboard. This field replaces the deprecated &#x60;encoding_tier&#x60; value. [See the video quality guide for more details.](https://docs.mux.com/guides/use-video-quality-levels)</value>
+        /// <value>The video quality controls the cost, quality, and available platform features for the asset. By default the &#x60;plus&#x60; video quality is used. This field replaces the deprecated &#x60;encoding_tier&#x60; value. [See the video quality guide for more details.](https://docs.mux.com/guides/use-encoding-tiers)</value>
         [DataMember(Name = "video_quality", EmitDefaultValue = false)]
         public VideoQualityEnum? VideoQuality { get; set; }
         /// <summary>
@@ -388,8 +376,8 @@ namespace Mux.Csharp.Sdk.Model
         /// <param name="maxStoredResolution">This field is deprecated. Please use &#x60;resolution_tier&#x60; instead. The maximum resolution that has been stored for the asset. The asset may be delivered at lower resolutions depending on the device and bandwidth, however it cannot be delivered at a higher value than is stored..</param>
         /// <param name="resolutionTier">The resolution tier that the asset was ingested at, affecting billing for ingest &amp; storage. This field also represents the highest resolution tier that the content can be delivered at, however the actual resolution may be lower depending on the device, bandwidth, and exact resolution of the uploaded asset..</param>
         /// <param name="maxResolutionTier">Max resolution tier can be used to control the maximum &#x60;resolution_tier&#x60; your asset is encoded, stored, and streamed at. If not set, this defaults to &#x60;1080p&#x60;..</param>
-        /// <param name="encodingTier">This field is deprecated. Please use &#x60;video_quality&#x60; instead. The encoding tier informs the cost, quality, and available platform features for the asset. The default encoding tier for an account can be set in the Mux Dashboard. [See the video quality guide for more details.](https://docs.mux.com/guides/use-video-quality-levels).</param>
-        /// <param name="videoQuality">The video quality controls the cost, quality, and available platform features for the asset. The default video quality for an account can be set in the Mux Dashboard. This field replaces the deprecated &#x60;encoding_tier&#x60; value. [See the video quality guide for more details.](https://docs.mux.com/guides/use-video-quality-levels).</param>
+        /// <param name="encodingTier">This field is deprecated. Please use &#x60;video_quality&#x60; instead. The encoding tier informs the cost, quality, and available platform features for the asset. By default the &#x60;smart&#x60; encoding tier is used. [See the video quality guide for more details.](https://docs.mux.com/guides/use-encoding-tiers).</param>
+        /// <param name="videoQuality">The video quality controls the cost, quality, and available platform features for the asset. By default the &#x60;plus&#x60; video quality is used. This field replaces the deprecated &#x60;encoding_tier&#x60; value. [See the video quality guide for more details.](https://docs.mux.com/guides/use-encoding-tiers).</param>
         /// <param name="maxStoredFrameRate">The maximum frame rate that has been stored for the asset. The asset may be delivered at lower frame rates depending on the device and bandwidth, however it cannot be delivered at a higher value than is stored. This field may return -1 if the frame rate of the input cannot be reliably determined..</param>
         /// <param name="aspectRatio">The aspect ratio of the asset in the form of &#x60;width:height&#x60;, for example &#x60;16:9&#x60;..</param>
         /// <param name="playbackIds">An array of Playback ID objects. Use these to create HLS playback URLs. See [Play your videos](https://docs.mux.com/guides/play-your-videos) for more details..</param>
