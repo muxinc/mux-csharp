@@ -12,6 +12,6 @@
     "dependencies": {
         "@openapitools/openapi-generator-cli": "^2.4.26",
         "node-jq": "^2.3.3",
-        "semver": "^7.3.7"
+        "semver": "^7.5.2"
     }
 }
