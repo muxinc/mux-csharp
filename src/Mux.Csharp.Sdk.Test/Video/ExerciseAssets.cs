@@ -14,11 +14,8 @@ namespace Mux.Csharp.Sdk.Test.Video
         [Fact]
         public void Exercise()
         {
-            Console.WriteLine("starting tests ✅");
             var config = TestHelpers.BuildApiConfiguration();
-            Console.WriteLine("creating assets api");
             var assets = new AssetsApi(config);
-            Console.WriteLine("creating playback id api");
             var playbackIds = new PlaybackIDApi(config);
 
 #region Asset creation
@@ -38,7 +35,6 @@ namespace Mux.Csharp.Sdk.Test.Video
                 input: new List<InputSettings>() { inputA, inputB }
             );
 
-            Console.WriteLine("creating an asset");
             var createResponse = assets.CreateAsset(car);
             Assert.NotNull(createResponse);
 
@@ -65,7 +61,8 @@ namespace Mux.Csharp.Sdk.Test.Video
                 }
             }
             while (asset == null || asset.Data.Status == Asset.StatusEnum.Preparing);
-            Assert.Equal(asset.Data.Status, Asset.StatusEnum.Ready)
+            
+            Assert.Equal(asset.Data.Status, Asset.StatusEnum.Ready);
             Console.WriteLine("get-asset OK ✅");
             
             var assetInputInfo = assets.GetAssetInputInfo(assetId);
