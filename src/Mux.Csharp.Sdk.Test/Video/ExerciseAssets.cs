@@ -23,7 +23,7 @@ namespace Mux.Csharp.Sdk.Test.Video
 
 #region Asset creation
             var inputA = new InputSettings(
-                url: "https://storage.googleapis.com/muxdemofiles/mux-video-intro.mp4"
+                url: "https://storage.googleapis.com/muxdemofiles/mux.mp4"
             );
             var inputB = new InputSettings(
                 url: "https://tears-of-steel-subtitles.s3.amazonaws.com/tears-fr.vtt",
@@ -35,7 +35,7 @@ namespace Mux.Csharp.Sdk.Test.Video
             );
 
             var car = new CreateAssetRequest(
-                input: new List<InputSettings>() { inputA }
+                input: new List<InputSettings>() { inputA, inputB }
             );
 
             Console.WriteLine("creating an asset");
@@ -59,12 +59,13 @@ namespace Mux.Csharp.Sdk.Test.Video
                 Assert.NotNull(asset);
                 Assert.Equal(assetId, asset.Data.Id);
 
-                if (asset.Data.Status != Asset.StatusEnum.Ready) {
+                if (asset.Data.Status == Asset.StatusEnum.Preparing) {
                     Console.WriteLine(" - waiting for asset to be ready...");
                     Thread.Sleep(2000);
                 }
             }
-            while (asset == null || asset.Data.Status != Asset.StatusEnum.Ready);
+            while (asset == null || asset.Data.Status == Asset.StatusEnum.Preparing);
+            Assert.Equal(asset.Data.Status, Asset.StatusEnum.Ready)
             Console.WriteLine("get-asset OK ✅");
             
             var assetInputInfo = assets.GetAssetInputInfo(assetId);
@@ -76,8 +77,8 @@ namespace Mux.Csharp.Sdk.Test.Video
 #region Clipping
             var clipInput = new InputSettings(
                 url: $"mux://assets/{assetId}",
-                startTime: 0.0,
-                endTime: 0.5
+                startTime: 20.0,
+                endTime: 25.0
             );
             var clipRequest = new CreateAssetRequest(input: new List<InputSettings>() { clipInput });
             var clipResponse = assets.CreateAsset(clipRequest);
@@ -92,12 +93,14 @@ namespace Mux.Csharp.Sdk.Test.Video
                 Assert.NotNull(clipAsset);
                 Assert.Equal(clipAssetId, clipAsset.Data.Id);
 
-                if (clipAsset.Data.Status != Asset.StatusEnum.Ready) {
+                if (clipAsset.Data.Status == Asset.StatusEnum.Preparing) {
                     Console.WriteLine(" - waiting for clipped asset to be ready...");
                     Thread.Sleep(2000);
                 }
             }
-            while (clipAsset == null || clipAsset.Data.Status != Asset.StatusEnum.Ready);
+            while (clipAsset == null || clipAsset.Data.Status == Asset.StatusEnum.Preparing);
+
+            Assert.Equal(clipAsset.Data.Status, Asset.StatusEnum.Ready);
 #endregion
 
             // TODO: do the rest of ExerciseAssets
