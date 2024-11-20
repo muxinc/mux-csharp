@@ -35,7 +35,7 @@ namespace Mux.Csharp.Sdk.Test.Video
             );
 
             var car = new CreateAssetRequest(
-                input: new List<InputSettings>() { inputA, inputB }
+                input: new List<InputSettings>() { inputA }
             );
 
             Console.WriteLine("creating an asset");
