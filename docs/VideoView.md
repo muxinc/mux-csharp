@@ -165,8 +165,6 @@ Name | Type | Description | Notes
 **AdPlaybackFailureErrorTypeId** | **int?** |  | [optional] 
 **ViewContentStartupTime** | **int?** |  | [optional] 
 **AdPrerollStartupTime** | **int?** |  | [optional] 
-**AdWatchTime** | **int?** |  | [optional] 
-**ViewContentWatchTime** | **int?** |  | [optional] 
 **ViewDropped** | **bool** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
