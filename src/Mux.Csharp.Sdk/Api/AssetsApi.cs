@@ -72,6 +72,29 @@ namespace Mux.Csharp.Sdk.Api
         /// <returns>ApiResponse of CreatePlaybackIDResponse</returns>
         ApiResponse<CreatePlaybackIDResponse> CreateAssetPlaybackIdWithHttpInfo(string ASSET_ID, CreatePlaybackIDRequest createPlaybackIDRequest);
         /// <summary>
+        /// Create a static rendition for an asset
+        /// </summary>
+        /// <remarks>
+        /// Creates a static rendition (i.e. MP4) for an asset
+        /// </remarks>
+        /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="ASSET_ID">The asset ID.</param>
+        /// <param name="createStaticRenditionRequest"></param>
+        /// <returns>CreateStaticRenditionResponse</returns>
+        CreateStaticRenditionResponse CreateAssetStaticRendition(string ASSET_ID, CreateStaticRenditionRequest createStaticRenditionRequest);
+
+        /// <summary>
+        /// Create a static rendition for an asset
+        /// </summary>
+        /// <remarks>
+        /// Creates a static rendition (i.e. MP4) for an asset
+        /// </remarks>
+        /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="ASSET_ID">The asset ID.</param>
+        /// <param name="createStaticRenditionRequest"></param>
+        /// <returns>ApiResponse of CreateStaticRenditionResponse</returns>
+        ApiResponse<CreateStaticRenditionResponse> CreateAssetStaticRenditionWithHttpInfo(string ASSET_ID, CreateStaticRenditionRequest createStaticRenditionRequest);
+        /// <summary>
         /// Create an asset track
         /// </summary>
         /// <remarks>
@@ -138,6 +161,29 @@ namespace Mux.Csharp.Sdk.Api
         /// <param name="PLAYBACK_ID">The live stream&#39;s playback ID.</param>
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> DeleteAssetPlaybackIdWithHttpInfo(string ASSET_ID, string PLAYBACK_ID);
+        /// <summary>
+        /// Delete a single static rendition for an asset
+        /// </summary>
+        /// <remarks>
+        /// Deletes a single static rendition for an asset
+        /// </remarks>
+        /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="ASSET_ID">The asset ID.</param>
+        /// <param name="STATIC_RENDITION_ID">The static rendition ID.</param>
+        /// <returns></returns>
+        void DeleteAssetStaticRendition(string ASSET_ID, string STATIC_RENDITION_ID);
+
+        /// <summary>
+        /// Delete a single static rendition for an asset
+        /// </summary>
+        /// <remarks>
+        /// Deletes a single static rendition for an asset
+        /// </remarks>
+        /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="ASSET_ID">The asset ID.</param>
+        /// <param name="STATIC_RENDITION_ID">The static rendition ID.</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        ApiResponse<Object> DeleteAssetStaticRenditionWithHttpInfo(string ASSET_ID, string STATIC_RENDITION_ID);
         /// <summary>
         /// Delete an asset track
         /// </summary>
@@ -405,6 +451,31 @@ namespace Mux.Csharp.Sdk.Api
         /// <returns>Task of ApiResponse (CreatePlaybackIDResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<CreatePlaybackIDResponse>> CreateAssetPlaybackIdWithHttpInfoAsync(string ASSET_ID, CreatePlaybackIDRequest createPlaybackIDRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
+        /// Create a static rendition for an asset
+        /// </summary>
+        /// <remarks>
+        /// Creates a static rendition (i.e. MP4) for an asset
+        /// </remarks>
+        /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="ASSET_ID">The asset ID.</param>
+        /// <param name="createStaticRenditionRequest"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of CreateStaticRenditionResponse</returns>
+        System.Threading.Tasks.Task<CreateStaticRenditionResponse> CreateAssetStaticRenditionAsync(string ASSET_ID, CreateStaticRenditionRequest createStaticRenditionRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Create a static rendition for an asset
+        /// </summary>
+        /// <remarks>
+        /// Creates a static rendition (i.e. MP4) for an asset
+        /// </remarks>
+        /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="ASSET_ID">The asset ID.</param>
+        /// <param name="createStaticRenditionRequest"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (CreateStaticRenditionResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<CreateStaticRenditionResponse>> CreateAssetStaticRenditionWithHttpInfoAsync(string ASSET_ID, CreateStaticRenditionRequest createStaticRenditionRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
         /// Create an asset track
         /// </summary>
         /// <remarks>
@@ -477,6 +548,31 @@ namespace Mux.Csharp.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> DeleteAssetPlaybackIdWithHttpInfoAsync(string ASSET_ID, string PLAYBACK_ID, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// Delete a single static rendition for an asset
+        /// </summary>
+        /// <remarks>
+        /// Deletes a single static rendition for an asset
+        /// </remarks>
+        /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="ASSET_ID">The asset ID.</param>
+        /// <param name="STATIC_RENDITION_ID">The static rendition ID.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of void</returns>
+        System.Threading.Tasks.Task DeleteAssetStaticRenditionAsync(string ASSET_ID, string STATIC_RENDITION_ID, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Delete a single static rendition for an asset
+        /// </summary>
+        /// <remarks>
+        /// Deletes a single static rendition for an asset
+        /// </remarks>
+        /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="ASSET_ID">The asset ID.</param>
+        /// <param name="STATIC_RENDITION_ID">The static rendition ID.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse</returns>
+        System.Threading.Tasks.Task<ApiResponse<Object>> DeleteAssetStaticRenditionWithHttpInfoAsync(string ASSET_ID, string STATIC_RENDITION_ID, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Delete an asset track
         /// </summary>
@@ -1139,6 +1235,172 @@ namespace Mux.Csharp.Sdk.Api
         }
 
         /// <summary>
+        /// Create a static rendition for an asset Creates a static rendition (i.e. MP4) for an asset
+        /// </summary>
+        /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="ASSET_ID">The asset ID.</param>
+        /// <param name="createStaticRenditionRequest"></param>
+        /// <returns>CreateStaticRenditionResponse</returns>
+        public CreateStaticRenditionResponse CreateAssetStaticRendition(string ASSET_ID, CreateStaticRenditionRequest createStaticRenditionRequest)
+        {
+            Mux.Csharp.Sdk.Client.ApiResponse<CreateStaticRenditionResponse> localVarResponse = CreateAssetStaticRenditionWithHttpInfo(ASSET_ID, createStaticRenditionRequest);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Create a static rendition for an asset Creates a static rendition (i.e. MP4) for an asset
+        /// </summary>
+        /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="ASSET_ID">The asset ID.</param>
+        /// <param name="createStaticRenditionRequest"></param>
+        /// <returns>ApiResponse of CreateStaticRenditionResponse</returns>
+        public Mux.Csharp.Sdk.Client.ApiResponse<CreateStaticRenditionResponse> CreateAssetStaticRenditionWithHttpInfo(string ASSET_ID, CreateStaticRenditionRequest createStaticRenditionRequest)
+        {
+            // verify the required parameter 'ASSET_ID' is set
+            if (ASSET_ID == null)
+            {
+                throw new Mux.Csharp.Sdk.Client.ApiException(400, "Missing required parameter 'ASSET_ID' when calling AssetsApi->CreateAssetStaticRendition");
+            }
+
+            // verify the required parameter 'createStaticRenditionRequest' is set
+            if (createStaticRenditionRequest == null)
+            {
+                throw new Mux.Csharp.Sdk.Client.ApiException(400, "Missing required parameter 'createStaticRenditionRequest' when calling AssetsApi->CreateAssetStaticRendition");
+            }
+
+            Mux.Csharp.Sdk.Client.RequestOptions localVarRequestOptions = new Mux.Csharp.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = Mux.Csharp.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Mux.Csharp.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("ASSET_ID", Mux.Csharp.Sdk.Client.ClientUtils.ParameterToString(ASSET_ID)); // path parameter
+            localVarRequestOptions.Data = createStaticRenditionRequest;
+
+            // authentication (accessToken) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Mux.Csharp.Sdk.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<CreateStaticRenditionResponse>("/video/v1/assets/{ASSET_ID}/static-renditions", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("CreateAssetStaticRendition", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Create a static rendition for an asset Creates a static rendition (i.e. MP4) for an asset
+        /// </summary>
+        /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="ASSET_ID">The asset ID.</param>
+        /// <param name="createStaticRenditionRequest"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of CreateStaticRenditionResponse</returns>
+        public async System.Threading.Tasks.Task<CreateStaticRenditionResponse> CreateAssetStaticRenditionAsync(string ASSET_ID, CreateStaticRenditionRequest createStaticRenditionRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            Mux.Csharp.Sdk.Client.ApiResponse<CreateStaticRenditionResponse> localVarResponse = await CreateAssetStaticRenditionWithHttpInfoAsync(ASSET_ID, createStaticRenditionRequest, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Create a static rendition for an asset Creates a static rendition (i.e. MP4) for an asset
+        /// </summary>
+        /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="ASSET_ID">The asset ID.</param>
+        /// <param name="createStaticRenditionRequest"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (CreateStaticRenditionResponse)</returns>
+        public async System.Threading.Tasks.Task<Mux.Csharp.Sdk.Client.ApiResponse<CreateStaticRenditionResponse>> CreateAssetStaticRenditionWithHttpInfoAsync(string ASSET_ID, CreateStaticRenditionRequest createStaticRenditionRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'ASSET_ID' is set
+            if (ASSET_ID == null)
+            {
+                throw new Mux.Csharp.Sdk.Client.ApiException(400, "Missing required parameter 'ASSET_ID' when calling AssetsApi->CreateAssetStaticRendition");
+            }
+
+            // verify the required parameter 'createStaticRenditionRequest' is set
+            if (createStaticRenditionRequest == null)
+            {
+                throw new Mux.Csharp.Sdk.Client.ApiException(400, "Missing required parameter 'createStaticRenditionRequest' when calling AssetsApi->CreateAssetStaticRendition");
+            }
+
+
+            Mux.Csharp.Sdk.Client.RequestOptions localVarRequestOptions = new Mux.Csharp.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = Mux.Csharp.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Mux.Csharp.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("ASSET_ID", Mux.Csharp.Sdk.Client.ClientUtils.ParameterToString(ASSET_ID)); // path parameter
+            localVarRequestOptions.Data = createStaticRenditionRequest;
+
+            // authentication (accessToken) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Mux.Csharp.Sdk.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.PostAsync<CreateStaticRenditionResponse>("/video/v1/assets/{ASSET_ID}/static-renditions", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("CreateAssetStaticRendition", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
         /// Create an asset track Adds an asset track (for example, subtitles, or an alternate audio track) to an asset.
         /// </summary>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
@@ -1597,6 +1859,166 @@ namespace Mux.Csharp.Sdk.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("DeleteAssetPlaybackId", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Delete a single static rendition for an asset Deletes a single static rendition for an asset
+        /// </summary>
+        /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="ASSET_ID">The asset ID.</param>
+        /// <param name="STATIC_RENDITION_ID">The static rendition ID.</param>
+        /// <returns></returns>
+        public void DeleteAssetStaticRendition(string ASSET_ID, string STATIC_RENDITION_ID)
+        {
+            DeleteAssetStaticRenditionWithHttpInfo(ASSET_ID, STATIC_RENDITION_ID);
+        }
+
+        /// <summary>
+        /// Delete a single static rendition for an asset Deletes a single static rendition for an asset
+        /// </summary>
+        /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="ASSET_ID">The asset ID.</param>
+        /// <param name="STATIC_RENDITION_ID">The static rendition ID.</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        public Mux.Csharp.Sdk.Client.ApiResponse<Object> DeleteAssetStaticRenditionWithHttpInfo(string ASSET_ID, string STATIC_RENDITION_ID)
+        {
+            // verify the required parameter 'ASSET_ID' is set
+            if (ASSET_ID == null)
+            {
+                throw new Mux.Csharp.Sdk.Client.ApiException(400, "Missing required parameter 'ASSET_ID' when calling AssetsApi->DeleteAssetStaticRendition");
+            }
+
+            // verify the required parameter 'STATIC_RENDITION_ID' is set
+            if (STATIC_RENDITION_ID == null)
+            {
+                throw new Mux.Csharp.Sdk.Client.ApiException(400, "Missing required parameter 'STATIC_RENDITION_ID' when calling AssetsApi->DeleteAssetStaticRendition");
+            }
+
+            Mux.Csharp.Sdk.Client.RequestOptions localVarRequestOptions = new Mux.Csharp.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+            };
+
+            var localVarContentType = Mux.Csharp.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Mux.Csharp.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("ASSET_ID", Mux.Csharp.Sdk.Client.ClientUtils.ParameterToString(ASSET_ID)); // path parameter
+            localVarRequestOptions.PathParameters.Add("STATIC_RENDITION_ID", Mux.Csharp.Sdk.Client.ClientUtils.ParameterToString(STATIC_RENDITION_ID)); // path parameter
+
+            // authentication (accessToken) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Mux.Csharp.Sdk.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Delete<Object>("/video/v1/assets/{ASSET_ID}/static-renditions/{STATIC_RENDITION_ID}", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("DeleteAssetStaticRendition", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Delete a single static rendition for an asset Deletes a single static rendition for an asset
+        /// </summary>
+        /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="ASSET_ID">The asset ID.</param>
+        /// <param name="STATIC_RENDITION_ID">The static rendition ID.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of void</returns>
+        public async System.Threading.Tasks.Task DeleteAssetStaticRenditionAsync(string ASSET_ID, string STATIC_RENDITION_ID, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            await DeleteAssetStaticRenditionWithHttpInfoAsync(ASSET_ID, STATIC_RENDITION_ID, cancellationToken).ConfigureAwait(false);
+        }
+
+        /// <summary>
+        /// Delete a single static rendition for an asset Deletes a single static rendition for an asset
+        /// </summary>
+        /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="ASSET_ID">The asset ID.</param>
+        /// <param name="STATIC_RENDITION_ID">The static rendition ID.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse</returns>
+        public async System.Threading.Tasks.Task<Mux.Csharp.Sdk.Client.ApiResponse<Object>> DeleteAssetStaticRenditionWithHttpInfoAsync(string ASSET_ID, string STATIC_RENDITION_ID, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'ASSET_ID' is set
+            if (ASSET_ID == null)
+            {
+                throw new Mux.Csharp.Sdk.Client.ApiException(400, "Missing required parameter 'ASSET_ID' when calling AssetsApi->DeleteAssetStaticRendition");
+            }
+
+            // verify the required parameter 'STATIC_RENDITION_ID' is set
+            if (STATIC_RENDITION_ID == null)
+            {
+                throw new Mux.Csharp.Sdk.Client.ApiException(400, "Missing required parameter 'STATIC_RENDITION_ID' when calling AssetsApi->DeleteAssetStaticRendition");
+            }
+
+
+            Mux.Csharp.Sdk.Client.RequestOptions localVarRequestOptions = new Mux.Csharp.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+            };
+
+            var localVarContentType = Mux.Csharp.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Mux.Csharp.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("ASSET_ID", Mux.Csharp.Sdk.Client.ClientUtils.ParameterToString(ASSET_ID)); // path parameter
+            localVarRequestOptions.PathParameters.Add("STATIC_RENDITION_ID", Mux.Csharp.Sdk.Client.ClientUtils.ParameterToString(STATIC_RENDITION_ID)); // path parameter
+
+            // authentication (accessToken) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Mux.Csharp.Sdk.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.DeleteAsync<Object>("/video/v1/assets/{ASSET_ID}/static-renditions/{STATIC_RENDITION_ID}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("DeleteAssetStaticRendition", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;

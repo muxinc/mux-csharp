@@ -10,7 +10,6 @@ docs/AssetNonStandardInputReasons.md
 docs/AssetRecordingTimes.md
 docs/AssetResponse.md
 docs/AssetStaticRenditions.md
-docs/AssetStaticRenditionsFiles.md
 docs/AssetsApi.md
 docs/BreakdownValue.md
 docs/Broadcast.md
@@ -26,6 +25,8 @@ docs/CreatePlaybackIDResponse.md
 docs/CreatePlaybackRestrictionRequest.md
 docs/CreateSimulcastTargetRequest.md
 docs/CreateSpaceRequest.md
+docs/CreateStaticRenditionRequest.md
+docs/CreateStaticRenditionResponse.md
 docs/CreateTrackRequest.md
 docs/CreateTrackResponse.md
 docs/CreateTranscriptionVocabularyRequest.md
@@ -157,6 +158,7 @@ docs/SpaceStatus.md
 docs/SpaceType.md
 docs/SpacesApi.md
 docs/StartSpaceBroadcastResponse.md
+docs/StaticRendition.md
 docs/StopSpaceBroadcastResponse.md
 docs/Track.md
 docs/TranscriptionVocabulariesApi.md
@@ -169,6 +171,7 @@ docs/UpdateAssetRequest.md
 docs/UpdateLiveStreamEmbeddedSubtitlesRequest.md
 docs/UpdateLiveStreamGeneratedSubtitlesRequest.md
 docs/UpdateLiveStreamNewAssetSettings.md
+docs/UpdateLiveStreamNewAssetSettingsStaticRenditionsRequest.md
 docs/UpdateLiveStreamRequest.md
 docs/UpdateReferrerDomainRestrictionRequest.md
 docs/UpdateTranscriptionVocabularyRequest.md
@@ -234,7 +237,6 @@ src/Mux.Csharp.Sdk/Model/AssetNonStandardInputReasons.cs
 src/Mux.Csharp.Sdk/Model/AssetRecordingTimes.cs
 src/Mux.Csharp.Sdk/Model/AssetResponse.cs
 src/Mux.Csharp.Sdk/Model/AssetStaticRenditions.cs
-src/Mux.Csharp.Sdk/Model/AssetStaticRenditionsFiles.cs
 src/Mux.Csharp.Sdk/Model/BreakdownValue.cs
 src/Mux.Csharp.Sdk/Model/Broadcast.cs
 src/Mux.Csharp.Sdk/Model/BroadcastLayout.cs
@@ -249,6 +251,8 @@ src/Mux.Csharp.Sdk/Model/CreatePlaybackIDResponse.cs
 src/Mux.Csharp.Sdk/Model/CreatePlaybackRestrictionRequest.cs
 src/Mux.Csharp.Sdk/Model/CreateSimulcastTargetRequest.cs
 src/Mux.Csharp.Sdk/Model/CreateSpaceRequest.cs
+src/Mux.Csharp.Sdk/Model/CreateStaticRenditionRequest.cs
+src/Mux.Csharp.Sdk/Model/CreateStaticRenditionResponse.cs
 src/Mux.Csharp.Sdk/Model/CreateTrackRequest.cs
 src/Mux.Csharp.Sdk/Model/CreateTrackResponse.cs
 src/Mux.Csharp.Sdk/Model/CreateTranscriptionVocabularyRequest.cs
@@ -364,6 +368,7 @@ src/Mux.Csharp.Sdk/Model/SpaceResponse.cs
 src/Mux.Csharp.Sdk/Model/SpaceStatus.cs
 src/Mux.Csharp.Sdk/Model/SpaceType.cs
 src/Mux.Csharp.Sdk/Model/StartSpaceBroadcastResponse.cs
+src/Mux.Csharp.Sdk/Model/StaticRendition.cs
 src/Mux.Csharp.Sdk/Model/StopSpaceBroadcastResponse.cs
 src/Mux.Csharp.Sdk/Model/Track.cs
 src/Mux.Csharp.Sdk/Model/TranscriptionVocabulary.cs
@@ -374,6 +379,7 @@ src/Mux.Csharp.Sdk/Model/UpdateAssetRequest.cs
 src/Mux.Csharp.Sdk/Model/UpdateLiveStreamEmbeddedSubtitlesRequest.cs
 src/Mux.Csharp.Sdk/Model/UpdateLiveStreamGeneratedSubtitlesRequest.cs
 src/Mux.Csharp.Sdk/Model/UpdateLiveStreamNewAssetSettings.cs
+src/Mux.Csharp.Sdk/Model/UpdateLiveStreamNewAssetSettingsStaticRenditionsRequest.cs
 src/Mux.Csharp.Sdk/Model/UpdateLiveStreamRequest.cs
 src/Mux.Csharp.Sdk/Model/UpdateReferrerDomainRestrictionRequest.cs
 src/Mux.Csharp.Sdk/Model/UpdateTranscriptionVocabularyRequest.cs

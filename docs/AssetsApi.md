@@ -6,9 +6,11 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**CreateAsset**](AssetsApi.md#createasset) | **POST** /video/v1/assets | Create an asset
 [**CreateAssetPlaybackId**](AssetsApi.md#createassetplaybackid) | **POST** /video/v1/assets/{ASSET_ID}/playback-ids | Create a playback ID
+[**CreateAssetStaticRendition**](AssetsApi.md#createassetstaticrendition) | **POST** /video/v1/assets/{ASSET_ID}/static-renditions | Create a static rendition for an asset
 [**CreateAssetTrack**](AssetsApi.md#createassettrack) | **POST** /video/v1/assets/{ASSET_ID}/tracks | Create an asset track
 [**DeleteAsset**](AssetsApi.md#deleteasset) | **DELETE** /video/v1/assets/{ASSET_ID} | Delete an asset
 [**DeleteAssetPlaybackId**](AssetsApi.md#deleteassetplaybackid) | **DELETE** /video/v1/assets/{ASSET_ID}/playback-ids/{PLAYBACK_ID} | Delete a playback ID
+[**DeleteAssetStaticRendition**](AssetsApi.md#deleteassetstaticrendition) | **DELETE** /video/v1/assets/{ASSET_ID}/static-renditions/{STATIC_RENDITION_ID} | Delete a single static rendition for an asset
 [**DeleteAssetTrack**](AssetsApi.md#deleteassettrack) | **DELETE** /video/v1/assets/{ASSET_ID}/tracks/{TRACK_ID} | Delete an asset track
 [**GenerateAssetTrackSubtitles**](AssetsApi.md#generateassettracksubtitles) | **POST** /video/v1/assets/{ASSET_ID}/tracks/{TRACK_ID}/generate-subtitles | Generate track subtitles
 [**GetAsset**](AssetsApi.md#getasset) | **GET** /video/v1/assets/{ASSET_ID} | Retrieve an asset
@@ -154,6 +156,83 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**CreatePlaybackIDResponse**](CreatePlaybackIDResponse.md)
+
+### Authorization
+
+[accessToken](../README.md#accessToken)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **201** | Created |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="createassetstaticrendition"></a>
+# **CreateAssetStaticRendition**
+> CreateStaticRenditionResponse CreateAssetStaticRendition (string ASSET_ID, CreateStaticRenditionRequest createStaticRenditionRequest)
+
+Create a static rendition for an asset
+
+Creates a static rendition (i.e. MP4) for an asset
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Mux.Csharp.Sdk.Api;
+using Mux.Csharp.Sdk.Client;
+using Mux.Csharp.Sdk.Model;
+
+namespace Example
+{
+    public class CreateAssetStaticRenditionExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.mux.com";
+            // Configure HTTP basic authorization: accessToken
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+
+            var apiInstance = new AssetsApi(config);
+            var ASSET_ID = "ASSET_ID_example";  // string | The asset ID.
+            var createStaticRenditionRequest = new CreateStaticRenditionRequest(); // CreateStaticRenditionRequest | 
+
+            try
+            {
+                // Create a static rendition for an asset
+                CreateStaticRenditionResponse result = apiInstance.CreateAssetStaticRendition(ASSET_ID, createStaticRenditionRequest);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling AssetsApi.CreateAssetStaticRendition: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ASSET_ID** | **string**| The asset ID. | 
+ **createStaticRenditionRequest** | [**CreateStaticRenditionRequest**](CreateStaticRenditionRequest.md)|  | 
+
+### Return type
+
+[**CreateStaticRenditionResponse**](CreateStaticRenditionResponse.md)
 
 ### Authorization
 
@@ -377,6 +456,82 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ASSET_ID** | **string**| The asset ID. | 
  **PLAYBACK_ID** | **string**| The live stream&#39;s playback ID. | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[accessToken](../README.md#accessToken)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **204** | No Content |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="deleteassetstaticrendition"></a>
+# **DeleteAssetStaticRendition**
+> void DeleteAssetStaticRendition (string ASSET_ID, string STATIC_RENDITION_ID)
+
+Delete a single static rendition for an asset
+
+Deletes a single static rendition for an asset
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Mux.Csharp.Sdk.Api;
+using Mux.Csharp.Sdk.Client;
+using Mux.Csharp.Sdk.Model;
+
+namespace Example
+{
+    public class DeleteAssetStaticRenditionExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.mux.com";
+            // Configure HTTP basic authorization: accessToken
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+
+            var apiInstance = new AssetsApi(config);
+            var ASSET_ID = "ASSET_ID_example";  // string | The asset ID.
+            var STATIC_RENDITION_ID = "STATIC_RENDITION_ID_example";  // string | The static rendition ID.
+
+            try
+            {
+                // Delete a single static rendition for an asset
+                apiInstance.DeleteAssetStaticRendition(ASSET_ID, STATIC_RENDITION_ID);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling AssetsApi.DeleteAssetStaticRendition: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ASSET_ID** | **string**| The asset ID. | 
+ **STATIC_RENDITION_ID** | **string**| The static rendition ID. | 
 
 ### Return type
 

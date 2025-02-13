@@ -33,9 +33,9 @@ namespace Mux.Csharp.Sdk.Model
     public partial class AssetStaticRenditions : IEquatable<AssetStaticRenditions>, IValidatableObject
     {
         /// <summary>
-        /// Indicates the status of downloadable MP4 versions of this asset.
+        /// Indicates the status of downloadable MP4 versions of this asset. This field is only valid when &#x60;mp4_support&#x60; is enabled
         /// </summary>
-        /// <value>Indicates the status of downloadable MP4 versions of this asset.</value>
+        /// <value>Indicates the status of downloadable MP4 versions of this asset. This field is only valid when &#x60;mp4_support&#x60; is enabled</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum StatusEnum
         {
@@ -67,17 +67,17 @@ namespace Mux.Csharp.Sdk.Model
 
 
         /// <summary>
-        /// Indicates the status of downloadable MP4 versions of this asset.
+        /// Indicates the status of downloadable MP4 versions of this asset. This field is only valid when &#x60;mp4_support&#x60; is enabled
         /// </summary>
-        /// <value>Indicates the status of downloadable MP4 versions of this asset.</value>
+        /// <value>Indicates the status of downloadable MP4 versions of this asset. This field is only valid when &#x60;mp4_support&#x60; is enabled</value>
         [DataMember(Name = "status", EmitDefaultValue = false)]
         public StatusEnum? Status { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="AssetStaticRenditions" /> class.
         /// </summary>
-        /// <param name="status">Indicates the status of downloadable MP4 versions of this asset. (default to StatusEnum.Disabled).</param>
+        /// <param name="status">Indicates the status of downloadable MP4 versions of this asset. This field is only valid when &#x60;mp4_support&#x60; is enabled (default to StatusEnum.Disabled).</param>
         /// <param name="files">Array of file objects..</param>
-        public AssetStaticRenditions(StatusEnum? status = StatusEnum.Disabled, List<AssetStaticRenditionsFiles> files = default(List<AssetStaticRenditionsFiles>))
+        public AssetStaticRenditions(StatusEnum? status = StatusEnum.Disabled, List<StaticRendition> files = default(List<StaticRendition>))
         {
             this.Status = status;
             this.Files = files;
@@ -89,7 +89,7 @@ namespace Mux.Csharp.Sdk.Model
         /// </summary>
         /// <value>Array of file objects.</value>
         [DataMember(Name = "files", EmitDefaultValue = false)]
-        public List<AssetStaticRenditionsFiles> Files { get; set; }
+        public List<StaticRendition> Files { get; set; }
 
         /// <summary>
         /// Gets or Sets additional properties
