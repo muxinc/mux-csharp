@@ -20,13 +20,13 @@ jobs:
           wget https://security.ubuntu.com/ubuntu/pool/main/o/openssl/libssl1.1_1.1.1f-1ubuntu2.23_amd64.deb
           sudo dpkg -i libssl1.1_1.1.1f-1ubuntu2.23_amd64.deb
       - name: Install .NET
-        uses: actions/setup-dotnet@v3
+        uses: actions/setup-dotnet@v4
         with:
           dotnet-version: '3.1.x'
+      - name: Check out code
+        uses: actions/checkout@v4
       - name: Restore Nuget packages
         run: dotnet restore Mux.Csharp.Sdk.sln
-      - name: Check out code
-        uses: actions/checkout@v3
       - name: Adding /tmp/output
         run: mkdir -p /tmp/output
 
