@@ -38,7 +38,7 @@ jobs:
           MUX_TOKEN_SECRET: "${{ secrets.MUX_TOKEN_SECRET }}"
         run: dotnet test --configuration ${{ matrix.dotnet-configuration }} --no-build
       - name: Pack for ${{ matrix.dotnet-configuration }}
-        run: cp README.md icon.png src/Mux.Csharp.Sdk && dotnet pack --configuration ${{ matrix.dotnet-configuration }} --no-build --include-source --include-symbols --property:PackageOutputPath=/tmp/output
+        run: cp README.md icon.png src/Mux.Csharp.Sdk && dotnet pack --configuration ${{ matrix.dotnet-configuration }} --no-build --include-source --include-symbols --output /tmp/output
 
       - name: Uploading artifact for ${{ matrix.dotnet-configuration }}
         uses: actions/upload-artifact@v4
