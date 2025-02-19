@@ -101,7 +101,7 @@ namespace Mux.Csharp.Sdk.Model
         /// <param name="languageCode">The language code value must be a valid [BCP 47](https://tools.ietf.org/html/bcp47) specification compliant value. For example, &#x60;en&#x60; for English or &#x60;en-US&#x60; for the US version of English. This parameter is required for &#x60;text&#x60; and &#x60;audio&#x60; track types..</param>
         /// <param name="name">The name of the track containing a human-readable description. This value must be unique within each group of &#x60;text&#x60; or &#x60;audio&#x60; track types. The HLS manifest will associate a subtitle text track with this value. For example, the value should be \&quot;English\&quot; for a subtitle text track with &#x60;language_code&#x60; set to &#x60;en&#x60;. This optional parameter should be used only for &#x60;text&#x60; and &#x60;audio&#x60; type tracks. This parameter can be optionally provided for the first video input to denote the name of the muxed audio track if present. If this parameter is not included, Mux will auto-populate based on the &#x60;input[].language_code&#x60; value..</param>
         /// <param name="closedCaptions">Indicates the track provides Subtitles for the Deaf or Hard-of-hearing (SDH). This optional parameter should be used for tracks with &#x60;type&#x60; of &#x60;text&#x60; and &#x60;text_type&#x60; set to &#x60;subtitles&#x60;..</param>
-        /// <param name="passthrough">This optional parameter should be used tracks with &#x60;type&#x60; of &#x60;text&#x60; and &#x60;text_type&#x60; set to &#x60;subtitles&#x60;..</param>
+        /// <param name="passthrough">This optional parameter should be used for tracks with &#x60;type&#x60; of &#x60;text&#x60; and &#x60;text_type&#x60; set to &#x60;subtitles&#x60;..</param>
         public InputSettings(string url = default(string), InputSettingsOverlaySettings overlaySettings = default(InputSettingsOverlaySettings), List<AssetGeneratedSubtitleSettings> generatedSubtitles = default(List<AssetGeneratedSubtitleSettings>), double startTime = default(double), double endTime = default(double), TypeEnum? type = default(TypeEnum?), TextTypeEnum? textType = default(TextTypeEnum?), string languageCode = default(string), string name = default(string), bool closedCaptions = default(bool), string passthrough = default(string))
         {
             this.Url = url;
@@ -174,9 +174,9 @@ namespace Mux.Csharp.Sdk.Model
         public bool ClosedCaptions { get; set; }
 
         /// <summary>
-        /// This optional parameter should be used tracks with &#x60;type&#x60; of &#x60;text&#x60; and &#x60;text_type&#x60; set to &#x60;subtitles&#x60;.
+        /// This optional parameter should be used for tracks with &#x60;type&#x60; of &#x60;text&#x60; and &#x60;text_type&#x60; set to &#x60;subtitles&#x60;.
         /// </summary>
-        /// <value>This optional parameter should be used tracks with &#x60;type&#x60; of &#x60;text&#x60; and &#x60;text_type&#x60; set to &#x60;subtitles&#x60;.</value>
+        /// <value>This optional parameter should be used for tracks with &#x60;type&#x60; of &#x60;text&#x60; and &#x60;text_type&#x60; set to &#x60;subtitles&#x60;.</value>
         [DataMember(Name = "passthrough", EmitDefaultValue = false)]
         public string Passthrough { get; set; }
 

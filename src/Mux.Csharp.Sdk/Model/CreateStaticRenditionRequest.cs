@@ -110,11 +110,20 @@ namespace Mux.Csharp.Sdk.Model
         /// Initializes a new instance of the <see cref="CreateStaticRenditionRequest" /> class.
         /// </summary>
         /// <param name="resolution">resolution.</param>
-        public CreateStaticRenditionRequest(ResolutionEnum? resolution = default(ResolutionEnum?))
+        /// <param name="passthrough">Arbitrary user-supplied metadata set for the static rendition. Max 255 characters..</param>
+        public CreateStaticRenditionRequest(ResolutionEnum? resolution = default(ResolutionEnum?), string passthrough = default(string))
         {
             this.Resolution = resolution;
+            this.Passthrough = passthrough;
             this.AdditionalProperties = new Dictionary<string, object>();
         }
+
+        /// <summary>
+        /// Arbitrary user-supplied metadata set for the static rendition. Max 255 characters.
+        /// </summary>
+        /// <value>Arbitrary user-supplied metadata set for the static rendition. Max 255 characters.</value>
+        [DataMember(Name = "passthrough", EmitDefaultValue = false)]
+        public string Passthrough { get; set; }
 
         /// <summary>
         /// Gets or Sets additional properties
@@ -131,6 +140,7 @@ namespace Mux.Csharp.Sdk.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class CreateStaticRenditionRequest {\n");
             sb.Append("  Resolution: ").Append(Resolution).Append("\n");
+            sb.Append("  Passthrough: ").Append(Passthrough).Append("\n");
             sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -170,6 +180,11 @@ namespace Mux.Csharp.Sdk.Model
                 (
                     this.Resolution == input.Resolution ||
                     this.Resolution.Equals(input.Resolution)
+                ) && 
+                (
+                    this.Passthrough == input.Passthrough ||
+                    (this.Passthrough != null &&
+                    this.Passthrough.Equals(input.Passthrough))
                 )
                 && (this.AdditionalProperties.Count == input.AdditionalProperties.Count && !this.AdditionalProperties.Except(input.AdditionalProperties).Any());
         }
@@ -184,6 +199,10 @@ namespace Mux.Csharp.Sdk.Model
             {
                 int hashCode = 41;
                 hashCode = (hashCode * 59) + this.Resolution.GetHashCode();
+                if (this.Passthrough != null)
+                {
+                    hashCode = (hashCode * 59) + this.Passthrough.GetHashCode();
+                }
                 if (this.AdditionalProperties != null)
                 {
                     hashCode = (hashCode * 59) + this.AdditionalProperties.GetHashCode();

@@ -358,7 +358,8 @@ namespace Mux.Csharp.Sdk.Model
         /// <param name="resolutionTier">Indicates the resolution tier of this specific MP4 version of this asset. This field is only valid for &#x60;static_renditions&#x60;, not for &#x60;mp4_support&#x60;..</param>
         /// <param name="resolution">Indicates the resolution of this specific MP4 version of this asset. This field is only valid for &#x60;static_renditions&#x60;, not for &#x60;mp4_support&#x60;..</param>
         /// <param name="id">The ID of this static rendition, used in managing this static rendition. This field is only valid for &#x60;static_renditions&#x60;, not for &#x60;mp4_support&#x60;..</param>
-        public StaticRendition(NameEnum? name = default(NameEnum?), ExtEnum? ext = default(ExtEnum?), int height = default(int), int width = default(int), long bitrate = default(long), string filesize = default(string), TypeEnum? type = default(TypeEnum?), StatusEnum? status = default(StatusEnum?), ResolutionTierEnum? resolutionTier = default(ResolutionTierEnum?), ResolutionEnum? resolution = default(ResolutionEnum?), string id = default(string))
+        /// <param name="passthrough">Arbitrary user-supplied metadata set for the static rendition. Max 255 characters..</param>
+        public StaticRendition(NameEnum? name = default(NameEnum?), ExtEnum? ext = default(ExtEnum?), int height = default(int), int width = default(int), long bitrate = default(long), string filesize = default(string), TypeEnum? type = default(TypeEnum?), StatusEnum? status = default(StatusEnum?), ResolutionTierEnum? resolutionTier = default(ResolutionTierEnum?), ResolutionEnum? resolution = default(ResolutionEnum?), string id = default(string), string passthrough = default(string))
         {
             this.Name = name;
             this.Ext = ext;
@@ -371,6 +372,7 @@ namespace Mux.Csharp.Sdk.Model
             this.ResolutionTier = resolutionTier;
             this.Resolution = resolution;
             this.Id = id;
+            this.Passthrough = passthrough;
             this.AdditionalProperties = new Dictionary<string, object>();
         }
 
@@ -410,6 +412,13 @@ namespace Mux.Csharp.Sdk.Model
         public string Id { get; set; }
 
         /// <summary>
+        /// Arbitrary user-supplied metadata set for the static rendition. Max 255 characters.
+        /// </summary>
+        /// <value>Arbitrary user-supplied metadata set for the static rendition. Max 255 characters.</value>
+        [DataMember(Name = "passthrough", EmitDefaultValue = false)]
+        public string Passthrough { get; set; }
+
+        /// <summary>
         /// Gets or Sets additional properties
         /// </summary>
         [JsonExtensionData]
@@ -434,6 +443,7 @@ namespace Mux.Csharp.Sdk.Model
             sb.Append("  ResolutionTier: ").Append(ResolutionTier).Append("\n");
             sb.Append("  Resolution: ").Append(Resolution).Append("\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
+            sb.Append("  Passthrough: ").Append(Passthrough).Append("\n");
             sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -515,6 +525,11 @@ namespace Mux.Csharp.Sdk.Model
                     this.Id == input.Id ||
                     (this.Id != null &&
                     this.Id.Equals(input.Id))
+                ) && 
+                (
+                    this.Passthrough == input.Passthrough ||
+                    (this.Passthrough != null &&
+                    this.Passthrough.Equals(input.Passthrough))
                 )
                 && (this.AdditionalProperties.Count == input.AdditionalProperties.Count && !this.AdditionalProperties.Except(input.AdditionalProperties).Any());
         }
@@ -544,6 +559,10 @@ namespace Mux.Csharp.Sdk.Model
                 if (this.Id != null)
                 {
                     hashCode = (hashCode * 59) + this.Id.GetHashCode();
+                }
+                if (this.Passthrough != null)
+                {
+                    hashCode = (hashCode * 59) + this.Passthrough.GetHashCode();
                 }
                 if (this.AdditionalProperties != null)
                 {
