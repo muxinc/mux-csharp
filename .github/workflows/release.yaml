@@ -14,52 +14,50 @@ jobs:
         dotnet-configuration: [Release]
 
     steps:
-    - name: Install OpenSSL 1.1
-      run: |
-        wget https://security.ubuntu.com/ubuntu/pool/main/o/openssl/libssl1.1_1.1.1f-1ubuntu2.23_amd64.deb
-        sudo dpkg -i libssl1.1_1.1.1f-1ubuntu2.23_amd64.deb
-    - name: Install .NET
-      uses: actions/setup-dotnet@v4
-      with:
-        dotnet-version: '3.1.x'
-    - name: Check out code
-      uses: actions/checkout@v4
-    - name: Restore Nuget packages
-      run: dotnet restore Mux.Csharp.Sdk.sln
-    - name: Adding /tmp/output
-      run: mkdir -p /tmp/output
+      - name: Install .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '3.1.x'
+      - name: Install OpenSSL 1.1
+        run: |
+          wget https://security.ubuntu.com/ubuntu/pool/main/o/openssl/libssl1.1_1.1.1f-1ubuntu2.23_amd64.deb
+          sudo dpkg -i libssl1.1_1.1.1f-1ubuntu2.23_amd64.deb
+      - name: Check out code
+        uses: actions/checkout@v4
+      - name: Adding /tmp/output
+        run: mkdir -p /tmp/output
 
-    - name: Set VERSION variable from tag
-      run: echo "VERSION=${GITHUB_REF/refs\/tags\/v/}" >> $GITHUB_ENV
-    - name: Verify commit exists in origin/main
-      run: |
-        git fetch --no-tags --prune --depth=1 origin +refs/heads/*:refs/remotes/origin/*
-        git branch --remote --contains | grep origin/main
-    # have we configured the generator?
-    - name: Verify that the version exists in generator-config (have we updated versions?)
-      run: 'sudo apt-get install -y jq && [[ "$(jq -r ".packageVersion" gen/generator-config.json)" == "$VERSION" ]]'
-    # have we run the generator?
-    # TODO: once the OAS document is more readily available publicly, we can pull it here.
-    - name: Verify that the version exists in the built artifact
-      run: 'sudo apt-get install -y xmlstarlet && [[ $(cat ./src/Mux.Csharp.Sdk/Mux.Csharp.Sdk.csproj |  xmlstarlet sel -t -v "/Project/PropertyGroup/Version/text()") == "$VERSION" ]]'
+      - name: Set VERSION variable from tag
+        run: echo "VERSION=${GITHUB_REF/refs\/tags\/v/}" >> $GITHUB_ENV
+      - name: Verify commit exists in origin/main
+        run: |
+          git fetch --no-tags --prune --depth=1 origin +refs/heads/*:refs/remotes/origin/*
+          git branch --remote --contains | grep origin/main
+      # have we configured the generator?
+      - name: Verify that the version exists in generator-config (have we updated versions?)
+        run: 'sudo apt-get install -y jq && [[ "$(jq -r ".packageVersion" gen/generator-config.json)" == "$VERSION" ]]'
+      # have we run the generator?
+      # TODO: once the OAS document is more readily available publicly, we can pull it here.
+      - name: Verify that the version exists in the built artifact
+        run: 'sudo apt-get install -y xmlstarlet && [[ $(cat ./src/Mux.Csharp.Sdk/Mux.Csharp.Sdk.csproj |  xmlstarlet sel -t -v "/Project/PropertyGroup/Version/text()") == "$VERSION" ]]'
 
-    - name: Build for ${{ matrix.dotnet-configuration }}
-      run: dotnet build --configuration ${{ matrix.dotnet-configuration }} /p:Version=${VERSION}
-    - name: Test for ${{ matrix.dotnet-configuration }}
-      env:
-          MUX_TOKEN_ID: "${{ secrets.MUX_TOKEN_ID }}"
-          MUX_TOKEN_SECRET: "${{ secrets.MUX_TOKEN_SECRET }}"
-      run: dotnet test --configuration ${{ matrix.dotnet-configuration }} /p:Version=${VERSION} --no-build
-    - name: Pack for ${{ matrix.dotnet-configuration }}
-      run: cp README.md icon.png src/Mux.Csharp.Sdk && dotnet pack --configuration ${{ matrix.dotnet-configuration }} /p:Version=${VERSION} --no-build --property:PackageOutputPath=/tmp/output
+      - name: Build for ${{ matrix.dotnet-configuration }}
+        run: dotnet build --configuration ${{ matrix.dotnet-configuration }} /p:Version=${VERSION}
+      - name: Test for ${{ matrix.dotnet-configuration }}
+        env:
+            MUX_TOKEN_ID: "${{ secrets.MUX_TOKEN_ID }}"
+            MUX_TOKEN_SECRET: "${{ secrets.MUX_TOKEN_SECRET }}"
+        run: dotnet test --configuration ${{ matrix.dotnet-configuration }} /p:Version=${VERSION} --no-build
+      - name: Pack for ${{ matrix.dotnet-configuration }}
+        run: cp README.md icon.png src/Mux.Csharp.Sdk && dotnet pack --configuration ${{ matrix.dotnet-configuration }} /p:Version=${VERSION} --no-build --output /tmp/output
 
-    - name: Uploading artifact for ${{ matrix.dotnet-configuration }}
-      uses: actions/upload-artifact@v4
-      with:
-        name: Mux.Csharp.Sdk-${{ matrix.dotnet-configuration }}
-        path: /tmp/output/*
-    
-    - name: Push
-      env:
-        NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}
-      run: dotnet nuget push /tmp/output/*.nupkg --source https://api.nuget.org/v3/index.json --api-key ${NUGET_API_KEY}
+      - name: Uploading artifact for ${{ matrix.dotnet-configuration }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: Mux.Csharp.Sdk-${{ matrix.dotnet-configuration }}
+          path: /tmp/output/*
+
+      - name: Push
+        env:
+          NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}
+        run: dotnet nuget push /tmp/output/*.nupkg --source https://api.nuget.org/v3/index.json --api-key ${NUGET_API_KEY}

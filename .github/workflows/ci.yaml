@@ -25,8 +25,6 @@ jobs:
           sudo dpkg -i libssl1.1_1.1.1f-1ubuntu2.23_amd64.deb
       - name: Check out code
         uses: actions/checkout@v4
-      - name: Print version
-        run: dotnet pack --help
       - name: Adding /tmp/output
         run: mkdir -p /tmp/output
 
