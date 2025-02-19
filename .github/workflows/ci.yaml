@@ -26,7 +26,7 @@ jobs:
       - name: Check out code
         uses: actions/checkout@v4
       - name: Print version
-        run: dotnet --version
+        run: MSBuild -help
       - name: Adding /tmp/output
         run: mkdir -p /tmp/output
 
