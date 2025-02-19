@@ -25,6 +25,8 @@ jobs:
           dotnet-version: '3.1.x'
       - name: Check out code
         uses: actions/checkout@v4
+      - name: Print version
+        run: dotnet --version
       - name: Restore Nuget packages
         run: dotnet restore Mux.Csharp.Sdk.sln
       - name: Adding /tmp/output
