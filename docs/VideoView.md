@@ -166,6 +166,22 @@ Name | Type | Description | Notes
 **ViewContentStartupTime** | **int?** |  | [optional] 
 **AdPrerollStartupTime** | **int?** |  | [optional] 
 **ViewDropped** | **bool** |  | [optional] 
+**ClientApplicationName** | **string** |  | [optional] 
+**ClientApplicationVersion** | **string** |  | [optional] 
+**VideoAffiliate** | **string** |  | [optional] 
+**ViewerPlan** | **string** |  | [optional] 
+**ViewerPlanStatus** | **string** |  | [optional] 
+**ViewerPlanCategory** | **string** |  | [optional] 
+**ViewDrmLevel** | **string** |  | [optional] 
+**VideoBrand** | **string** |  | [optional] 
+**UsedPip** | **bool** |  | [optional] 
+**TimeShiftEnabled** | **bool** |  | [optional] 
+**UsedCaptions** | **bool** |  | [optional] 
+**VideoCodec** | **string** |  | [optional] 
+**AudioCodec** | **string** |  | [optional] 
+**VideoDynamicRangeType** | **string** |  | [optional] 
+**ViewCdnEdgePop** | **string** |  | [optional] 
+**ViewCdnOrigin** | **string** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
