@@ -116,6 +116,27 @@ namespace Mux.Csharp.Sdk.Api
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> DeleteLiveStreamWithHttpInfo(string LIVE_STREAM_ID);
         /// <summary>
+        /// Delete a live stream&#39;s static renditions setting for new assets
+        /// </summary>
+        /// <remarks>
+        /// Deletes a live stream&#39;s static renditions settings for new assets. Further assets made via this live stream will not create static renditions unless re-added.
+        /// </remarks>
+        /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="LIVE_STREAM_ID">The live stream ID</param>
+        /// <returns></returns>
+        void DeleteLiveStreamNewAssetSettingsStaticRenditions(string LIVE_STREAM_ID);
+
+        /// <summary>
+        /// Delete a live stream&#39;s static renditions setting for new assets
+        /// </summary>
+        /// <remarks>
+        /// Deletes a live stream&#39;s static renditions settings for new assets. Further assets made via this live stream will not create static renditions unless re-added.
+        /// </remarks>
+        /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="LIVE_STREAM_ID">The live stream ID</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        ApiResponse<Object> DeleteLiveStreamNewAssetSettingsStaticRenditionsWithHttpInfo(string LIVE_STREAM_ID);
+        /// <summary>
         /// Delete a live stream playback ID
         /// </summary>
         /// <remarks>
@@ -408,6 +429,29 @@ namespace Mux.Csharp.Sdk.Api
         /// <param name="updateLiveStreamGeneratedSubtitlesRequest"></param>
         /// <returns>ApiResponse of LiveStreamResponse</returns>
         ApiResponse<LiveStreamResponse> UpdateLiveStreamGeneratedSubtitlesWithHttpInfo(string LIVE_STREAM_ID, UpdateLiveStreamGeneratedSubtitlesRequest updateLiveStreamGeneratedSubtitlesRequest);
+        /// <summary>
+        /// Update live stream static renditions for new assets
+        /// </summary>
+        /// <remarks>
+        /// Updates a live stream&#39;s static renditions settings for new assets. Further assets made via this live stream will create static renditions per the settings provided. You must provide all static renditions desired.
+        /// </remarks>
+        /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="LIVE_STREAM_ID">The live stream ID</param>
+        /// <param name="updateLiveStreamNewAssetSettingsStaticRenditionsRequest"></param>
+        /// <returns>LiveStreamResponse</returns>
+        LiveStreamResponse UpdateLiveStreamNewAssetSettingsStaticRenditions(string LIVE_STREAM_ID, UpdateLiveStreamNewAssetSettingsStaticRenditionsRequest updateLiveStreamNewAssetSettingsStaticRenditionsRequest);
+
+        /// <summary>
+        /// Update live stream static renditions for new assets
+        /// </summary>
+        /// <remarks>
+        /// Updates a live stream&#39;s static renditions settings for new assets. Further assets made via this live stream will create static renditions per the settings provided. You must provide all static renditions desired.
+        /// </remarks>
+        /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="LIVE_STREAM_ID">The live stream ID</param>
+        /// <param name="updateLiveStreamNewAssetSettingsStaticRenditionsRequest"></param>
+        /// <returns>ApiResponse of LiveStreamResponse</returns>
+        ApiResponse<LiveStreamResponse> UpdateLiveStreamNewAssetSettingsStaticRenditionsWithHttpInfo(string LIVE_STREAM_ID, UpdateLiveStreamNewAssetSettingsStaticRenditionsRequest updateLiveStreamNewAssetSettingsStaticRenditionsRequest);
         #endregion Synchronous Operations
     }
 
@@ -513,6 +557,29 @@ namespace Mux.Csharp.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> DeleteLiveStreamWithHttpInfoAsync(string LIVE_STREAM_ID, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// Delete a live stream&#39;s static renditions setting for new assets
+        /// </summary>
+        /// <remarks>
+        /// Deletes a live stream&#39;s static renditions settings for new assets. Further assets made via this live stream will not create static renditions unless re-added.
+        /// </remarks>
+        /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="LIVE_STREAM_ID">The live stream ID</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of void</returns>
+        System.Threading.Tasks.Task DeleteLiveStreamNewAssetSettingsStaticRenditionsAsync(string LIVE_STREAM_ID, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Delete a live stream&#39;s static renditions setting for new assets
+        /// </summary>
+        /// <remarks>
+        /// Deletes a live stream&#39;s static renditions settings for new assets. Further assets made via this live stream will not create static renditions unless re-added.
+        /// </remarks>
+        /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="LIVE_STREAM_ID">The live stream ID</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse</returns>
+        System.Threading.Tasks.Task<ApiResponse<Object>> DeleteLiveStreamNewAssetSettingsStaticRenditionsWithHttpInfoAsync(string LIVE_STREAM_ID, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Delete a live stream playback ID
         /// </summary>
@@ -832,6 +899,31 @@ namespace Mux.Csharp.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (LiveStreamResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<LiveStreamResponse>> UpdateLiveStreamGeneratedSubtitlesWithHttpInfoAsync(string LIVE_STREAM_ID, UpdateLiveStreamGeneratedSubtitlesRequest updateLiveStreamGeneratedSubtitlesRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// Update live stream static renditions for new assets
+        /// </summary>
+        /// <remarks>
+        /// Updates a live stream&#39;s static renditions settings for new assets. Further assets made via this live stream will create static renditions per the settings provided. You must provide all static renditions desired.
+        /// </remarks>
+        /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="LIVE_STREAM_ID">The live stream ID</param>
+        /// <param name="updateLiveStreamNewAssetSettingsStaticRenditionsRequest"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of LiveStreamResponse</returns>
+        System.Threading.Tasks.Task<LiveStreamResponse> UpdateLiveStreamNewAssetSettingsStaticRenditionsAsync(string LIVE_STREAM_ID, UpdateLiveStreamNewAssetSettingsStaticRenditionsRequest updateLiveStreamNewAssetSettingsStaticRenditionsRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Update live stream static renditions for new assets
+        /// </summary>
+        /// <remarks>
+        /// Updates a live stream&#39;s static renditions settings for new assets. Further assets made via this live stream will create static renditions per the settings provided. You must provide all static renditions desired.
+        /// </remarks>
+        /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="LIVE_STREAM_ID">The live stream ID</param>
+        /// <param name="updateLiveStreamNewAssetSettingsStaticRenditionsRequest"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (LiveStreamResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<LiveStreamResponse>> UpdateLiveStreamNewAssetSettingsStaticRenditionsWithHttpInfoAsync(string LIVE_STREAM_ID, UpdateLiveStreamNewAssetSettingsStaticRenditionsRequest updateLiveStreamNewAssetSettingsStaticRenditionsRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -1565,6 +1657,148 @@ namespace Mux.Csharp.Sdk.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("DeleteLiveStream", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Delete a live stream&#39;s static renditions setting for new assets Deletes a live stream&#39;s static renditions settings for new assets. Further assets made via this live stream will not create static renditions unless re-added.
+        /// </summary>
+        /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="LIVE_STREAM_ID">The live stream ID</param>
+        /// <returns></returns>
+        public void DeleteLiveStreamNewAssetSettingsStaticRenditions(string LIVE_STREAM_ID)
+        {
+            DeleteLiveStreamNewAssetSettingsStaticRenditionsWithHttpInfo(LIVE_STREAM_ID);
+        }
+
+        /// <summary>
+        /// Delete a live stream&#39;s static renditions setting for new assets Deletes a live stream&#39;s static renditions settings for new assets. Further assets made via this live stream will not create static renditions unless re-added.
+        /// </summary>
+        /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="LIVE_STREAM_ID">The live stream ID</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        public Mux.Csharp.Sdk.Client.ApiResponse<Object> DeleteLiveStreamNewAssetSettingsStaticRenditionsWithHttpInfo(string LIVE_STREAM_ID)
+        {
+            // verify the required parameter 'LIVE_STREAM_ID' is set
+            if (LIVE_STREAM_ID == null)
+            {
+                throw new Mux.Csharp.Sdk.Client.ApiException(400, "Missing required parameter 'LIVE_STREAM_ID' when calling LiveStreamsApi->DeleteLiveStreamNewAssetSettingsStaticRenditions");
+            }
+
+            Mux.Csharp.Sdk.Client.RequestOptions localVarRequestOptions = new Mux.Csharp.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+            };
+
+            var localVarContentType = Mux.Csharp.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Mux.Csharp.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("LIVE_STREAM_ID", Mux.Csharp.Sdk.Client.ClientUtils.ParameterToString(LIVE_STREAM_ID)); // path parameter
+
+            // authentication (accessToken) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Mux.Csharp.Sdk.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Delete<Object>("/video/v1/live-streams/{LIVE_STREAM_ID}/new-asset-settings/static-renditions", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("DeleteLiveStreamNewAssetSettingsStaticRenditions", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Delete a live stream&#39;s static renditions setting for new assets Deletes a live stream&#39;s static renditions settings for new assets. Further assets made via this live stream will not create static renditions unless re-added.
+        /// </summary>
+        /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="LIVE_STREAM_ID">The live stream ID</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of void</returns>
+        public async System.Threading.Tasks.Task DeleteLiveStreamNewAssetSettingsStaticRenditionsAsync(string LIVE_STREAM_ID, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            await DeleteLiveStreamNewAssetSettingsStaticRenditionsWithHttpInfoAsync(LIVE_STREAM_ID, cancellationToken).ConfigureAwait(false);
+        }
+
+        /// <summary>
+        /// Delete a live stream&#39;s static renditions setting for new assets Deletes a live stream&#39;s static renditions settings for new assets. Further assets made via this live stream will not create static renditions unless re-added.
+        /// </summary>
+        /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="LIVE_STREAM_ID">The live stream ID</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse</returns>
+        public async System.Threading.Tasks.Task<Mux.Csharp.Sdk.Client.ApiResponse<Object>> DeleteLiveStreamNewAssetSettingsStaticRenditionsWithHttpInfoAsync(string LIVE_STREAM_ID, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'LIVE_STREAM_ID' is set
+            if (LIVE_STREAM_ID == null)
+            {
+                throw new Mux.Csharp.Sdk.Client.ApiException(400, "Missing required parameter 'LIVE_STREAM_ID' when calling LiveStreamsApi->DeleteLiveStreamNewAssetSettingsStaticRenditions");
+            }
+
+
+            Mux.Csharp.Sdk.Client.RequestOptions localVarRequestOptions = new Mux.Csharp.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+            };
+
+            var localVarContentType = Mux.Csharp.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Mux.Csharp.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("LIVE_STREAM_ID", Mux.Csharp.Sdk.Client.ClientUtils.ParameterToString(LIVE_STREAM_ID)); // path parameter
+
+            // authentication (accessToken) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Mux.Csharp.Sdk.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.DeleteAsync<Object>("/video/v1/live-streams/{LIVE_STREAM_ID}/new-asset-settings/static-renditions", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("DeleteLiveStreamNewAssetSettingsStaticRenditions", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -3617,6 +3851,172 @@ namespace Mux.Csharp.Sdk.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("UpdateLiveStreamGeneratedSubtitles", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Update live stream static renditions for new assets Updates a live stream&#39;s static renditions settings for new assets. Further assets made via this live stream will create static renditions per the settings provided. You must provide all static renditions desired.
+        /// </summary>
+        /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="LIVE_STREAM_ID">The live stream ID</param>
+        /// <param name="updateLiveStreamNewAssetSettingsStaticRenditionsRequest"></param>
+        /// <returns>LiveStreamResponse</returns>
+        public LiveStreamResponse UpdateLiveStreamNewAssetSettingsStaticRenditions(string LIVE_STREAM_ID, UpdateLiveStreamNewAssetSettingsStaticRenditionsRequest updateLiveStreamNewAssetSettingsStaticRenditionsRequest)
+        {
+            Mux.Csharp.Sdk.Client.ApiResponse<LiveStreamResponse> localVarResponse = UpdateLiveStreamNewAssetSettingsStaticRenditionsWithHttpInfo(LIVE_STREAM_ID, updateLiveStreamNewAssetSettingsStaticRenditionsRequest);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Update live stream static renditions for new assets Updates a live stream&#39;s static renditions settings for new assets. Further assets made via this live stream will create static renditions per the settings provided. You must provide all static renditions desired.
+        /// </summary>
+        /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="LIVE_STREAM_ID">The live stream ID</param>
+        /// <param name="updateLiveStreamNewAssetSettingsStaticRenditionsRequest"></param>
+        /// <returns>ApiResponse of LiveStreamResponse</returns>
+        public Mux.Csharp.Sdk.Client.ApiResponse<LiveStreamResponse> UpdateLiveStreamNewAssetSettingsStaticRenditionsWithHttpInfo(string LIVE_STREAM_ID, UpdateLiveStreamNewAssetSettingsStaticRenditionsRequest updateLiveStreamNewAssetSettingsStaticRenditionsRequest)
+        {
+            // verify the required parameter 'LIVE_STREAM_ID' is set
+            if (LIVE_STREAM_ID == null)
+            {
+                throw new Mux.Csharp.Sdk.Client.ApiException(400, "Missing required parameter 'LIVE_STREAM_ID' when calling LiveStreamsApi->UpdateLiveStreamNewAssetSettingsStaticRenditions");
+            }
+
+            // verify the required parameter 'updateLiveStreamNewAssetSettingsStaticRenditionsRequest' is set
+            if (updateLiveStreamNewAssetSettingsStaticRenditionsRequest == null)
+            {
+                throw new Mux.Csharp.Sdk.Client.ApiException(400, "Missing required parameter 'updateLiveStreamNewAssetSettingsStaticRenditionsRequest' when calling LiveStreamsApi->UpdateLiveStreamNewAssetSettingsStaticRenditions");
+            }
+
+            Mux.Csharp.Sdk.Client.RequestOptions localVarRequestOptions = new Mux.Csharp.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = Mux.Csharp.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Mux.Csharp.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("LIVE_STREAM_ID", Mux.Csharp.Sdk.Client.ClientUtils.ParameterToString(LIVE_STREAM_ID)); // path parameter
+            localVarRequestOptions.Data = updateLiveStreamNewAssetSettingsStaticRenditionsRequest;
+
+            // authentication (accessToken) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Mux.Csharp.Sdk.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Put<LiveStreamResponse>("/video/v1/live-streams/{LIVE_STREAM_ID}/new-asset-settings/static-renditions", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("UpdateLiveStreamNewAssetSettingsStaticRenditions", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Update live stream static renditions for new assets Updates a live stream&#39;s static renditions settings for new assets. Further assets made via this live stream will create static renditions per the settings provided. You must provide all static renditions desired.
+        /// </summary>
+        /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="LIVE_STREAM_ID">The live stream ID</param>
+        /// <param name="updateLiveStreamNewAssetSettingsStaticRenditionsRequest"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of LiveStreamResponse</returns>
+        public async System.Threading.Tasks.Task<LiveStreamResponse> UpdateLiveStreamNewAssetSettingsStaticRenditionsAsync(string LIVE_STREAM_ID, UpdateLiveStreamNewAssetSettingsStaticRenditionsRequest updateLiveStreamNewAssetSettingsStaticRenditionsRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            Mux.Csharp.Sdk.Client.ApiResponse<LiveStreamResponse> localVarResponse = await UpdateLiveStreamNewAssetSettingsStaticRenditionsWithHttpInfoAsync(LIVE_STREAM_ID, updateLiveStreamNewAssetSettingsStaticRenditionsRequest, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Update live stream static renditions for new assets Updates a live stream&#39;s static renditions settings for new assets. Further assets made via this live stream will create static renditions per the settings provided. You must provide all static renditions desired.
+        /// </summary>
+        /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="LIVE_STREAM_ID">The live stream ID</param>
+        /// <param name="updateLiveStreamNewAssetSettingsStaticRenditionsRequest"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (LiveStreamResponse)</returns>
+        public async System.Threading.Tasks.Task<Mux.Csharp.Sdk.Client.ApiResponse<LiveStreamResponse>> UpdateLiveStreamNewAssetSettingsStaticRenditionsWithHttpInfoAsync(string LIVE_STREAM_ID, UpdateLiveStreamNewAssetSettingsStaticRenditionsRequest updateLiveStreamNewAssetSettingsStaticRenditionsRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'LIVE_STREAM_ID' is set
+            if (LIVE_STREAM_ID == null)
+            {
+                throw new Mux.Csharp.Sdk.Client.ApiException(400, "Missing required parameter 'LIVE_STREAM_ID' when calling LiveStreamsApi->UpdateLiveStreamNewAssetSettingsStaticRenditions");
+            }
+
+            // verify the required parameter 'updateLiveStreamNewAssetSettingsStaticRenditionsRequest' is set
+            if (updateLiveStreamNewAssetSettingsStaticRenditionsRequest == null)
+            {
+                throw new Mux.Csharp.Sdk.Client.ApiException(400, "Missing required parameter 'updateLiveStreamNewAssetSettingsStaticRenditionsRequest' when calling LiveStreamsApi->UpdateLiveStreamNewAssetSettingsStaticRenditions");
+            }
+
+
+            Mux.Csharp.Sdk.Client.RequestOptions localVarRequestOptions = new Mux.Csharp.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = Mux.Csharp.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Mux.Csharp.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("LIVE_STREAM_ID", Mux.Csharp.Sdk.Client.ClientUtils.ParameterToString(LIVE_STREAM_ID)); // path parameter
+            localVarRequestOptions.Data = updateLiveStreamNewAssetSettingsStaticRenditionsRequest;
+
+            // authentication (accessToken) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Mux.Csharp.Sdk.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.PutAsync<LiveStreamResponse>("/video/v1/live-streams/{LIVE_STREAM_ID}/new-asset-settings/static-renditions", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("UpdateLiveStreamNewAssetSettingsStaticRenditions", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;

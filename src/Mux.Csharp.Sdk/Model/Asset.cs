@@ -331,6 +331,7 @@ namespace Mux.Csharp.Sdk.Model
         /// Gets or Sets Mp4Support
         /// </summary>
         [DataMember(Name = "mp4_support", EmitDefaultValue = false)]
+        [Obsolete]
         public Mp4SupportEnum? Mp4Support { get; set; }
         /// <summary>
         /// The type of ingest used to create the asset.

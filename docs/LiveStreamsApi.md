@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**CreateLiveStreamPlaybackId**](LiveStreamsApi.md#createlivestreamplaybackid) | **POST** /video/v1/live-streams/{LIVE_STREAM_ID}/playback-ids | Create a live stream playback ID
 [**CreateLiveStreamSimulcastTarget**](LiveStreamsApi.md#createlivestreamsimulcasttarget) | **POST** /video/v1/live-streams/{LIVE_STREAM_ID}/simulcast-targets | Create a live stream simulcast target
 [**DeleteLiveStream**](LiveStreamsApi.md#deletelivestream) | **DELETE** /video/v1/live-streams/{LIVE_STREAM_ID} | Delete a live stream
+[**DeleteLiveStreamNewAssetSettingsStaticRenditions**](LiveStreamsApi.md#deletelivestreamnewassetsettingsstaticrenditions) | **DELETE** /video/v1/live-streams/{LIVE_STREAM_ID}/new-asset-settings/static-renditions | Delete a live stream&#39;s static renditions setting for new assets
 [**DeleteLiveStreamPlaybackId**](LiveStreamsApi.md#deletelivestreamplaybackid) | **DELETE** /video/v1/live-streams/{LIVE_STREAM_ID}/playback-ids/{PLAYBACK_ID} | Delete a live stream playback ID
 [**DeleteLiveStreamSimulcastTarget**](LiveStreamsApi.md#deletelivestreamsimulcasttarget) | **DELETE** /video/v1/live-streams/{LIVE_STREAM_ID}/simulcast-targets/{SIMULCAST_TARGET_ID} | Delete a live stream simulcast target
 [**DisableLiveStream**](LiveStreamsApi.md#disablelivestream) | **PUT** /video/v1/live-streams/{LIVE_STREAM_ID}/disable | Disable a live stream
@@ -21,6 +22,7 @@ Method | HTTP request | Description
 [**UpdateLiveStream**](LiveStreamsApi.md#updatelivestream) | **PATCH** /video/v1/live-streams/{LIVE_STREAM_ID} | Update a live stream
 [**UpdateLiveStreamEmbeddedSubtitles**](LiveStreamsApi.md#updatelivestreamembeddedsubtitles) | **PUT** /video/v1/live-streams/{LIVE_STREAM_ID}/embedded-subtitles | Update a live stream&#39;s embedded subtitles
 [**UpdateLiveStreamGeneratedSubtitles**](LiveStreamsApi.md#updatelivestreamgeneratedsubtitles) | **PUT** /video/v1/live-streams/{LIVE_STREAM_ID}/generated-subtitles | Update a live stream&#39;s generated subtitles
+[**UpdateLiveStreamNewAssetSettingsStaticRenditions**](LiveStreamsApi.md#updatelivestreamnewassetsettingsstaticrenditions) | **PUT** /video/v1/live-streams/{LIVE_STREAM_ID}/new-asset-settings/static-renditions | Update live stream static renditions for new assets
 
 
 <a name="createlivestream"></a>
@@ -291,6 +293,80 @@ namespace Example
             catch (ApiException  e)
             {
                 Debug.Print("Exception when calling LiveStreamsApi.DeleteLiveStream: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **LIVE_STREAM_ID** | **string**| The live stream ID | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[accessToken](../README.md#accessToken)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **204** | No Content |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="deletelivestreamnewassetsettingsstaticrenditions"></a>
+# **DeleteLiveStreamNewAssetSettingsStaticRenditions**
+> void DeleteLiveStreamNewAssetSettingsStaticRenditions (string LIVE_STREAM_ID)
+
+Delete a live stream's static renditions setting for new assets
+
+Deletes a live stream's static renditions settings for new assets. Further assets made via this live stream will not create static renditions unless re-added.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Mux.Csharp.Sdk.Api;
+using Mux.Csharp.Sdk.Client;
+using Mux.Csharp.Sdk.Model;
+
+namespace Example
+{
+    public class DeleteLiveStreamNewAssetSettingsStaticRenditionsExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.mux.com";
+            // Configure HTTP basic authorization: accessToken
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+
+            var apiInstance = new LiveStreamsApi(config);
+            var LIVE_STREAM_ID = "LIVE_STREAM_ID_example";  // string | The live stream ID
+
+            try
+            {
+                // Delete a live stream's static renditions setting for new assets
+                apiInstance.DeleteLiveStreamNewAssetSettingsStaticRenditions(LIVE_STREAM_ID);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling LiveStreamsApi.DeleteLiveStreamNewAssetSettingsStaticRenditions: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -1297,6 +1373,83 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **LIVE_STREAM_ID** | **string**| The live stream ID | 
  **updateLiveStreamGeneratedSubtitlesRequest** | [**UpdateLiveStreamGeneratedSubtitlesRequest**](UpdateLiveStreamGeneratedSubtitlesRequest.md)|  | 
+
+### Return type
+
+[**LiveStreamResponse**](LiveStreamResponse.md)
+
+### Authorization
+
+[accessToken](../README.md#accessToken)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="updatelivestreamnewassetsettingsstaticrenditions"></a>
+# **UpdateLiveStreamNewAssetSettingsStaticRenditions**
+> LiveStreamResponse UpdateLiveStreamNewAssetSettingsStaticRenditions (string LIVE_STREAM_ID, UpdateLiveStreamNewAssetSettingsStaticRenditionsRequest updateLiveStreamNewAssetSettingsStaticRenditionsRequest)
+
+Update live stream static renditions for new assets
+
+Updates a live stream's static renditions settings for new assets. Further assets made via this live stream will create static renditions per the settings provided. You must provide all static renditions desired.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Mux.Csharp.Sdk.Api;
+using Mux.Csharp.Sdk.Client;
+using Mux.Csharp.Sdk.Model;
+
+namespace Example
+{
+    public class UpdateLiveStreamNewAssetSettingsStaticRenditionsExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.mux.com";
+            // Configure HTTP basic authorization: accessToken
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+
+            var apiInstance = new LiveStreamsApi(config);
+            var LIVE_STREAM_ID = "LIVE_STREAM_ID_example";  // string | The live stream ID
+            var updateLiveStreamNewAssetSettingsStaticRenditionsRequest = new UpdateLiveStreamNewAssetSettingsStaticRenditionsRequest(); // UpdateLiveStreamNewAssetSettingsStaticRenditionsRequest | 
+
+            try
+            {
+                // Update live stream static renditions for new assets
+                LiveStreamResponse result = apiInstance.UpdateLiveStreamNewAssetSettingsStaticRenditions(LIVE_STREAM_ID, updateLiveStreamNewAssetSettingsStaticRenditionsRequest);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling LiveStreamsApi.UpdateLiveStreamNewAssetSettingsStaticRenditions: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **LIVE_STREAM_ID** | **string**| The live stream ID | 
+ **updateLiveStreamNewAssetSettingsStaticRenditionsRequest** | [**UpdateLiveStreamNewAssetSettingsStaticRenditionsRequest**](UpdateLiveStreamNewAssetSettingsStaticRenditionsRequest.md)|  | 
 
 ### Return type
 

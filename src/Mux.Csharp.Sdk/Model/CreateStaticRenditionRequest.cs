@@ -27,69 +27,103 @@ using OpenAPIDateConverter = Mux.Csharp.Sdk.Client.OpenAPIDateConverter;
 namespace Mux.Csharp.Sdk.Model
 {
     /// <summary>
-    /// An object containing the current status of any static renditions (mp4s). The object does not exist if no static renditions have been requested. See [Download your videos](https://docs.mux.com/guides/enable-static-mp4-renditions) for more information.
+    /// CreateStaticRenditionRequest
     /// </summary>
-    [DataContract(Name = "Asset_static_renditions")]
-    public partial class AssetStaticRenditions : IEquatable<AssetStaticRenditions>, IValidatableObject
+    [DataContract(Name = "CreateStaticRenditionRequest")]
+    public partial class CreateStaticRenditionRequest : IEquatable<CreateStaticRenditionRequest>, IValidatableObject
     {
         /// <summary>
-        /// Indicates the status of downloadable MP4 versions of this asset. This field is only valid when &#x60;mp4_support&#x60; is enabled
+        /// Defines Resolution
         /// </summary>
-        /// <value>Indicates the status of downloadable MP4 versions of this asset. This field is only valid when &#x60;mp4_support&#x60; is enabled</value>
         [JsonConverter(typeof(StringEnumConverter))]
-        public enum StatusEnum
+        public enum ResolutionEnum
         {
             /// <summary>
-            /// Enum Ready for value: ready
+            /// Enum Highest for value: highest
             /// </summary>
-            [EnumMember(Value = "ready")]
-            Ready = 1,
+            [EnumMember(Value = "highest")]
+            Highest = 1,
 
             /// <summary>
-            /// Enum Preparing for value: preparing
+            /// Enum AudioOnly for value: audio-only
             /// </summary>
-            [EnumMember(Value = "preparing")]
-            Preparing = 2,
+            [EnumMember(Value = "audio-only")]
+            AudioOnly = 2,
 
             /// <summary>
-            /// Enum Disabled for value: disabled
+            /// Enum _2160p for value: 2160p
             /// </summary>
-            [EnumMember(Value = "disabled")]
-            Disabled = 3,
+            [EnumMember(Value = "2160p")]
+            _2160p = 3,
 
             /// <summary>
-            /// Enum Errored for value: errored
+            /// Enum _1440p for value: 1440p
             /// </summary>
-            [EnumMember(Value = "errored")]
-            Errored = 4
+            [EnumMember(Value = "1440p")]
+            _1440p = 4,
+
+            /// <summary>
+            /// Enum _1080p for value: 1080p
+            /// </summary>
+            [EnumMember(Value = "1080p")]
+            _1080p = 5,
+
+            /// <summary>
+            /// Enum _720p for value: 720p
+            /// </summary>
+            [EnumMember(Value = "720p")]
+            _720p = 6,
+
+            /// <summary>
+            /// Enum _540p for value: 540p
+            /// </summary>
+            [EnumMember(Value = "540p")]
+            _540p = 7,
+
+            /// <summary>
+            /// Enum _480p for value: 480p
+            /// </summary>
+            [EnumMember(Value = "480p")]
+            _480p = 8,
+
+            /// <summary>
+            /// Enum _360p for value: 360p
+            /// </summary>
+            [EnumMember(Value = "360p")]
+            _360p = 9,
+
+            /// <summary>
+            /// Enum _270p for value: 270p
+            /// </summary>
+            [EnumMember(Value = "270p")]
+            _270p = 10
 
         }
 
 
         /// <summary>
-        /// Indicates the status of downloadable MP4 versions of this asset. This field is only valid when &#x60;mp4_support&#x60; is enabled
+        /// Gets or Sets Resolution
         /// </summary>
-        /// <value>Indicates the status of downloadable MP4 versions of this asset. This field is only valid when &#x60;mp4_support&#x60; is enabled</value>
-        [DataMember(Name = "status", EmitDefaultValue = false)]
-        public StatusEnum? Status { get; set; }
+        [DataMember(Name = "resolution", EmitDefaultValue = false)]
+        public ResolutionEnum? Resolution { get; set; }
         /// <summary>
-        /// Initializes a new instance of the <see cref="AssetStaticRenditions" /> class.
+        /// Initializes a new instance of the <see cref="CreateStaticRenditionRequest" /> class.
         /// </summary>
-        /// <param name="status">Indicates the status of downloadable MP4 versions of this asset. This field is only valid when &#x60;mp4_support&#x60; is enabled (default to StatusEnum.Disabled).</param>
-        /// <param name="files">Array of file objects..</param>
-        public AssetStaticRenditions(StatusEnum? status = StatusEnum.Disabled, List<StaticRendition> files = default(List<StaticRendition>))
+        /// <param name="resolution">resolution.</param>
+        /// <param name="passthrough">Arbitrary user-supplied metadata set for the static rendition. Max 255 characters..</param>
+        public CreateStaticRenditionRequest(ResolutionEnum? resolution = default(ResolutionEnum?), string passthrough = default(string))
         {
-            this.Status = status;
-            this.Files = files;
+            this.Resolution = resolution;
+            this.Passthrough = passthrough;
             this.AdditionalProperties = new Dictionary<string, object>();
         }
 
         /// <summary>
-        /// Array of file objects.
+        /// Arbitrary user-supplied metadata set for the static rendition. Max 255 characters.
         /// </summary>
-        /// <value>Array of file objects.</value>
-        [DataMember(Name = "files", EmitDefaultValue = false)]
-        public List<StaticRendition> Files { get; set; }
+        /// <value>Arbitrary user-supplied metadata set for the static rendition. Max 255 characters.</value>
+        [DataMember(Name = "passthrough", EmitDefaultValue = false)]
+        public string Passthrough { get; set; }
 
         /// <summary>
         /// Gets or Sets additional properties
@@ -104,9 +138,9 @@ namespace Mux.Csharp.Sdk.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class AssetStaticRenditions {\n");
-            sb.Append("  Status: ").Append(Status).Append("\n");
-            sb.Append("  Files: ").Append(Files).Append("\n");
+            sb.Append("class CreateStaticRenditionRequest {\n");
+            sb.Append("  Resolution: ").Append(Resolution).Append("\n");
+            sb.Append("  Passthrough: ").Append(Passthrough).Append("\n");
             sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -128,15 +162,15 @@ namespace Mux.Csharp.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as AssetStaticRenditions);
+            return this.Equals(input as CreateStaticRenditionRequest);
         }
 
         /// <summary>
-        /// Returns true if AssetStaticRenditions instances are equal
+        /// Returns true if CreateStaticRenditionRequest instances are equal
         /// </summary>
-        /// <param name="input">Instance of AssetStaticRenditions to be compared</param>
+        /// <param name="input">Instance of CreateStaticRenditionRequest to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(AssetStaticRenditions input)
+        public bool Equals(CreateStaticRenditionRequest input)
         {
             if (input == null)
             {
@@ -144,14 +178,13 @@ namespace Mux.Csharp.Sdk.Model
             }
             return 
                 (
-                    this.Status == input.Status ||
-                    this.Status.Equals(input.Status)
+                    this.Resolution == input.Resolution ||
+                    this.Resolution.Equals(input.Resolution)
                 ) && 
                 (
-                    this.Files == input.Files ||
-                    this.Files != null &&
-                    input.Files != null &&
-                    this.Files.SequenceEqual(input.Files)
+                    this.Passthrough == input.Passthrough ||
+                    (this.Passthrough != null &&
+                    this.Passthrough.Equals(input.Passthrough))
                 )
                 && (this.AdditionalProperties.Count == input.AdditionalProperties.Count && !this.AdditionalProperties.Except(input.AdditionalProperties).Any());
         }
@@ -165,10 +198,10 @@ namespace Mux.Csharp.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = (hashCode * 59) + this.Status.GetHashCode();
-                if (this.Files != null)
+                hashCode = (hashCode * 59) + this.Resolution.GetHashCode();
+                if (this.Passthrough != null)
                 {
-                    hashCode = (hashCode * 59) + this.Files.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Passthrough.GetHashCode();
                 }
                 if (this.AdditionalProperties != null)
                 {

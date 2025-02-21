@@ -1,10 +1,10 @@
-# Mux.Csharp.Sdk.Model.BroadcastResolution
-The resolution of the composited video sent to the live stream. Defaults to `1920x1080` if not set.
+# Mux.Csharp.Sdk.Model.UpdateLiveStreamNewAssetSettingsStaticRenditionsRequest
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**StaticRenditions** | [**List&lt;CreateStaticRenditionRequest&gt;**](CreateStaticRenditionRequest.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

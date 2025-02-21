@@ -20,7 +20,7 @@ Mux is how developers build online video. This API encompasses both Mux Video an
 At this moment, this SDK is not suitable for parsing or modeling webhook payloads, due to some incompatibilities in our API spec and our SDK generation tooling. We are working on resolving these issues, but for now you should only use this SDK for Mux's REST APIs.
 
 - API version: v1
-- SDK version: 0.16.0
+- SDK version: 1.0.0
     [https://docs.mux.com](https://docs.mux.com)
 
 <a name="frameworks-supported"></a>
@@ -121,9 +121,11 @@ Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *AssetsApi* | [**CreateAsset**](docs/AssetsApi.md#createasset) | **POST** /video/v1/assets | Create an asset
 *AssetsApi* | [**CreateAssetPlaybackId**](docs/AssetsApi.md#createassetplaybackid) | **POST** /video/v1/assets/{ASSET_ID}/playback-ids | Create a playback ID
+*AssetsApi* | [**CreateAssetStaticRendition**](docs/AssetsApi.md#createassetstaticrendition) | **POST** /video/v1/assets/{ASSET_ID}/static-renditions | Create a static rendition for an asset
 *AssetsApi* | [**CreateAssetTrack**](docs/AssetsApi.md#createassettrack) | **POST** /video/v1/assets/{ASSET_ID}/tracks | Create an asset track
 *AssetsApi* | [**DeleteAsset**](docs/AssetsApi.md#deleteasset) | **DELETE** /video/v1/assets/{ASSET_ID} | Delete an asset
 *AssetsApi* | [**DeleteAssetPlaybackId**](docs/AssetsApi.md#deleteassetplaybackid) | **DELETE** /video/v1/assets/{ASSET_ID}/playback-ids/{PLAYBACK_ID} | Delete a playback ID
+*AssetsApi* | [**DeleteAssetStaticRendition**](docs/AssetsApi.md#deleteassetstaticrendition) | **DELETE** /video/v1/assets/{ASSET_ID}/static-renditions/{STATIC_RENDITION_ID} | Delete a single static rendition for an asset
 *AssetsApi* | [**DeleteAssetTrack**](docs/AssetsApi.md#deleteassettrack) | **DELETE** /video/v1/assets/{ASSET_ID}/tracks/{TRACK_ID} | Delete an asset track
 *AssetsApi* | [**GenerateAssetTrackSubtitles**](docs/AssetsApi.md#generateassettracksubtitles) | **POST** /video/v1/assets/{ASSET_ID}/tracks/{TRACK_ID}/generate-subtitles | Generate track subtitles
 *AssetsApi* | [**GetAsset**](docs/AssetsApi.md#getasset) | **GET** /video/v1/assets/{ASSET_ID} | Retrieve an asset
@@ -154,6 +156,7 @@ Class | Method | HTTP request | Description
 *LiveStreamsApi* | [**CreateLiveStreamPlaybackId**](docs/LiveStreamsApi.md#createlivestreamplaybackid) | **POST** /video/v1/live-streams/{LIVE_STREAM_ID}/playback-ids | Create a live stream playback ID
 *LiveStreamsApi* | [**CreateLiveStreamSimulcastTarget**](docs/LiveStreamsApi.md#createlivestreamsimulcasttarget) | **POST** /video/v1/live-streams/{LIVE_STREAM_ID}/simulcast-targets | Create a live stream simulcast target
 *LiveStreamsApi* | [**DeleteLiveStream**](docs/LiveStreamsApi.md#deletelivestream) | **DELETE** /video/v1/live-streams/{LIVE_STREAM_ID} | Delete a live stream
+*LiveStreamsApi* | [**DeleteLiveStreamNewAssetSettingsStaticRenditions**](docs/LiveStreamsApi.md#deletelivestreamnewassetsettingsstaticrenditions) | **DELETE** /video/v1/live-streams/{LIVE_STREAM_ID}/new-asset-settings/static-renditions | Delete a live stream's static renditions setting for new assets
 *LiveStreamsApi* | [**DeleteLiveStreamPlaybackId**](docs/LiveStreamsApi.md#deletelivestreamplaybackid) | **DELETE** /video/v1/live-streams/{LIVE_STREAM_ID}/playback-ids/{PLAYBACK_ID} | Delete a live stream playback ID
 *LiveStreamsApi* | [**DeleteLiveStreamSimulcastTarget**](docs/LiveStreamsApi.md#deletelivestreamsimulcasttarget) | **DELETE** /video/v1/live-streams/{LIVE_STREAM_ID}/simulcast-targets/{SIMULCAST_TARGET_ID} | Delete a live stream simulcast target
 *LiveStreamsApi* | [**DisableLiveStream**](docs/LiveStreamsApi.md#disablelivestream) | **PUT** /video/v1/live-streams/{LIVE_STREAM_ID}/disable | Disable a live stream
@@ -167,6 +170,7 @@ Class | Method | HTTP request | Description
 *LiveStreamsApi* | [**UpdateLiveStream**](docs/LiveStreamsApi.md#updatelivestream) | **PATCH** /video/v1/live-streams/{LIVE_STREAM_ID} | Update a live stream
 *LiveStreamsApi* | [**UpdateLiveStreamEmbeddedSubtitles**](docs/LiveStreamsApi.md#updatelivestreamembeddedsubtitles) | **PUT** /video/v1/live-streams/{LIVE_STREAM_ID}/embedded-subtitles | Update a live stream's embedded subtitles
 *LiveStreamsApi* | [**UpdateLiveStreamGeneratedSubtitles**](docs/LiveStreamsApi.md#updatelivestreamgeneratedsubtitles) | **PUT** /video/v1/live-streams/{LIVE_STREAM_ID}/generated-subtitles | Update a live stream's generated subtitles
+*LiveStreamsApi* | [**UpdateLiveStreamNewAssetSettingsStaticRenditions**](docs/LiveStreamsApi.md#updatelivestreamnewassetsettingsstaticrenditions) | **PUT** /video/v1/live-streams/{LIVE_STREAM_ID}/new-asset-settings/static-renditions | Update live stream static renditions for new assets
 *MetricsApi* | [**GetMetricTimeseriesData**](docs/MetricsApi.md#getmetrictimeseriesdata) | **GET** /data/v1/metrics/{METRIC_ID}/timeseries | Get metric timeseries data
 *MetricsApi* | [**GetOverallValues**](docs/MetricsApi.md#getoverallvalues) | **GET** /data/v1/metrics/{METRIC_ID}/overall | Get Overall values
 *MetricsApi* | [**ListAllMetricValues**](docs/MetricsApi.md#listallmetricvalues) | **GET** /data/v1/metrics/comparison | List all metric values
@@ -194,15 +198,6 @@ Class | Method | HTTP request | Description
 *SigningKeysApi* | [**DeleteSigningKey**](docs/SigningKeysApi.md#deletesigningkey) | **DELETE** /system/v1/signing-keys/{SIGNING_KEY_ID} | Delete a signing key
 *SigningKeysApi* | [**GetSigningKey**](docs/SigningKeysApi.md#getsigningkey) | **GET** /system/v1/signing-keys/{SIGNING_KEY_ID} | Retrieve a signing key
 *SigningKeysApi* | [**ListSigningKeys**](docs/SigningKeysApi.md#listsigningkeys) | **GET** /system/v1/signing-keys | List signing keys
-*SpacesApi* | [**CreateSpace**](docs/SpacesApi.md#createspace) | **POST** /video/v1/spaces | Create a space
-*SpacesApi* | [**CreateSpaceBroadcast**](docs/SpacesApi.md#createspacebroadcast) | **POST** /video/v1/spaces/{SPACE_ID}/broadcasts | Create a space broadcast
-*SpacesApi* | [**DeleteSpace**](docs/SpacesApi.md#deletespace) | **DELETE** /video/v1/spaces/{SPACE_ID} | Delete a space
-*SpacesApi* | [**DeleteSpaceBroadcast**](docs/SpacesApi.md#deletespacebroadcast) | **DELETE** /video/v1/spaces/{SPACE_ID}/broadcasts/{BROADCAST_ID} | Delete a space broadcast
-*SpacesApi* | [**GetSpace**](docs/SpacesApi.md#getspace) | **GET** /video/v1/spaces/{SPACE_ID} | Retrieve a space
-*SpacesApi* | [**GetSpaceBroadcast**](docs/SpacesApi.md#getspacebroadcast) | **GET** /video/v1/spaces/{SPACE_ID}/broadcasts/{BROADCAST_ID} | Retrieve space broadcast
-*SpacesApi* | [**ListSpaces**](docs/SpacesApi.md#listspaces) | **GET** /video/v1/spaces | List spaces
-*SpacesApi* | [**StartSpaceBroadcast**](docs/SpacesApi.md#startspacebroadcast) | **POST** /video/v1/spaces/{SPACE_ID}/broadcasts/{BROADCAST_ID}/start | Start a space broadcast
-*SpacesApi* | [**StopSpaceBroadcast**](docs/SpacesApi.md#stopspacebroadcast) | **POST** /video/v1/spaces/{SPACE_ID}/broadcasts/{BROADCAST_ID}/stop | Stop a space broadcast
 *TranscriptionVocabulariesApi* | [**CreateTranscriptionVocabulary**](docs/TranscriptionVocabulariesApi.md#createtranscriptionvocabulary) | **POST** /video/v1/transcription-vocabularies | Create a Transcription Vocabulary
 *TranscriptionVocabulariesApi* | [**DeleteTranscriptionVocabulary**](docs/TranscriptionVocabulariesApi.md#deletetranscriptionvocabulary) | **DELETE** /video/v1/transcription-vocabularies/{TRANSCRIPTION_VOCABULARY_ID} | Delete a Transcription Vocabulary
 *TranscriptionVocabulariesApi* | [**GetTranscriptionVocabulary**](docs/TranscriptionVocabulariesApi.md#gettranscriptionvocabulary) | **GET** /video/v1/transcription-vocabularies/{TRANSCRIPTION_VOCABULARY_ID} | Retrieve a Transcription Vocabulary
@@ -236,21 +231,15 @@ Class | Method | HTTP request | Description
  - [Model.AssetRecordingTimes](docs/AssetRecordingTimes.md)
  - [Model.AssetResponse](docs/AssetResponse.md)
  - [Model.AssetStaticRenditions](docs/AssetStaticRenditions.md)
- - [Model.AssetStaticRenditionsFiles](docs/AssetStaticRenditionsFiles.md)
  - [Model.BreakdownValue](docs/BreakdownValue.md)
- - [Model.Broadcast](docs/Broadcast.md)
- - [Model.BroadcastLayout](docs/BroadcastLayout.md)
- - [Model.BroadcastResolution](docs/BroadcastResolution.md)
- - [Model.BroadcastResponse](docs/BroadcastResponse.md)
- - [Model.BroadcastStatus](docs/BroadcastStatus.md)
  - [Model.CreateAssetRequest](docs/CreateAssetRequest.md)
- - [Model.CreateBroadcastRequest](docs/CreateBroadcastRequest.md)
  - [Model.CreateLiveStreamRequest](docs/CreateLiveStreamRequest.md)
  - [Model.CreatePlaybackIDRequest](docs/CreatePlaybackIDRequest.md)
  - [Model.CreatePlaybackIDResponse](docs/CreatePlaybackIDResponse.md)
  - [Model.CreatePlaybackRestrictionRequest](docs/CreatePlaybackRestrictionRequest.md)
  - [Model.CreateSimulcastTargetRequest](docs/CreateSimulcastTargetRequest.md)
- - [Model.CreateSpaceRequest](docs/CreateSpaceRequest.md)
+ - [Model.CreateStaticRenditionRequest](docs/CreateStaticRenditionRequest.md)
+ - [Model.CreateStaticRenditionResponse](docs/CreateStaticRenditionResponse.md)
  - [Model.CreateTrackRequest](docs/CreateTrackRequest.md)
  - [Model.CreateTrackResponse](docs/CreateTrackResponse.md)
  - [Model.CreateTranscriptionVocabularyRequest](docs/CreateTranscriptionVocabularyRequest.md)
@@ -322,7 +311,6 @@ Class | Method | HTTP request | Description
  - [Model.ListRealTimeMetricsResponse](docs/ListRealTimeMetricsResponse.md)
  - [Model.ListRelatedIncidentsResponse](docs/ListRelatedIncidentsResponse.md)
  - [Model.ListSigningKeysResponse](docs/ListSigningKeysResponse.md)
- - [Model.ListSpacesResponse](docs/ListSpacesResponse.md)
  - [Model.ListTranscriptionVocabulariesResponse](docs/ListTranscriptionVocabulariesResponse.md)
  - [Model.ListUploadsResponse](docs/ListUploadsResponse.md)
  - [Model.ListVideoViewExportsResponse](docs/ListVideoViewExportsResponse.md)
@@ -361,12 +349,7 @@ Class | Method | HTTP request | Description
  - [Model.SigningKeyResponse](docs/SigningKeyResponse.md)
  - [Model.SimulcastTarget](docs/SimulcastTarget.md)
  - [Model.SimulcastTargetResponse](docs/SimulcastTargetResponse.md)
- - [Model.Space](docs/Space.md)
- - [Model.SpaceResponse](docs/SpaceResponse.md)
- - [Model.SpaceStatus](docs/SpaceStatus.md)
- - [Model.SpaceType](docs/SpaceType.md)
- - [Model.StartSpaceBroadcastResponse](docs/StartSpaceBroadcastResponse.md)
- - [Model.StopSpaceBroadcastResponse](docs/StopSpaceBroadcastResponse.md)
+ - [Model.StaticRendition](docs/StaticRendition.md)
  - [Model.Track](docs/Track.md)
  - [Model.TranscriptionVocabulary](docs/TranscriptionVocabulary.md)
  - [Model.TranscriptionVocabularyResponse](docs/TranscriptionVocabularyResponse.md)
@@ -376,6 +359,7 @@ Class | Method | HTTP request | Description
  - [Model.UpdateLiveStreamEmbeddedSubtitlesRequest](docs/UpdateLiveStreamEmbeddedSubtitlesRequest.md)
  - [Model.UpdateLiveStreamGeneratedSubtitlesRequest](docs/UpdateLiveStreamGeneratedSubtitlesRequest.md)
  - [Model.UpdateLiveStreamNewAssetSettings](docs/UpdateLiveStreamNewAssetSettings.md)
+ - [Model.UpdateLiveStreamNewAssetSettingsStaticRenditionsRequest](docs/UpdateLiveStreamNewAssetSettingsStaticRenditionsRequest.md)
  - [Model.UpdateLiveStreamRequest](docs/UpdateLiveStreamRequest.md)
  - [Model.UpdateReferrerDomainRestrictionRequest](docs/UpdateReferrerDomainRestrictionRequest.md)
  - [Model.UpdateTranscriptionVocabularyRequest](docs/UpdateTranscriptionVocabularyRequest.md)
