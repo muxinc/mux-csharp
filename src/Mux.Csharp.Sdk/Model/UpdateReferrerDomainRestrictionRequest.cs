@@ -23,63 +23,46 @@ using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = Mux.Csharp.Sdk.Client.OpenAPIDateConverter;
-using System.Reflection;
 
 namespace Mux.Csharp.Sdk.Model
 {
     /// <summary>
-    /// UpdateReferrerDomainRestrictionRequest
+    /// A list of domains allowed to play your videos.
     /// </summary>
-    [JsonConverter(typeof(UpdateReferrerDomainRestrictionRequestJsonConverter))]
     [DataContract(Name = "UpdateReferrerDomainRestrictionRequest")]
-    public partial class UpdateReferrerDomainRestrictionRequest : AbstractOpenAPISchema, IEquatable<UpdateReferrerDomainRestrictionRequest>, IValidatableObject
+    public partial class UpdateReferrerDomainRestrictionRequest : IEquatable<UpdateReferrerDomainRestrictionRequest>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="UpdateReferrerDomainRestrictionRequest" /> class
-        /// with the <see cref="ReferrerDomainRestriction" /> class
+        /// Initializes a new instance of the <see cref="UpdateReferrerDomainRestrictionRequest" /> class.
         /// </summary>
-        /// <param name="actualInstance">An instance of ReferrerDomainRestriction.</param>
-        public UpdateReferrerDomainRestrictionRequest(ReferrerDomainRestriction actualInstance)
+        /// <param name="allowedDomains">List of domains allowed to play videos. Possible values are   * &#x60;[]&#x60; Empty Array indicates deny video playback requests for all domains   * &#x60;[\&quot;*\&quot;]&#x60; A Single Wildcard &#x60;*&#x60; entry means allow video playback requests from any domain   * &#x60;[\&quot;*.example.com\&quot;, \&quot;foo.com\&quot;]&#x60; A list of up to 10 domains or valid dns-style wildcards .</param>
+        /// <param name="allowNoReferrer">A boolean to determine whether to allow or deny HTTP requests without &#x60;Referer&#x60; HTTP request header. Playback requests coming from non-web/native applications like iOS, Android or smart TVs will not have a &#x60;Referer&#x60; HTTP header. Set this value to &#x60;true&#x60; to allow these playback requests. (default to false).</param>
+        public UpdateReferrerDomainRestrictionRequest(List<string> allowedDomains = default(List<string>), bool allowNoReferrer = false)
         {
-            this.IsNullable = false;
-            this.SchemaType= "oneOf";
-            this.ActualInstance = actualInstance ?? throw new ArgumentException("Invalid instance found. Must not be null.");
-        }
-
-
-        private Object _actualInstance;
-
-        /// <summary>
-        /// Gets or Sets ActualInstance
-        /// </summary>
-        public override Object ActualInstance
-        {
-            get
-            {
-                return _actualInstance;
-            }
-            set
-            {
-                if (value.GetType() == typeof(ReferrerDomainRestriction))
-                {
-                    this._actualInstance = value;
-                }
-                else
-                {
-                    throw new ArgumentException("Invalid instance found. Must be the following types: ReferrerDomainRestriction");
-                }
-            }
+            this.AllowedDomains = allowedDomains;
+            this.AllowNoReferrer = allowNoReferrer;
+            this.AdditionalProperties = new Dictionary<string, object>();
         }
 
         /// <summary>
-        /// Get the actual instance of `ReferrerDomainRestriction`. If the actual instance is not `ReferrerDomainRestriction`,
-        /// the InvalidClassException will be thrown
+        /// List of domains allowed to play videos. Possible values are   * &#x60;[]&#x60; Empty Array indicates deny video playback requests for all domains   * &#x60;[\&quot;*\&quot;]&#x60; A Single Wildcard &#x60;*&#x60; entry means allow video playback requests from any domain   * &#x60;[\&quot;*.example.com\&quot;, \&quot;foo.com\&quot;]&#x60; A list of up to 10 domains or valid dns-style wildcards 
         /// </summary>
-        /// <returns>An instance of ReferrerDomainRestriction</returns>
-        public ReferrerDomainRestriction GetReferrerDomainRestriction()
-        {
-            return (ReferrerDomainRestriction)this.ActualInstance;
-        }
+        /// <value>List of domains allowed to play videos. Possible values are   * &#x60;[]&#x60; Empty Array indicates deny video playback requests for all domains   * &#x60;[\&quot;*\&quot;]&#x60; A Single Wildcard &#x60;*&#x60; entry means allow video playback requests from any domain   * &#x60;[\&quot;*.example.com\&quot;, \&quot;foo.com\&quot;]&#x60; A list of up to 10 domains or valid dns-style wildcards </value>
+        [DataMember(Name = "allowed_domains", EmitDefaultValue = false)]
+        public List<string> AllowedDomains { get; set; }
+
+        /// <summary>
+        /// A boolean to determine whether to allow or deny HTTP requests without &#x60;Referer&#x60; HTTP request header. Playback requests coming from non-web/native applications like iOS, Android or smart TVs will not have a &#x60;Referer&#x60; HTTP header. Set this value to &#x60;true&#x60; to allow these playback requests.
+        /// </summary>
+        /// <value>A boolean to determine whether to allow or deny HTTP requests without &#x60;Referer&#x60; HTTP request header. Playback requests coming from non-web/native applications like iOS, Android or smart TVs will not have a &#x60;Referer&#x60; HTTP header. Set this value to &#x60;true&#x60; to allow these playback requests.</value>
+        [DataMember(Name = "allow_no_referrer", EmitDefaultValue = true)]
+        public bool AllowNoReferrer { get; set; }
+
+        /// <summary>
+        /// Gets or Sets additional properties
+        /// </summary>
+        [JsonExtensionData]
+        public IDictionary<string, object> AdditionalProperties { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -87,9 +70,11 @@ namespace Mux.Csharp.Sdk.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class UpdateReferrerDomainRestrictionRequest {\n");
-            sb.Append("  ActualInstance: ").Append(this.ActualInstance).Append("\n");
+            sb.Append("  AllowedDomains: ").Append(AllowedDomains).Append("\n");
+            sb.Append("  AllowNoReferrer: ").Append(AllowNoReferrer).Append("\n");
+            sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -98,58 +83,9 @@ namespace Mux.Csharp.Sdk.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public override string ToJson()
+        public virtual string ToJson()
         {
-            return JsonConvert.SerializeObject(this.ActualInstance, UpdateReferrerDomainRestrictionRequest.SerializerSettings);
-        }
-
-        /// <summary>
-        /// Converts the JSON string into an instance of UpdateReferrerDomainRestrictionRequest
-        /// </summary>
-        /// <param name="jsonString">JSON string</param>
-        /// <returns>An instance of UpdateReferrerDomainRestrictionRequest</returns>
-        public static UpdateReferrerDomainRestrictionRequest FromJson(string jsonString)
-        {
-            UpdateReferrerDomainRestrictionRequest newUpdateReferrerDomainRestrictionRequest = null;
-
-            if (string.IsNullOrEmpty(jsonString))
-            {
-                return newUpdateReferrerDomainRestrictionRequest;
-            }
-            int match = 0;
-            List<string> matchedTypes = new List<string>();
-
-            try
-            {
-                // if it does not contains "AdditionalProperties", use SerializerSettings to deserialize
-                if (typeof(ReferrerDomainRestriction).GetProperty("AdditionalProperties") == null)
-                {
-                    newUpdateReferrerDomainRestrictionRequest = new UpdateReferrerDomainRestrictionRequest(JsonConvert.DeserializeObject<ReferrerDomainRestriction>(jsonString, UpdateReferrerDomainRestrictionRequest.SerializerSettings));
-                }
-                else
-                {
-                    newUpdateReferrerDomainRestrictionRequest = new UpdateReferrerDomainRestrictionRequest(JsonConvert.DeserializeObject<ReferrerDomainRestriction>(jsonString, UpdateReferrerDomainRestrictionRequest.AdditionalPropertiesSerializerSettings));
-                }
-                matchedTypes.Add("ReferrerDomainRestriction");
-                match++;
-            }
-            catch (Exception exception)
-            {
-                // deserialization failed, try the next one
-                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into ReferrerDomainRestriction: {1}", jsonString, exception.ToString()));
-            }
-
-            if (match == 0)
-            {
-                throw new InvalidDataException("The JSON string `" + jsonString + "` cannot be deserialized into any schema defined.");
-            }
-            else if (match > 1)
-            {
-                throw new InvalidDataException("The JSON string `" + jsonString + "` incorrectly matches more than one schema (should be exactly one match): " + matchedTypes);
-            }
-
-            // deserialization is considered successful at this point if no exception has been thrown.
-            return newUpdateReferrerDomainRestrictionRequest;
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>
@@ -170,9 +106,21 @@ namespace Mux.Csharp.Sdk.Model
         public bool Equals(UpdateReferrerDomainRestrictionRequest input)
         {
             if (input == null)
+            {
                 return false;
-
-            return this.ActualInstance.Equals(input.ActualInstance);
+            }
+            return 
+                (
+                    this.AllowedDomains == input.AllowedDomains ||
+                    this.AllowedDomains != null &&
+                    input.AllowedDomains != null &&
+                    this.AllowedDomains.SequenceEqual(input.AllowedDomains)
+                ) && 
+                (
+                    this.AllowNoReferrer == input.AllowNoReferrer ||
+                    this.AllowNoReferrer.Equals(input.AllowNoReferrer)
+                )
+                && (this.AdditionalProperties.Count == input.AdditionalProperties.Count && !this.AdditionalProperties.Except(input.AdditionalProperties).Any());
         }
 
         /// <summary>
@@ -184,8 +132,15 @@ namespace Mux.Csharp.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.ActualInstance != null)
-                    hashCode = hashCode * 59 + this.ActualInstance.GetHashCode();
+                if (this.AllowedDomains != null)
+                {
+                    hashCode = (hashCode * 59) + this.AllowedDomains.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.AllowNoReferrer.GetHashCode();
+                if (this.AdditionalProperties != null)
+                {
+                    hashCode = (hashCode * 59) + this.AdditionalProperties.GetHashCode();
+                }
                 return hashCode;
             }
         }
@@ -195,53 +150,9 @@ namespace Mux.Csharp.Sdk.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
             yield break;
-        }
-    }
-
-    /// <summary>
-    /// Custom JSON converter for UpdateReferrerDomainRestrictionRequest
-    /// </summary>
-    public class UpdateReferrerDomainRestrictionRequestJsonConverter : JsonConverter
-    {
-        /// <summary>
-        /// To write the JSON string
-        /// </summary>
-        /// <param name="writer">JSON writer</param>
-        /// <param name="value">Object to be converted into a JSON string</param>
-        /// <param name="serializer">JSON Serializer</param>
-        public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
-        {
-            writer.WriteRawValue((string)(typeof(UpdateReferrerDomainRestrictionRequest).GetMethod("ToJson").Invoke(value, null)));
-        }
-
-        /// <summary>
-        /// To convert a JSON string into an object
-        /// </summary>
-        /// <param name="reader">JSON reader</param>
-        /// <param name="objectType">Object type</param>
-        /// <param name="existingValue">Existing value</param>
-        /// <param name="serializer">JSON Serializer</param>
-        /// <returns>The object converted from the JSON string</returns>
-        public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
-        {
-            if(reader.TokenType != JsonToken.Null)
-            {
-                return UpdateReferrerDomainRestrictionRequest.FromJson(JObject.Load(reader).ToString(Formatting.None));
-            }
-            return null;
-        }
-
-        /// <summary>
-        /// Check if the object can be converted
-        /// </summary>
-        /// <param name="objectType">Object type</param>
-        /// <returns>True if the object can be converted</returns>
-        public override bool CanConvert(Type objectType)
-        {
-            return false;
         }
     }
 

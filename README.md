@@ -20,7 +20,7 @@ Mux is how developers build online video. This API encompasses both Mux Video an
 At this moment, this SDK is not suitable for parsing or modeling webhook payloads, due to some incompatibilities in our API spec and our SDK generation tooling. We are working on resolving these issues, but for now you should only use this SDK for Mux's REST APIs.
 
 - API version: v1
-- SDK version: 1.0.0
+- SDK version: 2.0.0
     [https://docs.mux.com](https://docs.mux.com)
 
 <a name="frameworks-supported"></a>
@@ -227,6 +227,7 @@ Class | Method | HTTP request | Description
  - [Model.AssetErrors](docs/AssetErrors.md)
  - [Model.AssetGeneratedSubtitleSettings](docs/AssetGeneratedSubtitleSettings.md)
  - [Model.AssetMaster](docs/AssetMaster.md)
+ - [Model.AssetMetadata](docs/AssetMetadata.md)
  - [Model.AssetNonStandardInputReasons](docs/AssetNonStandardInputReasons.md)
  - [Model.AssetRecordingTimes](docs/AssetRecordingTimes.md)
  - [Model.AssetResponse](docs/AssetResponse.md)
