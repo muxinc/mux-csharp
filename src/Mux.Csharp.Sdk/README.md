@@ -2,8 +2,6 @@
 
 Mux is how developers build online video. This API encompasses both Mux Video and Mux Data functionality to help you build your video-related projects better and faster than ever before.
 
-**PLEASE NOTE:** This is an _extremely_ early alpha build of the C# SDK. Documentation is currently best-effort, but it'll improve over time! Instead of contacting Mux Support, please file an issue on this repository or email [Mux DevEx](devex@mux.com) for assistance.
-
 - API version: v1
 - SDK version: 0.1.0-alpha.5
     [https://docs.mux.com](https://docs.mux.com)
