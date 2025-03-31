@@ -1,6 +1,6 @@
 {
   "!!source": "https://github.com/OpenAPITools/openapi-generator/blob/master/docs/generators/csharp-netcore.md",
-  "packageVersion": "1.0.0",
+  "packageVersion": "2.0.0",
   "caseInsensitiveResponseHeaders": true,
   "disallowAdditionalPropertiesIfNotPresent": false,
   "licenseID": "MIT",

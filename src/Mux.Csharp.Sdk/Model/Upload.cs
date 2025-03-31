@@ -88,7 +88,7 @@ namespace Mux.Csharp.Sdk.Model
         /// <param name="corsOrigin">If the upload URL will be used in a browser, you must specify the origin in order for the signed URL to have the correct CORS headers..</param>
         /// <param name="url">The URL to upload the associated source media to..</param>
         /// <param name="test">Indicates if this is a test Direct Upload, in which case the Asset that gets created will be a &#x60;test&#x60; Asset..</param>
-        public Upload(string id = default(string), int timeout = 3600, StatusEnum? status = default(StatusEnum?), Asset newAssetSettings = default(Asset), string assetId = default(string), UploadError error = default(UploadError), string corsOrigin = default(string), string url = default(string), bool test = default(bool))
+        public Upload(string id = default(string), int timeout = 3600, StatusEnum? status = default(StatusEnum?), CreateAssetRequest newAssetSettings = default(CreateAssetRequest), string assetId = default(string), UploadError error = default(UploadError), string corsOrigin = default(string), string url = default(string), bool test = default(bool))
         {
             this.Id = id;
             this.Timeout = timeout;
@@ -120,7 +120,7 @@ namespace Mux.Csharp.Sdk.Model
         /// Gets or Sets NewAssetSettings
         /// </summary>
         [DataMember(Name = "new_asset_settings", EmitDefaultValue = false)]
-        public Asset NewAssetSettings { get; set; }
+        public CreateAssetRequest NewAssetSettings { get; set; }
 
         /// <summary>
         /// Only set once the upload is in the &#x60;asset_created&#x60; state.

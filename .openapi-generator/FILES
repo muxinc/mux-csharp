@@ -6,6 +6,7 @@ docs/Asset.md
 docs/AssetErrors.md
 docs/AssetGeneratedSubtitleSettings.md
 docs/AssetMaster.md
+docs/AssetMetadata.md
 docs/AssetNonStandardInputReasons.md
 docs/AssetRecordingTimes.md
 docs/AssetResponse.md
@@ -217,6 +218,7 @@ src/Mux.Csharp.Sdk/Model/Asset.cs
 src/Mux.Csharp.Sdk/Model/AssetErrors.cs
 src/Mux.Csharp.Sdk/Model/AssetGeneratedSubtitleSettings.cs
 src/Mux.Csharp.Sdk/Model/AssetMaster.cs
+src/Mux.Csharp.Sdk/Model/AssetMetadata.cs
 src/Mux.Csharp.Sdk/Model/AssetNonStandardInputReasons.cs
 src/Mux.Csharp.Sdk/Model/AssetRecordingTimes.cs
 src/Mux.Csharp.Sdk/Model/AssetResponse.cs

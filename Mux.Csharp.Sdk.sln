@@ -2,7 +2,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mux.Csharp.Sdk", "src\Mux.Csharp.Sdk\Mux.Csharp.Sdk.csproj", "{CB0634A2-7EF6-4CDF-9167-CF6420CC6411}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mux.Csharp.Sdk", "src\Mux.Csharp.Sdk\Mux.Csharp.Sdk.csproj", "{31A080D5-404E-4699-83EF-56752050AF6B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mux.Csharp.Sdk.Test", "src\Mux.Csharp.Sdk.Test\Mux.Csharp.Sdk.Test.csproj", "{19F1DEBC-DE5E-4517-8062-F000CD499087}"
 EndProject
@@ -12,10 +12,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{CB0634A2-7EF6-4CDF-9167-CF6420CC6411}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CB0634A2-7EF6-4CDF-9167-CF6420CC6411}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{CB0634A2-7EF6-4CDF-9167-CF6420CC6411}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{CB0634A2-7EF6-4CDF-9167-CF6420CC6411}.Release|Any CPU.Build.0 = Release|Any CPU
+		{31A080D5-404E-4699-83EF-56752050AF6B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{31A080D5-404E-4699-83EF-56752050AF6B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{31A080D5-404E-4699-83EF-56752050AF6B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{31A080D5-404E-4699-83EF-56752050AF6B}.Release|Any CPU.Build.0 = Release|Any CPU
 		{19F1DEBC-DE5E-4517-8062-F000CD499087}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{19F1DEBC-DE5E-4517-8062-F000CD499087}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{19F1DEBC-DE5E-4517-8062-F000CD499087}.Release|Any CPU.ActiveCfg = Release|Any CPU

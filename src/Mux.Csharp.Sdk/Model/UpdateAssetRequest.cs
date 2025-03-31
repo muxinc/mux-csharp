@@ -35,19 +35,27 @@ namespace Mux.Csharp.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="UpdateAssetRequest" /> class.
         /// </summary>
-        /// <param name="passthrough">Arbitrary metadata set for the Asset. Max 255 characters. In order to clear this value, the field should be included with an empty string value..</param>
-        public UpdateAssetRequest(string passthrough = default(string))
+        /// <param name="passthrough">You can set this field to anything you want. It will be included in the asset details and related webhooks. If you&#39;re looking for more structured metadata, such as &#x60;title&#x60; or &#x60;external_id&#x60; , you can use the &#x60;meta&#x60; object instead. **Max: 255 characters**. In order to clear this value, the field should be included with an empty string value..</param>
+        /// <param name="meta">meta.</param>
+        public UpdateAssetRequest(string passthrough = default(string), AssetMetadata meta = default(AssetMetadata))
         {
             this.Passthrough = passthrough;
+            this.Meta = meta;
             this.AdditionalProperties = new Dictionary<string, object>();
         }
 
         /// <summary>
-        /// Arbitrary metadata set for the Asset. Max 255 characters. In order to clear this value, the field should be included with an empty string value.
+        /// You can set this field to anything you want. It will be included in the asset details and related webhooks. If you&#39;re looking for more structured metadata, such as &#x60;title&#x60; or &#x60;external_id&#x60; , you can use the &#x60;meta&#x60; object instead. **Max: 255 characters**. In order to clear this value, the field should be included with an empty string value.
         /// </summary>
-        /// <value>Arbitrary metadata set for the Asset. Max 255 characters. In order to clear this value, the field should be included with an empty string value.</value>
+        /// <value>You can set this field to anything you want. It will be included in the asset details and related webhooks. If you&#39;re looking for more structured metadata, such as &#x60;title&#x60; or &#x60;external_id&#x60; , you can use the &#x60;meta&#x60; object instead. **Max: 255 characters**. In order to clear this value, the field should be included with an empty string value.</value>
         [DataMember(Name = "passthrough", EmitDefaultValue = false)]
         public string Passthrough { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Meta
+        /// </summary>
+        [DataMember(Name = "meta", EmitDefaultValue = false)]
+        public AssetMetadata Meta { get; set; }
 
         /// <summary>
         /// Gets or Sets additional properties
@@ -64,6 +72,7 @@ namespace Mux.Csharp.Sdk.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class UpdateAssetRequest {\n");
             sb.Append("  Passthrough: ").Append(Passthrough).Append("\n");
+            sb.Append("  Meta: ").Append(Meta).Append("\n");
             sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -104,6 +113,11 @@ namespace Mux.Csharp.Sdk.Model
                     this.Passthrough == input.Passthrough ||
                     (this.Passthrough != null &&
                     this.Passthrough.Equals(input.Passthrough))
+                ) && 
+                (
+                    this.Meta == input.Meta ||
+                    (this.Meta != null &&
+                    this.Meta.Equals(input.Meta))
                 )
                 && (this.AdditionalProperties.Count == input.AdditionalProperties.Count && !this.AdditionalProperties.Except(input.AdditionalProperties).Any());
         }
@@ -120,6 +134,10 @@ namespace Mux.Csharp.Sdk.Model
                 if (this.Passthrough != null)
                 {
                     hashCode = (hashCode * 59) + this.Passthrough.GetHashCode();
+                }
+                if (this.Meta != null)
+                {
+                    hashCode = (hashCode * 59) + this.Meta.GetHashCode();
                 }
                 if (this.AdditionalProperties != null)
                 {

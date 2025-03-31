@@ -399,7 +399,7 @@ namespace Mux.Csharp.Sdk.Model
         /// <param name="perTitleEncode">perTitleEncode.</param>
         /// <param name="uploadId">Unique identifier for the Direct Upload. This is an optional parameter added when the asset is created from a direct upload..</param>
         /// <param name="isLive">Indicates whether the live stream that created this asset is currently &#x60;active&#x60; and not in &#x60;idle&#x60; state. This is an optional parameter added when the asset is created from a live stream..</param>
-        /// <param name="passthrough">Arbitrary user-supplied metadata set for the asset. Max 255 characters..</param>
+        /// <param name="passthrough">You can set this field to anything you want. It will be included in the asset details and related webhooks. If you&#39;re looking for more structured metadata, such as &#x60;title&#x60; or &#x60;external_id&#x60; , you can use the &#x60;meta&#x60; object instead. **Max: 255 characters**..</param>
         /// <param name="liveStreamId">Unique identifier for the live stream. This is an optional parameter added when the asset is created from a live stream..</param>
         /// <param name="master">master.</param>
         /// <param name="masterAccess">masterAccess (default to MasterAccessEnum.None).</param>
@@ -411,7 +411,8 @@ namespace Mux.Csharp.Sdk.Model
         /// <param name="nonStandardInputReasons">nonStandardInputReasons.</param>
         /// <param name="test">True means this live stream is a test asset. A test asset can help evaluate the Mux Video APIs without incurring any cost. There is no limit on number of test assets created. Test assets are watermarked with the Mux logo, limited to 10 seconds, and deleted after 24 hrs..</param>
         /// <param name="ingestType">The type of ingest used to create the asset..</param>
-        public Asset(string id = default(string), string createdAt = default(string), StatusEnum? status = default(StatusEnum?), double duration = default(double), MaxStoredResolutionEnum? maxStoredResolution = default(MaxStoredResolutionEnum?), ResolutionTierEnum? resolutionTier = default(ResolutionTierEnum?), MaxResolutionTierEnum? maxResolutionTier = default(MaxResolutionTierEnum?), EncodingTierEnum? encodingTier = default(EncodingTierEnum?), VideoQualityEnum? videoQuality = default(VideoQualityEnum?), double maxStoredFrameRate = default(double), string aspectRatio = default(string), List<PlaybackID> playbackIds = default(List<PlaybackID>), List<Track> tracks = default(List<Track>), AssetErrors errors = default(AssetErrors), bool perTitleEncode = default(bool), string uploadId = default(string), bool isLive = default(bool), string passthrough = default(string), string liveStreamId = default(string), AssetMaster master = default(AssetMaster), MasterAccessEnum? masterAccess = MasterAccessEnum.None, Mp4SupportEnum? mp4Support = Mp4SupportEnum.None, string sourceAssetId = default(string), bool normalizeAudio = false, AssetStaticRenditions staticRenditions = default(AssetStaticRenditions), List<AssetRecordingTimes> recordingTimes = default(List<AssetRecordingTimes>), AssetNonStandardInputReasons nonStandardInputReasons = default(AssetNonStandardInputReasons), bool test = default(bool), IngestTypeEnum? ingestType = default(IngestTypeEnum?))
+        /// <param name="meta">meta.</param>
+        public Asset(string id = default(string), string createdAt = default(string), StatusEnum? status = default(StatusEnum?), double duration = default(double), MaxStoredResolutionEnum? maxStoredResolution = default(MaxStoredResolutionEnum?), ResolutionTierEnum? resolutionTier = default(ResolutionTierEnum?), MaxResolutionTierEnum? maxResolutionTier = default(MaxResolutionTierEnum?), EncodingTierEnum? encodingTier = default(EncodingTierEnum?), VideoQualityEnum? videoQuality = default(VideoQualityEnum?), double maxStoredFrameRate = default(double), string aspectRatio = default(string), List<PlaybackID> playbackIds = default(List<PlaybackID>), List<Track> tracks = default(List<Track>), AssetErrors errors = default(AssetErrors), bool perTitleEncode = default(bool), string uploadId = default(string), bool isLive = default(bool), string passthrough = default(string), string liveStreamId = default(string), AssetMaster master = default(AssetMaster), MasterAccessEnum? masterAccess = MasterAccessEnum.None, Mp4SupportEnum? mp4Support = Mp4SupportEnum.None, string sourceAssetId = default(string), bool normalizeAudio = false, AssetStaticRenditions staticRenditions = default(AssetStaticRenditions), List<AssetRecordingTimes> recordingTimes = default(List<AssetRecordingTimes>), AssetNonStandardInputReasons nonStandardInputReasons = default(AssetNonStandardInputReasons), bool test = default(bool), IngestTypeEnum? ingestType = default(IngestTypeEnum?), AssetMetadata meta = default(AssetMetadata))
         {
             this.Id = id;
             this.CreatedAt = createdAt;
@@ -442,6 +443,7 @@ namespace Mux.Csharp.Sdk.Model
             this.NonStandardInputReasons = nonStandardInputReasons;
             this.Test = test;
             this.IngestType = ingestType;
+            this.Meta = meta;
             this.AdditionalProperties = new Dictionary<string, object>();
         }
 
@@ -522,9 +524,9 @@ namespace Mux.Csharp.Sdk.Model
         public bool IsLive { get; set; }
 
         /// <summary>
-        /// Arbitrary user-supplied metadata set for the asset. Max 255 characters.
+        /// You can set this field to anything you want. It will be included in the asset details and related webhooks. If you&#39;re looking for more structured metadata, such as &#x60;title&#x60; or &#x60;external_id&#x60; , you can use the &#x60;meta&#x60; object instead. **Max: 255 characters**.
         /// </summary>
-        /// <value>Arbitrary user-supplied metadata set for the asset. Max 255 characters.</value>
+        /// <value>You can set this field to anything you want. It will be included in the asset details and related webhooks. If you&#39;re looking for more structured metadata, such as &#x60;title&#x60; or &#x60;external_id&#x60; , you can use the &#x60;meta&#x60; object instead. **Max: 255 characters**.</value>
         [DataMember(Name = "passthrough", EmitDefaultValue = false)]
         public string Passthrough { get; set; }
 
@@ -582,6 +584,12 @@ namespace Mux.Csharp.Sdk.Model
         public bool Test { get; set; }
 
         /// <summary>
+        /// Gets or Sets Meta
+        /// </summary>
+        [DataMember(Name = "meta", EmitDefaultValue = false)]
+        public AssetMetadata Meta { get; set; }
+
+        /// <summary>
         /// Gets or Sets additional properties
         /// </summary>
         [JsonExtensionData]
@@ -624,6 +632,7 @@ namespace Mux.Csharp.Sdk.Model
             sb.Append("  NonStandardInputReasons: ").Append(NonStandardInputReasons).Append("\n");
             sb.Append("  Test: ").Append(Test).Append("\n");
             sb.Append("  IngestType: ").Append(IngestType).Append("\n");
+            sb.Append("  Meta: ").Append(Meta).Append("\n");
             sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -792,6 +801,11 @@ namespace Mux.Csharp.Sdk.Model
                 (
                     this.IngestType == input.IngestType ||
                     this.IngestType.Equals(input.IngestType)
+                ) && 
+                (
+                    this.Meta == input.Meta ||
+                    (this.Meta != null &&
+                    this.Meta.Equals(input.Meta))
                 )
                 && (this.AdditionalProperties.Count == input.AdditionalProperties.Count && !this.AdditionalProperties.Except(input.AdditionalProperties).Any());
         }
@@ -876,6 +890,10 @@ namespace Mux.Csharp.Sdk.Model
                 }
                 hashCode = (hashCode * 59) + this.Test.GetHashCode();
                 hashCode = (hashCode * 59) + this.IngestType.GetHashCode();
+                if (this.Meta != null)
+                {
+                    hashCode = (hashCode * 59) + this.Meta.GetHashCode();
+                }
                 if (this.AdditionalProperties != null)
                 {
                     hashCode = (hashCode * 59) + this.AdditionalProperties.GetHashCode();

@@ -1,4 +1,5 @@
 # Mux.Csharp.Sdk.Model.UpdateReferrerDomainRestrictionRequest
+A list of domains allowed to play your videos.
 
 ## Properties
 

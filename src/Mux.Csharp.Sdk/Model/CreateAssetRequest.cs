@@ -213,11 +213,13 @@ namespace Mux.Csharp.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CreateAssetRequest" /> class.
         /// </summary>
-        /// <param name="input">An array of objects that each describe an input file to be used to create the asset. As a shortcut, input can also be a string URL for a file when only one input file is used. See &#x60;input[].url&#x60; for requirements..</param>
-        /// <param name="playbackPolicy">An array of playback policy names that you want applied to this asset and available through &#x60;playback_ids&#x60;. Options include:  * &#x60;\&quot;public\&quot;&#x60; (anyone with the playback URL can stream the asset). * &#x60;\&quot;signed\&quot;&#x60; (an additional access token is required to play the asset).  If no &#x60;playback_policy&#x60; is set, the asset will have no playback IDs and will therefore not be playable. For simplicity, a single string name can be used in place of the array in the case of only one playback policy. .</param>
-        /// <param name="advancedPlaybackPolicies">An array of playback policy objects that you want applied to this asset and available through &#x60;playback_ids&#x60;. &#x60;advanced_playback_policies&#x60; must be used instead of &#x60;playback_policy&#x60; when creating a DRM playback ID. .</param>
+        /// <param name="input">Deprecated. Use &#x60;inputs&#x60; instead, which accepts an identical type..</param>
+        /// <param name="inputs">An array of objects that each describe an input file to be used to create the asset. As a shortcut, input can also be a string URL for a file when only one input file is used. See &#x60;input[].url&#x60; for requirements..</param>
+        /// <param name="playbackPolicy">Deprecated. Use &#x60;playback_policies&#x60; instead, which accepts an identical type..</param>
+        /// <param name="playbackPolicies">An array of playback policy names that you want applied to this asset and available through &#x60;playback_ids&#x60;. Options include:  * &#x60;\&quot;public\&quot;&#x60; (anyone with the playback URL can stream the asset). * &#x60;\&quot;signed\&quot;&#x60; (an additional access token is required to play the asset).  If no &#x60;playback_policies&#x60; are set, the asset will have no playback IDs and will therefore not be playable. For simplicity, a single string name can be used in place of the array in the case of only one playback policy. .</param>
+        /// <param name="advancedPlaybackPolicies">An array of playback policy objects that you want applied to this asset and available through &#x60;playback_ids&#x60;. &#x60;advanced_playback_policies&#x60; must be used instead of &#x60;playback_policies&#x60; when creating a DRM playback ID. .</param>
         /// <param name="perTitleEncode">perTitleEncode.</param>
-        /// <param name="passthrough">Arbitrary user-supplied metadata that will be included in the asset details and related webhooks. Can be used to store your own ID for a video along with the asset. **Max: 255 characters**..</param>
+        /// <param name="passthrough">You can set this field to anything you want. It will be included in the asset details and related webhooks. If you&#39;re looking for more structured metadata, such as &#x60;title&#x60; or &#x60;external_id&#x60;, you can use the &#x60;meta&#x60; object instead. **Max: 255 characters**..</param>
         /// <param name="mp4Support">Deprecated. See the [Static Renditions API](https://www.mux.com/docs/guides/enable-static-mp4-renditions) for the updated API.  Specify what level of support for mp4 playback. You may not enable both &#x60;mp4_support&#x60; and  &#x60;static_renditions&#x60;.  * The &#x60;capped-1080p&#x60; option produces a single MP4 file, called &#x60;capped-1080p.mp4&#x60;, with the video resolution capped at 1080p. This option produces an &#x60;audio.m4a&#x60; file for an audio-only asset. * The &#x60;audio-only&#x60; option produces a single M4A file, called &#x60;audio.m4a&#x60; for a video or an audio-only asset. MP4 generation will error when this option is specified for a video-only asset. * The &#x60;audio-only,capped-1080p&#x60; option produces both the &#x60;audio.m4a&#x60; and &#x60;capped-1080p.mp4&#x60; files. Only the &#x60;capped-1080p.mp4&#x60; file is produced for a video-only asset, while only the &#x60;audio.m4a&#x60; file is produced for an audio-only asset.  The &#x60;standard&#x60;(deprecated) option produces up to three MP4 files with different levels of resolution (&#x60;high.mp4&#x60;, &#x60;medium.mp4&#x60;, &#x60;low.mp4&#x60;, or &#x60;audio.m4a&#x60; for an audio-only asset).  MP4 files are not produced for &#x60;none&#x60; (default).  In most cases you should use our default HLS-based streaming playback (&#x60;{playback_id}.m3u8&#x60;) which can automatically adjust to viewers&#39; connection speeds, but an mp4 can be useful for some legacy devices or downloading for offline playback. See the [Download your videos guide](https://docs.mux.com/guides/enable-static-mp4-renditions) for more information. .</param>
         /// <param name="normalizeAudio">Normalize the audio track loudness level. This parameter is only applicable to on-demand (not live) assets. (default to false).</param>
         /// <param name="masterAccess">Specify what level (if any) of support for master access. Master access can be enabled temporarily for your asset to be downloaded. See the [Download your videos guide](https://docs.mux.com/guides/enable-static-mp4-renditions) for more information..</param>
@@ -226,10 +228,13 @@ namespace Mux.Csharp.Sdk.Model
         /// <param name="encodingTier">This field is deprecated. Please use &#x60;video_quality&#x60; instead. The encoding tier informs the cost, quality, and available platform features for the asset. The default encoding tier for an account can be set in the Mux Dashboard. [See the video quality guide for more details.](https://docs.mux.com/guides/use-video-quality-levels).</param>
         /// <param name="videoQuality">The video quality controls the cost, quality, and available platform features for the asset. The default video quality for an account can be set in the Mux Dashboard. This field replaces the deprecated &#x60;encoding_tier&#x60; value. [See the video quality guide for more details.](https://docs.mux.com/guides/use-video-quality-levels).</param>
         /// <param name="staticRenditions">An array of static renditions to create for this asset. You may not enable both &#x60;static_renditions&#x60; and &#x60;mp4_support (the latter being deprecated)&#x60;.</param>
-        public CreateAssetRequest(List<InputSettings> input = default(List<InputSettings>), List<PlaybackPolicy> playbackPolicy = default(List<PlaybackPolicy>), List<CreatePlaybackIDRequest> advancedPlaybackPolicies = default(List<CreatePlaybackIDRequest>), bool perTitleEncode = default(bool), string passthrough = default(string), Mp4SupportEnum? mp4Support = default(Mp4SupportEnum?), bool normalizeAudio = false, MasterAccessEnum? masterAccess = default(MasterAccessEnum?), bool test = default(bool), MaxResolutionTierEnum? maxResolutionTier = default(MaxResolutionTierEnum?), EncodingTierEnum? encodingTier = default(EncodingTierEnum?), VideoQualityEnum? videoQuality = default(VideoQualityEnum?), List<CreateStaticRenditionRequest> staticRenditions = default(List<CreateStaticRenditionRequest>))
+        /// <param name="meta">meta.</param>
+        public CreateAssetRequest(List<InputSettings> input = default(List<InputSettings>), List<InputSettings> inputs = default(List<InputSettings>), List<PlaybackPolicy> playbackPolicy = default(List<PlaybackPolicy>), List<PlaybackPolicy> playbackPolicies = default(List<PlaybackPolicy>), List<CreatePlaybackIDRequest> advancedPlaybackPolicies = default(List<CreatePlaybackIDRequest>), bool perTitleEncode = default(bool), string passthrough = default(string), Mp4SupportEnum? mp4Support = default(Mp4SupportEnum?), bool normalizeAudio = false, MasterAccessEnum? masterAccess = default(MasterAccessEnum?), bool test = default(bool), MaxResolutionTierEnum? maxResolutionTier = default(MaxResolutionTierEnum?), EncodingTierEnum? encodingTier = default(EncodingTierEnum?), VideoQualityEnum? videoQuality = default(VideoQualityEnum?), List<CreateStaticRenditionRequest> staticRenditions = default(List<CreateStaticRenditionRequest>), AssetMetadata meta = default(AssetMetadata))
         {
             this.Input = input;
+            this.Inputs = inputs;
             this.PlaybackPolicy = playbackPolicy;
+            this.PlaybackPolicies = playbackPolicies;
             this.AdvancedPlaybackPolicies = advancedPlaybackPolicies;
             this.PerTitleEncode = perTitleEncode;
             this.Passthrough = passthrough;
@@ -241,27 +246,44 @@ namespace Mux.Csharp.Sdk.Model
             this.EncodingTier = encodingTier;
             this.VideoQuality = videoQuality;
             this.StaticRenditions = staticRenditions;
+            this.Meta = meta;
             this.AdditionalProperties = new Dictionary<string, object>();
         }
+
+        /// <summary>
+        /// Deprecated. Use &#x60;inputs&#x60; instead, which accepts an identical type.
+        /// </summary>
+        /// <value>Deprecated. Use &#x60;inputs&#x60; instead, which accepts an identical type.</value>
+        [DataMember(Name = "input", EmitDefaultValue = false)]
+        [Obsolete]
+        public List<InputSettings> Input { get; set; }
 
         /// <summary>
         /// An array of objects that each describe an input file to be used to create the asset. As a shortcut, input can also be a string URL for a file when only one input file is used. See &#x60;input[].url&#x60; for requirements.
         /// </summary>
         /// <value>An array of objects that each describe an input file to be used to create the asset. As a shortcut, input can also be a string URL for a file when only one input file is used. See &#x60;input[].url&#x60; for requirements.</value>
-        [DataMember(Name = "input", EmitDefaultValue = false)]
-        public List<InputSettings> Input { get; set; }
+        [DataMember(Name = "inputs", EmitDefaultValue = false)]
+        public List<InputSettings> Inputs { get; set; }
 
         /// <summary>
-        /// An array of playback policy names that you want applied to this asset and available through &#x60;playback_ids&#x60;. Options include:  * &#x60;\&quot;public\&quot;&#x60; (anyone with the playback URL can stream the asset). * &#x60;\&quot;signed\&quot;&#x60; (an additional access token is required to play the asset).  If no &#x60;playback_policy&#x60; is set, the asset will have no playback IDs and will therefore not be playable. For simplicity, a single string name can be used in place of the array in the case of only one playback policy. 
+        /// Deprecated. Use &#x60;playback_policies&#x60; instead, which accepts an identical type.
         /// </summary>
-        /// <value>An array of playback policy names that you want applied to this asset and available through &#x60;playback_ids&#x60;. Options include:  * &#x60;\&quot;public\&quot;&#x60; (anyone with the playback URL can stream the asset). * &#x60;\&quot;signed\&quot;&#x60; (an additional access token is required to play the asset).  If no &#x60;playback_policy&#x60; is set, the asset will have no playback IDs and will therefore not be playable. For simplicity, a single string name can be used in place of the array in the case of only one playback policy. </value>
+        /// <value>Deprecated. Use &#x60;playback_policies&#x60; instead, which accepts an identical type.</value>
         [DataMember(Name = "playback_policy", EmitDefaultValue = false)]
+        [Obsolete]
         public List<PlaybackPolicy> PlaybackPolicy { get; set; }
 
         /// <summary>
-        /// An array of playback policy objects that you want applied to this asset and available through &#x60;playback_ids&#x60;. &#x60;advanced_playback_policies&#x60; must be used instead of &#x60;playback_policy&#x60; when creating a DRM playback ID. 
+        /// An array of playback policy names that you want applied to this asset and available through &#x60;playback_ids&#x60;. Options include:  * &#x60;\&quot;public\&quot;&#x60; (anyone with the playback URL can stream the asset). * &#x60;\&quot;signed\&quot;&#x60; (an additional access token is required to play the asset).  If no &#x60;playback_policies&#x60; are set, the asset will have no playback IDs and will therefore not be playable. For simplicity, a single string name can be used in place of the array in the case of only one playback policy. 
         /// </summary>
-        /// <value>An array of playback policy objects that you want applied to this asset and available through &#x60;playback_ids&#x60;. &#x60;advanced_playback_policies&#x60; must be used instead of &#x60;playback_policy&#x60; when creating a DRM playback ID. </value>
+        /// <value>An array of playback policy names that you want applied to this asset and available through &#x60;playback_ids&#x60;. Options include:  * &#x60;\&quot;public\&quot;&#x60; (anyone with the playback URL can stream the asset). * &#x60;\&quot;signed\&quot;&#x60; (an additional access token is required to play the asset).  If no &#x60;playback_policies&#x60; are set, the asset will have no playback IDs and will therefore not be playable. For simplicity, a single string name can be used in place of the array in the case of only one playback policy. </value>
+        [DataMember(Name = "playback_policies", EmitDefaultValue = false)]
+        public List<PlaybackPolicy> PlaybackPolicies { get; set; }
+
+        /// <summary>
+        /// An array of playback policy objects that you want applied to this asset and available through &#x60;playback_ids&#x60;. &#x60;advanced_playback_policies&#x60; must be used instead of &#x60;playback_policies&#x60; when creating a DRM playback ID. 
+        /// </summary>
+        /// <value>An array of playback policy objects that you want applied to this asset and available through &#x60;playback_ids&#x60;. &#x60;advanced_playback_policies&#x60; must be used instead of &#x60;playback_policies&#x60; when creating a DRM playback ID. </value>
         [DataMember(Name = "advanced_playback_policies", EmitDefaultValue = false)]
         public List<CreatePlaybackIDRequest> AdvancedPlaybackPolicies { get; set; }
 
@@ -273,9 +295,9 @@ namespace Mux.Csharp.Sdk.Model
         public bool PerTitleEncode { get; set; }
 
         /// <summary>
-        /// Arbitrary user-supplied metadata that will be included in the asset details and related webhooks. Can be used to store your own ID for a video along with the asset. **Max: 255 characters**.
+        /// You can set this field to anything you want. It will be included in the asset details and related webhooks. If you&#39;re looking for more structured metadata, such as &#x60;title&#x60; or &#x60;external_id&#x60;, you can use the &#x60;meta&#x60; object instead. **Max: 255 characters**.
         /// </summary>
-        /// <value>Arbitrary user-supplied metadata that will be included in the asset details and related webhooks. Can be used to store your own ID for a video along with the asset. **Max: 255 characters**.</value>
+        /// <value>You can set this field to anything you want. It will be included in the asset details and related webhooks. If you&#39;re looking for more structured metadata, such as &#x60;title&#x60; or &#x60;external_id&#x60;, you can use the &#x60;meta&#x60; object instead. **Max: 255 characters**.</value>
         [DataMember(Name = "passthrough", EmitDefaultValue = false)]
         public string Passthrough { get; set; }
 
@@ -301,6 +323,12 @@ namespace Mux.Csharp.Sdk.Model
         public List<CreateStaticRenditionRequest> StaticRenditions { get; set; }
 
         /// <summary>
+        /// Gets or Sets Meta
+        /// </summary>
+        [DataMember(Name = "meta", EmitDefaultValue = false)]
+        public AssetMetadata Meta { get; set; }
+
+        /// <summary>
         /// Gets or Sets additional properties
         /// </summary>
         [JsonExtensionData]
@@ -315,7 +343,9 @@ namespace Mux.Csharp.Sdk.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class CreateAssetRequest {\n");
             sb.Append("  Input: ").Append(Input).Append("\n");
+            sb.Append("  Inputs: ").Append(Inputs).Append("\n");
             sb.Append("  PlaybackPolicy: ").Append(PlaybackPolicy).Append("\n");
+            sb.Append("  PlaybackPolicies: ").Append(PlaybackPolicies).Append("\n");
             sb.Append("  AdvancedPlaybackPolicies: ").Append(AdvancedPlaybackPolicies).Append("\n");
             sb.Append("  PerTitleEncode: ").Append(PerTitleEncode).Append("\n");
             sb.Append("  Passthrough: ").Append(Passthrough).Append("\n");
@@ -327,6 +357,7 @@ namespace Mux.Csharp.Sdk.Model
             sb.Append("  EncodingTier: ").Append(EncodingTier).Append("\n");
             sb.Append("  VideoQuality: ").Append(VideoQuality).Append("\n");
             sb.Append("  StaticRenditions: ").Append(StaticRenditions).Append("\n");
+            sb.Append("  Meta: ").Append(Meta).Append("\n");
             sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -370,10 +401,22 @@ namespace Mux.Csharp.Sdk.Model
                     this.Input.SequenceEqual(input.Input)
                 ) && 
                 (
+                    this.Inputs == input.Inputs ||
+                    this.Inputs != null &&
+                    input.Inputs != null &&
+                    this.Inputs.SequenceEqual(input.Inputs)
+                ) && 
+                (
                     this.PlaybackPolicy == input.PlaybackPolicy ||
                     this.PlaybackPolicy != null &&
                     input.PlaybackPolicy != null &&
                     this.PlaybackPolicy.SequenceEqual(input.PlaybackPolicy)
+                ) && 
+                (
+                    this.PlaybackPolicies == input.PlaybackPolicies ||
+                    this.PlaybackPolicies != null &&
+                    input.PlaybackPolicies != null &&
+                    this.PlaybackPolicies.SequenceEqual(input.PlaybackPolicies)
                 ) && 
                 (
                     this.AdvancedPlaybackPolicies == input.AdvancedPlaybackPolicies ||
@@ -423,6 +466,11 @@ namespace Mux.Csharp.Sdk.Model
                     this.StaticRenditions != null &&
                     input.StaticRenditions != null &&
                     this.StaticRenditions.SequenceEqual(input.StaticRenditions)
+                ) && 
+                (
+                    this.Meta == input.Meta ||
+                    (this.Meta != null &&
+                    this.Meta.Equals(input.Meta))
                 )
                 && (this.AdditionalProperties.Count == input.AdditionalProperties.Count && !this.AdditionalProperties.Except(input.AdditionalProperties).Any());
         }
@@ -440,9 +488,17 @@ namespace Mux.Csharp.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Input.GetHashCode();
                 }
+                if (this.Inputs != null)
+                {
+                    hashCode = (hashCode * 59) + this.Inputs.GetHashCode();
+                }
                 if (this.PlaybackPolicy != null)
                 {
                     hashCode = (hashCode * 59) + this.PlaybackPolicy.GetHashCode();
+                }
+                if (this.PlaybackPolicies != null)
+                {
+                    hashCode = (hashCode * 59) + this.PlaybackPolicies.GetHashCode();
                 }
                 if (this.AdvancedPlaybackPolicies != null)
                 {
@@ -463,6 +519,10 @@ namespace Mux.Csharp.Sdk.Model
                 if (this.StaticRenditions != null)
                 {
                     hashCode = (hashCode * 59) + this.StaticRenditions.GetHashCode();
+                }
+                if (this.Meta != null)
+                {
+                    hashCode = (hashCode * 59) + this.Meta.GetHashCode();
                 }
                 if (this.AdditionalProperties != null)
                 {
