@@ -257,7 +257,13 @@ namespace Mux.Csharp.Sdk.Model
             /// Enum _720p for value: 720p
             /// </summary>
             [EnumMember(Value = "720p")]
-            _720p = 4
+            _720p = 4,
+
+            /// <summary>
+            /// Enum AudioOnly for value: audio-only
+            /// </summary>
+            [EnumMember(Value = "audio-only")]
+            AudioOnly = 5
 
         }
 
