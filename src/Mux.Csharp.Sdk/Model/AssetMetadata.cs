@@ -35,9 +35,9 @@ namespace Mux.Csharp.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AssetMetadata" /> class.
         /// </summary>
-        /// <param name="title">The video title. Max 512 code points..</param>
-        /// <param name="creatorId">This is an identifier you provide to keep track of the creator of the video. Max 128 code points..</param>
-        /// <param name="externalId">This is an identifier you provide to link the video to your own data. Max 128 code points..</param>
+        /// <param name="title">The asset title. Max 512 code points..</param>
+        /// <param name="creatorId">This is an identifier you provide to keep track of the creator of the asset. Max 128 code points..</param>
+        /// <param name="externalId">This is an identifier you provide to link the asset to your own data. Max 128 code points..</param>
         public AssetMetadata(string title = default(string), string creatorId = default(string), string externalId = default(string))
         {
             this.Title = title;
@@ -47,23 +47,23 @@ namespace Mux.Csharp.Sdk.Model
         }
 
         /// <summary>
-        /// The video title. Max 512 code points.
+        /// The asset title. Max 512 code points.
         /// </summary>
-        /// <value>The video title. Max 512 code points.</value>
+        /// <value>The asset title. Max 512 code points.</value>
         [DataMember(Name = "title", EmitDefaultValue = false)]
         public string Title { get; set; }
 
         /// <summary>
-        /// This is an identifier you provide to keep track of the creator of the video. Max 128 code points.
+        /// This is an identifier you provide to keep track of the creator of the asset. Max 128 code points.
         /// </summary>
-        /// <value>This is an identifier you provide to keep track of the creator of the video. Max 128 code points.</value>
+        /// <value>This is an identifier you provide to keep track of the creator of the asset. Max 128 code points.</value>
         [DataMember(Name = "creator_id", EmitDefaultValue = false)]
         public string CreatorId { get; set; }
 
         /// <summary>
-        /// This is an identifier you provide to link the video to your own data. Max 128 code points.
+        /// This is an identifier you provide to link the asset to your own data. Max 128 code points.
         /// </summary>
-        /// <value>This is an identifier you provide to link the video to your own data. Max 128 code points.</value>
+        /// <value>This is an identifier you provide to link the asset to your own data. Max 128 code points.</value>
         [DataMember(Name = "external_id", EmitDefaultValue = false)]
         public string ExternalId { get; set; }
 

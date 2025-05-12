@@ -27,35 +27,54 @@ using OpenAPIDateConverter = Mux.Csharp.Sdk.Client.OpenAPIDateConverter;
 namespace Mux.Csharp.Sdk.Model
 {
     /// <summary>
-    /// ListAssetsResponse
+    /// Annotation
     /// </summary>
-    [DataContract(Name = "ListAssetsResponse")]
-    public partial class ListAssetsResponse : IEquatable<ListAssetsResponse>, IValidatableObject
+    [DataContract(Name = "Annotation")]
+    public partial class Annotation : IEquatable<Annotation>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="ListAssetsResponse" /> class.
+        /// Initializes a new instance of the <see cref="Annotation" /> class.
         /// </summary>
-        /// <param name="nextCursor">If there are more pages of data, this field will contain a string that can be used with the &#x60;cursor&#x60; querystring parameter to fetch the next page of data..</param>
-        /// <param name="data">data.</param>
-        public ListAssetsResponse(string nextCursor = default(string), List<Asset> data = default(List<Asset>))
+        /// <param name="id">Unique identifier for the annotation.</param>
+        /// <param name="note">The annotation note content.</param>
+        /// <param name="date">Datetime when the annotation applies.</param>
+        /// <param name="subPropertyId">Customer-defined sub-property identifier.</param>
+        public Annotation(Guid id = default(Guid), string note = default(string), DateTime date = default(DateTime), string subPropertyId = default(string))
         {
-            this.NextCursor = nextCursor;
-            this.Data = data;
+            this.Id = id;
+            this.Note = note;
+            this.Date = date;
+            this.SubPropertyId = subPropertyId;
             this.AdditionalProperties = new Dictionary<string, object>();
         }
 
         /// <summary>
-        /// If there are more pages of data, this field will contain a string that can be used with the &#x60;cursor&#x60; querystring parameter to fetch the next page of data.
+        /// Unique identifier for the annotation
         /// </summary>
-        /// <value>If there are more pages of data, this field will contain a string that can be used with the &#x60;cursor&#x60; querystring parameter to fetch the next page of data.</value>
-        [DataMember(Name = "next_cursor", EmitDefaultValue = true)]
-        public string NextCursor { get; set; }
+        /// <value>Unique identifier for the annotation</value>
+        [DataMember(Name = "id", EmitDefaultValue = false)]
+        public Guid Id { get; set; }
 
         /// <summary>
-        /// Gets or Sets Data
+        /// The annotation note content
         /// </summary>
-        [DataMember(Name = "data", EmitDefaultValue = false)]
-        public List<Asset> Data { get; set; }
+        /// <value>The annotation note content</value>
+        [DataMember(Name = "note", EmitDefaultValue = false)]
+        public string Note { get; set; }
+
+        /// <summary>
+        /// Datetime when the annotation applies
+        /// </summary>
+        /// <value>Datetime when the annotation applies</value>
+        [DataMember(Name = "date", EmitDefaultValue = false)]
+        public DateTime Date { get; set; }
+
+        /// <summary>
+        /// Customer-defined sub-property identifier
+        /// </summary>
+        /// <value>Customer-defined sub-property identifier</value>
+        [DataMember(Name = "sub_property_id", EmitDefaultValue = true)]
+        public string SubPropertyId { get; set; }
 
         /// <summary>
         /// Gets or Sets additional properties
@@ -70,9 +89,11 @@ namespace Mux.Csharp.Sdk.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class ListAssetsResponse {\n");
-            sb.Append("  NextCursor: ").Append(NextCursor).Append("\n");
-            sb.Append("  Data: ").Append(Data).Append("\n");
+            sb.Append("class Annotation {\n");
+            sb.Append("  Id: ").Append(Id).Append("\n");
+            sb.Append("  Note: ").Append(Note).Append("\n");
+            sb.Append("  Date: ").Append(Date).Append("\n");
+            sb.Append("  SubPropertyId: ").Append(SubPropertyId).Append("\n");
             sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -94,15 +115,15 @@ namespace Mux.Csharp.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as ListAssetsResponse);
+            return this.Equals(input as Annotation);
         }
 
         /// <summary>
-        /// Returns true if ListAssetsResponse instances are equal
+        /// Returns true if Annotation instances are equal
         /// </summary>
-        /// <param name="input">Instance of ListAssetsResponse to be compared</param>
+        /// <param name="input">Instance of Annotation to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ListAssetsResponse input)
+        public bool Equals(Annotation input)
         {
             if (input == null)
             {
@@ -110,15 +131,24 @@ namespace Mux.Csharp.Sdk.Model
             }
             return 
                 (
-                    this.NextCursor == input.NextCursor ||
-                    (this.NextCursor != null &&
-                    this.NextCursor.Equals(input.NextCursor))
+                    this.Id == input.Id ||
+                    (this.Id != null &&
+                    this.Id.Equals(input.Id))
                 ) && 
                 (
-                    this.Data == input.Data ||
-                    this.Data != null &&
-                    input.Data != null &&
-                    this.Data.SequenceEqual(input.Data)
+                    this.Note == input.Note ||
+                    (this.Note != null &&
+                    this.Note.Equals(input.Note))
+                ) && 
+                (
+                    this.Date == input.Date ||
+                    (this.Date != null &&
+                    this.Date.Equals(input.Date))
+                ) && 
+                (
+                    this.SubPropertyId == input.SubPropertyId ||
+                    (this.SubPropertyId != null &&
+                    this.SubPropertyId.Equals(input.SubPropertyId))
                 )
                 && (this.AdditionalProperties.Count == input.AdditionalProperties.Count && !this.AdditionalProperties.Except(input.AdditionalProperties).Any());
         }
@@ -132,13 +162,21 @@ namespace Mux.Csharp.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.NextCursor != null)
+                if (this.Id != null)
                 {
-                    hashCode = (hashCode * 59) + this.NextCursor.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Id.GetHashCode();
                 }
-                if (this.Data != null)
+                if (this.Note != null)
                 {
-                    hashCode = (hashCode * 59) + this.Data.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Note.GetHashCode();
+                }
+                if (this.Date != null)
+                {
+                    hashCode = (hashCode * 59) + this.Date.GetHashCode();
+                }
+                if (this.SubPropertyId != null)
+                {
+                    hashCode = (hashCode * 59) + this.SubPropertyId.GetHashCode();
                 }
                 if (this.AdditionalProperties != null)
                 {
