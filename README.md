@@ -83,28 +83,6 @@ namespace Example
         public static void Main()
         {
 
-            Configuration config = new Configuration();
-            config.BasePath = "https://api.mux.com";
-            // Configure HTTP basic authorization: accessToken
-            config.Username = "YOUR_USERNAME";
-            config.Password = "YOUR_PASSWORD";
-
-            var apiInstance = new AnnotationsApi(config);
-            var annotationInput = new AnnotationInput(); // AnnotationInput | 
-
-            try
-            {
-                // Create Annotation
-                AnnotationResponse result = apiInstance.CreateAnnotation(annotationInput);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling AnnotationsApi.CreateAnnotation: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-
         }
     }
 }

@@ -123,7 +123,7 @@ namespace Example
     {
         public static void Main()
         {
-{{#apiInfo}}{{#apis}}{{#-first}}{{#operations}}{{#operation}}{{#-first}}
+{{#apiInfo}}{{#apis}}{{#-second}}{{#operations}}{{#operation}}{{#-first}}
             Configuration config = new Configuration();
             config.BasePath = "{{{basePath}}}";
             {{#hasAuthMethods}}
@@ -174,7 +174,7 @@ namespace Example
                 Debug.Print("Status Code: "+ e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
-{{/-first}}{{/operation}}{{/operations}}{{/-first}}{{/apis}}{{/apiInfo}}
+{{/-first}}{{/operation}}{{/operations}}{{/-second}}{{/apis}}{{/apiInfo}}
         }
     }
 }
