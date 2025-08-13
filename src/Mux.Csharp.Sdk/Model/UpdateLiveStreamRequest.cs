@@ -76,7 +76,8 @@ namespace Mux.Csharp.Sdk.Model
         /// <param name="reconnectSlateUrl">The URL of the image file that Mux should download and use as slate media during interruptions of the live stream media. This file will be downloaded each time a new recorded asset is created from the live stream. Set this to a blank string to clear the value so that the default slate media will be used..</param>
         /// <param name="maxContinuousDuration">The time in seconds a live stream may be continuously active before being disconnected. Defaults to 12 hours. (default to 43200).</param>
         /// <param name="newAssetSettings">newAssetSettings.</param>
-        public UpdateLiveStreamRequest(string passthrough = default(string), LatencyModeEnum? latencyMode = default(LatencyModeEnum?), float reconnectWindow = 60F, bool useSlateForStandardLatency = false, string reconnectSlateUrl = default(string), int maxContinuousDuration = 43200, UpdateLiveStreamNewAssetSettings newAssetSettings = default(UpdateLiveStreamNewAssetSettings))
+        /// <param name="meta">meta.</param>
+        public UpdateLiveStreamRequest(string passthrough = default(string), LatencyModeEnum? latencyMode = default(LatencyModeEnum?), float reconnectWindow = 60F, bool useSlateForStandardLatency = false, string reconnectSlateUrl = default(string), int maxContinuousDuration = 43200, UpdateLiveStreamNewAssetSettings newAssetSettings = default(UpdateLiveStreamNewAssetSettings), LiveStreamMetadata meta = default(LiveStreamMetadata))
         {
             this.Passthrough = passthrough;
             this.LatencyMode = latencyMode;
@@ -85,6 +86,7 @@ namespace Mux.Csharp.Sdk.Model
             this.ReconnectSlateUrl = reconnectSlateUrl;
             this.MaxContinuousDuration = maxContinuousDuration;
             this.NewAssetSettings = newAssetSettings;
+            this.Meta = meta;
             this.AdditionalProperties = new Dictionary<string, object>();
         }
 
@@ -130,6 +132,12 @@ namespace Mux.Csharp.Sdk.Model
         public UpdateLiveStreamNewAssetSettings NewAssetSettings { get; set; }
 
         /// <summary>
+        /// Gets or Sets Meta
+        /// </summary>
+        [DataMember(Name = "meta", EmitDefaultValue = false)]
+        public LiveStreamMetadata Meta { get; set; }
+
+        /// <summary>
         /// Gets or Sets additional properties
         /// </summary>
         [JsonExtensionData]
@@ -150,6 +158,7 @@ namespace Mux.Csharp.Sdk.Model
             sb.Append("  ReconnectSlateUrl: ").Append(ReconnectSlateUrl).Append("\n");
             sb.Append("  MaxContinuousDuration: ").Append(MaxContinuousDuration).Append("\n");
             sb.Append("  NewAssetSettings: ").Append(NewAssetSettings).Append("\n");
+            sb.Append("  Meta: ").Append(Meta).Append("\n");
             sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -216,6 +225,11 @@ namespace Mux.Csharp.Sdk.Model
                     this.NewAssetSettings == input.NewAssetSettings ||
                     (this.NewAssetSettings != null &&
                     this.NewAssetSettings.Equals(input.NewAssetSettings))
+                ) && 
+                (
+                    this.Meta == input.Meta ||
+                    (this.Meta != null &&
+                    this.Meta.Equals(input.Meta))
                 )
                 && (this.AdditionalProperties.Count == input.AdditionalProperties.Count && !this.AdditionalProperties.Except(input.AdditionalProperties).Any());
         }
@@ -244,6 +258,10 @@ namespace Mux.Csharp.Sdk.Model
                 if (this.NewAssetSettings != null)
                 {
                     hashCode = (hashCode * 59) + this.NewAssetSettings.GetHashCode();
+                }
+                if (this.Meta != null)
+                {
+                    hashCode = (hashCode * 59) + this.Meta.GetHashCode();
                 }
                 if (this.AdditionalProperties != null)
                 {

@@ -2,12 +2,17 @@
 Mux.Csharp.Sdk.sln
 README.md
 docs/AbridgedVideoView.md
+docs/Annotation.md
+docs/AnnotationInput.md
+docs/AnnotationResponse.md
+docs/AnnotationsApi.md
 docs/Asset.md
 docs/AssetErrors.md
 docs/AssetGeneratedSubtitleSettings.md
 docs/AssetMaster.md
 docs/AssetMetadata.md
 docs/AssetNonStandardInputReasons.md
+docs/AssetProgress.md
 docs/AssetRecordingTimes.md
 docs/AssetResponse.md
 docs/AssetStaticRenditions.md
@@ -77,6 +82,7 @@ docs/InputTrack.md
 docs/Insight.md
 docs/LaunchWebInputResponse.md
 docs/ListAllMetricValuesResponse.md
+docs/ListAnnotationsResponse.md
 docs/ListAssetsResponse.md
 docs/ListBreakdownValuesResponse.md
 docs/ListBreakdownValuesResponseMeta.md
@@ -108,6 +114,7 @@ docs/ListWebInputsResponse.md
 docs/LiveStream.md
 docs/LiveStreamEmbeddedSubtitleSettings.md
 docs/LiveStreamGeneratedSubtitleSettings.md
+docs/LiveStreamMetadata.md
 docs/LiveStreamResponse.md
 docs/LiveStreamStatus.md
 docs/LiveStreamsApi.md
@@ -176,6 +183,7 @@ docs/WebInput.md
 docs/WebInputResponse.md
 docs/WebInputsApi.md
 src/Mux.Csharp.Sdk.Test/Mux.Csharp.Sdk.Test.csproj
+src/Mux.Csharp.Sdk/Api/AnnotationsApi.cs
 src/Mux.Csharp.Sdk/Api/AssetsApi.cs
 src/Mux.Csharp.Sdk/Api/DRMConfigurationsApi.cs
 src/Mux.Csharp.Sdk/Api/DeliveryUsageApi.cs
@@ -214,12 +222,16 @@ src/Mux.Csharp.Sdk/Client/RequestOptions.cs
 src/Mux.Csharp.Sdk/Client/RetryConfiguration.cs
 src/Mux.Csharp.Sdk/Model/AbridgedVideoView.cs
 src/Mux.Csharp.Sdk/Model/AbstractOpenAPISchema.cs
+src/Mux.Csharp.Sdk/Model/Annotation.cs
+src/Mux.Csharp.Sdk/Model/AnnotationInput.cs
+src/Mux.Csharp.Sdk/Model/AnnotationResponse.cs
 src/Mux.Csharp.Sdk/Model/Asset.cs
 src/Mux.Csharp.Sdk/Model/AssetErrors.cs
 src/Mux.Csharp.Sdk/Model/AssetGeneratedSubtitleSettings.cs
 src/Mux.Csharp.Sdk/Model/AssetMaster.cs
 src/Mux.Csharp.Sdk/Model/AssetMetadata.cs
 src/Mux.Csharp.Sdk/Model/AssetNonStandardInputReasons.cs
+src/Mux.Csharp.Sdk/Model/AssetProgress.cs
 src/Mux.Csharp.Sdk/Model/AssetRecordingTimes.cs
 src/Mux.Csharp.Sdk/Model/AssetResponse.cs
 src/Mux.Csharp.Sdk/Model/AssetStaticRenditions.cs
@@ -280,6 +292,7 @@ src/Mux.Csharp.Sdk/Model/InputTrack.cs
 src/Mux.Csharp.Sdk/Model/Insight.cs
 src/Mux.Csharp.Sdk/Model/LaunchWebInputResponse.cs
 src/Mux.Csharp.Sdk/Model/ListAllMetricValuesResponse.cs
+src/Mux.Csharp.Sdk/Model/ListAnnotationsResponse.cs
 src/Mux.Csharp.Sdk/Model/ListAssetsResponse.cs
 src/Mux.Csharp.Sdk/Model/ListBreakdownValuesResponse.cs
 src/Mux.Csharp.Sdk/Model/ListBreakdownValuesResponseMeta.cs
@@ -311,6 +324,7 @@ src/Mux.Csharp.Sdk/Model/ListWebInputsResponse.cs
 src/Mux.Csharp.Sdk/Model/LiveStream.cs
 src/Mux.Csharp.Sdk/Model/LiveStreamEmbeddedSubtitleSettings.cs
 src/Mux.Csharp.Sdk/Model/LiveStreamGeneratedSubtitleSettings.cs
+src/Mux.Csharp.Sdk/Model/LiveStreamMetadata.cs
 src/Mux.Csharp.Sdk/Model/LiveStreamResponse.cs
 src/Mux.Csharp.Sdk/Model/LiveStreamStatus.cs
 src/Mux.Csharp.Sdk/Model/Metric.cs

@@ -86,7 +86,8 @@ namespace Mux.Csharp.Sdk.Model
         /// <param name="test">Marks the live stream as a test live stream when the value is set to true. A test live stream can help evaluate the Mux Video APIs without incurring any cost. There is no limit on number of test live streams created. Test live streams are watermarked with the Mux logo and limited to 5 minutes. The test live stream is disabled after the stream is active for 5 mins and the recorded asset also deleted after 24 hours..</param>
         /// <param name="simulcastTargets">simulcastTargets.</param>
         /// <param name="maxContinuousDuration">The time in seconds a live stream may be continuously active before being disconnected. Defaults to 12 hours. (default to 43200).</param>
-        public CreateLiveStreamRequest(List<PlaybackPolicy> playbackPolicy = default(List<PlaybackPolicy>), List<PlaybackPolicy> playbackPolicies = default(List<PlaybackPolicy>), List<CreatePlaybackIDRequest> advancedPlaybackPolicies = default(List<CreatePlaybackIDRequest>), CreateAssetRequest newAssetSettings = default(CreateAssetRequest), float reconnectWindow = 60F, bool useSlateForStandardLatency = false, string reconnectSlateUrl = default(string), string passthrough = default(string), bool audioOnly = default(bool), List<LiveStreamEmbeddedSubtitleSettings> embeddedSubtitles = default(List<LiveStreamEmbeddedSubtitleSettings>), List<LiveStreamGeneratedSubtitleSettings> generatedSubtitles = default(List<LiveStreamGeneratedSubtitleSettings>), bool reducedLatency = default(bool), bool lowLatency = default(bool), LatencyModeEnum? latencyMode = default(LatencyModeEnum?), bool test = default(bool), List<CreateSimulcastTargetRequest> simulcastTargets = default(List<CreateSimulcastTargetRequest>), int maxContinuousDuration = 43200)
+        /// <param name="meta">meta.</param>
+        public CreateLiveStreamRequest(List<PlaybackPolicy> playbackPolicy = default(List<PlaybackPolicy>), List<PlaybackPolicy> playbackPolicies = default(List<PlaybackPolicy>), List<CreatePlaybackIDRequest> advancedPlaybackPolicies = default(List<CreatePlaybackIDRequest>), CreateAssetRequest newAssetSettings = default(CreateAssetRequest), float reconnectWindow = 60F, bool useSlateForStandardLatency = false, string reconnectSlateUrl = default(string), string passthrough = default(string), bool audioOnly = default(bool), List<LiveStreamEmbeddedSubtitleSettings> embeddedSubtitles = default(List<LiveStreamEmbeddedSubtitleSettings>), List<LiveStreamGeneratedSubtitleSettings> generatedSubtitles = default(List<LiveStreamGeneratedSubtitleSettings>), bool reducedLatency = default(bool), bool lowLatency = default(bool), LatencyModeEnum? latencyMode = default(LatencyModeEnum?), bool test = default(bool), List<CreateSimulcastTargetRequest> simulcastTargets = default(List<CreateSimulcastTargetRequest>), int maxContinuousDuration = 43200, LiveStreamMetadata meta = default(LiveStreamMetadata))
         {
             this.PlaybackPolicy = playbackPolicy;
             this.PlaybackPolicies = playbackPolicies;
@@ -105,6 +106,7 @@ namespace Mux.Csharp.Sdk.Model
             this.Test = test;
             this.SimulcastTargets = simulcastTargets;
             this.MaxContinuousDuration = maxContinuousDuration;
+            this.Meta = meta;
             this.AdditionalProperties = new Dictionary<string, object>();
         }
 
@@ -121,7 +123,6 @@ namespace Mux.Csharp.Sdk.Model
         /// </summary>
         /// <value>An array of playback policy names that you want applied to this live stream and available through &#x60;playback_ids&#x60;. Options include:  * &#x60;\&quot;public\&quot;&#x60; (anyone with the playback URL can stream the live stream). * &#x60;\&quot;signed\&quot;&#x60; (an additional access token is required to play the live stream).  If no &#x60;playback_policies&#x60; is set, the live stream will have no playback IDs and will therefore not be playable. For simplicity, a single string name can be used in place of the array in the case of only one playback policy. </value>
         [DataMember(Name = "playback_policies", EmitDefaultValue = false)]
-        [Obsolete]
         public List<PlaybackPolicy> PlaybackPolicies { get; set; }
 
         /// <summary>
@@ -222,6 +223,12 @@ namespace Mux.Csharp.Sdk.Model
         public int MaxContinuousDuration { get; set; }
 
         /// <summary>
+        /// Gets or Sets Meta
+        /// </summary>
+        [DataMember(Name = "meta", EmitDefaultValue = false)]
+        public LiveStreamMetadata Meta { get; set; }
+
+        /// <summary>
         /// Gets or Sets additional properties
         /// </summary>
         [JsonExtensionData]
@@ -252,6 +259,7 @@ namespace Mux.Csharp.Sdk.Model
             sb.Append("  Test: ").Append(Test).Append("\n");
             sb.Append("  SimulcastTargets: ").Append(SimulcastTargets).Append("\n");
             sb.Append("  MaxContinuousDuration: ").Append(MaxContinuousDuration).Append("\n");
+            sb.Append("  Meta: ").Append(Meta).Append("\n");
             sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -370,6 +378,11 @@ namespace Mux.Csharp.Sdk.Model
                 (
                     this.MaxContinuousDuration == input.MaxContinuousDuration ||
                     this.MaxContinuousDuration.Equals(input.MaxContinuousDuration)
+                ) && 
+                (
+                    this.Meta == input.Meta ||
+                    (this.Meta != null &&
+                    this.Meta.Equals(input.Meta))
                 )
                 && (this.AdditionalProperties.Count == input.AdditionalProperties.Count && !this.AdditionalProperties.Except(input.AdditionalProperties).Any());
         }
@@ -427,6 +440,10 @@ namespace Mux.Csharp.Sdk.Model
                     hashCode = (hashCode * 59) + this.SimulcastTargets.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.MaxContinuousDuration.GetHashCode();
+                if (this.Meta != null)
+                {
+                    hashCode = (hashCode * 59) + this.Meta.GetHashCode();
+                }
                 if (this.AdditionalProperties != null)
                 {
                     hashCode = (hashCode * 59) + this.AdditionalProperties.GetHashCode();

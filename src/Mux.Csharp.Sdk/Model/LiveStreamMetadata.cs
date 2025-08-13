@@ -27,35 +27,27 @@ using OpenAPIDateConverter = Mux.Csharp.Sdk.Client.OpenAPIDateConverter;
 namespace Mux.Csharp.Sdk.Model
 {
     /// <summary>
-    /// ListAssetsResponse
+    /// Customer provided metadata about this live stream.  Note: This metadata may be publicly available via the video player. Do not include PII or sensitive information. 
     /// </summary>
-    [DataContract(Name = "ListAssetsResponse")]
-    public partial class ListAssetsResponse : IEquatable<ListAssetsResponse>, IValidatableObject
+    [DataContract(Name = "LiveStreamMetadata")]
+    public partial class LiveStreamMetadata : IEquatable<LiveStreamMetadata>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="ListAssetsResponse" /> class.
+        /// Initializes a new instance of the <see cref="LiveStreamMetadata" /> class.
         /// </summary>
-        /// <param name="nextCursor">If there are more pages of data, this field will contain a string that can be used with the &#x60;cursor&#x60; querystring parameter to fetch the next page of data..</param>
-        /// <param name="data">data.</param>
-        public ListAssetsResponse(string nextCursor = default(string), List<Asset> data = default(List<Asset>))
+        /// <param name="title">The live stream title. Max 512 code points..</param>
+        public LiveStreamMetadata(string title = default(string))
         {
-            this.NextCursor = nextCursor;
-            this.Data = data;
+            this.Title = title;
             this.AdditionalProperties = new Dictionary<string, object>();
         }
 
         /// <summary>
-        /// If there are more pages of data, this field will contain a string that can be used with the &#x60;cursor&#x60; querystring parameter to fetch the next page of data.
+        /// The live stream title. Max 512 code points.
         /// </summary>
-        /// <value>If there are more pages of data, this field will contain a string that can be used with the &#x60;cursor&#x60; querystring parameter to fetch the next page of data.</value>
-        [DataMember(Name = "next_cursor", EmitDefaultValue = true)]
-        public string NextCursor { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Data
-        /// </summary>
-        [DataMember(Name = "data", EmitDefaultValue = false)]
-        public List<Asset> Data { get; set; }
+        /// <value>The live stream title. Max 512 code points.</value>
+        [DataMember(Name = "title", EmitDefaultValue = false)]
+        public string Title { get; set; }
 
         /// <summary>
         /// Gets or Sets additional properties
@@ -70,9 +62,8 @@ namespace Mux.Csharp.Sdk.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class ListAssetsResponse {\n");
-            sb.Append("  NextCursor: ").Append(NextCursor).Append("\n");
-            sb.Append("  Data: ").Append(Data).Append("\n");
+            sb.Append("class LiveStreamMetadata {\n");
+            sb.Append("  Title: ").Append(Title).Append("\n");
             sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -94,15 +85,15 @@ namespace Mux.Csharp.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as ListAssetsResponse);
+            return this.Equals(input as LiveStreamMetadata);
         }
 
         /// <summary>
-        /// Returns true if ListAssetsResponse instances are equal
+        /// Returns true if LiveStreamMetadata instances are equal
         /// </summary>
-        /// <param name="input">Instance of ListAssetsResponse to be compared</param>
+        /// <param name="input">Instance of LiveStreamMetadata to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ListAssetsResponse input)
+        public bool Equals(LiveStreamMetadata input)
         {
             if (input == null)
             {
@@ -110,15 +101,9 @@ namespace Mux.Csharp.Sdk.Model
             }
             return 
                 (
-                    this.NextCursor == input.NextCursor ||
-                    (this.NextCursor != null &&
-                    this.NextCursor.Equals(input.NextCursor))
-                ) && 
-                (
-                    this.Data == input.Data ||
-                    this.Data != null &&
-                    input.Data != null &&
-                    this.Data.SequenceEqual(input.Data)
+                    this.Title == input.Title ||
+                    (this.Title != null &&
+                    this.Title.Equals(input.Title))
                 )
                 && (this.AdditionalProperties.Count == input.AdditionalProperties.Count && !this.AdditionalProperties.Except(input.AdditionalProperties).Any());
         }
@@ -132,13 +117,9 @@ namespace Mux.Csharp.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.NextCursor != null)
+                if (this.Title != null)
                 {
-                    hashCode = (hashCode * 59) + this.NextCursor.GetHashCode();
-                }
-                if (this.Data != null)
-                {
-                    hashCode = (hashCode * 59) + this.Data.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Title.GetHashCode();
                 }
                 if (this.AdditionalProperties != null)
                 {
@@ -155,6 +136,12 @@ namespace Mux.Csharp.Sdk.Model
         /// <returns>Validation Result</returns>
         public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
+            // Title (string) maxLength
+            if (this.Title != null && this.Title.Length > 512)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Title, length must be less than 512.", new [] { "Title" });
+            }
+
             yield break;
         }
     }

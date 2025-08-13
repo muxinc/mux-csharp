@@ -98,7 +98,7 @@ namespace Mux.Csharp.Sdk.Api
         /// Create an asset track
         /// </summary>
         /// <remarks>
-        /// Adds an asset track (for example, subtitles, or an alternate audio track) to an asset.
+        /// Adds an asset track (for example, subtitles, or an alternate audio track) to an asset. Assets must be in the &#x60;ready&#x60; state before tracks can be added.
         /// </remarks>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ASSET_ID">The asset ID.</param>
@@ -110,7 +110,7 @@ namespace Mux.Csharp.Sdk.Api
         /// Create an asset track
         /// </summary>
         /// <remarks>
-        /// Adds an asset track (for example, subtitles, or an alternate audio track) to an asset.
+        /// Adds an asset track (for example, subtitles, or an alternate audio track) to an asset. Assets must be in the &#x60;ready&#x60; state before tracks can be added.
         /// </remarks>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ASSET_ID">The asset ID.</param>
@@ -188,7 +188,7 @@ namespace Mux.Csharp.Sdk.Api
         /// Delete an asset track
         /// </summary>
         /// <remarks>
-        /// Removes a text track from an asset. Audio and video tracks on assets cannot be removed.
+        /// Removes a text or additional audio track from an asset. Neither video nor the primary audio track can be removed.
         /// </remarks>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ASSET_ID">The asset ID.</param>
@@ -200,7 +200,7 @@ namespace Mux.Csharp.Sdk.Api
         /// Delete an asset track
         /// </summary>
         /// <remarks>
-        /// Removes a text track from an asset. Audio and video tracks on assets cannot be removed.
+        /// Removes a text or additional audio track from an asset. Neither video nor the primary audio track can be removed.
         /// </remarks>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ASSET_ID">The asset ID.</param>
@@ -306,10 +306,11 @@ namespace Mux.Csharp.Sdk.Api
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Number of items to include in the response (optional, default to 25)</param>
         /// <param name="page">Offset by this many pages, of the size of &#x60;limit&#x60; (optional, default to 1)</param>
+        /// <param name="cursor">This parameter is used to request pages beyond the first. You can find the cursor value in the &#x60;next_cursor&#x60; field of paginated responses. (optional)</param>
         /// <param name="liveStreamId">Filter response to return all the assets for this live stream only (optional)</param>
         /// <param name="uploadId">Filter response to return an asset created from this direct upload only (optional)</param>
         /// <returns>ListAssetsResponse</returns>
-        ListAssetsResponse ListAssets(int? limit = default(int?), int? page = default(int?), string liveStreamId = default(string), string uploadId = default(string));
+        ListAssetsResponse ListAssets(int? limit = default(int?), int? page = default(int?), string cursor = default(string), string liveStreamId = default(string), string uploadId = default(string));
 
         /// <summary>
         /// List assets
@@ -320,10 +321,11 @@ namespace Mux.Csharp.Sdk.Api
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Number of items to include in the response (optional, default to 25)</param>
         /// <param name="page">Offset by this many pages, of the size of &#x60;limit&#x60; (optional, default to 1)</param>
+        /// <param name="cursor">This parameter is used to request pages beyond the first. You can find the cursor value in the &#x60;next_cursor&#x60; field of paginated responses. (optional)</param>
         /// <param name="liveStreamId">Filter response to return all the assets for this live stream only (optional)</param>
         /// <param name="uploadId">Filter response to return an asset created from this direct upload only (optional)</param>
         /// <returns>ApiResponse of ListAssetsResponse</returns>
-        ApiResponse<ListAssetsResponse> ListAssetsWithHttpInfo(int? limit = default(int?), int? page = default(int?), string liveStreamId = default(string), string uploadId = default(string));
+        ApiResponse<ListAssetsResponse> ListAssetsWithHttpInfo(int? limit = default(int?), int? page = default(int?), string cursor = default(string), string liveStreamId = default(string), string uploadId = default(string));
         /// <summary>
         /// Update an asset
         /// </summary>
@@ -481,7 +483,7 @@ namespace Mux.Csharp.Sdk.Api
         /// Create an asset track
         /// </summary>
         /// <remarks>
-        /// Adds an asset track (for example, subtitles, or an alternate audio track) to an asset.
+        /// Adds an asset track (for example, subtitles, or an alternate audio track) to an asset. Assets must be in the &#x60;ready&#x60; state before tracks can be added.
         /// </remarks>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ASSET_ID">The asset ID.</param>
@@ -494,7 +496,7 @@ namespace Mux.Csharp.Sdk.Api
         /// Create an asset track
         /// </summary>
         /// <remarks>
-        /// Adds an asset track (for example, subtitles, or an alternate audio track) to an asset.
+        /// Adds an asset track (for example, subtitles, or an alternate audio track) to an asset. Assets must be in the &#x60;ready&#x60; state before tracks can be added.
         /// </remarks>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ASSET_ID">The asset ID.</param>
@@ -579,7 +581,7 @@ namespace Mux.Csharp.Sdk.Api
         /// Delete an asset track
         /// </summary>
         /// <remarks>
-        /// Removes a text track from an asset. Audio and video tracks on assets cannot be removed.
+        /// Removes a text or additional audio track from an asset. Neither video nor the primary audio track can be removed.
         /// </remarks>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ASSET_ID">The asset ID.</param>
@@ -592,7 +594,7 @@ namespace Mux.Csharp.Sdk.Api
         /// Delete an asset track
         /// </summary>
         /// <remarks>
-        /// Removes a text track from an asset. Audio and video tracks on assets cannot be removed.
+        /// Removes a text or additional audio track from an asset. Neither video nor the primary audio track can be removed.
         /// </remarks>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ASSET_ID">The asset ID.</param>
@@ -707,11 +709,12 @@ namespace Mux.Csharp.Sdk.Api
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Number of items to include in the response (optional, default to 25)</param>
         /// <param name="page">Offset by this many pages, of the size of &#x60;limit&#x60; (optional, default to 1)</param>
+        /// <param name="cursor">This parameter is used to request pages beyond the first. You can find the cursor value in the &#x60;next_cursor&#x60; field of paginated responses. (optional)</param>
         /// <param name="liveStreamId">Filter response to return all the assets for this live stream only (optional)</param>
         /// <param name="uploadId">Filter response to return an asset created from this direct upload only (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ListAssetsResponse</returns>
-        System.Threading.Tasks.Task<ListAssetsResponse> ListAssetsAsync(int? limit = default(int?), int? page = default(int?), string liveStreamId = default(string), string uploadId = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ListAssetsResponse> ListAssetsAsync(int? limit = default(int?), int? page = default(int?), string cursor = default(string), string liveStreamId = default(string), string uploadId = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// List assets
@@ -722,11 +725,12 @@ namespace Mux.Csharp.Sdk.Api
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Number of items to include in the response (optional, default to 25)</param>
         /// <param name="page">Offset by this many pages, of the size of &#x60;limit&#x60; (optional, default to 1)</param>
+        /// <param name="cursor">This parameter is used to request pages beyond the first. You can find the cursor value in the &#x60;next_cursor&#x60; field of paginated responses. (optional)</param>
         /// <param name="liveStreamId">Filter response to return all the assets for this live stream only (optional)</param>
         /// <param name="uploadId">Filter response to return an asset created from this direct upload only (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ListAssetsResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ListAssetsResponse>> ListAssetsWithHttpInfoAsync(int? limit = default(int?), int? page = default(int?), string liveStreamId = default(string), string uploadId = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ListAssetsResponse>> ListAssetsWithHttpInfoAsync(int? limit = default(int?), int? page = default(int?), string cursor = default(string), string liveStreamId = default(string), string uploadId = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Update an asset
         /// </summary>
@@ -1405,7 +1409,7 @@ namespace Mux.Csharp.Sdk.Api
         }
 
         /// <summary>
-        /// Create an asset track Adds an asset track (for example, subtitles, or an alternate audio track) to an asset.
+        /// Create an asset track Adds an asset track (for example, subtitles, or an alternate audio track) to an asset. Assets must be in the &#x60;ready&#x60; state before tracks can be added.
         /// </summary>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ASSET_ID">The asset ID.</param>
@@ -1418,7 +1422,7 @@ namespace Mux.Csharp.Sdk.Api
         }
 
         /// <summary>
-        /// Create an asset track Adds an asset track (for example, subtitles, or an alternate audio track) to an asset.
+        /// Create an asset track Adds an asset track (for example, subtitles, or an alternate audio track) to an asset. Assets must be in the &#x60;ready&#x60; state before tracks can be added.
         /// </summary>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ASSET_ID">The asset ID.</param>
@@ -1486,7 +1490,7 @@ namespace Mux.Csharp.Sdk.Api
         }
 
         /// <summary>
-        /// Create an asset track Adds an asset track (for example, subtitles, or an alternate audio track) to an asset.
+        /// Create an asset track Adds an asset track (for example, subtitles, or an alternate audio track) to an asset. Assets must be in the &#x60;ready&#x60; state before tracks can be added.
         /// </summary>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ASSET_ID">The asset ID.</param>
@@ -1500,7 +1504,7 @@ namespace Mux.Csharp.Sdk.Api
         }
 
         /// <summary>
-        /// Create an asset track Adds an asset track (for example, subtitles, or an alternate audio track) to an asset.
+        /// Create an asset track Adds an asset track (for example, subtitles, or an alternate audio track) to an asset. Assets must be in the &#x60;ready&#x60; state before tracks can be added.
         /// </summary>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ASSET_ID">The asset ID.</param>
@@ -2033,7 +2037,7 @@ namespace Mux.Csharp.Sdk.Api
         }
 
         /// <summary>
-        /// Delete an asset track Removes a text track from an asset. Audio and video tracks on assets cannot be removed.
+        /// Delete an asset track Removes a text or additional audio track from an asset. Neither video nor the primary audio track can be removed.
         /// </summary>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ASSET_ID">The asset ID.</param>
@@ -2045,7 +2049,7 @@ namespace Mux.Csharp.Sdk.Api
         }
 
         /// <summary>
-        /// Delete an asset track Removes a text track from an asset. Audio and video tracks on assets cannot be removed.
+        /// Delete an asset track Removes a text or additional audio track from an asset. Neither video nor the primary audio track can be removed.
         /// </summary>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ASSET_ID">The asset ID.</param>
@@ -2111,7 +2115,7 @@ namespace Mux.Csharp.Sdk.Api
         }
 
         /// <summary>
-        /// Delete an asset track Removes a text track from an asset. Audio and video tracks on assets cannot be removed.
+        /// Delete an asset track Removes a text or additional audio track from an asset. Neither video nor the primary audio track can be removed.
         /// </summary>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ASSET_ID">The asset ID.</param>
@@ -2124,7 +2128,7 @@ namespace Mux.Csharp.Sdk.Api
         }
 
         /// <summary>
-        /// Delete an asset track Removes a text track from an asset. Audio and video tracks on assets cannot be removed.
+        /// Delete an asset track Removes a text or additional audio track from an asset. Neither video nor the primary audio track can be removed.
         /// </summary>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ASSET_ID">The asset ID.</param>
@@ -2838,12 +2842,13 @@ namespace Mux.Csharp.Sdk.Api
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Number of items to include in the response (optional, default to 25)</param>
         /// <param name="page">Offset by this many pages, of the size of &#x60;limit&#x60; (optional, default to 1)</param>
+        /// <param name="cursor">This parameter is used to request pages beyond the first. You can find the cursor value in the &#x60;next_cursor&#x60; field of paginated responses. (optional)</param>
         /// <param name="liveStreamId">Filter response to return all the assets for this live stream only (optional)</param>
         /// <param name="uploadId">Filter response to return an asset created from this direct upload only (optional)</param>
         /// <returns>ListAssetsResponse</returns>
-        public ListAssetsResponse ListAssets(int? limit = default(int?), int? page = default(int?), string liveStreamId = default(string), string uploadId = default(string))
+        public ListAssetsResponse ListAssets(int? limit = default(int?), int? page = default(int?), string cursor = default(string), string liveStreamId = default(string), string uploadId = default(string))
         {
-            Mux.Csharp.Sdk.Client.ApiResponse<ListAssetsResponse> localVarResponse = ListAssetsWithHttpInfo(limit, page, liveStreamId, uploadId);
+            Mux.Csharp.Sdk.Client.ApiResponse<ListAssetsResponse> localVarResponse = ListAssetsWithHttpInfo(limit, page, cursor, liveStreamId, uploadId);
             return localVarResponse.Data;
         }
 
@@ -2853,10 +2858,11 @@ namespace Mux.Csharp.Sdk.Api
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Number of items to include in the response (optional, default to 25)</param>
         /// <param name="page">Offset by this many pages, of the size of &#x60;limit&#x60; (optional, default to 1)</param>
+        /// <param name="cursor">This parameter is used to request pages beyond the first. You can find the cursor value in the &#x60;next_cursor&#x60; field of paginated responses. (optional)</param>
         /// <param name="liveStreamId">Filter response to return all the assets for this live stream only (optional)</param>
         /// <param name="uploadId">Filter response to return an asset created from this direct upload only (optional)</param>
         /// <returns>ApiResponse of ListAssetsResponse</returns>
-        public Mux.Csharp.Sdk.Client.ApiResponse<ListAssetsResponse> ListAssetsWithHttpInfo(int? limit = default(int?), int? page = default(int?), string liveStreamId = default(string), string uploadId = default(string))
+        public Mux.Csharp.Sdk.Client.ApiResponse<ListAssetsResponse> ListAssetsWithHttpInfo(int? limit = default(int?), int? page = default(int?), string cursor = default(string), string liveStreamId = default(string), string uploadId = default(string))
         {
             Mux.Csharp.Sdk.Client.RequestOptions localVarRequestOptions = new Mux.Csharp.Sdk.Client.RequestOptions();
 
@@ -2887,6 +2893,10 @@ namespace Mux.Csharp.Sdk.Api
             if (page != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Mux.Csharp.Sdk.Client.ClientUtils.ParameterToMultiMap("", "page", page));
+            }
+            if (cursor != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Mux.Csharp.Sdk.Client.ClientUtils.ParameterToMultiMap("", "cursor", cursor));
             }
             if (liveStreamId != null)
             {
@@ -2924,13 +2934,14 @@ namespace Mux.Csharp.Sdk.Api
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Number of items to include in the response (optional, default to 25)</param>
         /// <param name="page">Offset by this many pages, of the size of &#x60;limit&#x60; (optional, default to 1)</param>
+        /// <param name="cursor">This parameter is used to request pages beyond the first. You can find the cursor value in the &#x60;next_cursor&#x60; field of paginated responses. (optional)</param>
         /// <param name="liveStreamId">Filter response to return all the assets for this live stream only (optional)</param>
         /// <param name="uploadId">Filter response to return an asset created from this direct upload only (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ListAssetsResponse</returns>
-        public async System.Threading.Tasks.Task<ListAssetsResponse> ListAssetsAsync(int? limit = default(int?), int? page = default(int?), string liveStreamId = default(string), string uploadId = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ListAssetsResponse> ListAssetsAsync(int? limit = default(int?), int? page = default(int?), string cursor = default(string), string liveStreamId = default(string), string uploadId = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Mux.Csharp.Sdk.Client.ApiResponse<ListAssetsResponse> localVarResponse = await ListAssetsWithHttpInfoAsync(limit, page, liveStreamId, uploadId, cancellationToken).ConfigureAwait(false);
+            Mux.Csharp.Sdk.Client.ApiResponse<ListAssetsResponse> localVarResponse = await ListAssetsWithHttpInfoAsync(limit, page, cursor, liveStreamId, uploadId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2940,11 +2951,12 @@ namespace Mux.Csharp.Sdk.Api
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Number of items to include in the response (optional, default to 25)</param>
         /// <param name="page">Offset by this many pages, of the size of &#x60;limit&#x60; (optional, default to 1)</param>
+        /// <param name="cursor">This parameter is used to request pages beyond the first. You can find the cursor value in the &#x60;next_cursor&#x60; field of paginated responses. (optional)</param>
         /// <param name="liveStreamId">Filter response to return all the assets for this live stream only (optional)</param>
         /// <param name="uploadId">Filter response to return an asset created from this direct upload only (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ListAssetsResponse)</returns>
-        public async System.Threading.Tasks.Task<Mux.Csharp.Sdk.Client.ApiResponse<ListAssetsResponse>> ListAssetsWithHttpInfoAsync(int? limit = default(int?), int? page = default(int?), string liveStreamId = default(string), string uploadId = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Mux.Csharp.Sdk.Client.ApiResponse<ListAssetsResponse>> ListAssetsWithHttpInfoAsync(int? limit = default(int?), int? page = default(int?), string cursor = default(string), string liveStreamId = default(string), string uploadId = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             Mux.Csharp.Sdk.Client.RequestOptions localVarRequestOptions = new Mux.Csharp.Sdk.Client.RequestOptions();
@@ -2976,6 +2988,10 @@ namespace Mux.Csharp.Sdk.Api
             if (page != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Mux.Csharp.Sdk.Client.ClientUtils.ParameterToMultiMap("", "page", page));
+            }
+            if (cursor != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Mux.Csharp.Sdk.Client.ClientUtils.ParameterToMultiMap("", "cursor", cursor));
             }
             if (liveStreamId != null)
             {

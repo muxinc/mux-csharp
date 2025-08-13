@@ -27,35 +27,26 @@ using OpenAPIDateConverter = Mux.Csharp.Sdk.Client.OpenAPIDateConverter;
 namespace Mux.Csharp.Sdk.Model
 {
     /// <summary>
-    /// ListAssetsResponse
+    /// AnnotationResponse
     /// </summary>
-    [DataContract(Name = "ListAssetsResponse")]
-    public partial class ListAssetsResponse : IEquatable<ListAssetsResponse>, IValidatableObject
+    [DataContract(Name = "AnnotationResponse")]
+    public partial class AnnotationResponse : IEquatable<AnnotationResponse>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="ListAssetsResponse" /> class.
+        /// Initializes a new instance of the <see cref="AnnotationResponse" /> class.
         /// </summary>
-        /// <param name="nextCursor">If there are more pages of data, this field will contain a string that can be used with the &#x60;cursor&#x60; querystring parameter to fetch the next page of data..</param>
         /// <param name="data">data.</param>
-        public ListAssetsResponse(string nextCursor = default(string), List<Asset> data = default(List<Asset>))
+        public AnnotationResponse(Annotation data = default(Annotation))
         {
-            this.NextCursor = nextCursor;
             this.Data = data;
             this.AdditionalProperties = new Dictionary<string, object>();
         }
 
         /// <summary>
-        /// If there are more pages of data, this field will contain a string that can be used with the &#x60;cursor&#x60; querystring parameter to fetch the next page of data.
-        /// </summary>
-        /// <value>If there are more pages of data, this field will contain a string that can be used with the &#x60;cursor&#x60; querystring parameter to fetch the next page of data.</value>
-        [DataMember(Name = "next_cursor", EmitDefaultValue = true)]
-        public string NextCursor { get; set; }
-
-        /// <summary>
         /// Gets or Sets Data
         /// </summary>
         [DataMember(Name = "data", EmitDefaultValue = false)]
-        public List<Asset> Data { get; set; }
+        public Annotation Data { get; set; }
 
         /// <summary>
         /// Gets or Sets additional properties
@@ -70,8 +61,7 @@ namespace Mux.Csharp.Sdk.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class ListAssetsResponse {\n");
-            sb.Append("  NextCursor: ").Append(NextCursor).Append("\n");
+            sb.Append("class AnnotationResponse {\n");
             sb.Append("  Data: ").Append(Data).Append("\n");
             sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
@@ -94,15 +84,15 @@ namespace Mux.Csharp.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as ListAssetsResponse);
+            return this.Equals(input as AnnotationResponse);
         }
 
         /// <summary>
-        /// Returns true if ListAssetsResponse instances are equal
+        /// Returns true if AnnotationResponse instances are equal
         /// </summary>
-        /// <param name="input">Instance of ListAssetsResponse to be compared</param>
+        /// <param name="input">Instance of AnnotationResponse to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ListAssetsResponse input)
+        public bool Equals(AnnotationResponse input)
         {
             if (input == null)
             {
@@ -110,15 +100,9 @@ namespace Mux.Csharp.Sdk.Model
             }
             return 
                 (
-                    this.NextCursor == input.NextCursor ||
-                    (this.NextCursor != null &&
-                    this.NextCursor.Equals(input.NextCursor))
-                ) && 
-                (
                     this.Data == input.Data ||
-                    this.Data != null &&
-                    input.Data != null &&
-                    this.Data.SequenceEqual(input.Data)
+                    (this.Data != null &&
+                    this.Data.Equals(input.Data))
                 )
                 && (this.AdditionalProperties.Count == input.AdditionalProperties.Count && !this.AdditionalProperties.Except(input.AdditionalProperties).Any());
         }
@@ -132,10 +116,6 @@ namespace Mux.Csharp.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.NextCursor != null)
-                {
-                    hashCode = (hashCode * 59) + this.NextCursor.GetHashCode();
-                }
                 if (this.Data != null)
                 {
                     hashCode = (hashCode * 59) + this.Data.GetHashCode();

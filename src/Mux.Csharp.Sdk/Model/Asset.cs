@@ -412,7 +412,8 @@ namespace Mux.Csharp.Sdk.Model
         /// <param name="test">True means this live stream is a test asset. A test asset can help evaluate the Mux Video APIs without incurring any cost. There is no limit on number of test assets created. Test assets are watermarked with the Mux logo, limited to 10 seconds, and deleted after 24 hrs..</param>
         /// <param name="ingestType">The type of ingest used to create the asset..</param>
         /// <param name="meta">meta.</param>
-        public Asset(string id = default(string), string createdAt = default(string), StatusEnum? status = default(StatusEnum?), double duration = default(double), MaxStoredResolutionEnum? maxStoredResolution = default(MaxStoredResolutionEnum?), ResolutionTierEnum? resolutionTier = default(ResolutionTierEnum?), MaxResolutionTierEnum? maxResolutionTier = default(MaxResolutionTierEnum?), EncodingTierEnum? encodingTier = default(EncodingTierEnum?), VideoQualityEnum? videoQuality = default(VideoQualityEnum?), double maxStoredFrameRate = default(double), string aspectRatio = default(string), List<PlaybackID> playbackIds = default(List<PlaybackID>), List<Track> tracks = default(List<Track>), AssetErrors errors = default(AssetErrors), bool perTitleEncode = default(bool), string uploadId = default(string), bool isLive = default(bool), string passthrough = default(string), string liveStreamId = default(string), AssetMaster master = default(AssetMaster), MasterAccessEnum? masterAccess = MasterAccessEnum.None, Mp4SupportEnum? mp4Support = Mp4SupportEnum.None, string sourceAssetId = default(string), bool normalizeAudio = false, AssetStaticRenditions staticRenditions = default(AssetStaticRenditions), List<AssetRecordingTimes> recordingTimes = default(List<AssetRecordingTimes>), AssetNonStandardInputReasons nonStandardInputReasons = default(AssetNonStandardInputReasons), bool test = default(bool), IngestTypeEnum? ingestType = default(IngestTypeEnum?), AssetMetadata meta = default(AssetMetadata))
+        /// <param name="progress">progress.</param>
+        public Asset(string id = default(string), string createdAt = default(string), StatusEnum? status = default(StatusEnum?), double duration = default(double), MaxStoredResolutionEnum? maxStoredResolution = default(MaxStoredResolutionEnum?), ResolutionTierEnum? resolutionTier = default(ResolutionTierEnum?), MaxResolutionTierEnum? maxResolutionTier = default(MaxResolutionTierEnum?), EncodingTierEnum? encodingTier = default(EncodingTierEnum?), VideoQualityEnum? videoQuality = default(VideoQualityEnum?), double maxStoredFrameRate = default(double), string aspectRatio = default(string), List<PlaybackID> playbackIds = default(List<PlaybackID>), List<Track> tracks = default(List<Track>), AssetErrors errors = default(AssetErrors), bool perTitleEncode = default(bool), string uploadId = default(string), bool isLive = default(bool), string passthrough = default(string), string liveStreamId = default(string), AssetMaster master = default(AssetMaster), MasterAccessEnum? masterAccess = MasterAccessEnum.None, Mp4SupportEnum? mp4Support = Mp4SupportEnum.None, string sourceAssetId = default(string), bool normalizeAudio = false, AssetStaticRenditions staticRenditions = default(AssetStaticRenditions), List<AssetRecordingTimes> recordingTimes = default(List<AssetRecordingTimes>), AssetNonStandardInputReasons nonStandardInputReasons = default(AssetNonStandardInputReasons), bool test = default(bool), IngestTypeEnum? ingestType = default(IngestTypeEnum?), AssetMetadata meta = default(AssetMetadata), AssetProgress progress = default(AssetProgress))
         {
             this.Id = id;
             this.CreatedAt = createdAt;
@@ -444,6 +445,7 @@ namespace Mux.Csharp.Sdk.Model
             this.Test = test;
             this.IngestType = ingestType;
             this.Meta = meta;
+            this.Progress = progress;
             this.AdditionalProperties = new Dictionary<string, object>();
         }
 
@@ -590,6 +592,12 @@ namespace Mux.Csharp.Sdk.Model
         public AssetMetadata Meta { get; set; }
 
         /// <summary>
+        /// Gets or Sets Progress
+        /// </summary>
+        [DataMember(Name = "progress", EmitDefaultValue = false)]
+        public AssetProgress Progress { get; set; }
+
+        /// <summary>
         /// Gets or Sets additional properties
         /// </summary>
         [JsonExtensionData]
@@ -633,6 +641,7 @@ namespace Mux.Csharp.Sdk.Model
             sb.Append("  Test: ").Append(Test).Append("\n");
             sb.Append("  IngestType: ").Append(IngestType).Append("\n");
             sb.Append("  Meta: ").Append(Meta).Append("\n");
+            sb.Append("  Progress: ").Append(Progress).Append("\n");
             sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -806,6 +815,11 @@ namespace Mux.Csharp.Sdk.Model
                     this.Meta == input.Meta ||
                     (this.Meta != null &&
                     this.Meta.Equals(input.Meta))
+                ) && 
+                (
+                    this.Progress == input.Progress ||
+                    (this.Progress != null &&
+                    this.Progress.Equals(input.Progress))
                 )
                 && (this.AdditionalProperties.Count == input.AdditionalProperties.Count && !this.AdditionalProperties.Except(input.AdditionalProperties).Any());
         }
@@ -893,6 +907,10 @@ namespace Mux.Csharp.Sdk.Model
                 if (this.Meta != null)
                 {
                     hashCode = (hashCode * 59) + this.Meta.GetHashCode();
+                }
+                if (this.Progress != null)
+                {
+                    hashCode = (hashCode * 59) + this.Progress.GetHashCode();
                 }
                 if (this.AdditionalProperties != null)
                 {

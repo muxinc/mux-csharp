@@ -257,7 +257,7 @@ Name | Type | Description  | Notes
 
 Create an asset track
 
-Adds an asset track (for example, subtitles, or an alternate audio track) to an asset.
+Adds an asset track (for example, subtitles, or an alternate audio track) to an asset. Assets must be in the `ready` state before tracks can be added.
 
 ### Example
 ```csharp
@@ -560,7 +560,7 @@ void (empty response body)
 
 Delete an asset track
 
-Removes a text track from an asset. Audio and video tracks on assets cannot be removed.
+Removes a text or additional audio track from an asset. Neither video nor the primary audio track can be removed.
 
 ### Example
 ```csharp
@@ -938,7 +938,7 @@ Name | Type | Description  | Notes
 
 <a name="listassets"></a>
 # **ListAssets**
-> ListAssetsResponse ListAssets (int? limit = null, int? page = null, string liveStreamId = null, string uploadId = null)
+> ListAssetsResponse ListAssets (int? limit = null, int? page = null, string cursor = null, string liveStreamId = null, string uploadId = null)
 
 List assets
 
@@ -967,13 +967,14 @@ namespace Example
             var apiInstance = new AssetsApi(config);
             var limit = 25;  // int? | Number of items to include in the response (optional)  (default to 25)
             var page = 1;  // int? | Offset by this many pages, of the size of `limit` (optional)  (default to 1)
+            var cursor = "cursor_example";  // string | This parameter is used to request pages beyond the first. You can find the cursor value in the `next_cursor` field of paginated responses. (optional) 
             var liveStreamId = "liveStreamId_example";  // string | Filter response to return all the assets for this live stream only (optional) 
             var uploadId = "uploadId_example";  // string | Filter response to return an asset created from this direct upload only (optional) 
 
             try
             {
                 // List assets
-                ListAssetsResponse result = apiInstance.ListAssets(limit, page, liveStreamId, uploadId);
+                ListAssetsResponse result = apiInstance.ListAssets(limit, page, cursor, liveStreamId, uploadId);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -993,6 +994,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **limit** | **int?**| Number of items to include in the response | [optional] [default to 25]
  **page** | **int?**| Offset by this many pages, of the size of &#x60;limit&#x60; | [optional] [default to 1]
+ **cursor** | **string**| This parameter is used to request pages beyond the first. You can find the cursor value in the &#x60;next_cursor&#x60; field of paginated responses. | [optional] 
  **liveStreamId** | **string**| Filter response to return all the assets for this live stream only | [optional] 
  **uploadId** | **string**| Filter response to return an asset created from this direct upload only | [optional] 
 

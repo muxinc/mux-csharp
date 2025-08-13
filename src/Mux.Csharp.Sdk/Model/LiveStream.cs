@@ -105,7 +105,7 @@ namespace Mux.Csharp.Sdk.Model
         /// </summary>
         /// <param name="id">Unique identifier for the Live Stream. Max 255 characters..</param>
         /// <param name="createdAt">Time the Live Stream was created, defined as a Unix timestamp (seconds since epoch)..</param>
-        /// <param name="streamKey">Unique key used for streaming to a Mux RTMP endpoint. This should be considered as sensitive as credentials, anyone with this stream key can begin streaming..</param>
+        /// <param name="streamKey">Unique key used for streaming to a Mux RTMP endpoint. This should be considered as sensitive as credentials, anyone with this stream key can begin streaming. Max 64 characters..</param>
         /// <param name="activeAssetId">The Asset that is currently being created if there is an active broadcast..</param>
         /// <param name="recentAssetIds">An array of strings with the most recent Asset IDs that were created from this Live Stream. The most recently generated Asset ID is the last entry in the list..</param>
         /// <param name="status">status.</param>
@@ -124,9 +124,10 @@ namespace Mux.Csharp.Sdk.Model
         /// <param name="latencyMode">Latency is the time from when the streamer transmits a frame of video to when you see it in the player. Set this as an alternative to setting low latency or reduced latency flags..</param>
         /// <param name="test">True means this live stream is a test live stream. Test live streams can be used to help evaluate the Mux Video APIs for free. There is no limit on the number of test live streams, but they are watermarked with the Mux logo, and limited to 5 minutes. The test live stream is disabled after the stream is active for 5 mins and the recorded asset also deleted after 24 hours..</param>
         /// <param name="maxContinuousDuration">The time in seconds a live stream may be continuously active before being disconnected. Defaults to 12 hours. (default to 43200).</param>
-        /// <param name="srtPassphrase">Unique key used for encrypting a stream to a Mux SRT endpoint..</param>
+        /// <param name="srtPassphrase">Unique key used for encrypting a stream to a Mux SRT endpoint. Max 64 characters..</param>
         /// <param name="activeIngestProtocol">The protocol used for the active ingest stream. This is only set when the live stream is active..</param>
-        public LiveStream(string id = default(string), string createdAt = default(string), string streamKey = default(string), string activeAssetId = default(string), List<string> recentAssetIds = default(List<string>), LiveStreamStatus? status = default(LiveStreamStatus?), List<PlaybackID> playbackIds = default(List<PlaybackID>), CreateAssetRequest newAssetSettings = default(CreateAssetRequest), string passthrough = default(string), bool audioOnly = default(bool), List<LiveStreamEmbeddedSubtitleSettings> embeddedSubtitles = default(List<LiveStreamEmbeddedSubtitleSettings>), List<LiveStreamGeneratedSubtitleSettings> generatedSubtitles = default(List<LiveStreamGeneratedSubtitleSettings>), float reconnectWindow = 60F, bool useSlateForStandardLatency = false, string reconnectSlateUrl = default(string), bool reducedLatency = default(bool), bool lowLatency = default(bool), List<SimulcastTarget> simulcastTargets = default(List<SimulcastTarget>), LatencyModeEnum? latencyMode = default(LatencyModeEnum?), bool test = default(bool), int maxContinuousDuration = 43200, string srtPassphrase = default(string), ActiveIngestProtocolEnum? activeIngestProtocol = default(ActiveIngestProtocolEnum?))
+        /// <param name="meta">meta.</param>
+        public LiveStream(string id = default(string), string createdAt = default(string), string streamKey = default(string), string activeAssetId = default(string), List<string> recentAssetIds = default(List<string>), LiveStreamStatus? status = default(LiveStreamStatus?), List<PlaybackID> playbackIds = default(List<PlaybackID>), CreateAssetRequest newAssetSettings = default(CreateAssetRequest), string passthrough = default(string), bool audioOnly = default(bool), List<LiveStreamEmbeddedSubtitleSettings> embeddedSubtitles = default(List<LiveStreamEmbeddedSubtitleSettings>), List<LiveStreamGeneratedSubtitleSettings> generatedSubtitles = default(List<LiveStreamGeneratedSubtitleSettings>), float reconnectWindow = 60F, bool useSlateForStandardLatency = false, string reconnectSlateUrl = default(string), bool reducedLatency = default(bool), bool lowLatency = default(bool), List<SimulcastTarget> simulcastTargets = default(List<SimulcastTarget>), LatencyModeEnum? latencyMode = default(LatencyModeEnum?), bool test = default(bool), int maxContinuousDuration = 43200, string srtPassphrase = default(string), ActiveIngestProtocolEnum? activeIngestProtocol = default(ActiveIngestProtocolEnum?), LiveStreamMetadata meta = default(LiveStreamMetadata))
         {
             this.Id = id;
             this.CreatedAt = createdAt;
@@ -151,6 +152,7 @@ namespace Mux.Csharp.Sdk.Model
             this.MaxContinuousDuration = maxContinuousDuration;
             this.SrtPassphrase = srtPassphrase;
             this.ActiveIngestProtocol = activeIngestProtocol;
+            this.Meta = meta;
             this.AdditionalProperties = new Dictionary<string, object>();
         }
 
@@ -169,9 +171,9 @@ namespace Mux.Csharp.Sdk.Model
         public string CreatedAt { get; set; }
 
         /// <summary>
-        /// Unique key used for streaming to a Mux RTMP endpoint. This should be considered as sensitive as credentials, anyone with this stream key can begin streaming.
+        /// Unique key used for streaming to a Mux RTMP endpoint. This should be considered as sensitive as credentials, anyone with this stream key can begin streaming. Max 64 characters.
         /// </summary>
-        /// <value>Unique key used for streaming to a Mux RTMP endpoint. This should be considered as sensitive as credentials, anyone with this stream key can begin streaming.</value>
+        /// <value>Unique key used for streaming to a Mux RTMP endpoint. This should be considered as sensitive as credentials, anyone with this stream key can begin streaming. Max 64 characters.</value>
         [DataMember(Name = "stream_key", EmitDefaultValue = false)]
         public string StreamKey { get; set; }
 
@@ -289,11 +291,17 @@ namespace Mux.Csharp.Sdk.Model
         public int MaxContinuousDuration { get; set; }
 
         /// <summary>
-        /// Unique key used for encrypting a stream to a Mux SRT endpoint.
+        /// Unique key used for encrypting a stream to a Mux SRT endpoint. Max 64 characters.
         /// </summary>
-        /// <value>Unique key used for encrypting a stream to a Mux SRT endpoint.</value>
+        /// <value>Unique key used for encrypting a stream to a Mux SRT endpoint. Max 64 characters.</value>
         [DataMember(Name = "srt_passphrase", EmitDefaultValue = false)]
         public string SrtPassphrase { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Meta
+        /// </summary>
+        [DataMember(Name = "meta", EmitDefaultValue = false)]
+        public LiveStreamMetadata Meta { get; set; }
 
         /// <summary>
         /// Gets or Sets additional properties
@@ -332,6 +340,7 @@ namespace Mux.Csharp.Sdk.Model
             sb.Append("  MaxContinuousDuration: ").Append(MaxContinuousDuration).Append("\n");
             sb.Append("  SrtPassphrase: ").Append(SrtPassphrase).Append("\n");
             sb.Append("  ActiveIngestProtocol: ").Append(ActiveIngestProtocol).Append("\n");
+            sb.Append("  Meta: ").Append(Meta).Append("\n");
             sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -477,6 +486,11 @@ namespace Mux.Csharp.Sdk.Model
                 (
                     this.ActiveIngestProtocol == input.ActiveIngestProtocol ||
                     this.ActiveIngestProtocol.Equals(input.ActiveIngestProtocol)
+                ) && 
+                (
+                    this.Meta == input.Meta ||
+                    (this.Meta != null &&
+                    this.Meta.Equals(input.Meta))
                 )
                 && (this.AdditionalProperties.Count == input.AdditionalProperties.Count && !this.AdditionalProperties.Except(input.AdditionalProperties).Any());
         }
@@ -552,6 +566,10 @@ namespace Mux.Csharp.Sdk.Model
                     hashCode = (hashCode * 59) + this.SrtPassphrase.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.ActiveIngestProtocol.GetHashCode();
+                if (this.Meta != null)
+                {
+                    hashCode = (hashCode * 59) + this.Meta.GetHashCode();
+                }
                 if (this.AdditionalProperties != null)
                 {
                     hashCode = (hashCode * 59) + this.AdditionalProperties.GetHashCode();

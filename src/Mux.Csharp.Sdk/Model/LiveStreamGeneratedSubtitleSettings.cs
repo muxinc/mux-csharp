@@ -49,7 +49,37 @@ namespace Mux.Csharp.Sdk.Model
             /// Enum EnUS for value: en-US
             /// </summary>
             [EnumMember(Value = "en-US")]
-            EnUS = 2
+            EnUS = 2,
+
+            /// <summary>
+            /// Enum Es for value: es
+            /// </summary>
+            [EnumMember(Value = "es")]
+            Es = 3,
+
+            /// <summary>
+            /// Enum Fr for value: fr
+            /// </summary>
+            [EnumMember(Value = "fr")]
+            Fr = 4,
+
+            /// <summary>
+            /// Enum De for value: de
+            /// </summary>
+            [EnumMember(Value = "de")]
+            De = 5,
+
+            /// <summary>
+            /// Enum Pt for value: pt
+            /// </summary>
+            [EnumMember(Value = "pt")]
+            Pt = 6,
+
+            /// <summary>
+            /// Enum It for value: it
+            /// </summary>
+            [EnumMember(Value = "it")]
+            It = 7
 
         }
 
