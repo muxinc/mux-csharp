@@ -183,6 +183,7 @@ Name | Type | Description | Notes
 **ViewCdnEdgePop** | **string** |  | [optional] 
 **ViewCdnOrigin** | **string** |  | [optional] 
 **VideoCreatorId** | **string** |  | [optional] 
+**VideoCdnTrace** | **List&lt;string&gt;** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
