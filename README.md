@@ -18,7 +18,7 @@ Mux is how developers build online video. This API encompasses both Mux Video an
 At this moment, this SDK is not suitable for parsing or modeling webhook payloads, due to some incompatibilities in our API spec and our SDK generation tooling. We are working on resolving these issues, but for now you should only use this SDK for Mux's REST APIs.
 
 - API version: v1
-- SDK version: 2.0.1
+- SDK version: 2.1.0
     [https://docs.mux.com](https://docs.mux.com)
 
 <a name="frameworks-supported"></a>
@@ -89,18 +89,18 @@ namespace Example
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
 
-            var apiInstance = new AssetsApi(config);
-            var createAssetRequest = new CreateAssetRequest(); // CreateAssetRequest | 
+            var apiInstance = new AnnotationsApi(config);
+            var annotationInput = new AnnotationInput(); // AnnotationInput | 
 
             try
             {
-                // Create an asset
-                AssetResponse result = apiInstance.CreateAsset(createAssetRequest);
+                // Create Annotation
+                AnnotationResponse result = apiInstance.CreateAnnotation(annotationInput);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
             {
-                Debug.Print("Exception when calling AssetsApi.CreateAsset: " + e.Message );
+                Debug.Print("Exception when calling AnnotationsApi.CreateAnnotation: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -117,6 +117,11 @@ All URIs are relative to *https://api.mux.com*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*AnnotationsApi* | [**CreateAnnotation**](docs/AnnotationsApi.md#createannotation) | **POST** /data/v1/annotations | Create Annotation
+*AnnotationsApi* | [**DeleteAnnotation**](docs/AnnotationsApi.md#deleteannotation) | **DELETE** /data/v1/annotations/{ANNOTATION_ID} | Delete Annotation
+*AnnotationsApi* | [**GetAnnotation**](docs/AnnotationsApi.md#getannotation) | **GET** /data/v1/annotations/{ANNOTATION_ID} | Get Annotation
+*AnnotationsApi* | [**ListAnnotations**](docs/AnnotationsApi.md#listannotations) | **GET** /data/v1/annotations | List Annotations
+*AnnotationsApi* | [**UpdateAnnotation**](docs/AnnotationsApi.md#updateannotation) | **PATCH** /data/v1/annotations/{ANNOTATION_ID} | Update Annotation
 *AssetsApi* | [**CreateAsset**](docs/AssetsApi.md#createasset) | **POST** /video/v1/assets | Create an asset
 *AssetsApi* | [**CreateAssetPlaybackId**](docs/AssetsApi.md#createassetplaybackid) | **POST** /video/v1/assets/{ASSET_ID}/playback-ids | Create a playback ID
 *AssetsApi* | [**CreateAssetStaticRendition**](docs/AssetsApi.md#createassetstaticrendition) | **POST** /video/v1/assets/{ASSET_ID}/static-renditions | Create a static rendition for an asset
@@ -136,6 +141,7 @@ Class | Method | HTTP request | Description
 *DRMConfigurationsApi* | [**GetDrmConfiguration**](docs/DRMConfigurationsApi.md#getdrmconfiguration) | **GET** /video/v1/drm-configurations/{DRM_CONFIGURATION_ID} | Retrieve a DRM Configuration
 *DRMConfigurationsApi* | [**ListDrmConfigurations**](docs/DRMConfigurationsApi.md#listdrmconfigurations) | **GET** /video/v1/drm-configurations | List DRM Configurations
 *DeliveryUsageApi* | [**ListDeliveryUsage**](docs/DeliveryUsageApi.md#listdeliveryusage) | **GET** /video/v1/delivery-usage | List Usage
+*DimensionsApi* | [**ListDimensionElements**](docs/DimensionsApi.md#listdimensionelements) | **GET** /data/v1/dimensions/{DIMENSION_ID}/elements | Lists elements for a trace dimension
 *DimensionsApi* | [**ListDimensionValues**](docs/DimensionsApi.md#listdimensionvalues) | **GET** /data/v1/dimensions/{DIMENSION_ID} | Lists the values for a specific dimension
 *DimensionsApi* | [**ListDimensions**](docs/DimensionsApi.md#listdimensions) | **GET** /data/v1/dimensions | List Dimensions
 *DirectUploadsApi* | [**CancelDirectUpload**](docs/DirectUploadsApi.md#canceldirectupload) | **PUT** /video/v1/uploads/{UPLOAD_ID}/cancel | Cancel a direct upload
@@ -221,12 +227,16 @@ Class | Method | HTTP request | Description
 ## Documentation for Models
 
  - [Model.AbridgedVideoView](docs/AbridgedVideoView.md)
+ - [Model.Annotation](docs/Annotation.md)
+ - [Model.AnnotationInput](docs/AnnotationInput.md)
+ - [Model.AnnotationResponse](docs/AnnotationResponse.md)
  - [Model.Asset](docs/Asset.md)
  - [Model.AssetErrors](docs/AssetErrors.md)
  - [Model.AssetGeneratedSubtitleSettings](docs/AssetGeneratedSubtitleSettings.md)
  - [Model.AssetMaster](docs/AssetMaster.md)
  - [Model.AssetMetadata](docs/AssetMetadata.md)
  - [Model.AssetNonStandardInputReasons](docs/AssetNonStandardInputReasons.md)
+ - [Model.AssetProgress](docs/AssetProgress.md)
  - [Model.AssetRecordingTimes](docs/AssetRecordingTimes.md)
  - [Model.AssetResponse](docs/AssetResponse.md)
  - [Model.AssetStaticRenditions](docs/AssetStaticRenditions.md)
@@ -287,6 +297,7 @@ Class | Method | HTTP request | Description
  - [Model.Insight](docs/Insight.md)
  - [Model.LaunchWebInputResponse](docs/LaunchWebInputResponse.md)
  - [Model.ListAllMetricValuesResponse](docs/ListAllMetricValuesResponse.md)
+ - [Model.ListAnnotationsResponse](docs/ListAnnotationsResponse.md)
  - [Model.ListAssetsResponse](docs/ListAssetsResponse.md)
  - [Model.ListBreakdownValuesResponse](docs/ListBreakdownValuesResponse.md)
  - [Model.ListBreakdownValuesResponseMeta](docs/ListBreakdownValuesResponseMeta.md)
@@ -318,6 +329,7 @@ Class | Method | HTTP request | Description
  - [Model.LiveStream](docs/LiveStream.md)
  - [Model.LiveStreamEmbeddedSubtitleSettings](docs/LiveStreamEmbeddedSubtitleSettings.md)
  - [Model.LiveStreamGeneratedSubtitleSettings](docs/LiveStreamGeneratedSubtitleSettings.md)
+ - [Model.LiveStreamMetadata](docs/LiveStreamMetadata.md)
  - [Model.LiveStreamResponse](docs/LiveStreamResponse.md)
  - [Model.LiveStreamStatus](docs/LiveStreamStatus.md)
  - [Model.Metric](docs/Metric.md)

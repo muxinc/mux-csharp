@@ -27,35 +27,45 @@ using OpenAPIDateConverter = Mux.Csharp.Sdk.Client.OpenAPIDateConverter;
 namespace Mux.Csharp.Sdk.Model
 {
     /// <summary>
-    /// ListAssetsResponse
+    /// AnnotationInput
     /// </summary>
-    [DataContract(Name = "ListAssetsResponse")]
-    public partial class ListAssetsResponse : IEquatable<ListAssetsResponse>, IValidatableObject
+    [DataContract(Name = "AnnotationInput")]
+    public partial class AnnotationInput : IEquatable<AnnotationInput>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="ListAssetsResponse" /> class.
+        /// Initializes a new instance of the <see cref="AnnotationInput" /> class.
         /// </summary>
-        /// <param name="nextCursor">If there are more pages of data, this field will contain a string that can be used with the &#x60;cursor&#x60; querystring parameter to fetch the next page of data..</param>
-        /// <param name="data">data.</param>
-        public ListAssetsResponse(string nextCursor = default(string), List<Asset> data = default(List<Asset>))
+        /// <param name="note">The annotation note content.</param>
+        /// <param name="date">Datetime when the annotation applies (Unix timestamp).</param>
+        /// <param name="subPropertyId">Customer-defined sub-property identifier.</param>
+        public AnnotationInput(string note = default(string), long date = default(long), string subPropertyId = default(string))
         {
-            this.NextCursor = nextCursor;
-            this.Data = data;
+            this.Note = note;
+            this.Date = date;
+            this.SubPropertyId = subPropertyId;
             this.AdditionalProperties = new Dictionary<string, object>();
         }
 
         /// <summary>
-        /// If there are more pages of data, this field will contain a string that can be used with the &#x60;cursor&#x60; querystring parameter to fetch the next page of data.
+        /// The annotation note content
         /// </summary>
-        /// <value>If there are more pages of data, this field will contain a string that can be used with the &#x60;cursor&#x60; querystring parameter to fetch the next page of data.</value>
-        [DataMember(Name = "next_cursor", EmitDefaultValue = true)]
-        public string NextCursor { get; set; }
+        /// <value>The annotation note content</value>
+        [DataMember(Name = "note", EmitDefaultValue = false)]
+        public string Note { get; set; }
 
         /// <summary>
-        /// Gets or Sets Data
+        /// Datetime when the annotation applies (Unix timestamp)
         /// </summary>
-        [DataMember(Name = "data", EmitDefaultValue = false)]
-        public List<Asset> Data { get; set; }
+        /// <value>Datetime when the annotation applies (Unix timestamp)</value>
+        [DataMember(Name = "date", EmitDefaultValue = false)]
+        public long Date { get; set; }
+
+        /// <summary>
+        /// Customer-defined sub-property identifier
+        /// </summary>
+        /// <value>Customer-defined sub-property identifier</value>
+        [DataMember(Name = "sub_property_id", EmitDefaultValue = false)]
+        public string SubPropertyId { get; set; }
 
         /// <summary>
         /// Gets or Sets additional properties
@@ -70,9 +80,10 @@ namespace Mux.Csharp.Sdk.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class ListAssetsResponse {\n");
-            sb.Append("  NextCursor: ").Append(NextCursor).Append("\n");
-            sb.Append("  Data: ").Append(Data).Append("\n");
+            sb.Append("class AnnotationInput {\n");
+            sb.Append("  Note: ").Append(Note).Append("\n");
+            sb.Append("  Date: ").Append(Date).Append("\n");
+            sb.Append("  SubPropertyId: ").Append(SubPropertyId).Append("\n");
             sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -94,15 +105,15 @@ namespace Mux.Csharp.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as ListAssetsResponse);
+            return this.Equals(input as AnnotationInput);
         }
 
         /// <summary>
-        /// Returns true if ListAssetsResponse instances are equal
+        /// Returns true if AnnotationInput instances are equal
         /// </summary>
-        /// <param name="input">Instance of ListAssetsResponse to be compared</param>
+        /// <param name="input">Instance of AnnotationInput to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ListAssetsResponse input)
+        public bool Equals(AnnotationInput input)
         {
             if (input == null)
             {
@@ -110,15 +121,18 @@ namespace Mux.Csharp.Sdk.Model
             }
             return 
                 (
-                    this.NextCursor == input.NextCursor ||
-                    (this.NextCursor != null &&
-                    this.NextCursor.Equals(input.NextCursor))
+                    this.Note == input.Note ||
+                    (this.Note != null &&
+                    this.Note.Equals(input.Note))
                 ) && 
                 (
-                    this.Data == input.Data ||
-                    this.Data != null &&
-                    input.Data != null &&
-                    this.Data.SequenceEqual(input.Data)
+                    this.Date == input.Date ||
+                    this.Date.Equals(input.Date)
+                ) && 
+                (
+                    this.SubPropertyId == input.SubPropertyId ||
+                    (this.SubPropertyId != null &&
+                    this.SubPropertyId.Equals(input.SubPropertyId))
                 )
                 && (this.AdditionalProperties.Count == input.AdditionalProperties.Count && !this.AdditionalProperties.Except(input.AdditionalProperties).Any());
         }
@@ -132,13 +146,14 @@ namespace Mux.Csharp.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.NextCursor != null)
+                if (this.Note != null)
                 {
-                    hashCode = (hashCode * 59) + this.NextCursor.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Note.GetHashCode();
                 }
-                if (this.Data != null)
+                hashCode = (hashCode * 59) + this.Date.GetHashCode();
+                if (this.SubPropertyId != null)
                 {
-                    hashCode = (hashCode * 59) + this.Data.GetHashCode();
+                    hashCode = (hashCode * 59) + this.SubPropertyId.GetHashCode();
                 }
                 if (this.AdditionalProperties != null)
                 {

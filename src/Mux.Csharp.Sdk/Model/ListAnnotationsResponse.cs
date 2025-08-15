@@ -27,35 +27,44 @@ using OpenAPIDateConverter = Mux.Csharp.Sdk.Client.OpenAPIDateConverter;
 namespace Mux.Csharp.Sdk.Model
 {
     /// <summary>
-    /// ListAssetsResponse
+    /// ListAnnotationsResponse
     /// </summary>
-    [DataContract(Name = "ListAssetsResponse")]
-    public partial class ListAssetsResponse : IEquatable<ListAssetsResponse>, IValidatableObject
+    [DataContract(Name = "ListAnnotationsResponse")]
+    public partial class ListAnnotationsResponse : IEquatable<ListAnnotationsResponse>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="ListAssetsResponse" /> class.
+        /// Initializes a new instance of the <see cref="ListAnnotationsResponse" /> class.
         /// </summary>
-        /// <param name="nextCursor">If there are more pages of data, this field will contain a string that can be used with the &#x60;cursor&#x60; querystring parameter to fetch the next page of data..</param>
         /// <param name="data">data.</param>
-        public ListAssetsResponse(string nextCursor = default(string), List<Asset> data = default(List<Asset>))
+        /// <param name="totalRowCount">Total number of annotations available.</param>
+        /// <param name="timeframe">Start and end unix timestamps for the data range.</param>
+        public ListAnnotationsResponse(List<Annotation> data = default(List<Annotation>), int totalRowCount = default(int), List<int> timeframe = default(List<int>))
         {
-            this.NextCursor = nextCursor;
             this.Data = data;
+            this.TotalRowCount = totalRowCount;
+            this.Timeframe = timeframe;
             this.AdditionalProperties = new Dictionary<string, object>();
         }
-
-        /// <summary>
-        /// If there are more pages of data, this field will contain a string that can be used with the &#x60;cursor&#x60; querystring parameter to fetch the next page of data.
-        /// </summary>
-        /// <value>If there are more pages of data, this field will contain a string that can be used with the &#x60;cursor&#x60; querystring parameter to fetch the next page of data.</value>
-        [DataMember(Name = "next_cursor", EmitDefaultValue = true)]
-        public string NextCursor { get; set; }
 
         /// <summary>
         /// Gets or Sets Data
         /// </summary>
         [DataMember(Name = "data", EmitDefaultValue = false)]
-        public List<Asset> Data { get; set; }
+        public List<Annotation> Data { get; set; }
+
+        /// <summary>
+        /// Total number of annotations available
+        /// </summary>
+        /// <value>Total number of annotations available</value>
+        [DataMember(Name = "total_row_count", EmitDefaultValue = false)]
+        public int TotalRowCount { get; set; }
+
+        /// <summary>
+        /// Start and end unix timestamps for the data range
+        /// </summary>
+        /// <value>Start and end unix timestamps for the data range</value>
+        [DataMember(Name = "timeframe", EmitDefaultValue = false)]
+        public List<int> Timeframe { get; set; }
 
         /// <summary>
         /// Gets or Sets additional properties
@@ -70,9 +79,10 @@ namespace Mux.Csharp.Sdk.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class ListAssetsResponse {\n");
-            sb.Append("  NextCursor: ").Append(NextCursor).Append("\n");
+            sb.Append("class ListAnnotationsResponse {\n");
             sb.Append("  Data: ").Append(Data).Append("\n");
+            sb.Append("  TotalRowCount: ").Append(TotalRowCount).Append("\n");
+            sb.Append("  Timeframe: ").Append(Timeframe).Append("\n");
             sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -94,15 +104,15 @@ namespace Mux.Csharp.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as ListAssetsResponse);
+            return this.Equals(input as ListAnnotationsResponse);
         }
 
         /// <summary>
-        /// Returns true if ListAssetsResponse instances are equal
+        /// Returns true if ListAnnotationsResponse instances are equal
         /// </summary>
-        /// <param name="input">Instance of ListAssetsResponse to be compared</param>
+        /// <param name="input">Instance of ListAnnotationsResponse to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ListAssetsResponse input)
+        public bool Equals(ListAnnotationsResponse input)
         {
             if (input == null)
             {
@@ -110,15 +120,20 @@ namespace Mux.Csharp.Sdk.Model
             }
             return 
                 (
-                    this.NextCursor == input.NextCursor ||
-                    (this.NextCursor != null &&
-                    this.NextCursor.Equals(input.NextCursor))
-                ) && 
-                (
                     this.Data == input.Data ||
                     this.Data != null &&
                     input.Data != null &&
                     this.Data.SequenceEqual(input.Data)
+                ) && 
+                (
+                    this.TotalRowCount == input.TotalRowCount ||
+                    this.TotalRowCount.Equals(input.TotalRowCount)
+                ) && 
+                (
+                    this.Timeframe == input.Timeframe ||
+                    this.Timeframe != null &&
+                    input.Timeframe != null &&
+                    this.Timeframe.SequenceEqual(input.Timeframe)
                 )
                 && (this.AdditionalProperties.Count == input.AdditionalProperties.Count && !this.AdditionalProperties.Except(input.AdditionalProperties).Any());
         }
@@ -132,13 +147,14 @@ namespace Mux.Csharp.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.NextCursor != null)
-                {
-                    hashCode = (hashCode * 59) + this.NextCursor.GetHashCode();
-                }
                 if (this.Data != null)
                 {
                     hashCode = (hashCode * 59) + this.Data.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.TotalRowCount.GetHashCode();
+                if (this.Timeframe != null)
+                {
+                    hashCode = (hashCode * 59) + this.Timeframe.GetHashCode();
                 }
                 if (this.AdditionalProperties != null)
                 {

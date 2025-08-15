@@ -28,6 +28,39 @@ namespace Mux.Csharp.Sdk.Api
     {
         #region Synchronous Operations
         /// <summary>
+        /// Lists elements for a trace dimension
+        /// </summary>
+        /// <remarks>
+        /// Lists the elements (values) for a trace dimension along with their total counts. This endpoint is specifically designed for trace dimensions like video_cdn_trace that contain arrays of values. 
+        /// </remarks>
+        /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="DIMENSION_ID">ID of the Dimension</param>
+        /// <param name="limit">Number of items to include in the response (optional, default to 25)</param>
+        /// <param name="filters">Filter results using key:value pairs. Must be provided as an array query string parameter.  **Basic filtering:** * &#x60;filters[]&#x3D;dimension:value&#x60; - Include rows where dimension equals value * &#x60;filters[]&#x3D;!dimension:value&#x60; - Exclude rows where dimension equals value  **For trace dimensions (like video_cdn_trace):** * &#x60;filters[]&#x3D;+dimension:value&#x60; - Include rows where trace contains value * &#x60;filters[]&#x3D;-dimension:value&#x60; - Exclude rows where trace contains value * &#x60;filters[]&#x3D;dimension:[value1,value2]&#x60; - Exact trace match  **Examples:** * &#x60;filters[]&#x3D;country:US&#x60; - US views only * &#x60;filters[]&#x3D;+video_cdn_trace:fastly&#x60; - Views using Fastly CDN  (optional)</param>
+        /// <param name="metricFilters">Limit the results to rows that match inequality conditions from provided metric comparison clauses. Must be provided as an array query string parameter.  Possible filterable metrics are the same as the set of metric ids, with the exceptions of &#x60;exits_before_video_start&#x60;, &#x60;unique_viewers&#x60;, &#x60;video_startup_failure_percentage&#x60;, &#x60;view_dropped_percentage&#x60;, and &#x60;views&#x60;.  Example:    * &#x60;metric_filters[]&#x3D;aggregate_startup_time&gt;&#x3D;1000&#x60;  (optional)</param>
+        /// <param name="timeframe">Timeframe window to limit results by. Must be provided as an array query string parameter (e.g. timeframe[]&#x3D;).  Accepted formats are...    * array of epoch timestamps e.g. &#x60;timeframe[]&#x3D;1498867200&amp;timeframe[]&#x3D;1498953600&#x60;   * duration string e.g. &#x60;timeframe[]&#x3D;24:hours or timeframe[]&#x3D;7:days&#x60;  (optional)</param>
+        /// <param name="orderBy">Value to order the results by (optional)</param>
+        /// <param name="orderDirection">Sort order. (optional)</param>
+        /// <returns>ListDimensionValuesResponse</returns>
+        ListDimensionValuesResponse ListDimensionElements(string DIMENSION_ID, int? limit = default(int?), List<string> filters = default(List<string>), List<string> metricFilters = default(List<string>), List<string> timeframe = default(List<string>), string orderBy = default(string), string orderDirection = default(string));
+
+        /// <summary>
+        /// Lists elements for a trace dimension
+        /// </summary>
+        /// <remarks>
+        /// Lists the elements (values) for a trace dimension along with their total counts. This endpoint is specifically designed for trace dimensions like video_cdn_trace that contain arrays of values. 
+        /// </remarks>
+        /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="DIMENSION_ID">ID of the Dimension</param>
+        /// <param name="limit">Number of items to include in the response (optional, default to 25)</param>
+        /// <param name="filters">Filter results using key:value pairs. Must be provided as an array query string parameter.  **Basic filtering:** * &#x60;filters[]&#x3D;dimension:value&#x60; - Include rows where dimension equals value * &#x60;filters[]&#x3D;!dimension:value&#x60; - Exclude rows where dimension equals value  **For trace dimensions (like video_cdn_trace):** * &#x60;filters[]&#x3D;+dimension:value&#x60; - Include rows where trace contains value * &#x60;filters[]&#x3D;-dimension:value&#x60; - Exclude rows where trace contains value * &#x60;filters[]&#x3D;dimension:[value1,value2]&#x60; - Exact trace match  **Examples:** * &#x60;filters[]&#x3D;country:US&#x60; - US views only * &#x60;filters[]&#x3D;+video_cdn_trace:fastly&#x60; - Views using Fastly CDN  (optional)</param>
+        /// <param name="metricFilters">Limit the results to rows that match inequality conditions from provided metric comparison clauses. Must be provided as an array query string parameter.  Possible filterable metrics are the same as the set of metric ids, with the exceptions of &#x60;exits_before_video_start&#x60;, &#x60;unique_viewers&#x60;, &#x60;video_startup_failure_percentage&#x60;, &#x60;view_dropped_percentage&#x60;, and &#x60;views&#x60;.  Example:    * &#x60;metric_filters[]&#x3D;aggregate_startup_time&gt;&#x3D;1000&#x60;  (optional)</param>
+        /// <param name="timeframe">Timeframe window to limit results by. Must be provided as an array query string parameter (e.g. timeframe[]&#x3D;).  Accepted formats are...    * array of epoch timestamps e.g. &#x60;timeframe[]&#x3D;1498867200&amp;timeframe[]&#x3D;1498953600&#x60;   * duration string e.g. &#x60;timeframe[]&#x3D;24:hours or timeframe[]&#x3D;7:days&#x60;  (optional)</param>
+        /// <param name="orderBy">Value to order the results by (optional)</param>
+        /// <param name="orderDirection">Sort order. (optional)</param>
+        /// <returns>ApiResponse of ListDimensionValuesResponse</returns>
+        ApiResponse<ListDimensionValuesResponse> ListDimensionElementsWithHttpInfo(string DIMENSION_ID, int? limit = default(int?), List<string> filters = default(List<string>), List<string> metricFilters = default(List<string>), List<string> timeframe = default(List<string>), string orderBy = default(string), string orderDirection = default(string));
+        /// <summary>
         /// Lists the values for a specific dimension
         /// </summary>
         /// <remarks>
@@ -37,7 +70,7 @@ namespace Mux.Csharp.Sdk.Api
         /// <param name="DIMENSION_ID">ID of the Dimension</param>
         /// <param name="limit">Number of items to include in the response (optional, default to 25)</param>
         /// <param name="page">Offset by this many pages, of the size of &#x60;limit&#x60; (optional, default to 1)</param>
-        /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Filters endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
+        /// <param name="filters">Filter results using key:value pairs. Must be provided as an array query string parameter.  **Basic filtering:** * &#x60;filters[]&#x3D;dimension:value&#x60; - Include rows where dimension equals value * &#x60;filters[]&#x3D;!dimension:value&#x60; - Exclude rows where dimension equals value  **For trace dimensions (like video_cdn_trace):** * &#x60;filters[]&#x3D;+dimension:value&#x60; - Include rows where trace contains value * &#x60;filters[]&#x3D;-dimension:value&#x60; - Exclude rows where trace contains value * &#x60;filters[]&#x3D;dimension:[value1,value2]&#x60; - Exact trace match  **Examples:** * &#x60;filters[]&#x3D;country:US&#x60; - US views only * &#x60;filters[]&#x3D;+video_cdn_trace:fastly&#x60; - Views using Fastly CDN  (optional)</param>
         /// <param name="metricFilters">Limit the results to rows that match inequality conditions from provided metric comparison clauses. Must be provided as an array query string parameter.  Possible filterable metrics are the same as the set of metric ids, with the exceptions of &#x60;exits_before_video_start&#x60;, &#x60;unique_viewers&#x60;, &#x60;video_startup_failure_percentage&#x60;, &#x60;view_dropped_percentage&#x60;, and &#x60;views&#x60;.  Example:    * &#x60;metric_filters[]&#x3D;aggregate_startup_time&gt;&#x3D;1000&#x60;  (optional)</param>
         /// <param name="timeframe">Timeframe window to limit results by. Must be provided as an array query string parameter (e.g. timeframe[]&#x3D;).  Accepted formats are...    * array of epoch timestamps e.g. &#x60;timeframe[]&#x3D;1498867200&amp;timeframe[]&#x3D;1498953600&#x60;   * duration string e.g. &#x60;timeframe[]&#x3D;24:hours or timeframe[]&#x3D;7:days&#x60;  (optional)</param>
         /// <returns>ListDimensionValuesResponse</returns>
@@ -53,7 +86,7 @@ namespace Mux.Csharp.Sdk.Api
         /// <param name="DIMENSION_ID">ID of the Dimension</param>
         /// <param name="limit">Number of items to include in the response (optional, default to 25)</param>
         /// <param name="page">Offset by this many pages, of the size of &#x60;limit&#x60; (optional, default to 1)</param>
-        /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Filters endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
+        /// <param name="filters">Filter results using key:value pairs. Must be provided as an array query string parameter.  **Basic filtering:** * &#x60;filters[]&#x3D;dimension:value&#x60; - Include rows where dimension equals value * &#x60;filters[]&#x3D;!dimension:value&#x60; - Exclude rows where dimension equals value  **For trace dimensions (like video_cdn_trace):** * &#x60;filters[]&#x3D;+dimension:value&#x60; - Include rows where trace contains value * &#x60;filters[]&#x3D;-dimension:value&#x60; - Exclude rows where trace contains value * &#x60;filters[]&#x3D;dimension:[value1,value2]&#x60; - Exact trace match  **Examples:** * &#x60;filters[]&#x3D;country:US&#x60; - US views only * &#x60;filters[]&#x3D;+video_cdn_trace:fastly&#x60; - Views using Fastly CDN  (optional)</param>
         /// <param name="metricFilters">Limit the results to rows that match inequality conditions from provided metric comparison clauses. Must be provided as an array query string parameter.  Possible filterable metrics are the same as the set of metric ids, with the exceptions of &#x60;exits_before_video_start&#x60;, &#x60;unique_viewers&#x60;, &#x60;video_startup_failure_percentage&#x60;, &#x60;view_dropped_percentage&#x60;, and &#x60;views&#x60;.  Example:    * &#x60;metric_filters[]&#x3D;aggregate_startup_time&gt;&#x3D;1000&#x60;  (optional)</param>
         /// <param name="timeframe">Timeframe window to limit results by. Must be provided as an array query string parameter (e.g. timeframe[]&#x3D;).  Accepted formats are...    * array of epoch timestamps e.g. &#x60;timeframe[]&#x3D;1498867200&amp;timeframe[]&#x3D;1498953600&#x60;   * duration string e.g. &#x60;timeframe[]&#x3D;24:hours or timeframe[]&#x3D;7:days&#x60;  (optional)</param>
         /// <returns>ApiResponse of ListDimensionValuesResponse</returns>
@@ -87,6 +120,41 @@ namespace Mux.Csharp.Sdk.Api
     {
         #region Asynchronous Operations
         /// <summary>
+        /// Lists elements for a trace dimension
+        /// </summary>
+        /// <remarks>
+        /// Lists the elements (values) for a trace dimension along with their total counts. This endpoint is specifically designed for trace dimensions like video_cdn_trace that contain arrays of values. 
+        /// </remarks>
+        /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="DIMENSION_ID">ID of the Dimension</param>
+        /// <param name="limit">Number of items to include in the response (optional, default to 25)</param>
+        /// <param name="filters">Filter results using key:value pairs. Must be provided as an array query string parameter.  **Basic filtering:** * &#x60;filters[]&#x3D;dimension:value&#x60; - Include rows where dimension equals value * &#x60;filters[]&#x3D;!dimension:value&#x60; - Exclude rows where dimension equals value  **For trace dimensions (like video_cdn_trace):** * &#x60;filters[]&#x3D;+dimension:value&#x60; - Include rows where trace contains value * &#x60;filters[]&#x3D;-dimension:value&#x60; - Exclude rows where trace contains value * &#x60;filters[]&#x3D;dimension:[value1,value2]&#x60; - Exact trace match  **Examples:** * &#x60;filters[]&#x3D;country:US&#x60; - US views only * &#x60;filters[]&#x3D;+video_cdn_trace:fastly&#x60; - Views using Fastly CDN  (optional)</param>
+        /// <param name="metricFilters">Limit the results to rows that match inequality conditions from provided metric comparison clauses. Must be provided as an array query string parameter.  Possible filterable metrics are the same as the set of metric ids, with the exceptions of &#x60;exits_before_video_start&#x60;, &#x60;unique_viewers&#x60;, &#x60;video_startup_failure_percentage&#x60;, &#x60;view_dropped_percentage&#x60;, and &#x60;views&#x60;.  Example:    * &#x60;metric_filters[]&#x3D;aggregate_startup_time&gt;&#x3D;1000&#x60;  (optional)</param>
+        /// <param name="timeframe">Timeframe window to limit results by. Must be provided as an array query string parameter (e.g. timeframe[]&#x3D;).  Accepted formats are...    * array of epoch timestamps e.g. &#x60;timeframe[]&#x3D;1498867200&amp;timeframe[]&#x3D;1498953600&#x60;   * duration string e.g. &#x60;timeframe[]&#x3D;24:hours or timeframe[]&#x3D;7:days&#x60;  (optional)</param>
+        /// <param name="orderBy">Value to order the results by (optional)</param>
+        /// <param name="orderDirection">Sort order. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ListDimensionValuesResponse</returns>
+        System.Threading.Tasks.Task<ListDimensionValuesResponse> ListDimensionElementsAsync(string DIMENSION_ID, int? limit = default(int?), List<string> filters = default(List<string>), List<string> metricFilters = default(List<string>), List<string> timeframe = default(List<string>), string orderBy = default(string), string orderDirection = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Lists elements for a trace dimension
+        /// </summary>
+        /// <remarks>
+        /// Lists the elements (values) for a trace dimension along with their total counts. This endpoint is specifically designed for trace dimensions like video_cdn_trace that contain arrays of values. 
+        /// </remarks>
+        /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="DIMENSION_ID">ID of the Dimension</param>
+        /// <param name="limit">Number of items to include in the response (optional, default to 25)</param>
+        /// <param name="filters">Filter results using key:value pairs. Must be provided as an array query string parameter.  **Basic filtering:** * &#x60;filters[]&#x3D;dimension:value&#x60; - Include rows where dimension equals value * &#x60;filters[]&#x3D;!dimension:value&#x60; - Exclude rows where dimension equals value  **For trace dimensions (like video_cdn_trace):** * &#x60;filters[]&#x3D;+dimension:value&#x60; - Include rows where trace contains value * &#x60;filters[]&#x3D;-dimension:value&#x60; - Exclude rows where trace contains value * &#x60;filters[]&#x3D;dimension:[value1,value2]&#x60; - Exact trace match  **Examples:** * &#x60;filters[]&#x3D;country:US&#x60; - US views only * &#x60;filters[]&#x3D;+video_cdn_trace:fastly&#x60; - Views using Fastly CDN  (optional)</param>
+        /// <param name="metricFilters">Limit the results to rows that match inequality conditions from provided metric comparison clauses. Must be provided as an array query string parameter.  Possible filterable metrics are the same as the set of metric ids, with the exceptions of &#x60;exits_before_video_start&#x60;, &#x60;unique_viewers&#x60;, &#x60;video_startup_failure_percentage&#x60;, &#x60;view_dropped_percentage&#x60;, and &#x60;views&#x60;.  Example:    * &#x60;metric_filters[]&#x3D;aggregate_startup_time&gt;&#x3D;1000&#x60;  (optional)</param>
+        /// <param name="timeframe">Timeframe window to limit results by. Must be provided as an array query string parameter (e.g. timeframe[]&#x3D;).  Accepted formats are...    * array of epoch timestamps e.g. &#x60;timeframe[]&#x3D;1498867200&amp;timeframe[]&#x3D;1498953600&#x60;   * duration string e.g. &#x60;timeframe[]&#x3D;24:hours or timeframe[]&#x3D;7:days&#x60;  (optional)</param>
+        /// <param name="orderBy">Value to order the results by (optional)</param>
+        /// <param name="orderDirection">Sort order. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (ListDimensionValuesResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ListDimensionValuesResponse>> ListDimensionElementsWithHttpInfoAsync(string DIMENSION_ID, int? limit = default(int?), List<string> filters = default(List<string>), List<string> metricFilters = default(List<string>), List<string> timeframe = default(List<string>), string orderBy = default(string), string orderDirection = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
         /// Lists the values for a specific dimension
         /// </summary>
         /// <remarks>
@@ -96,7 +164,7 @@ namespace Mux.Csharp.Sdk.Api
         /// <param name="DIMENSION_ID">ID of the Dimension</param>
         /// <param name="limit">Number of items to include in the response (optional, default to 25)</param>
         /// <param name="page">Offset by this many pages, of the size of &#x60;limit&#x60; (optional, default to 1)</param>
-        /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Filters endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
+        /// <param name="filters">Filter results using key:value pairs. Must be provided as an array query string parameter.  **Basic filtering:** * &#x60;filters[]&#x3D;dimension:value&#x60; - Include rows where dimension equals value * &#x60;filters[]&#x3D;!dimension:value&#x60; - Exclude rows where dimension equals value  **For trace dimensions (like video_cdn_trace):** * &#x60;filters[]&#x3D;+dimension:value&#x60; - Include rows where trace contains value * &#x60;filters[]&#x3D;-dimension:value&#x60; - Exclude rows where trace contains value * &#x60;filters[]&#x3D;dimension:[value1,value2]&#x60; - Exact trace match  **Examples:** * &#x60;filters[]&#x3D;country:US&#x60; - US views only * &#x60;filters[]&#x3D;+video_cdn_trace:fastly&#x60; - Views using Fastly CDN  (optional)</param>
         /// <param name="metricFilters">Limit the results to rows that match inequality conditions from provided metric comparison clauses. Must be provided as an array query string parameter.  Possible filterable metrics are the same as the set of metric ids, with the exceptions of &#x60;exits_before_video_start&#x60;, &#x60;unique_viewers&#x60;, &#x60;video_startup_failure_percentage&#x60;, &#x60;view_dropped_percentage&#x60;, and &#x60;views&#x60;.  Example:    * &#x60;metric_filters[]&#x3D;aggregate_startup_time&gt;&#x3D;1000&#x60;  (optional)</param>
         /// <param name="timeframe">Timeframe window to limit results by. Must be provided as an array query string parameter (e.g. timeframe[]&#x3D;).  Accepted formats are...    * array of epoch timestamps e.g. &#x60;timeframe[]&#x3D;1498867200&amp;timeframe[]&#x3D;1498953600&#x60;   * duration string e.g. &#x60;timeframe[]&#x3D;24:hours or timeframe[]&#x3D;7:days&#x60;  (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -113,7 +181,7 @@ namespace Mux.Csharp.Sdk.Api
         /// <param name="DIMENSION_ID">ID of the Dimension</param>
         /// <param name="limit">Number of items to include in the response (optional, default to 25)</param>
         /// <param name="page">Offset by this many pages, of the size of &#x60;limit&#x60; (optional, default to 1)</param>
-        /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Filters endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
+        /// <param name="filters">Filter results using key:value pairs. Must be provided as an array query string parameter.  **Basic filtering:** * &#x60;filters[]&#x3D;dimension:value&#x60; - Include rows where dimension equals value * &#x60;filters[]&#x3D;!dimension:value&#x60; - Exclude rows where dimension equals value  **For trace dimensions (like video_cdn_trace):** * &#x60;filters[]&#x3D;+dimension:value&#x60; - Include rows where trace contains value * &#x60;filters[]&#x3D;-dimension:value&#x60; - Exclude rows where trace contains value * &#x60;filters[]&#x3D;dimension:[value1,value2]&#x60; - Exact trace match  **Examples:** * &#x60;filters[]&#x3D;country:US&#x60; - US views only * &#x60;filters[]&#x3D;+video_cdn_trace:fastly&#x60; - Views using Fastly CDN  (optional)</param>
         /// <param name="metricFilters">Limit the results to rows that match inequality conditions from provided metric comparison clauses. Must be provided as an array query string parameter.  Possible filterable metrics are the same as the set of metric ids, with the exceptions of &#x60;exits_before_video_start&#x60;, &#x60;unique_viewers&#x60;, &#x60;video_startup_failure_percentage&#x60;, &#x60;view_dropped_percentage&#x60;, and &#x60;views&#x60;.  Example:    * &#x60;metric_filters[]&#x3D;aggregate_startup_time&gt;&#x3D;1000&#x60;  (optional)</param>
         /// <param name="timeframe">Timeframe window to limit results by. Must be provided as an array query string parameter (e.g. timeframe[]&#x3D;).  Accepted formats are...    * array of epoch timestamps e.g. &#x60;timeframe[]&#x3D;1498867200&amp;timeframe[]&#x3D;1498953600&#x60;   * duration string e.g. &#x60;timeframe[]&#x3D;24:hours or timeframe[]&#x3D;7:days&#x60;  (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -261,13 +329,231 @@ namespace Mux.Csharp.Sdk.Api
         }
 
         /// <summary>
+        /// Lists elements for a trace dimension Lists the elements (values) for a trace dimension along with their total counts. This endpoint is specifically designed for trace dimensions like video_cdn_trace that contain arrays of values. 
+        /// </summary>
+        /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="DIMENSION_ID">ID of the Dimension</param>
+        /// <param name="limit">Number of items to include in the response (optional, default to 25)</param>
+        /// <param name="filters">Filter results using key:value pairs. Must be provided as an array query string parameter.  **Basic filtering:** * &#x60;filters[]&#x3D;dimension:value&#x60; - Include rows where dimension equals value * &#x60;filters[]&#x3D;!dimension:value&#x60; - Exclude rows where dimension equals value  **For trace dimensions (like video_cdn_trace):** * &#x60;filters[]&#x3D;+dimension:value&#x60; - Include rows where trace contains value * &#x60;filters[]&#x3D;-dimension:value&#x60; - Exclude rows where trace contains value * &#x60;filters[]&#x3D;dimension:[value1,value2]&#x60; - Exact trace match  **Examples:** * &#x60;filters[]&#x3D;country:US&#x60; - US views only * &#x60;filters[]&#x3D;+video_cdn_trace:fastly&#x60; - Views using Fastly CDN  (optional)</param>
+        /// <param name="metricFilters">Limit the results to rows that match inequality conditions from provided metric comparison clauses. Must be provided as an array query string parameter.  Possible filterable metrics are the same as the set of metric ids, with the exceptions of &#x60;exits_before_video_start&#x60;, &#x60;unique_viewers&#x60;, &#x60;video_startup_failure_percentage&#x60;, &#x60;view_dropped_percentage&#x60;, and &#x60;views&#x60;.  Example:    * &#x60;metric_filters[]&#x3D;aggregate_startup_time&gt;&#x3D;1000&#x60;  (optional)</param>
+        /// <param name="timeframe">Timeframe window to limit results by. Must be provided as an array query string parameter (e.g. timeframe[]&#x3D;).  Accepted formats are...    * array of epoch timestamps e.g. &#x60;timeframe[]&#x3D;1498867200&amp;timeframe[]&#x3D;1498953600&#x60;   * duration string e.g. &#x60;timeframe[]&#x3D;24:hours or timeframe[]&#x3D;7:days&#x60;  (optional)</param>
+        /// <param name="orderBy">Value to order the results by (optional)</param>
+        /// <param name="orderDirection">Sort order. (optional)</param>
+        /// <returns>ListDimensionValuesResponse</returns>
+        public ListDimensionValuesResponse ListDimensionElements(string DIMENSION_ID, int? limit = default(int?), List<string> filters = default(List<string>), List<string> metricFilters = default(List<string>), List<string> timeframe = default(List<string>), string orderBy = default(string), string orderDirection = default(string))
+        {
+            Mux.Csharp.Sdk.Client.ApiResponse<ListDimensionValuesResponse> localVarResponse = ListDimensionElementsWithHttpInfo(DIMENSION_ID, limit, filters, metricFilters, timeframe, orderBy, orderDirection);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Lists elements for a trace dimension Lists the elements (values) for a trace dimension along with their total counts. This endpoint is specifically designed for trace dimensions like video_cdn_trace that contain arrays of values. 
+        /// </summary>
+        /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="DIMENSION_ID">ID of the Dimension</param>
+        /// <param name="limit">Number of items to include in the response (optional, default to 25)</param>
+        /// <param name="filters">Filter results using key:value pairs. Must be provided as an array query string parameter.  **Basic filtering:** * &#x60;filters[]&#x3D;dimension:value&#x60; - Include rows where dimension equals value * &#x60;filters[]&#x3D;!dimension:value&#x60; - Exclude rows where dimension equals value  **For trace dimensions (like video_cdn_trace):** * &#x60;filters[]&#x3D;+dimension:value&#x60; - Include rows where trace contains value * &#x60;filters[]&#x3D;-dimension:value&#x60; - Exclude rows where trace contains value * &#x60;filters[]&#x3D;dimension:[value1,value2]&#x60; - Exact trace match  **Examples:** * &#x60;filters[]&#x3D;country:US&#x60; - US views only * &#x60;filters[]&#x3D;+video_cdn_trace:fastly&#x60; - Views using Fastly CDN  (optional)</param>
+        /// <param name="metricFilters">Limit the results to rows that match inequality conditions from provided metric comparison clauses. Must be provided as an array query string parameter.  Possible filterable metrics are the same as the set of metric ids, with the exceptions of &#x60;exits_before_video_start&#x60;, &#x60;unique_viewers&#x60;, &#x60;video_startup_failure_percentage&#x60;, &#x60;view_dropped_percentage&#x60;, and &#x60;views&#x60;.  Example:    * &#x60;metric_filters[]&#x3D;aggregate_startup_time&gt;&#x3D;1000&#x60;  (optional)</param>
+        /// <param name="timeframe">Timeframe window to limit results by. Must be provided as an array query string parameter (e.g. timeframe[]&#x3D;).  Accepted formats are...    * array of epoch timestamps e.g. &#x60;timeframe[]&#x3D;1498867200&amp;timeframe[]&#x3D;1498953600&#x60;   * duration string e.g. &#x60;timeframe[]&#x3D;24:hours or timeframe[]&#x3D;7:days&#x60;  (optional)</param>
+        /// <param name="orderBy">Value to order the results by (optional)</param>
+        /// <param name="orderDirection">Sort order. (optional)</param>
+        /// <returns>ApiResponse of ListDimensionValuesResponse</returns>
+        public Mux.Csharp.Sdk.Client.ApiResponse<ListDimensionValuesResponse> ListDimensionElementsWithHttpInfo(string DIMENSION_ID, int? limit = default(int?), List<string> filters = default(List<string>), List<string> metricFilters = default(List<string>), List<string> timeframe = default(List<string>), string orderBy = default(string), string orderDirection = default(string))
+        {
+            // verify the required parameter 'DIMENSION_ID' is set
+            if (DIMENSION_ID == null)
+            {
+                throw new Mux.Csharp.Sdk.Client.ApiException(400, "Missing required parameter 'DIMENSION_ID' when calling DimensionsApi->ListDimensionElements");
+            }
+
+            Mux.Csharp.Sdk.Client.RequestOptions localVarRequestOptions = new Mux.Csharp.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = Mux.Csharp.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Mux.Csharp.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("DIMENSION_ID", Mux.Csharp.Sdk.Client.ClientUtils.ParameterToString(DIMENSION_ID)); // path parameter
+            if (limit != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Mux.Csharp.Sdk.Client.ClientUtils.ParameterToMultiMap("", "limit", limit));
+            }
+            if (filters != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Mux.Csharp.Sdk.Client.ClientUtils.ParameterToMultiMap("multi", "filters[]", filters));
+            }
+            if (metricFilters != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Mux.Csharp.Sdk.Client.ClientUtils.ParameterToMultiMap("multi", "metric_filters[]", metricFilters));
+            }
+            if (timeframe != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Mux.Csharp.Sdk.Client.ClientUtils.ParameterToMultiMap("multi", "timeframe[]", timeframe));
+            }
+            if (orderBy != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Mux.Csharp.Sdk.Client.ClientUtils.ParameterToMultiMap("", "order_by", orderBy));
+            }
+            if (orderDirection != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Mux.Csharp.Sdk.Client.ClientUtils.ParameterToMultiMap("", "order_direction", orderDirection));
+            }
+
+            // authentication (accessToken) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Mux.Csharp.Sdk.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<ListDimensionValuesResponse>("/data/v1/dimensions/{DIMENSION_ID}/elements", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ListDimensionElements", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Lists elements for a trace dimension Lists the elements (values) for a trace dimension along with their total counts. This endpoint is specifically designed for trace dimensions like video_cdn_trace that contain arrays of values. 
+        /// </summary>
+        /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="DIMENSION_ID">ID of the Dimension</param>
+        /// <param name="limit">Number of items to include in the response (optional, default to 25)</param>
+        /// <param name="filters">Filter results using key:value pairs. Must be provided as an array query string parameter.  **Basic filtering:** * &#x60;filters[]&#x3D;dimension:value&#x60; - Include rows where dimension equals value * &#x60;filters[]&#x3D;!dimension:value&#x60; - Exclude rows where dimension equals value  **For trace dimensions (like video_cdn_trace):** * &#x60;filters[]&#x3D;+dimension:value&#x60; - Include rows where trace contains value * &#x60;filters[]&#x3D;-dimension:value&#x60; - Exclude rows where trace contains value * &#x60;filters[]&#x3D;dimension:[value1,value2]&#x60; - Exact trace match  **Examples:** * &#x60;filters[]&#x3D;country:US&#x60; - US views only * &#x60;filters[]&#x3D;+video_cdn_trace:fastly&#x60; - Views using Fastly CDN  (optional)</param>
+        /// <param name="metricFilters">Limit the results to rows that match inequality conditions from provided metric comparison clauses. Must be provided as an array query string parameter.  Possible filterable metrics are the same as the set of metric ids, with the exceptions of &#x60;exits_before_video_start&#x60;, &#x60;unique_viewers&#x60;, &#x60;video_startup_failure_percentage&#x60;, &#x60;view_dropped_percentage&#x60;, and &#x60;views&#x60;.  Example:    * &#x60;metric_filters[]&#x3D;aggregate_startup_time&gt;&#x3D;1000&#x60;  (optional)</param>
+        /// <param name="timeframe">Timeframe window to limit results by. Must be provided as an array query string parameter (e.g. timeframe[]&#x3D;).  Accepted formats are...    * array of epoch timestamps e.g. &#x60;timeframe[]&#x3D;1498867200&amp;timeframe[]&#x3D;1498953600&#x60;   * duration string e.g. &#x60;timeframe[]&#x3D;24:hours or timeframe[]&#x3D;7:days&#x60;  (optional)</param>
+        /// <param name="orderBy">Value to order the results by (optional)</param>
+        /// <param name="orderDirection">Sort order. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ListDimensionValuesResponse</returns>
+        public async System.Threading.Tasks.Task<ListDimensionValuesResponse> ListDimensionElementsAsync(string DIMENSION_ID, int? limit = default(int?), List<string> filters = default(List<string>), List<string> metricFilters = default(List<string>), List<string> timeframe = default(List<string>), string orderBy = default(string), string orderDirection = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            Mux.Csharp.Sdk.Client.ApiResponse<ListDimensionValuesResponse> localVarResponse = await ListDimensionElementsWithHttpInfoAsync(DIMENSION_ID, limit, filters, metricFilters, timeframe, orderBy, orderDirection, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Lists elements for a trace dimension Lists the elements (values) for a trace dimension along with their total counts. This endpoint is specifically designed for trace dimensions like video_cdn_trace that contain arrays of values. 
+        /// </summary>
+        /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="DIMENSION_ID">ID of the Dimension</param>
+        /// <param name="limit">Number of items to include in the response (optional, default to 25)</param>
+        /// <param name="filters">Filter results using key:value pairs. Must be provided as an array query string parameter.  **Basic filtering:** * &#x60;filters[]&#x3D;dimension:value&#x60; - Include rows where dimension equals value * &#x60;filters[]&#x3D;!dimension:value&#x60; - Exclude rows where dimension equals value  **For trace dimensions (like video_cdn_trace):** * &#x60;filters[]&#x3D;+dimension:value&#x60; - Include rows where trace contains value * &#x60;filters[]&#x3D;-dimension:value&#x60; - Exclude rows where trace contains value * &#x60;filters[]&#x3D;dimension:[value1,value2]&#x60; - Exact trace match  **Examples:** * &#x60;filters[]&#x3D;country:US&#x60; - US views only * &#x60;filters[]&#x3D;+video_cdn_trace:fastly&#x60; - Views using Fastly CDN  (optional)</param>
+        /// <param name="metricFilters">Limit the results to rows that match inequality conditions from provided metric comparison clauses. Must be provided as an array query string parameter.  Possible filterable metrics are the same as the set of metric ids, with the exceptions of &#x60;exits_before_video_start&#x60;, &#x60;unique_viewers&#x60;, &#x60;video_startup_failure_percentage&#x60;, &#x60;view_dropped_percentage&#x60;, and &#x60;views&#x60;.  Example:    * &#x60;metric_filters[]&#x3D;aggregate_startup_time&gt;&#x3D;1000&#x60;  (optional)</param>
+        /// <param name="timeframe">Timeframe window to limit results by. Must be provided as an array query string parameter (e.g. timeframe[]&#x3D;).  Accepted formats are...    * array of epoch timestamps e.g. &#x60;timeframe[]&#x3D;1498867200&amp;timeframe[]&#x3D;1498953600&#x60;   * duration string e.g. &#x60;timeframe[]&#x3D;24:hours or timeframe[]&#x3D;7:days&#x60;  (optional)</param>
+        /// <param name="orderBy">Value to order the results by (optional)</param>
+        /// <param name="orderDirection">Sort order. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (ListDimensionValuesResponse)</returns>
+        public async System.Threading.Tasks.Task<Mux.Csharp.Sdk.Client.ApiResponse<ListDimensionValuesResponse>> ListDimensionElementsWithHttpInfoAsync(string DIMENSION_ID, int? limit = default(int?), List<string> filters = default(List<string>), List<string> metricFilters = default(List<string>), List<string> timeframe = default(List<string>), string orderBy = default(string), string orderDirection = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'DIMENSION_ID' is set
+            if (DIMENSION_ID == null)
+            {
+                throw new Mux.Csharp.Sdk.Client.ApiException(400, "Missing required parameter 'DIMENSION_ID' when calling DimensionsApi->ListDimensionElements");
+            }
+
+
+            Mux.Csharp.Sdk.Client.RequestOptions localVarRequestOptions = new Mux.Csharp.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = Mux.Csharp.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Mux.Csharp.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("DIMENSION_ID", Mux.Csharp.Sdk.Client.ClientUtils.ParameterToString(DIMENSION_ID)); // path parameter
+            if (limit != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Mux.Csharp.Sdk.Client.ClientUtils.ParameterToMultiMap("", "limit", limit));
+            }
+            if (filters != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Mux.Csharp.Sdk.Client.ClientUtils.ParameterToMultiMap("multi", "filters[]", filters));
+            }
+            if (metricFilters != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Mux.Csharp.Sdk.Client.ClientUtils.ParameterToMultiMap("multi", "metric_filters[]", metricFilters));
+            }
+            if (timeframe != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Mux.Csharp.Sdk.Client.ClientUtils.ParameterToMultiMap("multi", "timeframe[]", timeframe));
+            }
+            if (orderBy != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Mux.Csharp.Sdk.Client.ClientUtils.ParameterToMultiMap("", "order_by", orderBy));
+            }
+            if (orderDirection != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Mux.Csharp.Sdk.Client.ClientUtils.ParameterToMultiMap("", "order_direction", orderDirection));
+            }
+
+            // authentication (accessToken) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Mux.Csharp.Sdk.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.GetAsync<ListDimensionValuesResponse>("/data/v1/dimensions/{DIMENSION_ID}/elements", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ListDimensionElements", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
         /// Lists the values for a specific dimension Lists the values for a dimension along with a total count of related views.  Note: This API replaces the list-filter-values API call. 
         /// </summary>
         /// <exception cref="Mux.Csharp.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="DIMENSION_ID">ID of the Dimension</param>
         /// <param name="limit">Number of items to include in the response (optional, default to 25)</param>
         /// <param name="page">Offset by this many pages, of the size of &#x60;limit&#x60; (optional, default to 1)</param>
-        /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Filters endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
+        /// <param name="filters">Filter results using key:value pairs. Must be provided as an array query string parameter.  **Basic filtering:** * &#x60;filters[]&#x3D;dimension:value&#x60; - Include rows where dimension equals value * &#x60;filters[]&#x3D;!dimension:value&#x60; - Exclude rows where dimension equals value  **For trace dimensions (like video_cdn_trace):** * &#x60;filters[]&#x3D;+dimension:value&#x60; - Include rows where trace contains value * &#x60;filters[]&#x3D;-dimension:value&#x60; - Exclude rows where trace contains value * &#x60;filters[]&#x3D;dimension:[value1,value2]&#x60; - Exact trace match  **Examples:** * &#x60;filters[]&#x3D;country:US&#x60; - US views only * &#x60;filters[]&#x3D;+video_cdn_trace:fastly&#x60; - Views using Fastly CDN  (optional)</param>
         /// <param name="metricFilters">Limit the results to rows that match inequality conditions from provided metric comparison clauses. Must be provided as an array query string parameter.  Possible filterable metrics are the same as the set of metric ids, with the exceptions of &#x60;exits_before_video_start&#x60;, &#x60;unique_viewers&#x60;, &#x60;video_startup_failure_percentage&#x60;, &#x60;view_dropped_percentage&#x60;, and &#x60;views&#x60;.  Example:    * &#x60;metric_filters[]&#x3D;aggregate_startup_time&gt;&#x3D;1000&#x60;  (optional)</param>
         /// <param name="timeframe">Timeframe window to limit results by. Must be provided as an array query string parameter (e.g. timeframe[]&#x3D;).  Accepted formats are...    * array of epoch timestamps e.g. &#x60;timeframe[]&#x3D;1498867200&amp;timeframe[]&#x3D;1498953600&#x60;   * duration string e.g. &#x60;timeframe[]&#x3D;24:hours or timeframe[]&#x3D;7:days&#x60;  (optional)</param>
         /// <returns>ListDimensionValuesResponse</returns>
@@ -284,7 +570,7 @@ namespace Mux.Csharp.Sdk.Api
         /// <param name="DIMENSION_ID">ID of the Dimension</param>
         /// <param name="limit">Number of items to include in the response (optional, default to 25)</param>
         /// <param name="page">Offset by this many pages, of the size of &#x60;limit&#x60; (optional, default to 1)</param>
-        /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Filters endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
+        /// <param name="filters">Filter results using key:value pairs. Must be provided as an array query string parameter.  **Basic filtering:** * &#x60;filters[]&#x3D;dimension:value&#x60; - Include rows where dimension equals value * &#x60;filters[]&#x3D;!dimension:value&#x60; - Exclude rows where dimension equals value  **For trace dimensions (like video_cdn_trace):** * &#x60;filters[]&#x3D;+dimension:value&#x60; - Include rows where trace contains value * &#x60;filters[]&#x3D;-dimension:value&#x60; - Exclude rows where trace contains value * &#x60;filters[]&#x3D;dimension:[value1,value2]&#x60; - Exact trace match  **Examples:** * &#x60;filters[]&#x3D;country:US&#x60; - US views only * &#x60;filters[]&#x3D;+video_cdn_trace:fastly&#x60; - Views using Fastly CDN  (optional)</param>
         /// <param name="metricFilters">Limit the results to rows that match inequality conditions from provided metric comparison clauses. Must be provided as an array query string parameter.  Possible filterable metrics are the same as the set of metric ids, with the exceptions of &#x60;exits_before_video_start&#x60;, &#x60;unique_viewers&#x60;, &#x60;video_startup_failure_percentage&#x60;, &#x60;view_dropped_percentage&#x60;, and &#x60;views&#x60;.  Example:    * &#x60;metric_filters[]&#x3D;aggregate_startup_time&gt;&#x3D;1000&#x60;  (optional)</param>
         /// <param name="timeframe">Timeframe window to limit results by. Must be provided as an array query string parameter (e.g. timeframe[]&#x3D;).  Accepted formats are...    * array of epoch timestamps e.g. &#x60;timeframe[]&#x3D;1498867200&amp;timeframe[]&#x3D;1498953600&#x60;   * duration string e.g. &#x60;timeframe[]&#x3D;24:hours or timeframe[]&#x3D;7:days&#x60;  (optional)</param>
         /// <returns>ApiResponse of ListDimensionValuesResponse</returns>
@@ -368,7 +654,7 @@ namespace Mux.Csharp.Sdk.Api
         /// <param name="DIMENSION_ID">ID of the Dimension</param>
         /// <param name="limit">Number of items to include in the response (optional, default to 25)</param>
         /// <param name="page">Offset by this many pages, of the size of &#x60;limit&#x60; (optional, default to 1)</param>
-        /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Filters endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
+        /// <param name="filters">Filter results using key:value pairs. Must be provided as an array query string parameter.  **Basic filtering:** * &#x60;filters[]&#x3D;dimension:value&#x60; - Include rows where dimension equals value * &#x60;filters[]&#x3D;!dimension:value&#x60; - Exclude rows where dimension equals value  **For trace dimensions (like video_cdn_trace):** * &#x60;filters[]&#x3D;+dimension:value&#x60; - Include rows where trace contains value * &#x60;filters[]&#x3D;-dimension:value&#x60; - Exclude rows where trace contains value * &#x60;filters[]&#x3D;dimension:[value1,value2]&#x60; - Exact trace match  **Examples:** * &#x60;filters[]&#x3D;country:US&#x60; - US views only * &#x60;filters[]&#x3D;+video_cdn_trace:fastly&#x60; - Views using Fastly CDN  (optional)</param>
         /// <param name="metricFilters">Limit the results to rows that match inequality conditions from provided metric comparison clauses. Must be provided as an array query string parameter.  Possible filterable metrics are the same as the set of metric ids, with the exceptions of &#x60;exits_before_video_start&#x60;, &#x60;unique_viewers&#x60;, &#x60;video_startup_failure_percentage&#x60;, &#x60;view_dropped_percentage&#x60;, and &#x60;views&#x60;.  Example:    * &#x60;metric_filters[]&#x3D;aggregate_startup_time&gt;&#x3D;1000&#x60;  (optional)</param>
         /// <param name="timeframe">Timeframe window to limit results by. Must be provided as an array query string parameter (e.g. timeframe[]&#x3D;).  Accepted formats are...    * array of epoch timestamps e.g. &#x60;timeframe[]&#x3D;1498867200&amp;timeframe[]&#x3D;1498953600&#x60;   * duration string e.g. &#x60;timeframe[]&#x3D;24:hours or timeframe[]&#x3D;7:days&#x60;  (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -386,7 +672,7 @@ namespace Mux.Csharp.Sdk.Api
         /// <param name="DIMENSION_ID">ID of the Dimension</param>
         /// <param name="limit">Number of items to include in the response (optional, default to 25)</param>
         /// <param name="page">Offset by this many pages, of the size of &#x60;limit&#x60; (optional, default to 1)</param>
-        /// <param name="filters">Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.  To exclude rows that match a certain condition, prepend a &#x60;!&#x60; character to the dimension.  Possible filter names are the same as returned by the List Filters endpoint.  Example:    * &#x60;filters[]&#x3D;operating_system:windows&amp;filters[]&#x3D;!country:US&#x60;  (optional)</param>
+        /// <param name="filters">Filter results using key:value pairs. Must be provided as an array query string parameter.  **Basic filtering:** * &#x60;filters[]&#x3D;dimension:value&#x60; - Include rows where dimension equals value * &#x60;filters[]&#x3D;!dimension:value&#x60; - Exclude rows where dimension equals value  **For trace dimensions (like video_cdn_trace):** * &#x60;filters[]&#x3D;+dimension:value&#x60; - Include rows where trace contains value * &#x60;filters[]&#x3D;-dimension:value&#x60; - Exclude rows where trace contains value * &#x60;filters[]&#x3D;dimension:[value1,value2]&#x60; - Exact trace match  **Examples:** * &#x60;filters[]&#x3D;country:US&#x60; - US views only * &#x60;filters[]&#x3D;+video_cdn_trace:fastly&#x60; - Views using Fastly CDN  (optional)</param>
         /// <param name="metricFilters">Limit the results to rows that match inequality conditions from provided metric comparison clauses. Must be provided as an array query string parameter.  Possible filterable metrics are the same as the set of metric ids, with the exceptions of &#x60;exits_before_video_start&#x60;, &#x60;unique_viewers&#x60;, &#x60;video_startup_failure_percentage&#x60;, &#x60;view_dropped_percentage&#x60;, and &#x60;views&#x60;.  Example:    * &#x60;metric_filters[]&#x3D;aggregate_startup_time&gt;&#x3D;1000&#x60;  (optional)</param>
         /// <param name="timeframe">Timeframe window to limit results by. Must be provided as an array query string parameter (e.g. timeframe[]&#x3D;).  Accepted formats are...    * array of epoch timestamps e.g. &#x60;timeframe[]&#x3D;1498867200&amp;timeframe[]&#x3D;1498953600&#x60;   * duration string e.g. &#x60;timeframe[]&#x3D;24:hours or timeframe[]&#x3D;7:days&#x60;  (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>

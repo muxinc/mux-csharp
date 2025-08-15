@@ -229,7 +229,8 @@ namespace Mux.Csharp.Sdk.Model
         /// <param name="videoQuality">The video quality controls the cost, quality, and available platform features for the asset. The default video quality for an account can be set in the Mux Dashboard. This field replaces the deprecated &#x60;encoding_tier&#x60; value. [See the video quality guide for more details.](https://docs.mux.com/guides/use-video-quality-levels).</param>
         /// <param name="staticRenditions">An array of static renditions to create for this asset. You may not enable both &#x60;static_renditions&#x60; and &#x60;mp4_support (the latter being deprecated)&#x60;.</param>
         /// <param name="meta">meta.</param>
-        public CreateAssetRequest(List<InputSettings> input = default(List<InputSettings>), List<InputSettings> inputs = default(List<InputSettings>), List<PlaybackPolicy> playbackPolicy = default(List<PlaybackPolicy>), List<PlaybackPolicy> playbackPolicies = default(List<PlaybackPolicy>), List<CreatePlaybackIDRequest> advancedPlaybackPolicies = default(List<CreatePlaybackIDRequest>), bool perTitleEncode = default(bool), string passthrough = default(string), Mp4SupportEnum? mp4Support = default(Mp4SupportEnum?), bool normalizeAudio = false, MasterAccessEnum? masterAccess = default(MasterAccessEnum?), bool test = default(bool), MaxResolutionTierEnum? maxResolutionTier = default(MaxResolutionTierEnum?), EncodingTierEnum? encodingTier = default(EncodingTierEnum?), VideoQualityEnum? videoQuality = default(VideoQualityEnum?), List<CreateStaticRenditionRequest> staticRenditions = default(List<CreateStaticRenditionRequest>), AssetMetadata meta = default(AssetMetadata))
+        /// <param name="copyOverlays">If the created asset is a clip, this controls whether overlays are copied from the source asset. (default to true).</param>
+        public CreateAssetRequest(List<InputSettings> input = default(List<InputSettings>), List<InputSettings> inputs = default(List<InputSettings>), List<PlaybackPolicy> playbackPolicy = default(List<PlaybackPolicy>), List<PlaybackPolicy> playbackPolicies = default(List<PlaybackPolicy>), List<CreatePlaybackIDRequest> advancedPlaybackPolicies = default(List<CreatePlaybackIDRequest>), bool perTitleEncode = default(bool), string passthrough = default(string), Mp4SupportEnum? mp4Support = default(Mp4SupportEnum?), bool normalizeAudio = false, MasterAccessEnum? masterAccess = default(MasterAccessEnum?), bool test = default(bool), MaxResolutionTierEnum? maxResolutionTier = default(MaxResolutionTierEnum?), EncodingTierEnum? encodingTier = default(EncodingTierEnum?), VideoQualityEnum? videoQuality = default(VideoQualityEnum?), List<CreateStaticRenditionRequest> staticRenditions = default(List<CreateStaticRenditionRequest>), AssetMetadata meta = default(AssetMetadata), bool copyOverlays = true)
         {
             this.Input = input;
             this.Inputs = inputs;
@@ -247,6 +248,7 @@ namespace Mux.Csharp.Sdk.Model
             this.VideoQuality = videoQuality;
             this.StaticRenditions = staticRenditions;
             this.Meta = meta;
+            this.CopyOverlays = copyOverlays;
             this.AdditionalProperties = new Dictionary<string, object>();
         }
 
@@ -329,6 +331,13 @@ namespace Mux.Csharp.Sdk.Model
         public AssetMetadata Meta { get; set; }
 
         /// <summary>
+        /// If the created asset is a clip, this controls whether overlays are copied from the source asset.
+        /// </summary>
+        /// <value>If the created asset is a clip, this controls whether overlays are copied from the source asset.</value>
+        [DataMember(Name = "copy_overlays", EmitDefaultValue = true)]
+        public bool CopyOverlays { get; set; }
+
+        /// <summary>
         /// Gets or Sets additional properties
         /// </summary>
         [JsonExtensionData]
@@ -358,6 +367,7 @@ namespace Mux.Csharp.Sdk.Model
             sb.Append("  VideoQuality: ").Append(VideoQuality).Append("\n");
             sb.Append("  StaticRenditions: ").Append(StaticRenditions).Append("\n");
             sb.Append("  Meta: ").Append(Meta).Append("\n");
+            sb.Append("  CopyOverlays: ").Append(CopyOverlays).Append("\n");
             sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -471,6 +481,10 @@ namespace Mux.Csharp.Sdk.Model
                     this.Meta == input.Meta ||
                     (this.Meta != null &&
                     this.Meta.Equals(input.Meta))
+                ) && 
+                (
+                    this.CopyOverlays == input.CopyOverlays ||
+                    this.CopyOverlays.Equals(input.CopyOverlays)
                 )
                 && (this.AdditionalProperties.Count == input.AdditionalProperties.Count && !this.AdditionalProperties.Except(input.AdditionalProperties).Any());
         }
@@ -524,6 +538,7 @@ namespace Mux.Csharp.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Meta.GetHashCode();
                 }
+                hashCode = (hashCode * 59) + this.CopyOverlays.GetHashCode();
                 if (this.AdditionalProperties != null)
                 {
                     hashCode = (hashCode * 59) + this.AdditionalProperties.GetHashCode();
